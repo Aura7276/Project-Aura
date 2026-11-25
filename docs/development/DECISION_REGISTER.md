@@ -32,3 +32,7 @@ Owner replaced page-by-page gates with one M01 delivery cycle. Preserve main at 
 ## M02 authorization and policy
 
 The owner authorized M02 on its feature branch. Privileged application operations verify real provider sessions and database memberships. The user-facing flow records adult self-attestation. The exact commercial mobile-verification triggers, assisted account recovery procedure and session retention period still require owner decisions. These settings must be reviewed before release.
+
+## M03 Creator onboarding proposals
+
+Proposed for owner confirmation. The mandatory minimum is Creator name, country, language and self-identified stage; a primary niche or "still exploring"; and at least one goal category. All else is optional. A "relevant individual account" is one the Creator declares as their own rather than a Brand or company page, and the 100-follower rule applies to the single best such account, never a sum. UGC eligibility is shown as needing assessment until criteria are approved. Creator profiles are constrained to private until M09. The AI path is reported unavailable until M07. Screenshot upload is disabled until private storage and scanning exist. The 90-day reminder is a placeholder. Retention of private onboarding data needs an owner decision. M02's migration defect (`end $;`) must be fixed on its branch.

@@ -12,3 +12,5 @@ public/images/home/studio.webp is an original AI-generated editorial illustratio
 | home-studio-mobile | Homepage mobile hero             | Same studio scene, mobile crop                     | 750 × 536, about 1.4:1      | public/images/home/studio-mobile.avif | Optimized derivative of existing asset |
 | brand-hero         | /brands hero                     | Business marketing team preparing a product launch | 800 × 600 target, fluid 4:3 | VisualSlot, data-asset=brand-hero     | Deferred to visual refinement          |
 | agency-hero        | /agencies hero                   | Agency team planning client work                   | 800 × 600 target, fluid 4:3 | VisualSlot, data-asset=agency-hero    | Deferred to visual refinement          |
+
+| M03 onboarding | /onboarding/creator/\* | No image slots. Option cards, progress and icons are CSS and text. | n/a | CSS only | No visual asset required |

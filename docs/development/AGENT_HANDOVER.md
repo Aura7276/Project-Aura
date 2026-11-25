@@ -1,6 +1,6 @@
 # Project AURA agent handover
 
-Current work: M02 registration and authentication is In progress. See [M02 integration and acceptance](M02_AUTHENTICATION.md).
+Current work: M03 Creator onboarding is Implemented on `feature/m03-creator-onboarding` (based on M02 commit `471c4d6`), pending live Supabase verification. See [M03 report](M03_COMPLETE_REPORT.md) and [architecture](../architecture/CREATOR_ONBOARDING_ARCHITECTURE.md). M02's migration has a syntax defect that must be fixed first. M02 registration and authentication is In progress. See [M02 integration and acceptance](M02_AUTHENTICATION.md).
 
 Start with [AGENTS.md](../../AGENTS.md) and the [requirements baseline](../../AURA_Requirements_v0.14/README.md). AURA is an India-first platform for Creator growth, Brand-owned marketing and commercial collaboration. The application is a strict TypeScript modular monolith using Next.js App Router. Shared public routes and design components are separate from server-only identity and Supabase data access. Database migrations, workspace authorization and private storage policies are staged with the features that use them. [Architecture](../architecture/SYSTEM_ARCHITECTURE.md)
 

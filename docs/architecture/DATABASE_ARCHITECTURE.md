@@ -22,3 +22,7 @@ Private buckets by purpose. Use server-assigned opaque object IDs, workspace-bou
 ## Migrations
 
 Create each change with `supabase migration new descriptive_name`. Commit the resulting UTC timestamped SQL file. Review grants and policies together. Apply to a disposable local database and test upgrade on a backed-up staging copy. Preserve applied files, use a forward-fix migration and document recovery. Require approval and a verified backup before production rollout.
+
+## M03 Creator onboarding schema
+
+The migration `20261126000100_m03_creator_onboarding.sql` adds the private `aura_creator` schema: reference taxonomies for niches, industries and challenges, then profile, onboarding state, niches, social accounts, goals, challenges, resources, collaboration, industry preferences, industry exclusions, rates and growth plans and actions. Every table has RLS enabled with no policy and no grant, and access is only through six `SECURITY DEFINER` functions. Social accounts are a foundation that M05 extends. Money uses integer minor units. Concurrency uses `onboarding_state.revision` with a row lock. See [Creator onboarding architecture](CREATOR_ONBOARDING_ARCHITECTURE.md).

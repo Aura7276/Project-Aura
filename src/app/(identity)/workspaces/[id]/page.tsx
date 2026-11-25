@@ -47,6 +47,13 @@ export default async function Page({
             <button>Begin onboarding</button>
           </form>
         )}
+      {w.kind === "creator" &&
+        w.onboarding !== "not_started" &&
+        w.role === "owner" && (
+          <p>
+            <Link href="/onboarding/creator">Continue Creator onboarding</Link>
+          </p>
+        )}
       <Link href="/workspaces">Switch workspace</Link>
     </>
   );
