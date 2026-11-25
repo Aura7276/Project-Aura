@@ -41,3 +41,7 @@ Playwright exercises development on 3101 and starts production on 3102. The stat
 ## Delivery
 
 Claim one task and one branch. Inspect the relevant requirements, their original F IDs and existing code before editing. Coordinate shared-file ownership and isolate simultaneous changes with separate worktrees. Document changes, real test counts, blockers and manual acceptance criteria in the stage report and traceability. Run applicable regression tests and security checks. Submit a reviewed diff and evidence to the owner. Owner acceptance and approval to start a later stage are separate decisions.
+
+## M05 handover
+
+Branch `feature/m05-social-account-management`. Code: `src/features/creator-social`, `src/server/social`, migration `20261128000100`. Run DB tests with a local PostgreSQL 16 (`AURA_TEST_DB=1 pnpm exec vitest run`); stack tests need `PW_CHROMIUM_PATH=/opt/pw-browsers/chromium` here. Follow-ups: daily-action rule and search entries for stale accounts, Brand-facing views, providers.

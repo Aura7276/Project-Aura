@@ -51,3 +51,7 @@ M03 adds no package dependencies. It depends on the M02 identity schema and func
 M04 adds no package dependencies (no chart or animation library; the trend chart is inline SVG). It depends on the M02 identity functions and the M03 schema. Live acceptance needs a disposable Supabase project with the M02 (after its syntax fix), M03 and M04 migrations. The assistant needs M07, notifications and the digest need M25, the commercial overview needs M13, campaigns and requirements need M10 and M11, collaborations need M12, content and calendar need M08, portfolio needs M09, and verified or provider-derived observations need M05 and M06. Rate limiting is per instance only. Browser tests honour an optional `PW_CHROMIUM_PATH`.
 
 Test infrastructure: `scripts/stack` is a local stand-in for Supabase Auth and the RPC endpoint (not Supabase) used by `pnpm stack` and `pnpm test:stack`. It needs PostgreSQL 15 or newer with `psql` on PATH and adds no package dependency. It mints sessions only for itself and must never be deployed.
+
+## M05 dependencies
+
+Unmet: platform provider APIs and OAuth (M06 and later), malware scanning for evidence, AI extraction (M07), email delivery (M25), private Storage bucket on a live Supabase project, M11/M12 for the paid-influencer gate.

@@ -9,3 +9,7 @@ Login and registration link to readiness only in development and are pending in 
 ## M04 Creator Studio navigation
 
 Authenticated Creator Studio uses a typed configuration (`creator-studio/nav.ts`) with five areas. Available destinations: Home `/creator/dashboard`; Grow `/creator/grow` with `/creator/actions`, `/creator/progress` and the M03 social accounts form; Create `/creator/create`; Collaborate `/creator/recommendations`; My Studio `/creator/studio` with the M03 profile, `/creator/settings/dashboard`, M02 `/security` and `/workspaces`. Search `/creator/search` and notifications `/creator/notifications` are header destinations. Planned and not linked: Analytics (M06), Growth Assistant (M07), Content Studio and calendar (M08), Marketplace (M10), Applications (M11), Collaborations (M12), Media kit (M09) and Earnings (M13). A unit test fails if an available item has no route or a planned item has a link.
+
+## M05
+
+Grow > Social accounts now points to `/creator/socials` (available). Analytics remains planned (M06).

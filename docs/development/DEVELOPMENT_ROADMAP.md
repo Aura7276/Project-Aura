@@ -19,3 +19,7 @@ Each phase is separately authorized, implemented, tested and accepted before adv
 | M12   | Collaboration and deliverables     | Not started                             |
 | M13   | Earnings and commercial management | Not started                             |
 | M14   | Brand onboarding                   | Not started                             |
+
+## M05 status
+
+M05 implemented locally; awaiting owner review. Next module not authorized.

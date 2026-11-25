@@ -51,10 +51,10 @@ export const areas: NavArea[] = [
       ok("progress", "Progress", "/creator/progress", "M04"),
       ok(
         "accounts",
-        "Social accounts (self-reported)",
-        "/onboarding/creator/social",
-        "M03",
-        "Verification and live metrics arrive with social account management.",
+        "Social accounts",
+        "/creator/socials",
+        "M05",
+        "Self-reported metrics, ownership verification and history.",
       ),
       planned(
         "analytics",

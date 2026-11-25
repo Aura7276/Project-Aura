@@ -32,6 +32,7 @@ const base: Record<Situation, WidgetId[]> = {
     "milestones",
     "recommendations",
     "commercial",
+    "social",
   ],
   counts_unknown: [
     "actions",
@@ -43,6 +44,7 @@ const base: Record<Situation, WidgetId[]> = {
     "recommendations",
     "milestones",
     "commercial",
+    "social",
   ],
   below_100: [
     "actions",
@@ -54,6 +56,7 @@ const base: Record<Situation, WidgetId[]> = {
     "checklist",
     "milestones",
     "commercial",
+    "social",
   ],
   qualifying: [
     "actions",
@@ -65,6 +68,7 @@ const base: Record<Situation, WidgetId[]> = {
     "commercial",
     "checklist",
     "milestones",
+    "social",
   ],
 };
 export function widgetOrder(

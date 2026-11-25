@@ -570,6 +570,30 @@ function WeeklyCard({ d }: { d: StudioData }) {
     </Card>
   );
 }
+function SocialWidget({ d }: { d: StudioData }) {
+  const list = d.state.social_accounts.filter(
+    (a) =>
+      !a.lifecycle ||
+      a.lifecycle === "active" ||
+      a.lifecycle === "disconnected",
+  );
+  const verified = list.filter((a) => a.verification === "verified").length;
+  return (
+    <Card id="w-social" title="Social accounts">
+      {list.length === 0 ? (
+        <p>No account added yet. That is fine; add one when you are ready.</p>
+      ) : (
+        <p>
+          {list.length} account{list.length === 1 ? "" : "s"}, {verified} with
+          verified ownership. Numbers are self-reported unless stated.
+        </p>
+      )}
+      <p>
+        <Link href="/creator/socials">Manage social accounts</Link>
+      </p>
+    </Card>
+  );
+}
 export function DashboardView({ d }: { d: StudioData }) {
   const s = d.state,
     sit: Situation = situationOf(s);
@@ -591,6 +615,7 @@ export function DashboardView({ d }: { d: StudioData }) {
     commercial: <Commercial key="co" d={d} />,
     milestones: <Milestones key="m" d={d} />,
     weekly: <WeeklyCard key="w" d={d} />,
+    social: <SocialWidget key="so" d={d} />,
   };
   return (
     <>

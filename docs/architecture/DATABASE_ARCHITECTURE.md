@@ -30,3 +30,7 @@ The migration `20261126000100_m03_creator_onboarding.sql` adds the private `aura
 ## M04 Creator Studio schema
 
 The migration `20261127000100_m04_creator_dashboard.sql` adds the private `aura_studio` schema: dashboard preferences, daily actions, goal observations, ideas, milestone events and weekly reviews. Every table has RLS enabled with no policy and no grant, and access is only through 14 `SECURITY DEFINER` functions that re-check the M02 session, owner membership of a Creator workspace and completed M03 activation. Observations are append-only and keyed by goal category and metric, so M03's replace-set goal edits cannot erase history. The day and week are computed in the database from the stored time zone. Generation is serialized with advisory locks. See [Creator Studio architecture](CREATOR_STUDIO_ARCHITECTURE.md).
+
+## M05 `aura_social`
+
+Private schema, RLS on with no policies, no grants; access via `SECURITY DEFINER` functions only. Append-only observations, advisory-lock concurrency, DB-enforced account limit. See `SOCIAL_ACCOUNT_ARCHITECTURE.md`.

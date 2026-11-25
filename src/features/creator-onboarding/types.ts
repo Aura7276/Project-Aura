@@ -31,7 +31,21 @@ export type SocialAccount = {
   observed_on: string | null;
   is_primary: boolean;
   provenance?: "self_reported";
-  verification?: "unverified";
+  // Added by M05 (authoritative social account management). All optional so M03 and M04 fixtures remain valid.
+  verification?:
+    | "unverified"
+    | "challenge_pending"
+    | "evidence_submitted"
+    | "under_review"
+    | "verified"
+    | "rejected"
+    | "disputed"
+    | "revoked";
+  lifecycle?: "active" | "disconnected" | "removed" | "archived";
+  connection?: "manual" | "connected" | "disconnected";
+  display_name?: string | null;
+  sharing_visibility?: "private" | "published";
+  preferred_for_platform?: boolean;
 };
 export type Goal = {
   category: string;

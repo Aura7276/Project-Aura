@@ -30,6 +30,7 @@ export function setupDatabase() {
     "supabase/migrations/20261125000100_m02_identity.sql",
     "supabase/migrations/20261126000100_m03_creator_onboarding.sql",
     "supabase/migrations/20261127000100_m04_creator_dashboard.sql",
+    "supabase/migrations/20261128000100_m05_social_accounts.sql",
   ])
     admin(["-d", DB, "-f", f]);
 }

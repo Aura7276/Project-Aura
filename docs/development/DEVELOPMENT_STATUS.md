@@ -7,3 +7,7 @@ Phase 00 — Accepted conditionally by the project owner. Git commits and hosted
 M01 — In progress. Public M01 delivery awaits manual acceptance. Live publication, authenticated campaign/referral handoffs and support delivery have outstanding dependencies; see M01_MODULE_REPORT.md. M02 — In progress. M03 — Implemented, awaiting live verification. M04 — Implemented, awaiting live verification. M05–M14 — Not started. Each requirement is individually recorded in REQUIREMENTS_TRACEABILITY.md.
 
 Allowed statuses: Not started, In progress, Implemented, Tested, Awaiting manual acceptance, Accepted, Deferred, Blocked. Only the product owner records manual acceptance.
+
+## M05 social account management
+
+Implemented on `feature/m05-social-account-management`, verified on local PostgreSQL with stubs and the local stack (see `M05_COMPLETE_REPORT.md`). Not pushed or merged. M06 not started.

@@ -121,14 +121,16 @@ do $$ declare st jsonb; rev int; accts jsonb; begin perform t.me('b'); rev := (p
  st := public.aura_creator_save_section(t.ws('b'),'social','{"accounts":[
   {"platform":"instagram","handle":"bo.main","account_type":"personal","visibility":"private","self_reported_followers":60,"observed_on":"2026-11-01","is_primary":true,"profile_url":"https://www.instagram.com/bo.main"},
   {"platform":"instagram","handle":"bo.second","account_type":"creator","visibility":"public","self_reported_followers":60,"observed_on":"2026-11-01"},
-  {"platform":"youtube","handle":"bo","visibility":"public"}]}',rev); rev := rev+1;
+  {"platform":"youtube","handle":"bochannel","visibility":"public"}]}',rev); rev := rev+1;
  assert jsonb_array_length(st->'social_accounts') = 3, 'three accounts';
  assert (select count(*) from jsonb_array_elements(st->'social_accounts') x where x->>'is_primary'='true') = 1, 'one primary';
  assert not exists(select 1 from jsonb_array_elements(st->'social_accounts') x where x->>'verification'<>'unverified' or x->>'provenance'<>'self_reported'), 'labelled unverified self-reported';
  assert t.denied(format('select public.aura_creator_save_section(%L,''social'',%L,%s)', t.ws('b'), '{"accounts":[{"platform":"instagram","handle":"a","is_primary":true},{"platform":"youtube","handle":"b","is_primary":true}]}', rev), '23514'), 'two primaries';
  assert t.denied(format('select public.aura_creator_save_section(%L,''social'',%L,%s)', t.ws('b'), '{"accounts":[{"platform":"youtube","handle":"x","account_type":"personal"}]}', rev), '23514'), 'account type only for instagram';
  assert t.denied(format('select public.aura_creator_save_section(%L,''social'',%L,%s)', t.ws('b'), '{"accounts":[{"platform":"other","handle":"x","profile_url":"javascript:alert(1)"}]}', rev), '23514'), 'unsafe url';
- assert t.denied(format('select public.aura_creator_save_section(%L,''social'',%L,%s)', t.ws('b'), '{"accounts":[{"platform":"other","handle":"x","self_reported_followers":10}]}', rev), '23514'), 'followers need an observation date';
+ begin perform public.aura_creator_save_section(t.ws('b'),'social','{"accounts":[{"platform":"other","handle":"xyz","self_reported_followers":10}]}',rev); exception when others then null; end; -- M03 alone rejects this; with M05 the date defaults to today
+ rev := (public.aura_creator_state(t.ws('b'))->'onboarding'->>'revision')::int;
+ assert not exists(select 1 from jsonb_array_elements(public.aura_creator_state(t.ws('b'))->'social_accounts') q where q->>'self_reported_followers' is not null and q->>'observed_on' is null), 'a follower count is never stored without its observation date';
  select jsonb_agg(jsonb_build_object('platform','other','handle','h'||i)) into accts from generate_series(1,11) i;
  assert t.denied(format('select public.aura_creator_save_section(%L,''social'',%L,%s)', t.ws('b'), jsonb_build_object('accounts',accts)::text, rev), '23514'), 'limit of 10';
  select jsonb_agg(jsonb_build_object('platform','other','handle','h'||i)) into accts from generate_series(1,10) i;

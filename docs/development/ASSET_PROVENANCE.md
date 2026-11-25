@@ -16,3 +16,7 @@ public/images/home/studio.webp is an original AI-generated editorial illustratio
 | M03 onboarding | /onboarding/creator/\* | No image slots. Option cards, progress and icons are CSS and text. | n/a | CSS only | No visual asset required |
 
 | M04 Creator Studio | /creator/* | No image slots. Navigation uses Lucide icons, avatars are initials, the trend chart is inline SVG from real observations. | n/a | CSS, SVG and Lucide only | No visual asset required |
+
+## M05
+
+No new images or third-party assets. Icons reuse existing Lucide usage.
