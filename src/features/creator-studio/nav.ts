@@ -56,11 +56,19 @@ export const areas: NavArea[] = [
         "M05",
         "Self-reported metrics, ownership verification and history.",
       ),
-      planned(
+      ok(
         "analytics",
         "Analytics",
+        "/creator/analytics",
         "M06",
-        "Needs connected accounts and the analytics module.",
+        "Works from the numbers you record. No connected account is needed.",
+      ),
+      ok(
+        "experiments",
+        "Experiments",
+        "/creator/experiments",
+        "M06",
+        "Test an idea and record what you learn.",
       ),
       planned(
         "assistant",
