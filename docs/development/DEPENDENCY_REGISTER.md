@@ -41,3 +41,5 @@ References: [Next installation](https://nextjs.org/docs/app/getting-started/inst
 M01.02 reuses Next Image, shadcn Tabs/Button and Lucide. Lighthouse ran as a transient development tool. No new application dependency.
 
 M01.03 reuses existing packages. Registration depends on M02/M03; opportunities on M10–M12 and Brand campaign workflows; affiliate on attribution readiness. No external visual or AI service dependency.
+
+M01 public delivery adds no package dependencies. Optional server configuration: AURA_PUBLIC_PROJECTIONS_ENABLED and AURA_SUPPORT_EMAIL. See M01_MODULE_REPORT.md for the M02/M09/M10/M27/M30 release gates.

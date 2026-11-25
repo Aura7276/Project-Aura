@@ -4,9 +4,9 @@ Start with [AGENTS.md](../../AGENTS.md) and the [requirements baseline](../../AU
 
 ## Checkout state
 
-Phase 00 and M01.01–03 have conditional acceptance. M01.04 Brand landing is implemented and awaits owner acceptance. Inspect /, /creators and /brands. The development-only catalog lives at /dev/design-system. Studio examples and FAQs work locally. Registration and other pending destinations retain their readiness treatment. M01-F03 and F05 have partial public coverage. M02–M14 business implementations remain Not started. See [traceability](REQUIREMENTS_TRACEABILITY.md), [sequential roadmap](DEVELOPMENT_ROADMAP.md), [status](DEVELOPMENT_STATUS.md) and [decisions](DECISION_REGISTER.md).
+M01 public delivery includes the audience pages, demo, resources, pricing, support, contact and guarded discovery/invitation routes. Check M01_MODULE_REPORT.md for current integration gates. M02–M14 business implementations remain Not started. See [traceability](REQUIREMENTS_TRACEABILITY.md), [sequential roadmap](DEVELOPMENT_ROADMAP.md), [status](DEVELOPMENT_STATUS.md) and [decisions](DECISION_REGISTER.md).
 
-The authorized task is the initial local GitHub baseline. Initial push requires verified private visibility and explicit owner approval. The next product decision is manual M01.04 acceptance. M01.05 Agency landing requires separate authorization. Keep all other approved source and evidence intact. Scope M14–M22 supplementary decisions to marketing copy only. Paid influencer, UGC and barter are planned first; events and ambassador follow, affiliate depends on attribution readiness. Continue the visual placeholder policy through M14.
+The owner authorized module-by-module delivery through M01. Review the public site and integration gates before acceptance. M02 requires separate approval. The local baseline remains unsynchronized. Keep all other approved source and evidence intact. Scope M14–M22 supplementary decisions to marketing copy only. Paid influencer, UGC and barter are planned first; events and ambassador follow, affiliate depends on attribution readiness. Continue the visual placeholder policy through M14.
 
 ## Toolchain
 

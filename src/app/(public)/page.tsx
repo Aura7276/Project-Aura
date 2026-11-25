@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { rollout } from "@/config/collaborations";
 import Image from "next/image";
 import { ArrowUpRight, NotebookPen, ScanLine, Target } from "lucide-react";
@@ -107,6 +108,9 @@ export default function Home() {
           <p className="kicker">Product experience</p>
           <h2>Inside the studios</h2>
           <p>Explore two ways to shape a creative brief.</p>
+          <Link className="path-link underline" href="/demo">
+            Walk through both studios
+          </Link>
         </div>
         <Tabs defaultValue="creator">
           <TabsList aria-label="Illustrative studio">
@@ -183,7 +187,9 @@ export default function Home() {
         <h2>More ways to work together.</h2>
         <p>{rollout}</p>
         <p className="empty-line">
-          No public campaign listings are available here yet.
+          <Link href="/explore/campaigns" className="underline">
+            View public campaign previews
+          </Link>
         </p>
       </section>
       <section className="audiences">

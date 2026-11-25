@@ -31,10 +31,9 @@ export default function PublicLayout({
                 {ids.map((id) => (
                   <DestinationItem key={id} id={id} />
                 ))}
-                {process.env.NODE_ENV === "development" &&
-                  ["Legal", "Support"].includes(name) && (
-                    <small>Pending implementation</small>
-                  )}
+                {process.env.NODE_ENV === "development" && name === "Legal" && (
+                  <small>Pending implementation</small>
+                )}
               </section>
             ))}
           </nav>

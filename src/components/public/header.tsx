@@ -19,6 +19,7 @@ import {
   groups,
   destinations,
   destinationPath,
+  implementedDestination,
   type Destination,
 } from "@/config/navigation";
 import { Wordmark, DestinationItem } from "./destination";
@@ -65,10 +66,17 @@ export function PublicHeader() {
                 {ids.map((id) => (
                   <DropdownMenuItem
                     key={id}
-                    disabled={process.env.NODE_ENV !== "development"}
-                    asChild={process.env.NODE_ENV === "development"}
+                    disabled={
+                      !implementedDestination(id) &&
+                      process.env.NODE_ENV !== "development"
+                    }
+                    asChild={
+                      implementedDestination(id) ||
+                      process.env.NODE_ENV === "development"
+                    }
                   >
-                    {process.env.NODE_ENV === "development" ? (
+                    {implementedDestination(id) ||
+                    process.env.NODE_ENV === "development" ? (
                       <a
                         href={destinationPath(id)}
                         aria-current={

@@ -11,3 +11,4 @@ public/images/home/studio.webp is an original AI-generated editorial illustratio
 | home-studio        | Homepage hero                    | Creator filming ceramicist                         | 1100 × 1375, 4:5 source     | public/images/home/studio.webp        | Existing approved asset retained       |
 | home-studio-mobile | Homepage mobile hero             | Same studio scene, mobile crop                     | 750 × 536, about 1.4:1      | public/images/home/studio-mobile.avif | Optimized derivative of existing asset |
 | brand-hero         | /brands hero                     | Business marketing team preparing a product launch | 800 × 600 target, fluid 4:3 | VisualSlot, data-asset=brand-hero     | Deferred to visual refinement          |
+| agency-hero        | /agencies hero                   | Agency team planning client work                   | 800 × 600 target, fluid 4:3 | VisualSlot, data-asset=agency-hero    | Deferred to visual refinement          |

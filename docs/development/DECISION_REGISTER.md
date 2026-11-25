@@ -24,3 +24,7 @@ Owner clarification from later M17 decisions supersedes the earlier public seque
 ## M01.04 owner direction
 
 M01.03 received conditional technical acceptance. Supplementary Brand Growth OS decisions for M14–M22, campaign operations, reporting, commercial budgets and delegated Agency representation authorize marketing positioning only. V0.14 is preserved. M01.05 requires separate approval.
+
+## M01 module delivery
+
+Owner replaced page-by-page gates with one M01 delivery cycle. Preserve main at the local baseline; work on feature/m01-complete-public-website. No merge, push or M02 authorization. Resource articles are editorial guidance. Legal texts, referral rewards and support mailbox require owner or responsible-module input.

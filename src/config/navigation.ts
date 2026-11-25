@@ -7,6 +7,10 @@ export const destinations = {
   guides: ["Creator guides", "M01"],
   tips: ["Growth tips", "M01"],
   resources: ["Brand resources", "M01"],
+  demo: ["Product walkthrough", "M01"],
+  library: ["Resource library", "M01"],
+  features: ["Features", "M01"],
+  faq: ["FAQs", "M01"],
   pricing: ["Pricing", "M01 / M27"],
   login: ["Log in", "M02"],
   register: ["Get started", "M02"],
@@ -18,8 +22,8 @@ export const destinations = {
 } as const;
 export type Destination = keyof typeof destinations;
 export const groups = {
-  Explore: ["discovery", "campaigns"],
-  Resources: ["guides", "tips", "resources", "support"],
+  Explore: ["discovery", "campaigns", "demo", "features"],
+  Resources: ["library", "guides", "tips", "resources", "support"],
 } as const;
 export const footerGroups = {
   Creators: ["creators"],
@@ -28,14 +32,34 @@ export const footerGroups = {
   Explore: groups.Explore,
   Resources: ["guides", "tips", "resources"],
   Company: ["about", "pricing"],
-  Support: ["contact", "support"],
+  Support: ["contact", "support", "faq"],
   Legal: ["privacy", "terms"],
 } as const satisfies Record<string, readonly Destination[]>;
+const live: Partial<Record<Destination, string>> = {
+  creators: "/creators",
+  brands: "/brands",
+  agencies: "/agencies",
+  discovery: "/explore/creators",
+  campaigns: "/explore/campaigns",
+  guides: "/resources/build-your-media-kit",
+  tips: "/resources/compare-two-hooks",
+  resources: "/resources/write-a-creator-brief",
+  library: "/resources",
+  pricing: "/pricing",
+  demo: "/demo",
+  about: "/about",
+  support: "/support",
+  contact: "/contact",
+  faq: "/faq",
+  privacy: "/privacy",
+  terms: "/terms",
+  features: "/features",
+};
 export function implementedDestination(id: Destination) {
-  return id === "creators" || id === "brands";
+  return Object.hasOwn(live, id);
 }
 export function destinationPath(id: Destination) {
-  return implementedDestination(id) ? "/" + id : "/readiness/" + id;
+  return live[id] ?? "/readiness/" + id;
 }
 export function isDestination(id: string): id is Destination {
   return Object.hasOwn(destinations, id);

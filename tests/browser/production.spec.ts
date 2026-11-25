@@ -57,3 +57,37 @@ test("both homepage Brand entries resolve and registration stays pending", async
     page.getByText("Brand registration · Coming soon").first(),
   ).toBeVisible();
 });
+
+test("public directory destinations work in production", async ({
+  page,
+  request,
+}) => {
+  await page.goto("/agencies");
+  const footer = page.getByRole("navigation", { name: "Footer" });
+  for (const [label, path] of [
+    ["For Agencies", "/agencies"],
+    ["Discover creators", "/explore/creators"],
+    ["Support centre", "/support"],
+  ])
+    await expect(footer.getByRole("link", { name: label })).toHaveAttribute(
+      "href",
+      path,
+    );
+  for (const path of [
+    "/demo",
+    "/resources",
+    "/faq",
+    "/privacy",
+    "/terms",
+    "/contact",
+    "/pricing",
+    "/about",
+    "/features",
+  ]) {
+    expect((await request.get(path)).status()).toBe(200);
+  }
+  await page.goto("/pricing");
+  await expect(page.getByRole("heading", { level: 1 })).toHaveText(
+    "Free to get started",
+  );
+});

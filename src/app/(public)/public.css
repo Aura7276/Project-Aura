@@ -136,3 +136,77 @@ a[role="menuitem"][aria-current="page"] {
     display: none;
   }
 }
+
+.editorial {
+  max-width: 60rem;
+  margin: auto;
+}
+.editorial header {
+  margin-bottom: 2rem;
+}
+.editorial header > p {
+  font-size: 1.15rem;
+  max-width: 60ch;
+}
+.editorial > section,
+.editorial .editor-grid {
+  padding: 1.5rem 0;
+  border-top: 1px solid var(--color-border);
+}
+.editorial h2 {
+  font-size: clamp(1.45rem, 3vw, 2.25rem);
+  margin: 0.6rem 0;
+}
+.editorial .path-link {
+  color: var(--color-primary);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  display: inline-block;
+  padding: 0.65rem 0;
+  margin-right: 1rem;
+}
+.editor-grid {
+  display: grid;
+  gap: 2rem;
+}
+.tour {
+  background: var(--color-sage);
+  padding: clamp(1.25rem, 4vw, 3rem);
+  border-radius: 1rem;
+}
+.tour section {
+  background: white;
+  padding: 1.5rem;
+  margin: 1rem 0;
+  border-radius: 1rem;
+}
+.tour label {
+  display: inline-block;
+  padding: 0.6rem 0.8rem 0.6rem 0;
+}
+.editorial form {
+  max-width: 36rem;
+}
+.editorial form label,
+.editorial textarea,
+.editorial select {
+  display: block;
+}
+.editorial textarea,
+.editorial select {
+  padding: 0.6rem;
+  border: 1px solid var(--color-input);
+  border-radius: 0.6rem;
+  width: 100%;
+  background: white;
+  margin: 0.4rem 0 1rem;
+}
+.editorial textarea {
+  resize: vertical;
+}
+@media (min-width: 48rem) {
+  .editor-grid {
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+  }
+}

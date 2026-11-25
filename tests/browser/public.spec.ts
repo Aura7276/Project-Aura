@@ -52,7 +52,7 @@ test("readiness destinations and preview layout isolation", async ({
     .getByText("Privacy", { exact: true })
     .click();
   await expect(page.getByRole("heading", { name: "Privacy" })).toBeVisible();
-  await expect(page.getByText(/Pending destination/)).toBeVisible();
+  await expect(page.getByText(/awaiting approval/)).toBeVisible();
   await page.goto("/dev/design-system");
   await expect(page.getByRole("navigation", { name: "Footer" })).toHaveCount(0);
 });
