@@ -584,6 +584,11 @@ begin
   'experiments', (select coalesce(jsonb_agg(jsonb_build_object('id', id, 'name', name, 'status', status)), '[]'::jsonb) from (select id, name, status from aura_analytics.experiment where workspace_id = p_workspace order by updated_at desc limit 20) e));
 end $$;
 
+-- M04 gains an Analytics widget (forward change to the preference allowlist, as M05 did for Social accounts).
+alter table aura_studio.dashboard_pref drop constraint dashboard_pref_hidden_widgets_check;
+alter table aura_studio.dashboard_pref add constraint dashboard_pref_hidden_widgets_check
+ check (hidden_widgets <@ array['actions','plan','goals','content','checklist','recommendations','commercial','milestones','weekly','social','analytics']);
+
 do $$ declare fn regprocedure; begin
  for fn in select p.oid::regprocedure from pg_proc p join pg_namespace n on n.oid = p.pronamespace where n.nspname = 'public' and p.proname like 'aura\_analytics\_%' loop
   execute format('revoke all on function %s from public,anon,authenticated', fn);

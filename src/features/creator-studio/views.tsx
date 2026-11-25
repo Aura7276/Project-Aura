@@ -594,6 +594,24 @@ function SocialWidget({ d }: { d: StudioData }) {
     </Card>
   );
 }
+function AnalyticsWidget({ d }: { d: StudioData }) {
+  const has = d.state.social_accounts.some(
+    (a) => !a.lifecycle || a.lifecycle === "active",
+  );
+  return (
+    <Card id="w-analytics" title="Analytics and experiments">
+      <p>
+        {has
+          ? "See what changed, which numbers support it, and what to test next."
+          : "Analytics start once you record a number from an account. Until then there is nothing to chart."}
+      </p>
+      <p>
+        <Link href="/creator/analytics">Open analytics</Link> ·{" "}
+        <Link href="/creator/experiments">Growth Experiment Lab</Link>
+      </p>
+    </Card>
+  );
+}
 export function DashboardView({ d }: { d: StudioData }) {
   const s = d.state,
     sit: Situation = situationOf(s);
@@ -616,6 +634,7 @@ export function DashboardView({ d }: { d: StudioData }) {
     milestones: <Milestones key="m" d={d} />,
     weekly: <WeeklyCard key="w" d={d} />,
     social: <SocialWidget key="so" d={d} />,
+    analytics: <AnalyticsWidget key="an" d={d} />,
   };
   return (
     <>

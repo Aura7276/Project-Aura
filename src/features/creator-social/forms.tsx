@@ -1,31 +1,12 @@
 "use client";
-import { useActionState, useRef } from "react";
+import { useIdempotentForm } from "@/lib/use-idempotent-form";
 import type { FormState } from "./actions";
 import { platforms } from "./catalogue";
 import { metrics } from "./metrics";
 
 type Act = (prev: FormState, form: FormData) => Promise<FormState>;
 function useIdem(action: Act) {
-  const key = useRef<string | null>(null);
-  const ref = useRef<HTMLFormElement>(null);
-  const wrapped = async (
-    prev: FormState,
-    form: FormData,
-  ): Promise<FormState> => {
-    key.current ??= crypto.randomUUID();
-    form.set("request", key.current);
-    const r = await action(prev, form);
-    if (r?.ok) {
-      key.current = null;
-      ref.current?.reset();
-    }
-    return r;
-  };
-  const [state, run, pending] = useActionState<FormState, FormData>(
-    wrapped,
-    null,
-  );
-  return { state, run, pending, ref };
+  return useIdempotentForm(action, null);
 }
 function Field({
   id,
@@ -77,10 +58,15 @@ export function AddAccountForm({
   today: string;
   atLimit: boolean;
 }) {
-  const { state, run, pending, ref } = useIdem(action);
+  const { state, onSubmit, pending, ref } = useIdem(action);
   const e = state?.errors ?? {};
   return (
-    <form action={run} ref={ref} noValidate aria-label="Add a social account">
+    <form
+      onSubmit={onSubmit}
+      ref={ref}
+      noValidate
+      aria-label="Add a social account"
+    >
       <Field id="a-platform" label="Platform" error={e.platform}>
         <select
           id="a-platform"
@@ -206,13 +192,10 @@ export function UpdateAccountForm({
     profile_url: string | null;
   };
 }) {
-  const [state, run, pending] = useActionState<FormState, FormData>(
-    action,
-    null,
-  );
+  const { state, onSubmit, pending } = useIdem(action);
   const e = state?.errors ?? {};
   return (
-    <form action={run} noValidate aria-label="Edit account details">
+    <form onSubmit={onSubmit} noValidate aria-label="Edit account details">
       <input type="hidden" name="account" value={account.id} />
       <Field id="u-name" label="Display name" error={e.display_name}>
         <input
@@ -257,13 +240,13 @@ export function ObservationForm({
   platform: string;
   today: string;
 }) {
-  const { state, run, pending, ref } = useIdem(action);
+  const { state, onSubmit, pending, ref } = useIdem(action);
   const e = state?.errors ?? {};
   const list = metrics.filter(
     (m) => m.scope === "account" && m.platforms.includes(platform),
   );
   return (
-    <form action={run} ref={ref} noValidate aria-label="Record a metric">
+    <form onSubmit={onSubmit} ref={ref} noValidate aria-label="Record a metric">
       <input type="hidden" name="account" value={account} />
       <Field id="o-metric" label="Metric" error={e.metric}>
         <select id="o-metric" name="metric" defaultValue={list[0]?.code}>
@@ -333,14 +316,14 @@ export function ContentForm({
   platform: string;
   today: string;
 }) {
-  const { state, run, pending, ref } = useIdem(action);
+  const { state, onSubmit, pending, ref } = useIdem(action);
   const e = state?.errors ?? {};
   const list = metrics.filter(
     (m) => m.scope === "content" && m.platforms.includes(platform),
   );
   return (
     <form
-      action={run}
+      onSubmit={onSubmit}
       ref={ref}
       noValidate
       aria-label="Record a content metric"
@@ -419,13 +402,10 @@ export function EvidenceForm({
   enabled: boolean;
   reason: string;
 }) {
-  const [state, run, pending] = useActionState<FormState, FormData>(
-    action,
-    null,
-  );
+  const { state, onSubmit, pending } = useIdem(action);
   if (!enabled) return <p className="st-hint">{reason}</p>;
   return (
-    <form action={run} aria-label="Upload verification evidence">
+    <form onSubmit={onSubmit} aria-label="Upload verification evidence">
       <input type="hidden" name="claim" value={claim} />
       <Field id="e-file" label="Screenshot (PNG, JPEG or WebP)">
         <input
@@ -460,11 +440,11 @@ export function GrantForm({
   action: Act;
   account: string;
 }) {
-  const { state, run, pending, ref } = useIdem(action);
+  const { state, onSubmit, pending, ref } = useIdem(action);
   const e = state?.errors ?? {};
   return (
     <form
-      action={run}
+      onSubmit={onSubmit}
       ref={ref}
       noValidate
       aria-label="Share with a Brand or Agency workspace"

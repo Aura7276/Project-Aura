@@ -1,30 +1,12 @@
 "use client";
 import Link from "next/link";
-import { useActionState, useRef } from "react";
+import { useIdempotentForm } from "@/lib/use-idempotent-form";
 import type { FormState } from "./actions";
 import { templates } from "./experiments";
 type Act = (prev: FormState, form: FormData) => Promise<FormState>;
 function useIdem(action: Act) {
-  const key = useRef<string | null>(null);
-  const ref = useRef<HTMLFormElement>(null);
-  const wrapped = async (
-    prev: FormState,
-    form: FormData,
-  ): Promise<FormState> => {
-    key.current ??= crypto.randomUUID();
-    form.set("request", key.current);
-    const r = await action(prev, form);
-    if (r?.ok) {
-      key.current = null;
-      ref.current?.reset();
-    }
-    return r;
-  };
-  const [state, run, pending] = useActionState<FormState, FormData>(
-    wrapped,
-    null,
-  );
-  return { state, run, pending, ref };
+  const { state, pending, ref, onSubmit } = useIdempotentForm(action, null);
+  return { state, pending, ref, onSubmit };
 }
 function Field({
   id,
@@ -66,11 +48,11 @@ export function AudienceForm({
   accounts: { id: string; label: string }[];
   today: string;
 }) {
-  const { state, run, pending, ref } = useIdem(action);
+  const { state, onSubmit, pending, ref } = useIdem(action);
   const e = state?.errors ?? {};
   return (
     <form
-      action={run}
+      onSubmit={onSubmit}
       ref={ref}
       noValidate
       aria-label="Record audience information"
@@ -182,11 +164,11 @@ export function GrantForm({
   action: Act;
   accounts: { id: string; label: string }[];
 }) {
-  const { state, run, pending, ref } = useIdem(action);
+  const { state, onSubmit, pending, ref } = useIdem(action);
   const e = state?.errors ?? {};
   return (
     <form
-      action={run}
+      onSubmit={onSubmit}
       ref={ref}
       noValidate
       aria-label="Share aggregate audience information with a Brand"
@@ -248,10 +230,10 @@ export function ExperimentForm({
   insight?: string;
   defaults: Partial<(typeof templates)[number]>;
 }) {
-  const { state, run, pending } = useIdem(action);
+  const { state, onSubmit, pending } = useIdem(action);
   const e = state?.errors ?? {};
   return (
-    <form action={run} noValidate aria-label="Create an experiment">
+    <form onSubmit={onSubmit} noValidate aria-label="Create an experiment">
       <input type="hidden" name="template_key" value={defaults.key ?? ""} />
       <input type="hidden" name="source_insight" value={insight ?? ""} />
       <input type="hidden" name="account" value={account} />

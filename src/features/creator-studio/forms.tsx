@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { useActionState, useRef } from "react";
+import { useIdempotentForm } from "@/lib/use-idempotent-form";
 import type { FormState } from "./actions";
 
 type Act = (prev: FormState, form: FormData) => Promise<FormState>;
@@ -9,27 +9,12 @@ type Act = (prev: FormState, form: FormData) => Promise<FormState>;
  * network error cannot create a duplicate) and discarded after success. No effect and no hydration mismatch.
  */
 function useIdempotent(action: Act | undefined) {
-  const key = useRef<string | null>(null);
-  const formRef = useRef<HTMLFormElement>(null);
-  const wrapped = async (
-    prev: FormState,
-    form: FormData,
-  ): Promise<FormState> => {
-    if (!action) return null;
-    key.current ??= crypto.randomUUID();
-    form.set("request", key.current);
-    const result = await action(prev, form);
-    if (result?.ok) {
-      key.current = null;
-      formRef.current?.reset();
-    }
-    return result;
-  };
-  const [state, run, pending] = useActionState<FormState, FormData>(
-    wrapped,
+  const noop = async (): Promise<FormState> => null;
+  const { state, onSubmit, pending, ref } = useIdempotentForm(
+    action ?? noop,
     null,
   );
-  return { state, run, pending, formRef };
+  return { state, onSubmit, pending, formRef: ref };
 }
 export function IdeaForm({
   action,
@@ -40,10 +25,15 @@ export function IdeaForm({
   live?: boolean;
   idPrefix?: string;
 }) {
-  const { state, run, pending, formRef } = useIdempotent(action);
+  const { state, onSubmit, pending, formRef } = useIdempotent(action);
   const e = state?.errors ?? {};
   return (
-    <form action={run} ref={formRef} noValidate aria-label="Capture an idea">
+    <form
+      onSubmit={onSubmit}
+      ref={formRef}
+      noValidate
+      aria-label="Capture an idea"
+    >
       <div className="st-field">
         <label htmlFor={`${idPrefix}-t`}>Idea</label>
         <input
@@ -102,7 +92,7 @@ export function ObservationForm({
   today: string;
   idPrefix?: string;
 }) {
-  const { state, run, pending, formRef } = useIdempotent(action);
+  const { state, onSubmit, pending, formRef } = useIdempotent(action);
   const e = state?.errors ?? {};
   if (!goals.length)
     return (
@@ -115,7 +105,12 @@ export function ObservationForm({
       </p>
     );
   return (
-    <form action={run} ref={formRef} noValidate aria-label="Record progress">
+    <form
+      onSubmit={onSubmit}
+      ref={formRef}
+      noValidate
+      aria-label="Record progress"
+    >
       <div className="st-field">
         <label htmlFor={`${idPrefix}-g`}>Goal</label>
         <select
