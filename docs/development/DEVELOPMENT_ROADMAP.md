@@ -8,7 +8,7 @@ Each phase is separately authorized, implemented, tested and accepted before adv
 | M01   | Public website and navigation      | In progress                             |
 | M02   | Registration and authentication    | Not started                             |
 | M03   | Creator onboarding                 | Implemented, awaiting live verification |
-| M04   | Creator dashboard                  | Not started                             |
+| M04   | Creator dashboard                  | Implemented, awaiting live verification |
 | M05   | Social media account management    | Not started                             |
 | M06   | Creator analytics and insights     | Not started                             |
 | M07   | AI Growth Assistant                | Not started                             |

@@ -14,3 +14,5 @@ public/images/home/studio.webp is an original AI-generated editorial illustratio
 | agency-hero        | /agencies hero                   | Agency team planning client work                   | 800 × 600 target, fluid 4:3 | VisualSlot, data-asset=agency-hero    | Deferred to visual refinement          |
 
 | M03 onboarding | /onboarding/creator/\* | No image slots. Option cards, progress and icons are CSS and text. | n/a | CSS only | No visual asset required |
+
+| M04 Creator Studio | /creator/* | No image slots. Navigation uses Lucide icons, avatars are initials, the trend chart is inline SVG from real observations. | n/a | CSS, SVG and Lucide only | No visual asset required |

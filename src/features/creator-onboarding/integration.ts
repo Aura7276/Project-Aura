@@ -1,6 +1,6 @@
 // Stable integration entry points for later modules. M03 does not implement any of them.
 /** M04 Creator dashboard mounts here. Until it exists, M03 serves the completion screen at the fallback. */
-export const m04DashboardEntry = "/creator" as const;
+export const m04DashboardEntry = "/creator/dashboard" as const;
 export const m03ContinuationHref = "/onboarding/creator/complete" as const;
 export const integrationBoundaries = {
   M04: "Creator dashboard: consumes aura_creator_state() and the persisted plan and checklist.",

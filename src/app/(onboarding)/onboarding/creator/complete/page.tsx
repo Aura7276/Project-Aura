@@ -135,15 +135,14 @@ export default async function Page() {
           <section className="ob-box" aria-labelledby="next-h">
             <h2 id="next-h">What’s next</h2>
             <p>
-              Your Creator home (the dashboard) is being built next, at{" "}
-              <code>{m04DashboardEntry}</code>. Until then you can edit your
-              profile and keep your plan here.
+              Your Creator Studio is ready. It turns your plan, goals and daily
+              actions into a routine you can follow.
             </p>
             <div className="ob-actions">
-              <Link
-                className="ob-btn primary"
-                href="/onboarding/creator/profile"
-              >
+              <Link className="ob-btn primary" href={m04DashboardEntry}>
+                Open Creator Studio
+              </Link>
+              <Link className="ob-btn quiet" href="/onboarding/creator/profile">
                 Edit my profile
               </Link>
               <Link className="ob-btn quiet" href="/workspaces">

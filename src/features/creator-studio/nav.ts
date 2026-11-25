@@ -1,0 +1,183 @@
+// Centralized, typed Creator Studio navigation. `available` items resolve to real routes (test-enforced);
+// `planned` items have no href and are rendered as honest readiness states, never as links.
+export type NavStatus = "available" | "planned";
+export type NavItem = {
+  id: string;
+  label: string;
+  href: string | null;
+  module: string;
+  status: NavStatus;
+  note?: string;
+};
+export type AreaId = "home" | "grow" | "create" | "collaborate" | "studio";
+export type NavArea = {
+  id: AreaId;
+  label: string;
+  href: string;
+  icon: "house" | "sprout" | "pen" | "handshake" | "user";
+  summary: string;
+  items: NavItem[];
+};
+const ok = (
+  id: string,
+  label: string,
+  href: string,
+  module: string,
+  note?: string,
+): NavItem => ({ id, label, href, module, status: "available", note });
+const planned = (
+  id: string,
+  label: string,
+  module: string,
+  note: string,
+): NavItem => ({ id, label, href: null, module, status: "planned", note });
+export const areas: NavArea[] = [
+  {
+    id: "home",
+    label: "Home",
+    href: "/creator/dashboard",
+    icon: "house",
+    summary: "Today’s priorities and your progress.",
+    items: [ok("dashboard", "Dashboard", "/creator/dashboard", "M04")],
+  },
+  {
+    id: "grow",
+    label: "Grow",
+    href: "/creator/grow",
+    icon: "sprout",
+    summary: "Actions, goals and your growth plan.",
+    items: [
+      ok("actions", "Daily actions", "/creator/actions", "M04"),
+      ok("progress", "Progress", "/creator/progress", "M04"),
+      ok(
+        "accounts",
+        "Social accounts (self-reported)",
+        "/onboarding/creator/social",
+        "M03",
+        "Verification and live metrics arrive with social account management.",
+      ),
+      planned(
+        "analytics",
+        "Analytics",
+        "M06",
+        "Needs connected accounts and the analytics module.",
+      ),
+      planned(
+        "assistant",
+        "Growth Assistant",
+        "M07",
+        "Needs the AI Growth Assistant module.",
+      ),
+    ],
+  },
+  {
+    id: "create",
+    label: "Create",
+    href: "/creator/create",
+    icon: "pen",
+    summary: "Capture ideas and plan content.",
+    items: [
+      ok("ideas", "Idea capture", "/creator/create", "M04"),
+      planned(
+        "studio",
+        "Content Studio",
+        "M08",
+        "Scripts, planning and the content calendar.",
+      ),
+      planned(
+        "calendar",
+        "Content calendar",
+        "M08",
+        "Arrives with Content Studio.",
+      ),
+    ],
+  },
+  {
+    id: "collaborate",
+    label: "Collaborate",
+    href: "/creator/recommendations",
+    icon: "handshake",
+    summary: "Opportunities and eligibility.",
+    items: [
+      ok(
+        "recommendations",
+        "Recommendations",
+        "/creator/recommendations",
+        "M04",
+      ),
+      planned(
+        "marketplace",
+        "Campaign marketplace",
+        "M10",
+        "Published campaigns will appear here.",
+      ),
+      planned(
+        "applications",
+        "Applications and invitations",
+        "M11",
+        "Needs the marketplace.",
+      ),
+      planned(
+        "collaborations",
+        "Collaborations",
+        "M12",
+        "Deliverables and deadlines.",
+      ),
+    ],
+  },
+  {
+    id: "studio",
+    label: "My Studio",
+    href: "/creator/studio",
+    icon: "user",
+    summary: "Profile, preferences and account.",
+    items: [
+      ok(
+        "profile",
+        "Profile and preferences",
+        "/onboarding/creator/profile",
+        "M03",
+      ),
+      ok(
+        "dashboard-settings",
+        "Dashboard settings",
+        "/creator/settings/dashboard",
+        "M04",
+      ),
+      ok("security", "Account security", "/security", "M02"),
+      ok("workspaces", "Switch workspace", "/workspaces", "M02"),
+      planned(
+        "media-kit",
+        "Profile and media kit",
+        "M09",
+        "Publishing is controlled by the profile module.",
+      ),
+      planned(
+        "earnings",
+        "Earnings and commercial",
+        "M13",
+        "Commercial records appear here once they exist.",
+      ),
+    ],
+  },
+];
+export const accountItems = areas
+  .find((a) => a.id === "studio")!
+  .items.filter((i) =>
+    ["security", "workspaces", "dashboard-settings"].includes(i.id),
+  );
+export function areaFor(pathname: string): AreaId {
+  const all = areas.flatMap((a) =>
+    a.items
+      .filter((i) => i.href)
+      .map((i) => ({ area: a.id, href: i.href as string })),
+  );
+  const hit = all
+    .filter((x) => pathname === x.href || pathname.startsWith(x.href + "/"))
+    .sort((a, b) => b.href.length - a.href.length)[0];
+  if (hit) return hit.area;
+  if (pathname.startsWith("/creator/settings")) return "studio";
+  return areas.find((a) => pathname === a.href)?.id ?? "home";
+}
+export const isInternalPath = (href: string) =>
+  /^\/(?!\/)[A-Za-z0-9/_#?=&.-]{0,150}$/.test(href);

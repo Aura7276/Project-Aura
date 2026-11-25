@@ -106,7 +106,13 @@ export async function creatorContext() {
   const { data, error } = await ctx.client.rpc("aura_workspaces");
   if (error) throw new Error("Unable to load workspaces");
   const own = (
-    data as { id: string; kind: string; role: string; status: string }[]
+    data as {
+      id: string;
+      name: string;
+      kind: string;
+      role: string;
+      status: string;
+    }[]
   ).find((w) => w.kind === "creator" && w.role === "owner");
   if (!own) redirect("/workspaces");
   return {
@@ -114,6 +120,7 @@ export async function creatorContext() {
     workspaceId: own.id,
     userId: ctx.user.id,
     user: ctx.user,
+    name: own.name,
     status: own.status,
   };
 }
