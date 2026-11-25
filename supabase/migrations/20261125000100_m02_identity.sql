@@ -117,7 +117,7 @@ declare u uuid:=aura_identity.eligible();i aura_identity.invitation;begin
 create function public.aura_attribute_referral(p_code text) returns boolean language plpgsql security definer set search_path='' as $$
 declare u uuid:=aura_identity.eligible();begin
  insert into aura_identity.attribution(referred_user,referrer) select u,r.creator_id from aura_identity.referral r where r.code=p_code and not r.revoked and r.expires_at>now() and r.creator_id<>u on conflict do nothing;
- return exists(select 1 from aura_identity.attribution a join aura_identity.referral r on r.creator_id=a.referrer where a.referred_user=u and r.code=p_code and not r.revoked and r.expires_at>now());end $;
+ return exists(select 1 from aura_identity.attribution a join aura_identity.referral r on r.creator_id=a.referrer where a.referred_user=u and r.code=p_code and not r.revoked and r.expires_at>now());end $$;
 create function public.aura_security_state() returns jsonb language plpgsql stable security definer set search_path='' as $$
 declare u uuid:=aura_identity.eligible(); begin return jsonb_build_object(
  'sessions',(select coalesce(jsonb_agg(jsonb_build_object('current',s.id=(auth.jwt()->>'session_id')::uuid,'created_at',s.created_at,'agent',left(s.user_agent,160)) order by s.created_at desc),'[]') from auth.sessions s where s.user_id=u and (s.not_after is null or s.not_after>now())),
