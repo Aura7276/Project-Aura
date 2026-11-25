@@ -11,14 +11,12 @@ export const metadata = {
     "Explore AURA’s planned Creator tools for creative practice, portfolio building and eligible collaborations.",
 };
 function Register() {
-  return process.env.NODE_ENV === "development" ? (
+  return (
     <Button asChild>
       <a href={destinationPath("register")}>
         Creator registration <ArrowUpRight />
       </a>
     </Button>
-  ) : (
-    <span className="registration">Creator registration · Coming soon</span>
   );
 }
 const previews = [

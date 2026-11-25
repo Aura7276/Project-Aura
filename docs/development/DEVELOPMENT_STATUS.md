@@ -1,5 +1,7 @@
 # Development status
 
+Current work: M02 registration and authentication is In progress. See [M02 integration and acceptance](M02_AUTHENTICATION.md).
+
 Phase 00 — Accepted conditionally by the project owner. Git commits and hosted Supabase configuration are Deferred. The production preview gate and foundation checks are recorded in PHASE_00_REPORT.md. Real Supabase environment verification is Blocked pending configuration. The application has no business workflows.
 
 M01 — In progress. Public M01 delivery awaits manual acceptance. Live publication, authenticated campaign/referral handoffs and support delivery have outstanding dependencies; see M01_MODULE_REPORT.md. M02–M14 — Not started. Each requirement is individually recorded in REQUIREMENTS_TRACEABILITY.md.

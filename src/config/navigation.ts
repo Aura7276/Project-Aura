@@ -36,6 +36,8 @@ export const footerGroups = {
   Legal: ["privacy", "terms"],
 } as const satisfies Record<string, readonly Destination[]>;
 const live: Partial<Record<Destination, string>> = {
+  login: "/login",
+  register: "/register",
   creators: "/creators",
   brands: "/brands",
   agencies: "/agencies",

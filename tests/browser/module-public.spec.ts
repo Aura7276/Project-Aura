@@ -46,11 +46,8 @@ test("discovery and invite boundaries", async ({ page, request }) => {
     "Discover campaigns",
   );
   await page.goto("/invite/fixture");
-  await page.getByRole("link", { name: /View registration readiness/ }).click();
-  await page.getByRole("link", { name: "Return to the invitation" }).click();
-  await expect(
-    page.getByText(/Attribution has not been recorded/),
-  ).toBeVisible();
+  await page.getByRole("link", { name: "Continue to registration" }).click();
+  await expect(page).toHaveURL(/register\?kind=invite&value=fixture/);
 });
 for (const path of ["/agencies", "/demo", "/contact", "/resources", "/pricing"])
   test(

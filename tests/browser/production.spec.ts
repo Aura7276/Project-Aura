@@ -39,7 +39,7 @@ test("production Creator entry and pending registration", async ({ page }) => {
   await page.getByRole("link", { name: "I’m a Creator" }).first().click();
   await expect(page).toHaveURL(/\/creators$/);
   await expect(
-    page.getByText("Creator registration · Coming soon").first(),
+    page.getByRole("link", { name: /Creator registration/ }).first(),
   ).toBeVisible();
 });
 
@@ -54,7 +54,7 @@ test("both homepage Brand entries resolve and registration stays pending", async
   await links.last().click();
   await expect(page).toHaveURL(/\/brands$/);
   await expect(
-    page.getByText("Brand registration · Coming soon").first(),
+    page.getByRole("link", { name: /Brand registration/ }).first(),
   ).toBeVisible();
 });
 

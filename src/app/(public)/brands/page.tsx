@@ -9,12 +9,10 @@ export const metadata = {
     "Explore planned tools for business-owned social channels, creator marketing and commercial coordination.",
 };
 function Registration() {
-  return process.env.NODE_ENV === "development" ? (
+  return (
     <Button asChild>
       <a href={destinationPath("register")}>Brand registration ↗</a>
     </Button>
-  ) : (
-    <span>Brand registration · Coming soon</span>
   );
 }
 const modes = [

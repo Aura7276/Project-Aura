@@ -28,3 +28,7 @@ M01.03 received conditional technical acceptance. Supplementary Brand Growth OS 
 ## M01 module delivery
 
 Owner replaced page-by-page gates with one M01 delivery cycle. Preserve main at the local baseline; work on feature/m01-complete-public-website. No merge, push or M02 authorization. Resource articles are editorial guidance. Legal texts, referral rewards and support mailbox require owner or responsible-module input.
+
+## M02 authorization and policy
+
+The owner authorized M02 on its feature branch. Privileged application operations verify real provider sessions and database memberships. The user-facing flow records adult self-attestation. The exact commercial mobile-verification triggers, assisted account recovery procedure and session retention period still require owner decisions. These settings must be reviewed before release.

@@ -14,7 +14,7 @@ for (const width of [320, 360, 390, 430, 768, 1024, 1440, 1920])
     ).toBe(true);
     await expect(
       page.getByRole("link", { name: /Brand registration/ }).first(),
-    ).toHaveAttribute("href", "/readiness/register");
+    ).toHaveAttribute("href", "/register");
     if ([390, 768, 1440].includes(width)) {
       await page.evaluate(() => document.fonts.ready);
       await page.screenshot({

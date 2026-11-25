@@ -1,6 +1,7 @@
+import { createServerClient, type CookieOptions } from "@supabase/ssr";
 import { NextResponse, type NextRequest } from "next/server";
 import { providerConfig } from "@/config/environment";
-export function proxy(request: NextRequest) {
+export async function proxy(request: NextRequest) {
   const dev = process.env.NODE_ENV === "development";
   const nonce = btoa(crypto.randomUUID());
   const provider = process.env.NEXT_PUBLIC_SUPABASE_URL
@@ -20,6 +21,29 @@ export function proxy(request: NextRequest) {
   ].join("; ");
   const headers = new Headers(request.headers);
   headers.set("Content-Security-Policy", policy);
+  const updates: { name: string; value: string; options: CookieOptions }[] = [];
+  if (
+    provider &&
+    /^\/(account|identity|mfa|security|workspaces|admin)(\/|$)/.test(
+      request.nextUrl.pathname,
+    )
+  ) {
+    const { url, key } = providerConfig();
+    const auth = createServerClient(url, key, {
+      cookieOptions: { sameSite: "lax", secure: !dev },
+      cookies: {
+        getAll: () => request.cookies.getAll(),
+        setAll: (values) => {
+          for (const item of values) {
+            request.cookies.set(item.name, item.value);
+            updates.push(item);
+          }
+          headers.set("cookie", request.cookies.toString());
+        },
+      },
+    });
+    await auth.auth.getClaims();
+  }
   const response =
     !dev &&
     ["/dev/", "/readiness/"].some((prefix) =>
@@ -27,6 +51,8 @@ export function proxy(request: NextRequest) {
     )
       ? new NextResponse("Not found", { status: 404 })
       : NextResponse.next({ request: { headers } });
+  for (const update of updates)
+    response.cookies.set(update.name, update.value, update.options);
   response.headers.set("Content-Security-Policy", policy);
   response.headers.set("Cache-Control", "private, no-store");
   response.headers.set("X-Content-Type-Options", "nosniff");

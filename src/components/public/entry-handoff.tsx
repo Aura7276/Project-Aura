@@ -8,15 +8,13 @@ export function EntryHandoff({
   value: string;
 }) {
   const intent = entryIntent(kind, value);
-  if (!intent || process.env.NODE_ENV !== "development") return null;
+  if (!intent) return null;
   const query = new URLSearchParams({ kind, value });
   return (
     <PathLink
-      href={
-        "/readiness/" + (kind === "invite" ? "register" : "login") + "?" + query
-      }
+      href={"/" + (kind === "invite" ? "register" : "login") + "?" + query}
     >
-      View {kind === "invite" ? "registration" : "sign-in"} readiness
+      Continue to {kind === "invite" ? "registration" : "sign-in"}
     </PathLink>
   );
 }
