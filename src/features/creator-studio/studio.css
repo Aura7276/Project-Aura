@@ -553,7 +553,19 @@
 }
 
 /* M06: long handles, tables and evidence blocks must never force horizontal page scroll on a phone. */
-.st-main { overflow-wrap: anywhere; }
-.st-main table { display: block; max-width: 100%; overflow-x: auto; }
-.st-main pre { max-width: 100%; overflow-x: auto; }
-.st-main .st-grid > *, .st-main .st-card { min-width: 0; }
+.st-main {
+  overflow-wrap: anywhere;
+}
+.st-main table {
+  display: block;
+  max-width: 100%;
+  overflow-x: auto;
+}
+.st-main pre {
+  max-width: 100%;
+  overflow-x: auto;
+}
+.st-main .st-grid > *,
+.st-main .st-card {
+  min-width: 0;
+}

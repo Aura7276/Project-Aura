@@ -55,3 +55,7 @@ Test infrastructure: `scripts/stack` is a local stand-in for Supabase Auth and t
 ## M05 dependencies
 
 Unmet: platform provider APIs and OAuth (M06 and later), malware scanning for evidence, AI extraction (M07), email delivery (M25), private Storage bucket on a live Supabase project, M11/M12 for the paid-influencer gate.
+
+## M06 dependencies
+
+Unmet: AI classification and pattern interpretation (M07), content metadata ownership (M08), media kit use of shared audience (M09), campaign matching (M10, M16), collaboration and deliverable links (M12), earnings (M13), entitlements (M27), provider data and legal review for competitor tracking, a live Supabase project, scheduled insight generation (insights refresh when the page opens).

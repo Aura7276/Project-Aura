@@ -13,3 +13,7 @@ Authenticated Creator Studio uses a typed configuration (`creator-studio/nav.ts`
 ## M05
 
 Grow > Social accounts now points to `/creator/socials` (available). Analytics remains planned (M06).
+
+## M06
+
+Grow > Analytics (`/creator/analytics`) and Experiments (`/creator/experiments`) are available. The earlier planned M06 entry is replaced.

@@ -34,3 +34,7 @@ The migration `20261127000100_m04_creator_dashboard.sql` adds the private `aura_
 ## M05 `aura_social`
 
 Private schema, RLS on with no policies, no grants; access via `SECURITY DEFINER` functions only. Append-only observations, advisory-lock concurrency, DB-enforced account limit. See `SOCIAL_ACCOUNT_ARCHITECTURE.md`.
+
+## M06 `aura_analytics`
+
+Private schema; RLS on with no policies and no grants; access via `SECURITY DEFINER` functions only. Reuses M05 observations. Append-only audience snapshots; experiments freeze baselines at activation. See `CREATOR_ANALYTICS_ARCHITECTURE.md`.

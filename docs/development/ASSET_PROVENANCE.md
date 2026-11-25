@@ -20,3 +20,7 @@ public/images/home/studio.webp is an original AI-generated editorial illustratio
 ## M05
 
 No new images or third-party assets. Icons reuse existing Lucide usage.
+
+## M06
+
+No images, icons or third-party assets were added. Charts are inline SVG drawn from recorded data, each with a data-table alternative.

@@ -11,3 +11,7 @@ Allowed statuses: Not started, In progress, Implemented, Tested, Awaiting manual
 ## M05 social account management
 
 Implemented on `feature/m05-social-account-management`, verified on local PostgreSQL with stubs and the local stack (see `M05_COMPLETE_REPORT.md`). Not pushed or merged. M06 not started.
+
+## M06 Creator analytics and Growth Experiment Lab
+
+Implemented on `feature/m06-creator-analytics`, verified on local PostgreSQL with stubs and the local stack (see `M06_COMPLETE_REPORT.md`). Not pushed or merged. M07 not started.

@@ -325,7 +325,9 @@ test.describe("M06 real routes with the local test stack (not Supabase)", () => 
       ).status(),
     ).toBe(400);
     await page.goto("/creator/analytics/reports");
-    await expect(page.getByRole("listitem").filter({ hasText: "my own records" })).toHaveCount(1);
+    await expect(
+      page.getByRole("listitem").filter({ hasText: "my own records" }),
+    ).toHaveCount(1);
   });
 
   test("another Creator cannot reach this Creator's experiment or exports", async ({

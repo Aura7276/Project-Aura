@@ -23,3 +23,7 @@ Each phase is separately authorized, implemented, tested and accepted before adv
 ## M05 status
 
 M05 implemented locally; awaiting owner review. Next module not authorized.
+
+## M06 status
+
+M06 implemented locally; awaiting owner review. Next module not authorized.

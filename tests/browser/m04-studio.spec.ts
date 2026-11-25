@@ -75,10 +75,23 @@ test.describe("M04 desktop navigation (F03)", () => {
       "M09",
       "M13",
     ])
-      if (m !== "M05" && m !== "M09")
+      if (m !== "M05" && m !== "M06" && m !== "M09")
         await expect(side.getByText(`Planned · ${m}`).first()).toBeVisible();
-    await expect(side.getByText("Analytics", { exact: true })).toBeVisible();
-    await expect(side.getByRole("link", { name: "Analytics" })).toHaveCount(0); // planned destinations are never links
+    // M06 delivered Analytics and Experiments: they are now real links, and no "Planned · M06" state remains.
+    await expect(side.getByText("Planned · M06")).toHaveCount(0);
+    await expect(side.getByRole("link", { name: "Analytics" })).toHaveAttribute(
+      "href",
+      "/creator/analytics",
+    );
+    await expect(
+      side.getByRole("link", { name: "Experiments" }),
+    ).toHaveAttribute("href", "/creator/experiments");
+    await expect(
+      side.getByText("Growth Assistant", { exact: true }),
+    ).toBeVisible();
+    await expect(
+      side.getByRole("link", { name: "Growth Assistant" }),
+    ).toHaveCount(0); // planned destinations are never links
   });
   test("every link in the shell resolves (no dead links)", async ({
     page,

@@ -45,3 +45,7 @@ Claim one task and one branch. Inspect the relevant requirements, their original
 ## M05 handover
 
 Branch `feature/m05-social-account-management`. Code: `src/features/creator-social`, `src/server/social`, migration `20261128000100`. Run DB tests with a local PostgreSQL 16 (`AURA_TEST_DB=1 pnpm exec vitest run`); stack tests need `PW_CHROMIUM_PATH=/opt/pw-browsers/chromium` here. Follow-ups: daily-action rule and search entries for stale accounts, Brand-facing views, providers.
+
+## M06 handover
+
+Branch `feature/m06-creator-analytics`. Code: `src/features/creator-analytics`, `src/server/analytics`, `src/lib/use-idempotent-form.ts`, migration `20261129000100`. DB tests need a local PostgreSQL 16 (`service postgresql start`, a superuser role named for the shell user) and `AURA_TEST_DB=1`. Stack tests: `PW_CHROMIUM_PATH=/opt/pw-browsers/chromium pnpm test:stack --trace off`. Not integrated with M04 daily actions, weekly review or own-experiment search (needs M04 schema coordination). Forms now submit through `useIdempotentForm` so a failed validation no longer clears what was typed.

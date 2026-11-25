@@ -22,3 +22,7 @@ M04 Creator Studio data (daily actions, observations, ideas, reviews, preference
 ## M05 security
 
 Restricted reviewers need Platform Admin, a reviewer grant and an MFA session; no self-approval. Evidence is private, validated, unscanned-until-scanner, signed-URL only, and disabled by default. No social credentials are requested. Creator RPCs cannot set `ai_confirmed`. No server-side URL fetching.
+
+## M06 security
+
+Analytics, insights and experiments are readable only by the owning Creator workspace. Audience grants are Brand-only, purpose-bound, revocable and re-checked on read and export. Exports record purpose and time (never content), neutralize spreadsheet formulas and require a live session. Cohort output is suppressed below a floor of 10 and never reveals size or identity. No client function can create AI-proposed tags, competitors or provider data. Insight links are restricted to in-app paths and categories exclude fraud verdicts.
