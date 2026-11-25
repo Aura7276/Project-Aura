@@ -1,0 +1,8 @@
+{
+  "version": "13.6.0",
+  "performance": 0.88,
+  "LCP": "3.6 s",
+  "CLS": "0",
+  "TBT": "150 ms",
+  "error": null
+}

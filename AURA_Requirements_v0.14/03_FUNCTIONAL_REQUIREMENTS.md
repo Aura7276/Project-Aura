@@ -1,0 +1,452 @@
+# Consolidated functional requirements
+
+M01–M03 identifiers are locally reconstructed; M04–M14 follow decision order.
+
+## M01 — Public website and navigation
+- M01-F01: Public limited creator profiles with creator-controlled publication.
+- M01-F02: Public limited campaign previews; login and eligibility required to apply.
+- M01-F03: Free to get started; premium capabilities later.
+- M01-F04: Creator guides, growth tips and Brand resources.
+- M01-F05: Interactive walkthrough for Creator and Brand portals.
+- M01-F06: Contact form, email and support centre.
+- M01-F07: Creator referral and invite capability at launch.
+
+## M02 — Registration and authentication
+- M02-F01: Email/password and Google Sign-In.
+- M02-F02: Age 18+.
+- M02-F03: Mobile optional initially; required before designated commercial activities.
+- M02-F04: International registration, India primary.
+- M02-F05: One personal Creator workspace per identity; multiple social accounts.
+- M02-F06: Companies, startups, individual business owners and small businesses may create Brand workspaces.
+- M02-F07: Creator active after onboarding; Brand and Agency active with restricted privileges pending verification.
+- M02-F08: MFA mandatory for platform administrators and Brand/Agency owners; Creator optional. M14 extends to Brand administrators and designated privileged roles.
+- M02-F09: Save/resume incomplete onboarding; restrict affected features.
+- M02-F10: Restore last authorized workspace after login.
+- M02-F11: Active sessions, device history, logout all and security alerts.
+- M02-F12: Preserve campaign/referral context.
+- M02-F13: Platform Admin separately provisioned, never public self-registration.
+
+## M03 — Creator onboarding
+- M03-F01: Minimum 100 followers for standard influencer eligibility; M04 clarification allows aspiring creators below 100 or without accounts to register and use growth tools; UGC eligibility separate.
+- M03-F02: Short mandatory onboarding then progressive completion.
+- M03-F03: No social account required at registration.
+- M03-F04: Instagram, YouTube, Facebook, LinkedIn, Threads and other supported links.
+- M03-F05: Personal, Creator and Business Instagram accounts accepted.
+- M03-F06: Multiple accounts per platform with one overall primary.
+- M03-F07: Manual information and optional screenshots.
+- M03-F08: One primary niche and multiple secondary niches.
+- M03-F09: Structured questionnaire plus optional AI conversation.
+- M03-F10: Measurable follower, engagement, consistency and monetization goals.
+- M03-F11: Optional time, equipment and budget assessment after onboarding.
+- M03-F12: Paid, UGC, barter, affiliate, ambassador and event opportunities.
+- M03-F13: Optional editable rates per format.
+- M03-F14: No previous commercial experience required.
+- M03-F15: Explicit industry preferences and exclusions.
+- M03-F16: Private profile until explicitly published.
+- M03-F17: Verification optional initially, mandatory for designated commercial activities.
+- M03-F18: Private goals/challenges/targets restricted to creator and authorized processing.
+- M03-F19: Personalized growth plan, profile checklist and recommended opportunities.
+- M03-F20: Editable information, periodic reminders and authorized automated refresh.
+
+## M04 — Creator dashboard
+- M04-F01: Allow aspiring creators growth access; 100+ standard influencer discovery/campaign eligibility; separate UGC eligibility.
+- M04-F02: Growth-first with collaboration opportunities integrated.
+- M04-F03: Five navigation areas: Home, Grow, Create, Collaborate, My Studio.
+- M04-F04: Mobile bottom navigation and extended drawer.
+- M04-F05: Automatic personalization by goals, activity and segment.
+- M04-F06: Three to five relevant daily actions.
+- M04-F07: Persistent contextual AI assistant throughout Creator Studio.
+- M04-F08: Optional meaningful milestones and streaks without public leaderboards.
+- M04-F09: Weekly in-app review and optional email digest.
+- M04-F10: Individual goal tracking and evidence-based insights.
+- M04-F11: Personalized campaign recommendations with eligibility explanations.
+- M04-F12: Upcoming content, quick idea capture and calendar shortcut.
+- M04-F13: Agreed compensation, externally recorded payments and outstanding amounts with clear labels.
+- M04-F14: Universal quick-create for ideas, plans, portfolio and progress.
+- M04-F15: Skippable repeatable walkthrough.
+- M04-F16: Without Instagram prioritize growth plans, manual tracking, content tools and eligible opportunities; label unavailable metrics.
+- M04-F17: Global search own content, campaigns, collaborations, tools and resources.
+- M04-F18: Basic widget visibility initially; advanced rearrangement later.
+
+## M05 — Social media account management
+- M05-F01: Maximum 10 social accounts initially, expandable later.
+- M05-F02: One overall primary and optional preferred per platform.
+- M05-F03: At least one relevant individual account with 100+ followers; campaign-specific eligibility separate.
+- M05-F04: Private accounts accepted for growth; discovery and campaign privileges may be restricted.
+- M05-F05: Profile challenge and optional screenshots, manual review when required.
+- M05-F06: Only one active verified owner; disputes and duplicates reviewed.
+- M05-F07: Unverified accounts may appear in eligible discovery with clear self-reported/unverified labels.
+- M05-F08: Ownership mandatory before accepting designated paid influencer collaborations; UGC separate.
+- M05-F09: Update metrics anytime, weekly reminders, historical snapshots.
+- M05-F10: Account-level and content-level observations.
+- M05-F11: AI-assisted screenshot extraction requires creator confirmation.
+- M05-F12: Observation date, source and metric-specific freshness.
+- M05-F13: Creator controls each account’s visibility.
+- M05-F14: Brands receive published relevant metrics and summaries; additional permission for detailed insights.
+- M05-F15: Removal immediately removes discovery; private eligible history subject to retention/deletion.
+- M05-F16: Instagram integration first, then YouTube and others by demand.
+- M05-F17: Future automatic daily refresh where supported and rate-limited manual refresh.
+- M05-F18: Disconnect stops collection, revokes access where supported, permitted history marked stale.
+- M05-F19: Future opt-in publishing with explicit approval and supported API permissions.
+- M05-F20: Shared infrastructure for Brand accounts with separate permissions and analytics.
+
+## M06 — Creator analytics and insights
+- M06-F01: Account, content, audience, growth diagnostics and commercial insights.
+- M06-F02: Manual and screenshot-assisted analytics without connected accounts, source labels.
+- M06-F03: Individual account views and consolidated activity without double-counting unique audiences.
+- M06-F04: 7, 30, 90 days, custom ranges and comparable prior periods.
+- M06-F05: Compare selected content using compatible metrics and windows.
+- M06-F06: AI patterns in topic, format, hooks, duration, timing and available attributes.
+- M06-F07: Organic and sponsored filters and meaningful comparisons.
+- M06-F08: Evidence-based publishing-time suggestions with confidence and limitations.
+- M06-F09: Evidence-based growth diagnostics and recommended experiments.
+- M06-F10: Prioritized insight feed with evidence, actions and links.
+- M06-F11: Growth Experiment Lab with hypotheses, baselines, tracking and learning history.
+- M06-F12: Optional structured content tags and AI classification.
+- M06-F13: Anonymized comparable peer cohorts only with sufficient reliable data.
+- M06-F14: No single creator quality or growth score.
+- M06-F15: Future competitor tracking using permitted public/authorized data.
+- M06-F16: Future suspicious-pattern indicators without unsupported fraud accusations.
+- M06-F17: Creator-controlled purpose-specific aggregate audience sharing.
+- M06-F18: Private diagnostics excluded from Brand-facing rankings.
+- M06-F19: Audience-to-campaign matching using permitted aggregates.
+- M06-F20: PDF summaries and CSV exports subject to permissions.
+- M06-F21: Scenario-based forecasts only with sufficient history and uncertainty.
+- M06-F22: Link commercial and organic analytics where authorized.
+- M06-F23: Core analytics free; advanced intelligence/reporting potentially premium.
+- M06-F24: Insufficient evidence: explain missing information and relevant collection/learning action.
+
+## M07 — AI Growth Assistant
+- M07-F01: Personalized creator growth agent with specialized capabilities.
+- M07-F02: Dedicated AI Studio, contextual assistant and proactive recommendations.
+- M07-F03: Works without social connections using onboarding/manual/provided context.
+- M07-F04: English, Hindi, Hinglish and supported regional languages.
+- M07-F05: Persistent editable intelligence profile, goals, preferences, feedback and history.
+- M07-F06: Editable 7-, 30-, 90-day plans.
+- M07-F07: Coaching conversations update approved goals and plans.
+- M07-F08: Adapt recommendations to completed actions, feedback and observed performance.
+- M07-F09: Proactively identify skill gaps and recommend learning/exercises.
+- M07-F10: Ideas, hooks, scripts, captions, CTAs, pillars and plans.
+- M07-F11: Text, image, carousel and supported video review; advanced media phased.
+- M07-F12: Learn style from explicitly provided examples and editable preferences.
+- M07-F13: Creative alternatives with explanations and refinement.
+- M07-F14: Future opt-in image/video generation subject to cost, quality and rights.
+- M07-F15: Permitted current trend sources with source and freshness.
+- M07-F16: Seasonal and regional opportunities personalized by niche/geography/language.
+- M07-F17: Future competitor content analysis using permitted material.
+- M07-F18: Brand opportunity evaluation: relevance, eligibility, deliverables and conflicts.
+- M07-F19: Indicative pricing/negotiation guidance and editable messages.
+- M07-F20: Personalized editable pitches from genuine information.
+- M07-F21: Read, recommend, draft; execute approved actions under existing permissions.
+- M07-F22: Convert approved ideas into records, calendar entries, tasks and experiments.
+- M07-F23: Scheduled daily/weekly recommendations and alerts with opt-out.
+- M07-F24: Future voice interaction after demand validation.
+- M07-F25: Review, edit, disable and request deletion of persistent AI personalization.
+- M07-F26: Private Creator conversations inaccessible to Brands.
+- M07-F27: No shared model training by default; separate explicit authorization for future secondary use.
+- M07-F28: Explain insufficient evidence and ask relevant questions or suggest collection.
+- M07-F29: Show relevant source information, reasoning summary and limitations.
+- M07-F30: Free core allowance; advanced/high-volume potentially premium.
+- M07-F31: Cost/capability-based model routing with provider independence.
+- M07-F32: Outage/limit: preserve drafts and conversations; transparent status and non-AI tools.
+
+## M08 — Content ideation and planning
+- M08-F01: Ideas combine goals, niches, history, analytics and permitted trends.
+- M08-F02: Persistent searchable tagged idea library for manual, AI and reference-based ideas.
+- M08-F03: Editable content pillars, suggestions and optional target mix.
+- M08-F04: Permitted external inspiration links, notes and original adaptations.
+- M08-F05: Optional production effort, equipment and time estimates.
+- M08-F06: Daily, weekly, monthly and agenda calendar views.
+- M08-F07: Manual and AI-generated editable weekly/monthly plans.
+- M08-F08: Unified organic/commercial calendar with separate filters and permissions.
+- M08-F09: Ideation, recording, editing, review and publication activities.
+- M08-F10: Reusable recurring series and editable schedules.
+- M08-F11: Calendar export initially; Google Calendar later.
+- M08-F12: Scripts, captions, hooks, CTAs, hashtags, storyboards, shot lists and checklists.
+- M08-F13: Format-specific templates for Reels, Shorts, Carousels, Stories and others.
+- M08-F14: Autosave, meaningful version history and restoration.
+- M08-F15: Optional prepublication AI review of clarity, originality, relevance and brief compliance.
+- M08-F16: Reusable editable creative and production templates.
+- M08-F17: Flexible stages; skip nonessential stages.
+- M08-F18: Kanban production board with editable states and transition rules.
+- M08-F19: Configurable reminders, deadlines and missed-task notifications.
+- M08-F20: Reusable and AI-suggested editable checklists.
+- M08-F21: Private asset library subject to quotas.
+- M08-F22: Images, supported videos, documents, links and notes within file limits.
+- M08-F23: Purpose-specific AI access to uploaded assets.
+- M08-F24: Linked independently editable content adaptations.
+- M08-F25: Manual publication checklist, copy-ready content and actual published URL.
+- M08-F26: Future opt-in direct scheduling/publishing via supported APIs.
+- M08-F27: Link campaign briefs, deadlines, tasks and submissions while preserving private drafts.
+- M08-F28: Sponsored-content disclosure and brief-compliance reminders/checks.
+- M08-F29: Associate publication with manual or API performance observations.
+- M08-F30: Future recommendations from evidence, goals and experiment outcomes.
+- M08-F31: Unpublished drafts accessible only to Creator and explicitly authorized collaborators; Brands see designated submissions.
+- M08-F32: Core planning/editing/ideas free; advanced AI/storage potentially premium.
+
+## M09 — Creator profile and media kit
+- M09-F01: Dedicated shareable creator website with profile, portfolio, services and media kit.
+- M09-F02: Personalized username and unique URL.
+- M09-F03: Approved themes, cover images, section ordering and featured content.
+- M09-F04: Below 100: private profile and eligible direct sharing; standard influencer discovery restricted.
+- M09-F05: Open, limited or unavailable with optional availability dates.
+- M09-F06: AURA-mediated enquiries; login required; M14 verified Brand outreach required.
+- M09-F07: Organic, genuine commercial work, UGC samples, speculative work and case studies.
+- M09-F08: Label speculative/self-initiated work explicitly.
+- M09-F09: Uploads, permitted links and selected Content Studio records.
+- M09-F10: Optional portfolio metrics with source, date and permissions.
+- M09-F11: Case studies with objectives, approach, contribution, deliverables and supported outcomes.
+- M09-F12: Item-level private/public/restricted visibility and featured status.
+- M09-F13: Media kits populate selected profile data with AI assistance and editing.
+- M09-F14: Shareable web, PDF and QR.
+- M09-F15: Multiple audience-, industry- and service-specific kits.
+- M09-F16: Approved live sections and fixed snapshots.
+- M09-F17: Public, restricted and expiring links with revocation.
+- M09-F18: Multiple professional templates and editable sections.
+- M09-F19: Subtle Created with AURA branding; removal potentially premium.
+- M09-F20: Optional rates, ranges, packages and quote-on-request services.
+- M09-F21: Rates private by default with authorized sharing.
+- M09-F22: Independent UGC services and eligibility.
+- M09-F23: Packages with deliverables, indicative compensation and configurable terms.
+- M09-F24: Optional rates/terms in media kits, restricted where appropriate.
+- M09-F25: External experience self-reported with optional evidence and provenance.
+- M09-F26: Genuine attributable feedback with moderation and disputes.
+- M09-F27: No public composite creator rating.
+- M09-F28: Specific identity, ownership, data provenance and collaboration indicators.
+- M09-F29: AI suggests editable improvements using genuine data.
+- M09-F30: Aggregate profile/kit views, enquiries, link activity and supported conversion analytics.
+- M09-F31: Identifiable Brand visits only with explicit authorization.
+- M09-F32: Private by default; preview, publish/unpublish with eligibility checks.
+- M09-F33: Future custom domains subject to validation.
+- M09-F34: Core profile, portfolio and basic kit free; advanced designs/capacity potentially premium.
+
+## M10 — Campaign marketplace
+- M10-F01: All six campaign categories: Paid, UGC, Barter, Affiliate, Ambassador, Events.
+- M10-F02: Browse ineligible campaigns with explanations; block ineligible applications.
+- M10-F03: Below 100 prioritize UGC/non-influencer opportunities; restricted influencer campaigns for awareness.
+- M10-F04: Public, restricted and invitation-only visibility.
+- M10-F05: International discovery subject to geography, language, payment and eligibility.
+- M10-F06: Personalized For You and searchable category-filtered marketplace.
+- M10-F07: Commercial filters including compensation, rights, exclusivity, travel and deliverables.
+- M10-F08: Bookmarks, saved searches and configurable alerts.
+- M10-F09: Compare compensation, effort, deliverables, rights and eligibility.
+- M10-F10: Reversible Brand/category hiding and blocking.
+- M10-F11: Separate mandatory eligibility from explainable relevance.
+- M10-F12: Separate hard requirements and preferred attributes.
+- M10-F13: Explain matching factors, missing data and limitations.
+- M10-F14: Verification not automatic universal ranking advantage.
+- M10-F15: Relevant beginner-friendly opportunities and diversity-aware recommendations.
+- M10-F16: Revalidate at application and agreement acceptance.
+- M10-F17: Monetary amount or meaningful range before application; negotiable terms labelled.
+- M10-F18: Separate products, services, experiences, commissions and guaranteed money.
+- M10-F19: Disclose rights/exclusivity or identify negotiable terms.
+- M10-F20: Actual available positions or explicitly undisclosed.
+- M10-F21: Optional actual aggregate applicant counts with privacy thresholds and Brand settings.
+- M10-F22: Material change history and notifications.
+- M10-F23: AI assesses relevance, workload, compensation, rights and conflicts.
+- M10-F24: Label estimated effort/suitability with supporting context.
+- M10-F25: Highlight missing terms and suggest questions.
+- M10-F26: AI drafts only; explicit application approval.
+- M10-F27: Approved business verification before public campaign publication; M14 extends to all formal campaigns.
+- M10-F28: Risk-based moderation and flagged review.
+- M10-F29: No Brand application fees or unlock deposits.
+- M10-F30: Structured reporting, blocking, review and tracking.
+- M10-F31: Genuine Brand history, verification and eligible feedback; no unsupported score.
+- M10-F32: Configurable new opportunity, deadline and change alerts.
+- M10-F33: Future labelled promoted placements never override eligibility.
+- M10-F34: Core discovery and eligible applications free initially.
+- M10-F35: Explain empty results and offer improvements/alerts.
+
+## M11 — Applications and invitations
+- M11-F01: Structured application with pitch, relevant account, optional portfolio and screening.
+- M11-F02: Quick apply where Brand permits; explicit confirmation.
+- M11-F03: Autosave/resume/delete unsubmitted drafts.
+- M11-F04: One active application per Creator per campaign.
+- M11-F05: Mandatory/optional structured screening questions subject to policy.
+- M11-F06: Explicit portfolio/kit selection and preview.
+- M11-F07: AI editable pitch, ideas, screening and portfolio suggestions.
+- M11-F08: Optional AI readiness review.
+- M11-F09: Every submission/reapplication requires explicit Creator confirmation.
+- M11-F10: Submitted edits before review/selection lock; version and material-change notification.
+- M11-F11: Withdrawal before binding agreement acceptance with confirmation and notification.
+- M11-F12: Reapply only if open and permitted.
+- M11-F13: Detailed statuses, timestamps, pending actions and permitted feedback.
+- M11-F14: Optional constructive rejection feedback.
+- M11-F15: Structured clarifications with deadlines/history.
+- M11-F16: Targeted direct invitations for genuine eligible campaigns.
+- M11-F17: Preliminary enquiry distinguished from formal invitation.
+- M11-F18: Interest, clarification, counterproposal or decline.
+- M11-F19: Configurable invitation expiry and reminders.
+- M11-F20: Optional decline feedback.
+- M11-F21: Agency actions only explicit delegation and identified representation.
+- M11-F22: Alternative structured quotes where negotiable.
+- M11-F23: Versioned negotiation workspace with proposals and messages.
+- M11-F24: Permitted compensation, deliverables, timing, revisions, rights and exclusivity negotiation.
+- M11-F25: AI editable negotiation drafts; approve before send.
+- M11-F26: Both parties confirm same proposal version before agreement preparation.
+- M11-F27: Configurable proposal validity/renewal/expiry.
+- M11-F28: Explicit waitlist, no guaranteed selection.
+- M11-F29: Separate submission and selection capacity.
+- M11-F30: Warn about schedule conflicts without rejecting every overlap.
+- M11-F31: No binding agreement from selection or invitation acceptance alone.
+- M11-F32: Link duplicate journeys to one prospective collaboration.
+- M11-F33: Only explicitly shared application and permitted commercial profile data.
+- M11-F34: Rate limits, duplicate prevention and risk-based abuse controls.
+- M11-F35: Block/report abusive invitations; moderation/status tracking.
+- M11-F36: Restrict exploitative unpaid custom work; reasonable screening and existing samples allowed.
+- M11-F37: Auditable versions, decisions and timestamps under retention policy.
+- M11-F38: Core applications, invitations and negotiations free; advanced AI potentially premium.
+- M11-F39: Notifications for statuses, clarifications, invitations, proposals, deadlines and material changes.
+- M11-F40: Reasonable reminders without automated harassment.
+
+## M12 — Collaboration and deliverables
+- M12-F01: Dedicated shared workspace: agreements, deliverables, milestones, messages, files, activity.
+- M12-F02: Common infrastructure for six campaign categories, category-specific obligations.
+- M12-F03: Separate agreements/deliverables/compensation per selected Creator.
+- M12-F04: Independent collaboration, deliverable and compensation states.
+- M12-F05: Structured agreement from confirmed proposal using approved templates.
+- M12-F06: Explicit authorized same-version acceptance with verification/evidence.
+- M12-F07: Externally signed agreement attachments and structured obligations.
+- M12-F08: Versioned mutually accepted amendments; original retained.
+- M12-F09: Downloadable versioned PDF or equivalent with acceptance evidence.
+- M12-F10: Future advanced electronic signature integration subject to validation.
+- M12-F11: Independent deliverables, specs, deadlines, review conditions and optional compensation allocation.
+- M12-F12: Optional concept, script, draft, final and publication/handover approval stages.
+- M12-F13: Track Creator and Brand deadlines including samples and reviews.
+- M12-F14: Flag delayed dependencies; mutually approved rescheduling, no unfair penalties.
+- M12-F15: Content Studio linkage without exposing drafts.
+- M12-F16: Configurable reminders and responsible party.
+- M12-F17: Uploads, authorized links and selected Content Studio records.
+- M12-F18: Submission versions, notes, reviews and timestamps.
+- M12-F19: Approve, request revision or documented concern.
+- M12-F20: Feedback linked to agreed requirements where possible.
+- M12-F21: No default automatic approval; deemed acceptance only explicitly agreed and legally validated.
+- M12-F22: Phased image annotations/video timestamp comments.
+- M12-F23: Track contractual revisions, voluntary improvements and extra requests separately.
+- M12-F24: Flag potential out-of-scope revisions; amendment or dispute.
+- M12-F25: Either party can propose structured change with compensation/timeline impact.
+- M12-F26: AI scope comparison without binding determinations.
+- M12-F27: Manual publication URL/date/evidence.
+- M12-F28: UGC authorized handover and acceptance; posting only if agreed.
+- M12-F29: Agreed performance metrics, periods and provenance.
+- M12-F30: Authorized designated downloads subject to rights.
+- M12-F31: Structured ownership, channels, duration, territory, advertising and restrictions register.
+- M12-F32: Separate organic use, paid ads, account authorization and ownership transfer.
+- M12-F33: Track exclusivity scope, competitors, territory and expiry; conflict warnings.
+- M12-F34: Rights expiry reminders and renewal proposals.
+- M12-F35: Explicit separate AI-related content/likeness permissions.
+- M12-F36: Either party cancellation request with reasons and affected obligations.
+- M12-F37: Partial completion, applicable compensation and disputed amounts.
+- M12-F38: Internal dispute evidence, response, mutual resolution and escalation.
+- M12-F39: Track disputed obligations separately without freezing unrelated work.
+- M12-F40: Protect dispute evidence, access and retention.
+- M12-F41: Completion requires applicable approval, fulfilment and reporting.
+- M12-F42: Operational completion independent of financial settlement.
+- M12-F43: Genuine bilateral feedback with moderation/disputes.
+- M12-F44: Optional portfolio addition subject to consent, confidentiality and rights.
+- M12-F45: Granular participant permissions, reviewers and delegated Agency authority.
+- M12-F46: AI brief explanation, planning, draft review, communication and reminders.
+- M12-F47: No autonomous AI approval or commercial amendment acceptance.
+- M12-F48: Core Creator collaboration tools free initially.
+
+## M13 — Earnings and commercial management
+- M13-F01: Private external income alongside AURA collaborations.
+- M13-F02: Commercial management/reconciliation without holding or processing funds.
+- M13-F03: Separate agreed, due, outstanding, received and disputed amounts.
+- M13-F04: INR default, original currencies preserved, optional sourced conversions.
+- M13-F05: Monthly, quarterly, annual, financial-year and custom periods.
+- M13-F06: Advance, partial, milestone, deliverable, final, recurring and performance-linked payments.
+- M13-F07: Obligations from accepted terms/amendments with controlled adjustments.
+- M13-F08: Multiple receipts allocated against eligible obligations.
+- M13-F09: Due dates, outstanding balances and configurable overdue reminders.
+- M13-F10: Separate deductions, withholding, credits and authorized adjustments with provenance.
+- M13-F11: Both authorized parties record external payments with reporting-party labels.
+- M13-F12: Counterparty confirmation, self-reported versus mutually confirmed states.
+- M13-F13: Optional restricted redacted evidence and references.
+- M13-F14: Structured reconciliation, response, corrections and M12 disputes.
+- M13-F15: Controlled corrections/reversals and audit history; unsubmitted drafts editable.
+- M13-F16: Optional payment method/reference; no banking credentials.
+- M13-F17: Editable invoices from obligations and authorized billing details.
+- M13-F18: External invoice uploads linked to obligations.
+- M13-F19: Invoices for private external clients.
+- M13-F20: Configurable numbering, templates, Creator branding and billing information.
+- M13-F21: Validated configurable GST/TDS and other fields; no automatic tax liability determination.
+- M13-F22: Controlled issued invoice cancellation and credit-note workflows.
+- M13-F23: Private collaboration/general business expenses and categories.
+- M13-F24: Optional estimated and actual production time.
+- M13-F25: Profitability insights with agreed value, receipts, expenses and hourly contribution limitations.
+- M13-F26: Separate reimbursement agreement/submission/approval/outstanding/receipt states.
+- M13-F27: Private expense/profitability; designated reimbursable expenses only shared.
+- M13-F28: Separate non-cash barter register with optional declared value/status/evidence.
+- M13-F29: Manual or authorized affiliate commissions initially; future attribution integration.
+- M13-F30: Pending, confirmed, reversed, disputed and settled commission states.
+- M13-F31: Recurring ambassador obligations, milestones, renewals and amendments.
+- M13-F32: Private categorized freelance/platform income.
+- M13-F33: Editable monthly, quarterly and annual income targets.
+- M13-F34: Scheduled contractual receipts separate from uncertain forecasts.
+- M13-F35: AI pricing guidance from authorized history, effort, cost and terms.
+- M13-F36: Private evidence-based concentration and payment-risk insights.
+- M13-F37: Optional monthly commercial AI summaries.
+- M13-F38: No autonomous financial transactions or binding decisions; approved non-transactional updates only.
+- M13-F39: Configurable reminders and approved editable payment follow-up messages.
+- M13-F40: PDF summaries, CSV exports and authorized invoices.
+- M13-F41: Purpose-specific accountant exports; controlled future access.
+- M13-F42: Notifications identify responsible party, due date, dependency and action.
+- M13-F43: Future authorized payment providers after manual release.
+- M13-F44: Future protected settlement/escrow evaluation through authorized providers.
+- M13-F45: Future cross-border settlement subject to validation.
+- M13-F46: Future transparent transaction model M27; no payment-processing commission in manual release.
+- M13-F47: Core ledger, tracking and basic invoices free; advanced intelligence potentially premium.
+- M13-F48: Future financial products through authorized partners only after demand and regulatory validation.
+
+## M14 — Brand onboarding
+- M14-F01: Individual owners, startups, small businesses, D2C, established and eligible international businesses.
+- M14-F02: Businesses starting with zero social presence can join.
+- M14-F03: Short mandatory onboarding then progressive completion.
+- M14-F04: Multiple separate Brand workspaces per identity with independent permissions/data/verification.
+- M14-F05: Personalize by business stage, experience and resources.
+- M14-F06: Creator marketing, owned social growth or both.
+- M14-F07: Editable primary objective without restricting eligible features.
+- M14-F08: Measurable awareness, social growth, content, engagement and supported conversion goals.
+- M14-F09: Structured maturity assessment without arbitrary score.
+- M14-F10: Separate legal entity, trading name and public professional identity.
+- M14-F11: Reusable product/service catalogue, approved claims, images, customers and campaign links.
+- M14-F12: Permitted website retrieval and AI extraction with confirmation.
+- M14-F13: Optional logos, guidelines and assets with controlled access.
+- M14-F14: AI proposes colours, tone, positioning and characteristics for confirmation.
+- M14-F15: Multiple customer segments for products, markets and campaigns.
+- M14-F16: AI personas distinguish confirmed facts from hypotheses.
+- M14-F17: Lawful structured geography, language, interests and buying considerations.
+- M14-F18: Save competitor references; advanced monitoring future permitted-data feature.
+- M14-F19: Optional indicative budget/range; required for applicable commercial campaigns.
+- M14-F20: Optional creator and owned-content budget allocations, no commitments.
+- M14-F21: Optional team, equipment, production and Agency information.
+- M14-F22: Beginner guidance, pilot campaign suggestions and learning resources.
+- M14-F23: Reuse M05 infrastructure with independent Brand accounts/analytics/permissions.
+- M14-F24: Maximum 10 social accounts initially per Brand workspace.
+- M14-F25: Manual and screenshot-assisted confirmed source-labelled observations.
+- M14-F26: Brand tone, visual identity, claims, exclusions and preferences.
+- M14-F27: Optional Creator niche, formats, languages, platforms, geography and experience preferences.
+- M14-F28: Explain suitable Creator segments and UGC capabilities.
+- M14-F29: Brand preferences editable defaults, not mandatory campaign rules.
+- M14-F30: Configurable industry/competitor conflicts with transparent campaign restrictions.
+- M14-F31: Unverified Brand private planning, AI, analytics and campaign drafts; commercial actions restricted.
+- M14-F32: Risk-based evidence for individuals, proprietors, companies and international businesses.
+- M14-F33: Domain or website verification only supporting evidence.
+- M14-F34: All formal public/restricted/invitation-only campaign publication and invitations require approved business verification.
+- M14-F35: Unverified Brands cannot send preliminary commercial enquiries; public browsing and private preparation allowed.
+- M14-F36: Revalidate material legal identity or ownership changes.
+- M14-F37: Structured rejection, resubmission, review history and applicable appeal.
+- M14-F38: Optional team invitations with RBAC.
+- M14-F39: MFA mandatory for owners, administrators and designated privileged commercial roles.
+- M14-F40: Optional Agency relationship; actual access explicit M23 delegation.
+- M14-F41: Persistent editable authorized Brand intelligence profile.
+- M14-F42: Structured onboarding plus optional AI conversation and confirmed updates.
+- M14-F43: Personalized plan, setup checklist, relevant Creator recommendations and learning resources.
+- M14-F44: Editable 7-, 30-, 90-day growth plans.
+- M14-F45: Save incomplete onboarding; permit available tools and gate affected features.
+- M14-F46: Private Brand profile until explicit eligible publication.
+- M14-F47: Creators see published data and designated campaign disclosures only.
+- M14-F48: No shared model training by default; separate explicit authorization for future use.
+- M14-F49: Free registration/basic onboarding; subscriptions/advanced tools M27.
+- M14-F50: Configurable update reminders, editable information and authorized refresh.

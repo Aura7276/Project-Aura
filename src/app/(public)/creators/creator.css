@@ -1,0 +1,157 @@
+.creator-page {
+  color: var(--color-midnight);
+}
+.creator-page h2 {
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  line-height: 1.06;
+}
+.creator-page h3 {
+  margin: 0.6rem 0;
+}
+.creator-page p + p {
+  margin-top: 1rem;
+}
+.creator-hero,
+.spread {
+  display: grid;
+  gap: 2rem;
+  align-items: center;
+}
+.creator-page .overline {
+  font-size: 0.875rem;
+  font-weight: 650;
+  color: var(--color-primary);
+  letter-spacing: 0.06em;
+}
+.public-main .creator-hero h1 {
+  font-size: clamp(3.25rem, 7vw, 6.8rem);
+  line-height: 1.02;
+  margin: 1rem 0;
+}
+.creator-hero em {
+  color: var(--color-primary);
+  font-style: normal;
+}
+.creator-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+.creator-actions > a:last-child {
+  text-decoration: underline;
+  padding: 0.7rem 0;
+}
+.creator-page [data-slot="button"] {
+  min-height: 44px;
+}
+.spread,
+.feature-lines {
+  padding-block: clamp(2.5rem, 5vw, 4.5rem);
+  border-top: 1px solid var(--color-border);
+}
+.creator-hero {
+  margin-bottom: 3rem;
+}
+.studio-sample,
+.stages,
+.creator-close,
+.kit {
+  padding: clamp(1.3rem, 4vw, 3.5rem);
+  background: var(--color-sage);
+  border-radius: 1rem;
+  scroll-margin: 6rem;
+}
+.studio-sample [role="tabpanel"],
+.kit aside {
+  background: white;
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+}
+.studio-sample [role="tabpanel"] {
+  min-height: 13rem;
+}
+.studio-sample h2,
+.kit h2 {
+  margin-top: 0.6rem;
+}
+.feature-lines > div {
+  display: grid;
+  gap: 1rem;
+  padding: 1.2rem 0;
+  border-bottom: 1px solid var(--color-border);
+}
+.feature-lines h2 {
+  font-size: 1.65rem;
+  margin: 0;
+}
+.kit {
+  background: var(--color-midnight);
+  color: white;
+}
+.kit .overline {
+  color: var(--color-peach);
+}
+.kit aside {
+  color: var(--color-midnight);
+}
+.initials {
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--color-sage);
+  width: 3rem;
+  height: 3rem;
+  margin-top: 1rem;
+}
+.kit dt {
+  font-weight: 650;
+  margin-top: 0.4rem;
+}
+.stages ul {
+  display: grid;
+  gap: 0.75rem;
+  margin: 1.2rem 0;
+}
+.creator-page ol {
+  list-style: decimal;
+  padding-left: 1.4rem;
+}
+.creator-page li {
+  padding: 0.35rem 0;
+}
+.creator-faq details {
+  border-bottom: 1px solid var(--color-border);
+}
+.creator-faq summary {
+  padding: 1rem 0;
+  font-weight: 600;
+  cursor: pointer;
+}
+.creator-faq details p {
+  padding-bottom: 1rem;
+}
+.creator-close {
+  background: var(--color-peach);
+}
+.registration {
+  display: inline-block;
+  background: var(--color-ivory);
+  color: var(--color-midnight);
+  padding: 0.65rem 1rem;
+  border-radius: 0.6rem;
+}
+@media (min-width: 48rem) {
+  .creator-hero,
+  .spread {
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+  }
+  .feature-lines > div {
+    grid-template-columns: 1fr 1.5fr;
+  }
+  .stages ul {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

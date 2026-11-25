@@ -1,0 +1,7 @@
+# Creative Premium
+
+Foundation tokens live in src/app/globals.css. Inspect the palette and type specimens at /dev/design-system in development. Ivory surfaces, midnight type specimens, peach display text and restrained card borders follow the handover. Inter is the interface face and Plus Jakarta Sans is the heading face. Both ship locally via Fontsource. The palette displays all eight original values. The actionable primary and small secondary text use darker tonal variants for contrast.
+
+An 8px layout rhythm uses Tailwind 4px units for half-steps. Inputs use 10px radius, cards 18px and light elevation. Responsive layout uses mobile defaults, a 48rem split and an 80rem wide breakpoint. Future Creator screens use single-column touch flows. Brand and Agency screens can use wider working layouts with responsive alternatives. Semantic success, warning, information and destructive colours are separate tokens. Pair colour with text or icons.
+
+shadcn/ui new-york-v4 registry primitives are maintained locally in src/components/ui, with import aliases adapted to this repository. Native select preserves platform keyboard behavior. Radix supplies focus management, dialog dismissal, menu and tab navigation and toast announcements. Form fields associate errors with aria-describedby. Visible focus uses a contrasting ring and offset. Motion uses 200ms transitions and honors reduced motion. Test at 360, 768 and 1440px, with keyboard and real assistive technology before accepting each business screen.

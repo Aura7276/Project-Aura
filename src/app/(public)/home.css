@@ -1,0 +1,192 @@
+.public-main:has(.aura-home) {
+  padding-block: 0;
+}
+.aura-home h2 {
+  font-size: clamp(2rem, 4vw, 3.8rem);
+  line-height: 1.05;
+}
+.aura-home p {
+  max-width: 62ch;
+}
+.home-hero {
+  display: grid;
+  background: var(--color-midnight);
+  color: var(--color-ivory);
+  margin-top: 1.2rem;
+  overflow: hidden;
+  border-radius: 1rem;
+}
+.hero-copy {
+  padding: clamp(1.5rem, 4vw, 4rem);
+  align-self: center;
+}
+.kicker {
+  font-size: 0.875rem;
+  font-weight: 650;
+  letter-spacing: 0.055em;
+}
+.hero-copy .kicker {
+  color: var(--color-sage);
+}
+.public-main .home-hero h1 {
+  font-size: clamp(3rem, 6.4vw, 6.25rem);
+  line-height: 0.98;
+  letter-spacing: -0.065em;
+  margin: 1.25rem 0;
+}
+.home-hero h1 em {
+  color: var(--color-peach);
+  font-style: normal;
+}
+.home-hero figure {
+  min-height: 0;
+}
+.home-hero img {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1.4;
+  object-fit: cover;
+  object-position: center 38%;
+}
+.home-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 1.5rem;
+}
+.home-actions a {
+  background: var(--color-peach);
+  color: var(--color-midnight);
+  border-radius: 2rem;
+  min-height: 44px;
+}
+.home-actions a + a {
+  color: var(--color-ivory);
+  background: var(--color-midnight);
+  border: 1px solid #aaa5bd;
+}
+.position,
+.audiences,
+.questions,
+.workbench {
+  display: grid;
+  align-items: start;
+  gap: 1.5rem;
+  padding-block: clamp(2.5rem, 5vw, 4.5rem);
+}
+.position h2,
+.audiences h2,
+.questions h2 {
+  margin: 0;
+}
+.position p {
+  font-size: 1.15rem;
+}
+.workbench,
+.closing {
+  background: var(--color-sage);
+  padding: clamp(1.5rem, 4vw, 3rem);
+  border-radius: 1rem;
+}
+.workbench [role="tabpanel"] {
+  background: white;
+  border-radius: 1rem;
+  padding: 1.5rem;
+}
+.workbench h3 {
+  font-size: 1.65rem;
+  margin: 0.5rem 0 1rem;
+}
+.note {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  border-top: 1px solid var(--color-border);
+  padding: 0.7rem 0;
+}
+.journeys {
+  display: grid;
+  gap: 2rem;
+  padding: 3rem 0;
+}
+.journeys section {
+  scroll-margin: 6rem;
+  border-top: 4px solid var(--color-violet);
+  padding-top: 1.2rem;
+}
+.journeys section + section {
+  border-color: var(--color-peach);
+}
+.journeys h2,
+.opportunities h2,
+.workbench h2 {
+  margin: 0.65rem 0 1rem;
+}
+.journeys p + p,
+.audiences p + h3 {
+  margin-top: 1rem;
+}
+.journeys h3 {
+  margin: 1.25rem 0 0.65rem;
+}
+.journeys ol {
+  list-style: decimal;
+  padding-left: 1.6rem;
+}
+.journeys li {
+  padding: 0.3rem;
+}
+.opportunities {
+  background: var(--color-midnight);
+  color: white;
+  padding: clamp(1.5rem, 4vw, 3.5rem);
+  border-radius: 1rem;
+}
+.opportunities .kicker {
+  color: var(--color-peach);
+}
+.empty-line {
+  margin-top: 1rem;
+  border-top: 1px solid #817c8c;
+  padding-top: 1rem;
+}
+.questions {
+  border-top: 1px solid var(--color-border);
+}
+.questions details {
+  border-bottom: 1px solid var(--color-border);
+}
+.questions summary {
+  cursor: pointer;
+  font-weight: 600;
+  padding: 1rem 0;
+}
+.questions details p {
+  padding-bottom: 1rem;
+}
+.closing {
+  background: var(--color-peach);
+  margin-bottom: 2rem;
+}
+.closing .home-actions a:first-child {
+  background: white;
+}
+@media (min-width: 48rem) {
+  .home-hero {
+    grid-template-columns: 1.08fr 1fr;
+  }
+  .home-hero img {
+    aspect-ratio: auto;
+    max-height: 570px;
+  }
+  .journeys,
+  .workbench,
+  .position,
+  .audiences,
+  .questions {
+    grid-template-columns: 1fr 1fr;
+  }
+  .journeys {
+    gap: clamp(2rem, 6vw, 5rem);
+  }
+}

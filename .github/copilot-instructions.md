@@ -1,0 +1,1 @@
+Read the repository-root AGENTS.md before changes. It is the canonical instruction file. Use docs/development/AGENT_HANDOVER.md for current status, approved scope, commands and links to the authoritative requirements.

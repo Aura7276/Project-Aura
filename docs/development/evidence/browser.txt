@@ -1,0 +1,23 @@
+$ playwright test
+[WebServer] (node:2316) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] $ next start --hostname 127.0.0.1 "--port" "3102"
+[WebServer] (node:21664) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 8 tests using 2 workers
+
+(node:5196) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:47580) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 1 [production] › tests\browser\production.spec.ts:2:1 › production denies the preview (77ms)
+  ok 2 [production] › tests\browser\production.spec.ts:7:1 › serves foundation with a fresh nonce and defensive headers (609ms)
+  ok 3 [chromium] › tests\browser\preview.spec.ts:10:3 › accessible layout at 360 (2.6s)
+  ok 4 [chromium] › tests\browser\preview.spec.ts:10:3 › accessible layout at 768 (1.4s)
+  ok 5 [chromium] › tests\browser\preview.spec.ts:10:3 › accessible layout at 1440 (2.0s)
+  ok 6 [chromium] › tests\browser\preview.spec.ts:24:1 › validate and apply a specimen (1.3s)
+  ok 7 [chromium] › tests\browser\preview.spec.ts:37:1 › dialog restores keyboard focus (1.0s)
+  ok 8 [chromium] › tests\browser\preview.spec.ts:45:1 › menu, options and feedback states (1.3s)
+
+  8 passed (17.1s)

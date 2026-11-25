@@ -1,0 +1,74 @@
+[
+  {
+    "route": "home",
+    "run": 1,
+    "score": 94,
+    "lcp_ms": 2947,
+    "tbt_ms": 94,
+    "cls": 0.001588190596510247
+  },
+  {
+    "route": "creators",
+    "run": 1,
+    "score": 100,
+    "lcp_ms": 919,
+    "tbt_ms": 74,
+    "cls": 0.01893117315950071
+  },
+  {
+    "route": "brands",
+    "run": 1,
+    "score": 100,
+    "lcp_ms": 915,
+    "tbt_ms": 46,
+    "cls": 0.002203198446017694
+  },
+  {
+    "route": "home",
+    "run": 2,
+    "score": 94,
+    "lcp_ms": 3122,
+    "tbt_ms": 48,
+    "cls": 0.001588190596510247
+  },
+  {
+    "route": "creators",
+    "run": 2,
+    "score": 100,
+    "lcp_ms": 910,
+    "tbt_ms": 43,
+    "cls": 0.01893117315950071
+  },
+  {
+    "route": "brands",
+    "run": 2,
+    "score": 100,
+    "lcp_ms": 913,
+    "tbt_ms": 41,
+    "cls": 0.002203198446017694
+  },
+  {
+    "route": "home",
+    "run": 3,
+    "score": 94,
+    "lcp_ms": 3134,
+    "tbt_ms": 58,
+    "cls": 0.001588190596510247
+  },
+  {
+    "route": "creators",
+    "run": 3,
+    "score": 100,
+    "lcp_ms": 913,
+    "tbt_ms": 45,
+    "cls": 0.01893117315950071
+  },
+  {
+    "route": "brands",
+    "run": 3,
+    "score": 98,
+    "lcp_ms": 913,
+    "tbt_ms": 150,
+    "cls": 0.002203198446017694
+  }
+]

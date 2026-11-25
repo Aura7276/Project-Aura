@@ -1,0 +1,20 @@
+pnpm install --frozen-lockfile
+Already up to date
+Done in 599ms using pnpm v11.25.0
+Exit 0
+pnpm format
+$ prettier --check .
+Checking formatting...
+All matched files use Prettier code style!
+Exit 0
+pnpm lint
+$ eslint .
+Exit 0
+pnpm typecheck
+$ next typegen && tsc --noEmit
+Generating route types...
+✓ Types generated successfully
+Exit 0
+pnpm audit
+No known vulnerabilities found
+Exit 0

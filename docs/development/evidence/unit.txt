@@ -1,0 +1,10 @@
+$ vitest run
+
+ RUN  v4.1.12 D:/Projct/Aura/Project_AURA_Development_Handover_v0.14
+
+
+ Test Files  1 passed (1)
+      Tests  10 passed (10)
+   Start at  13:18:38
+   Duration  1.60s (transform 105ms, setup 0ms, import 1.14s, tests 24ms, environment 0ms)
+

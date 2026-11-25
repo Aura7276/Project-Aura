@@ -1,0 +1,36 @@
+.visual-slot {
+  aspect-ratio: 4/3;
+  background: var(--color-peach);
+  border-radius: 1rem;
+  display: grid;
+  place-items: center;
+  position: relative;
+  overflow: hidden;
+}
+.viewfinder {
+  position: relative;
+  color: var(--color-midnight);
+  width: 42%;
+  aspect-ratio: 1;
+}
+.viewfinder svg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  stroke-width: 0.55;
+}
+.viewfinder svg + svg {
+  inset: 19%;
+  width: 62%;
+  height: 62%;
+  stroke-width: 0.85;
+}
+.visual-slot figcaption {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+}

@@ -1,0 +1,13 @@
+# Homepage editorial assets
+
+public/images/home/studio.webp is an original AI-generated editorial illustration produced for AURA with the OpenAI image generation tool. The scene depicts fictional creative professionals filming pottery in a studio inspired by Mumbai. No third-party reference photo, model testimonial or actual customer likeness was supplied. Production source exec-d59386e3-9ce2-4113-9864-560ce210abd4.png was resized to 1100 × 1375 and encoded locally as WebP (206278 bytes). Use in the prototype as commissioned generated artwork; owner to review image suitability before launch. Lucide icons and locally packaged fonts retain the Phase 00 dependency licences.
+
+## Central visual asset register
+
+| ID                 | Page and section                 | Intended visual                                    | Dimensions / ratio          | Placeholder or asset reference        | Replacement status                     |
+| ------------------ | -------------------------------- | -------------------------------------------------- | --------------------------- | ------------------------------------- | -------------------------------------- |
+| creator-hero       | /creators hero                   | Creator at work in their studio                    | 800 × 600 target, fluid 4:3 | VisualSlot, data-asset=creator-hero   | Deferred to visual refinement          |
+| creator-kit-avatar | /creators illustrative media kit | Neutral example identity                           | 48 × 48, 1:1                | CSS initials C                        | Neutral default                        |
+| home-studio        | Homepage hero                    | Creator filming ceramicist                         | 1100 × 1375, 4:5 source     | public/images/home/studio.webp        | Existing approved asset retained       |
+| home-studio-mobile | Homepage mobile hero             | Same studio scene, mobile crop                     | 750 × 536, about 1.4:1      | public/images/home/studio-mobile.avif | Optimized derivative of existing asset |
+| brand-hero         | /brands hero                     | Business marketing team preparing a product launch | 800 × 600 target, fluid 4:3 | VisualSlot, data-asset=brand-hero     | Deferred to visual refinement          |

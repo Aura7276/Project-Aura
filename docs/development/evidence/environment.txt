@@ -1,0 +1,10 @@
+$ node --env-file-if-exists=.env.local scripts/check-env.mjs
+.env.local not found. Continuing without it.
+Missing or invalid provider configuration: NEXT_PUBLIC_SUPABASE_URL, NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY
+[ELIFECYCLE] Command failed with exit code 1.
+Exit 1
+$ node --env-file-if-exists=.env.local scripts/check-env.mjs --connect
+.env.local not found. Continuing without it.
+Missing or invalid provider configuration: NEXT_PUBLIC_SUPABASE_URL, NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY
+[ELIFECYCLE] Command failed with exit code 1.
+Exit 1
