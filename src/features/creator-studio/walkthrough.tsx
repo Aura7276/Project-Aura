@@ -1,6 +1,6 @@
 "use client";
 import { Suspense, useCallback, useEffect, useRef, useState } from "react";
-import { useSearchParams } from "next/navigation";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
 export type TourStep = {
   title: string;
@@ -75,11 +75,16 @@ function Tour({
   save?: (s: string) => Promise<unknown>;
 }) {
   const params = useSearchParams();
+  const router = useRouter();
+  const pathname = usePathname();
+  // "Open" is derived from the URL, not seeded once: this component lives in the persistent layout, so a client-side
+  // navigation to ?tour=1 (settings replay, the drawer link) must open it even though the component never remounts.
   const fromLink = params.get("tour") === "1";
-  const [open, setOpen] = useState(fromLink);
-  const [dismissed, setDismissed] = useState(status !== "not_seen" || fromLink);
+  const [manual, setManual] = useState(false);
+  const [offerGone, setOfferGone] = useState(false);
   const [i, setI] = useState(0);
   const next = useRef<HTMLButtonElement>(null);
+  const open = manual || fromLink;
   const clear = () =>
     document
       .querySelectorAll("[data-tour-active]")
@@ -103,11 +108,20 @@ function Tour({
   const finish = useCallback(
     async (s: "completed" | "dismissed") => {
       clear();
-      setOpen(false);
-      setDismissed(true);
+      setManual(false);
+      setOfferGone(true);
+      setI(0);
+      if (fromLink) {
+        // remove only ?tour=1 (keeping other parameters) so the tour can be replayed later
+        const rest = new URLSearchParams(params.toString());
+        rest.delete("tour");
+        router.replace(rest.size ? `${pathname}?${rest}` : pathname, {
+          scroll: false,
+        });
+      }
       if (live && save) await save(s);
     },
-    [live, save],
+    [live, save, fromLink, router, pathname, params],
   );
   useEffect(() => {
     if (!open) return;
@@ -118,9 +132,10 @@ function Tour({
     return () => removeEventListener("keydown", k);
   }, [open, finish]);
   const step = tourSteps[i];
+  const showOffer = !open && !offerGone && status === "not_seen";
   return (
     <>
-      {!dismissed && !open && (
+      {showOffer && (
         <div
           className="st-notice"
           role="region"
@@ -140,7 +155,7 @@ function Tour({
               type="button"
               className="st-btn primary"
               onClick={() => {
-                setOpen(true);
+                setManual(true);
                 setI(0);
               }}
             >
@@ -216,6 +231,7 @@ function Tour({
     </>
   );
 }
+
 export function Walkthrough(props: {
   status: string;
   live: boolean;

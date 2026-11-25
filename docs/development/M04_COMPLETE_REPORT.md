@@ -8,7 +8,7 @@ M04 is implemented and verified at the database, unit and component level. The a
 
 ## 2. Baseline and defects carried forward
 
-- **M02 migration defect (unchanged, still open):** `20261125000100_m02_identity.sql` ends a function with `end $;` and cannot be applied. Tests apply a patched copy. M02's branch needs the one-character fix.
+- **M02 migration defect: fixed** on this branch (commit `b1f6d9e`): `20261125000100_m02_identity.sql` ended a function with `end $;`. All four migrations now apply cleanly in order. M02's own branch still has the defect until this is merged or cherry-picked.
 - Files outside M04 touched: M03 `integration.ts` (`m04DashboardEntry` is now `/creator/dashboard`), M03 completion page (links to Creator Studio) and M03 `service.ts` (`creatorContext` also returns the workspace name). No migration or table of M02 or M03 was altered.
 - Toolchain: Node 22.23.5 here; the repository pins Node 24.
 - Concurrent development: only `main`, the M01, M02 branches exist remotely. No other agent was active. No migration conflicts (`20261127000100`).
@@ -117,6 +117,14 @@ See M04_ACCEPTANCE.md.
 
 Branch `feature/m04-creator-dashboard`, local commit only. No push, no merge, no PR.
 
-## 24. M05 readiness
+## 24. Update: real-route verification on the local test stack
+
+The first version of this report could only test a development preview. A **local test stack** (`scripts/stack`, `pnpm stack`, `pnpm test:stack`) now lets the **real** layouts, pages, server actions and RPC calls run against the real M02, M03 and M04 migrations in PostgreSQL. It is a stand-in for Supabase Auth and the RPC endpoint. **It is not Supabase**: no sign-up, passwords, email, OAuth, MFA, Storage or PostgREST. **11 tests passed** on the real routes: anonymous redirect; Brand owner kept out; incomplete onboarding redirected to M03; save and exit and resume; M03 onboarding with no social account through activation to an honest dashboard (name and country reused from the identity); daily actions persisting across reloads with the M03 plan link; quick create, a recorded zero, a chart only after the second observation, search, and a second tenant seeing no results; preferences, walkthrough dismissal and replay; notifications without an unread badge; M02 logout; one-click test sign-in.
+
+Defects this found and fixed: the walkthrough replay link (`?tour=1`) never opened the tour on client-side navigation, because the component lives in the persistent layout and seeded its state once. Several earlier failures were my tests racing the server (now waiting on real responses). The M02 migration syntax error is fixed.
+
+Still **not** verified: real Supabase Auth, PostgREST, registration and email flows (M02), sign-in with passwords, MFA, Storage.
+
+## 25. M05 readiness
 
 M05 can extend `aura_creator.social_account`, widen `goal_observation.source` and `social_account.verification`, and reuse `evaluateEligibility`. The Grow area already links to the self-reported accounts form and reserves the analytics and verification slots. M05 was not started.

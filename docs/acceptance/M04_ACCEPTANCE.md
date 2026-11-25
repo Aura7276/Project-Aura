@@ -22,11 +22,11 @@ Legend: **DB** = real PostgreSQL 16 with the actual M02 (patched copy), M03 and 
 
 ## Not executed
 
-Live Supabase connectivity, Auth sessions through the real client, RPC invocation through PostgREST, an authenticated browser session on the real routes (the layout, server actions, settings page, search page and notifications page were compiled and type-checked but never rendered with a real session), email or SMS, and any provider AI.
+Live Supabase connectivity, Auth sessions through the real client, RPC invocation through PostgREST, email or SMS, and any provider AI. **Update:** the real layout, pages and server actions have now been driven in a browser (11 tests) against a local stand-in for Supabase Auth and the RPC endpoint (`pnpm test:stack`). That is **not** Supabase.
 
 ## Manual acceptance checklist
 
-1. Fix M02's migration (`end $;`), then apply the M02, M03 and M04 migrations to a disposable Supabase project.
+1. Apply the M02, M03 and M04 migrations to a disposable Supabase project (the M02 syntax error is fixed on this branch). Or use the local test stack in `docs/development/TESTING_GUIDE.md`.
 2. Sign in as a Creator with onboarding **incomplete**. Confirm `/creator/dashboard` sends you to `/onboarding/creator`.
 3. Complete onboarding with no social account. Open Creator Studio. Confirm no audience figures appear and 3 to 5 actions are shown.
 4. Reload several times. Confirm the same actions remain. Mark one done, one skipped, one later. Confirm timestamps and the plan action in M03.

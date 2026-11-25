@@ -10,7 +10,7 @@ M03 is implemented and verified at the database and component level. The onboard
 
 M02 was missing when work began (only `main` and the M01 branch were published). The owner then published `feature/m02-authentication`. M03 is based on it.
 
-- **M02 defect:** `supabase/migrations/20261125000100_m02_identity.sql` ends `aura_attribute_referral` with `end $;` instead of `end $$;`. PostgreSQL rejects the file, so M02 **cannot be applied as committed**. I did not edit M02. Tests apply a patched copy. M02's branch needs a one-character fix.
+- **M02 defect (fixed on the M04 branch, commit `b1f6d9e`):** `supabase/migrations/20261125000100_m02_identity.sql` ends `aura_attribute_referral` with `end $;` instead of `end $$;`. PostgreSQL rejects the file, so M02 **cannot be applied as committed**. I did not edit M02. Tests apply a patched copy. M02's branch needs a one-character fix.
 - M03 touches one M02 file: `src/app/(identity)/workspaces/[id]/page.tsx` gains a link to `/onboarding/creator` (7 lines).
 - Toolchain: this environment has Node 22.23.5. The repo pins Node 24. Everything was run on 22.
 
