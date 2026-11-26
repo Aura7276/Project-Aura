@@ -13,9 +13,10 @@ export async function seedUser(
   email: string,
   name = "Asha Rao",
   kind: "creator" | "brand" = "creator",
+  opts: { mfa?: boolean; admin?: boolean } = {},
 ): Promise<Seed> {
   const r = await request.post(`${stack}/__test/user`, {
-    data: { email, name, country: "IN", kind },
+    data: { email, name, country: "IN", kind, ...opts },
   });
   return (await r.json()) as Seed;
 }

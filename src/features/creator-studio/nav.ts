@@ -113,11 +113,12 @@ export const areas: NavArea[] = [
         "/creator/recommendations",
         "M04",
       ),
-      planned(
+      ok(
         "marketplace",
         "Campaign marketplace",
+        "/creator/marketplace",
         "M10",
-        "Published campaigns will appear here.",
+        "Campaigns from verified Brands, with eligibility explained.",
       ),
       planned(
         "applications",

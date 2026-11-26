@@ -26,6 +26,7 @@ export const reservedUsernames = [
   "kit",
   "login",
   "logout",
+  "marketplace",
   "me",
   "media-kit",
   "new",

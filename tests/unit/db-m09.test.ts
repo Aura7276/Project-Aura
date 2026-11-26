@@ -163,6 +163,8 @@ describe.skipIf(!enabled)(
         ),
       ).toBe("0");
     });
+    // Words reserved by later migrations (M10 adds "marketplace"); db-m10 checks the complete list against every Studio route.
+    const laterModuleWords = ["marketplace"];
     it("reserved usernames in the database match the TypeScript list (Studio routes stay unclaimable)", async () => {
       const { reservedUsernames } =
         await import("@/features/creator-profile/rules");
@@ -170,13 +172,18 @@ describe.skipIf(!enabled)(
         sql(
           "select string_agg(word, ',' order by word) from aura_profile.reserved_username",
         ).split(","),
-      ).toEqual([...reservedUsernames].sort());
+      ).toEqual(
+        [...reservedUsernames]
+          .filter((w) => !laterModuleWords.includes(w))
+          .sort(),
+      );
       const { readdirSync } = await import("node:fs");
       const studio = readdirSync("src/app/(studio)/creator", {
         withFileTypes: true,
       })
         .filter((d) => d.isDirectory())
-        .map((d) => d.name);
+        .map((d) => d.name)
+        .filter((d) => !laterModuleWords.includes(d));
       for (const seg of studio)
         expect(
           reservedUsernames as readonly string[],

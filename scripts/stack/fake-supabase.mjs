@@ -33,6 +33,7 @@ export function setupDatabase() {
     "supabase/migrations/20261128000100_m05_social_accounts.sql",
     "supabase/migrations/20261129000100_m06_creator_analytics.sql",
     "supabase/migrations/20261201000100_m09_creator_profile.sql",
+    "supabase/migrations/20261202000100_m10_campaign_marketplace.sql",
   ])
     admin(["-d", DB, "-f", f]);
 }
@@ -158,6 +159,8 @@ async function seedUser({
   name = "Test Creator",
   country = "IN",
   kind = "creator",
+  mfa = false,
+  admin = false,
 }) {
   const uid = randomUUID(),
     sid = randomUUID();
@@ -184,15 +187,33 @@ async function seedUser({
     );
   }
   if (r.code !== 0) throw new Error("seed failed: " + r.err);
-  return session(uid, sid, email, { name, country }, wid);
+  // TEST-ONLY: a verified authenticator on this session (aal2), and optionally a Platform Admin who is a granted reviewer.
+  if (mfa || admin) {
+    const fid = randomUUID();
+    await psql(
+      `insert into auth.mfa_factors(id,user_id,status) values(${q(fid)}::uuid,${q(uid)}::uuid,'verified');\nupdate auth.sessions set factor_id=${q(fid)}::uuid where id=${q(sid)}::uuid;\n`,
+    );
+  }
+  if (admin)
+    await psql(
+      `insert into aura_identity.platform_admin(user_id) values(${q(uid)}::uuid);\ninsert into aura_social.reviewer(user_id) values(${q(uid)}::uuid);\n`,
+    );
+  return session(
+    uid,
+    sid,
+    email,
+    { name, country },
+    wid,
+    mfa || admin ? "aal2" : "aal1",
+  );
 }
-function mint(uid, sid, email, user_metadata) {
+function mint(uid, sid, email, user_metadata, aal = "aal1") {
   const exp = Math.floor(Date.now() / 1000) + 3600;
   const access_token = sign({
     sub: uid,
     session_id: sid,
     role: "authenticated",
-    aal: "aal1",
+    aal,
     amr: [],
     aud: "authenticated",
     email,
@@ -218,13 +239,13 @@ function mint(uid, sid, email, user_metadata) {
     user,
   };
 }
-function session(uid, sid, email, user_metadata, workspace_id) {
+function session(uid, sid, email, user_metadata, workspace_id, aal = "aal1") {
   return {
     user_id: uid,
     session_id: sid,
     workspace_id,
     cookie_name: "sb-127-auth-token",
-    cookie_value: "base64-" + b64(mint(uid, sid, email, user_metadata)),
+    cookie_value: "base64-" + b64(mint(uid, sid, email, user_metadata, aal)),
   };
 }
 const readBody = (req) =>

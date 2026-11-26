@@ -496,6 +496,9 @@ begin
  return jsonb_build_object('report', r.id, 'status', r.status);
 end $$;
 
+-- The new Studio route /creator/marketplace must never be claimable as a username (M09 rule: every Studio segment is reserved).
+insert into aura_profile.reserved_username(word) values ('marketplace') on conflict do nothing;
+
 -- M01 public campaign previews (slug, title, summary): public, published, open campaigns of verified Brands only. Recomputed on every read.
 create view public.m01_public_campaign_previews as
  select c.slug, v.content->>'title' as title, v.content->>'summary' as summary
