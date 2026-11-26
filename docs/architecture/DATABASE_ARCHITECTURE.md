@@ -50,3 +50,11 @@ Private schema; RLS on with no policies and no grants. Campaign terms are versio
 ## M11 `aura_apply`
 
 Private schema; RLS on with no policies and no grants; 16 tables reached only through `aura_apply_*` functions (authenticated only, none for anon). Applications and proposals are versioned; capacity and duplicate checks use advisory locks. See `APPLICATIONS_ARCHITECTURE.md`.
+
+## M14 `aura_brand`
+
+Private schema; RLS on with no policies and no grants; 15 tables reached only through `aura_brand_*` functions. Only `aura_brand_public` is executable by anon. Verification writes the existing `aura_identity.workspace.verification` field and the M10 decision history. Migration `20261205000100`. See `BRAND_ONBOARDING_ARCHITECTURE.md`.
+
+## Merge of M07 and M08
+
+Jai's M07 (`20261130000100_m07_growth_studio.sql`) and M08 migrations are included. The M08 migration was renamed to `20261130000200_m08_content_studio.sql` because it shared the version `20261201000100` with M09. `20261204000100_reserve_m07_m08_routes.sql` reserves `ai` and `content` as usernames.

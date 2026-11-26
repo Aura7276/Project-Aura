@@ -38,3 +38,7 @@ Publication and invitations require approved verification at every visibility. R
 ## M11 security
 
 Brands see only what a Creator shared for that application. Creators are addressed by published username, never by workspace id. Invitations, enquiries and Brand proposals need approved verification; Creators can block Brands and report invitations, enquiries and messages to an MFA reviewer. Daily rate limits and idempotent forms stop duplicates and flooding. Agencies are denied until delegation is approved.
+
+## M14 security
+
+Business verification is per workspace and needs a reviewer with MFA who is not a member of the workspace; appeals need a different reviewer; every decision has a reason. Identity documents are never stored in full (last 4 characters only). Legal identity, representatives, budgets, audiences and plans are private; the public profile is an allowlisted projection of a verified, published Brand. A legal identity change pauses outreach until revalidated. Brand writes need an owner or admin with MFA; an agency name grants no access.

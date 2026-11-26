@@ -38,3 +38,7 @@ No images. Category colours use the approved palette; screenshots in `docs/devel
 ## M11
 
 No images. Screenshots in `docs/development/evidence/m11/` show real pages with sample text typed by the test.
+
+## M14
+
+No images. The public Brand hero is a CSS gradient; Brand colours are hex values the Brand enters. Screenshots in `docs/development/evidence/m14/` show real pages with sample text typed by the test (business names and numbers are illustrative).

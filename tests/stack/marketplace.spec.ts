@@ -359,13 +359,7 @@ test.describe("M10 visual evidence (screenshots of real pages with sample data t
       money: ["8000", "12000"],
       minFollowers: "1000",
     });
-    await rp.goto("/admin/marketplace");
-    const row = rp.locator("li", {
-      has: rp.locator(`input[name="id"][value="${brand.workspace_id}"]`),
-    });
-    await row.getByLabel("Reason").fill("Documents checked");
-    await row.getByRole("button", { name: "Record" }).click();
-    await expect(rp.getByText("Decision recorded.")).toBeVisible();
+    await verifyBrand(bp, rp, brand.workspace_id);
     await bp.goto(paid);
     await bp.getByRole("button", { name: "Publish campaign" }).click();
     await expect(bp.getByText(/Sent to a reviewer/)).toBeVisible();

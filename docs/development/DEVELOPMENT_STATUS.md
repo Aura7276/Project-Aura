@@ -29,3 +29,7 @@ Implemented on `feature/m10-campaign-marketplace` (built on M09), verified local
 ## M11 Applications and invitations
 
 Implemented on `feature/m11-applications` (built on M10), verified locally. Ends at "ready for an agreement"; agreements are M12. See `M11_COMPLETE_REPORT.md`.
+
+## M14 Brand onboarding
+
+Implemented on `feature/m14-brand-onboarding` (built on M11 with Jai's M07 and M08 merged), verified locally. Replaces the interim reviewer verification with a full case workflow. See `M14_COMPLETE_REPORT.md`.

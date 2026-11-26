@@ -29,3 +29,7 @@ Collaborate → Campaign marketplace (`/creator/marketplace`) is available. Bran
 ## M11
 
 Collaborate → Applications and invitations (`/creator/applications`) is available. The campaign page's "Check and apply" opens the application form. Brands have an Inbox (`/brand/inbox`) and an applications page per campaign; the reviewer report queue is `/admin/applications`.
+
+## M14
+
+Brands get a private home at `/brand` with setup, plans and verification, and a header with Home, Business, Verification, Campaigns and Inbox. Business pages share a tab row (Profile, Products, Audiences, Goals, Plan, Guidelines, Creators, Competitors, Socials, Brief). The public profile is `/brand/[slug]`. Reviewers use `/admin/verification`. The workspace page links to Brand setup. This is not the M15 navigation.

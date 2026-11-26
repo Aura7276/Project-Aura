@@ -71,3 +71,7 @@ No new package. Unmet: M14 Brand onboarding and verification (interim reviewer u
 ## M11 dependencies
 
 No new package. Unmet: M12 agreements, M07 AI drafting, M25 reminders and email, a scheduler for expiries (evaluated on read), Agency delegation, M14 Brand verification (interim reviewer), retention policy (M17/M18).
+
+## M14 dependencies
+
+No new package. Unmet: M07 AI (website extraction, tone and persona suggestions, onboarding conversation), SSRF-safe website retrieval, a scanned private storage bucket (logos, guideline files, verification documents), M05 analytics for Brand accounts, M17 campaign enforcement of budgets and conflicts, M23 Agency delegation, M25 reminders, M26 roles, M15 Brand navigation.

@@ -63,3 +63,7 @@ Branch `feature/m10-campaign-marketplace` from M09; migration `20261202000100`. 
 ## M11 handover
 
 Branch `feature/m11-applications` from M10; migration `20261203000100`. M12 should start from `aura_apply.collaboration` rows with status `ready_for_agreement` and their `ready_proposal`, re-check eligibility (including the M05 paid-influencer gate) at acceptance, and set applications to `converted`. M25 should add reminders and email from `aura_apply.notification`. The M10 "invite" form moved to M11 (message, expiry, blocking). New reserved usernames: applications, invitations, enquiries, negotiations.
+
+## M14 handover
+
+Branch `feature/m14-brand-onboarding` from `main` (M11) with Jai's M07 and M08 merged in. Migration `20261205000100`. Business verification moved from `/admin/marketplace` to `/admin/verification`; `aura_market_verify_brand` still exists for the M10 and M11 SQL suites but the UI no longer uses it. The stack helper `verifyBrand` (tests/stack/helpers.ts) verifies a seeded Brand through the real case flow. M17 should enforce budgets and conflict categories in campaigns; M23 delegation should replace the agency label; M25 should add update reminders; file uploads need a scanned private bucket before logos and documents.
