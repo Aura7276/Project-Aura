@@ -7,5 +7,7 @@ export default async function Page({
   params: Promise<{ id: string }>;
   searchParams: Promise<Record<string, string | string[] | undefined>>;
 }) {
-  return <BrandNegotiationView id={(await params).id} sp={await searchParams} />;
+  return (
+    <BrandNegotiationView id={(await params).id} sp={await searchParams} />
+  );
 }

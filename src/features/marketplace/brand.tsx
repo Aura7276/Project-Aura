@@ -544,10 +544,17 @@ export async function BrandCampaignView({ id, sp }: { id: string; sp: SP }) {
         <h2 id="inv-h">Applications and invitations</h2>
         <p>
           Review applicants, set screening questions and capacity, and invite
-          Creators{c.visibility === "invite_only" ? " (this campaign is invitation-only)" : ""}.
+          Creators
+          {c.visibility === "invite_only"
+            ? " (this campaign is invitation-only)"
+            : ""}
+          .
         </p>
         <p>
-          <Link className="st-btn primary" href={`/brand/campaigns/${c.id}/applications?w=${b.workspaceId}`}>
+          <Link
+            className="st-btn primary"
+            href={`/brand/campaigns/${c.id}/applications?w=${b.workspaceId}`}
+          >
             Open applications
           </Link>
         </p>

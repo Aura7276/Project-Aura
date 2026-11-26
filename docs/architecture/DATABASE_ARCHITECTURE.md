@@ -46,3 +46,7 @@ Private schema; RLS on with no policies and no grants. Anonymous callers can exe
 ## M10 `aura_market`
 
 Private schema; RLS on with no policies and no grants. Campaign terms are versioned (`campaign_version`); eligibility and visibility are computed in the database on every read. The M01 preview view lists only public, published, open campaigns of verified Brands. See `CAMPAIGN_MARKETPLACE_ARCHITECTURE.md`.
+
+## M11 `aura_apply`
+
+Private schema; RLS on with no policies and no grants; 16 tables reached only through `aura_apply_*` functions (authenticated only, none for anon). Applications and proposals are versioned; capacity and duplicate checks use advisory locks. See `APPLICATIONS_ARCHITECTURE.md`.

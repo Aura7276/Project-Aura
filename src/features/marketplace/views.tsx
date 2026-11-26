@@ -563,7 +563,10 @@ export async function EligibilityView({ id, sp }: { id: string; sp: SP }) {
       {apply === "eligible" && (
         <p className="mk-banner ok" role="status">
           You meet every mandatory requirement, checked just now.{" "}
-          <Link href={`/creator/marketplace/${id}/apply`}>Start your application</Link>.
+          <Link href={`/creator/marketplace/${id}/apply`}>
+            Start your application
+          </Link>
+          .
         </p>
       )}
       <section className="st-card" aria-labelledby="el-h">

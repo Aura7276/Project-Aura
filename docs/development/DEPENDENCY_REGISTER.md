@@ -67,3 +67,7 @@ No new package (QR and PDF are written in-house). Unmet: M08 Content Studio reco
 ## M10 dependencies
 
 No new package. Unmet: M14 Brand onboarding and verification (interim reviewer used), M11 applications, M12 agreements, M07 AI assessment, M25 email alerts, M27 promoted placements, a scheduler for deadline alerts, payment availability rules for international campaigns.
+
+## M11 dependencies
+
+No new package. Unmet: M12 agreements, M07 AI drafting, M25 reminders and email, a scheduler for expiries (evaluated on read), Agency delegation, M14 Brand verification (interim reviewer), retention policy (M17/M18).

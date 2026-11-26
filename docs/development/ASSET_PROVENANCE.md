@@ -32,3 +32,7 @@ No images were generated, sourced or downloaded. Covers are CSS gradients and in
 ## M10
 
 No images. Category colours use the approved palette; screenshots in `docs/development/evidence/m10/` show real pages with sample text typed by the test.
+
+## M11
+
+No images. Screenshots in `docs/development/evidence/m11/` show real pages with sample text typed by the test.

@@ -1,3 +1,4 @@
+// Named to sort after marketplace.spec.ts: the stack database is shared, and the M10 suite first checks an empty marketplace.
 import { expect, test, type Browser, type Page } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
 import { mkdirSync } from "node:fs";

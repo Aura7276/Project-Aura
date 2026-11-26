@@ -75,7 +75,11 @@ test.describe("M04 desktop navigation (F03)", () => {
       "M09",
       "M13",
     ])
-      if (m !== "M05" && m !== "M06" && m !== "M09" && m !== "M10" &&
+      if (
+        m !== "M05" &&
+        m !== "M06" &&
+        m !== "M09" &&
+        m !== "M10" &&
         m !== "M11"
       )
         await expect(side.getByText(`Planned · ${m}`).first()).toBeVisible();
@@ -218,10 +222,20 @@ test.describe("M04 mobile navigation (F04)", () => {
           .getByRole("link", { name: t })
           .or(drawer.getByRole("button", { name: t })),
       ).toBeVisible();
-    for (let i = 0; i < 40; i++) await page.keyboard.press("Tab");
-    expect(
-      await page.evaluate(() => !!document.activeElement?.closest("dialog")),
-    ).toBe(true); // focus cannot escape the modal drawer
+    // Focus cannot reach the page behind the modal drawer. A native modal dialog may hand focus to the browser's own UI between
+    // cycles (activeElement is then body), so every step is checked rather than a fixed number of presses.
+    let inside = 0;
+    for (let i = 0; i < 60; i++) {
+      await page.keyboard.press("Tab");
+      const where = await page.evaluate(() => {
+        const a = document.activeElement;
+        if (!a || a === document.body) return "browser";
+        return a.closest("dialog") ? "drawer" : "page";
+      });
+      expect(where, `Tab ${i + 1}`).not.toBe("page");
+      if (where === "drawer") inside++;
+    }
+    expect(inside).toBeGreaterThan(40);
     await page.keyboard.press("Escape");
     await expect(drawer).toBeHidden();
     await expect(trigger).toBeFocused();

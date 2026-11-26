@@ -57,3 +57,7 @@ Branch `feature/m09-creator-profile` from M06. Migration `20261201000100` is dat
 ## M10 handover
 
 Branch `feature/m10-campaign-marketplace` from M09; migration `20261202000100`. The test stack accepts `{ mfa, admin }` when seeding a user (test-only) so Brand owners and reviewers can sign in with MFA. M11 should call `aura_market_check_apply` before accepting an application and replace the "applications open with M11" state. M14 should take over `aura_identity.workspace.verification` decisions and keep `aura_market.verification_decision` history.
+
+## M11 handover
+
+Branch `feature/m11-applications` from M10; migration `20261203000100`. M12 should start from `aura_apply.collaboration` rows with status `ready_for_agreement` and their `ready_proposal`, re-check eligibility (including the M05 paid-influencer gate) at acceptance, and set applications to `converted`. M25 should add reminders and email from `aura_apply.notification`. The M10 "invite" form moved to M11 (message, expiry, blocking). New reserved usernames: applications, invitations, enquiries, negotiations.

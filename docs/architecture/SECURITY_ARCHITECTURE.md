@@ -34,3 +34,7 @@ Share and invitation tokens are hashed at rest and shown once. Restricted links 
 ## M10 security
 
 Publication and invitations require approved verification at every visibility. Restricted and invitation-only campaigns are checked on every read, including direct URLs. Reviewers need MFA, give reasons and cannot review their own workspace. There is no fee field; fee language is held for review and reportable. Reports are not shown to the Brand. Saved-search filters are allowlisted and bounded.
+
+## M11 security
+
+Brands see only what a Creator shared for that application. Creators are addressed by published username, never by workspace id. Invitations, enquiries and Brand proposals need approved verification; Creators can block Brands and report invitations, enquiries and messages to an MFA reviewer. Daily rate limits and idempotent forms stop duplicates and flooding. Agencies are denied until delegation is approved.

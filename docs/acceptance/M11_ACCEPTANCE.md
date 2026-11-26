@@ -1,0 +1,15 @@
+# M11 acceptance
+
+Evidence level: local PostgreSQL 16 with auth and storage stubs and the local stand-in for Supabase. **Not live Supabase.**
+
+| ID       | Criterion                                                           | Evidence                                                                                                                                                                                    | Status                                 |
+| -------- | ------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------- |
+| M11-AC01 | Quick apply checks every required field and permission              | SQL groups 3 and 4 (confirmation, account, required answers, eligibility re-check, quick apply); stack test (missing confirmation and missing answer refused, input kept)                   | Met locally                            |
+| M11-AC02 | Concurrent duplicate applications are rejected                      | Unique partial index and advisory lock; database concurrency test (3 simultaneous submissions leave one active application); stack test (apply page returns to the existing application)    | Met locally                            |
+| M11-AC03 | Drafts persist and a submitted change keeps the prior version       | SQL groups 3 and 5; stack tests (autosaved draft survives a reload; an edit before review becomes version 2)                                                                                | Met locally                            |
+| M11-AC04 | Expiry, withdrawal and permitted reapplication behave correctly     | SQL groups 7 and 8 (invitation and proposal expiry on read, withdrawal, one reapplication, further refusal); stack test (withdrawal needs the box, one reapplication, the third is refused) | Met locally (expiry evaluated on read) |
+| M11-AC05 | Both parties confirm the exact current proposal                     | SQL group 10; concurrency test (simultaneous confirmations); stack test (version 2 resets the Brand's confirmation of version 1; both confirm version 2)                                    | Met locally                            |
+| M11-AC06 | Agency delegation and private data access denied outside scope      | SQL groups 5 and 11 (other Creators and Brands denied, Agencies denied, Brands see only shared items); delegation itself is not built                                                       | Partly met (denial only)               |
+| M11-AC07 | Capacity and duplicate-commitment prevention hold under concurrency | SQL group 6 (selection capacity); concurrency test (two simultaneous selections for one position select exactly one)                                                                        | Met locally                            |
+
+Not verified: live Supabase, Agency delegation (not approved), scheduled reminders and email (M25), AI drafting (M07), agreements (M12).

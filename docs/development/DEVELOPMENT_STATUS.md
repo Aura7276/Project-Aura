@@ -23,3 +23,7 @@ Implemented on `feature/m09-creator-profile` (built on M06; M07 and M08 not merg
 ## M10 Campaign marketplace
 
 Implemented on `feature/m10-campaign-marketplace` (built on M09), verified locally. Includes a minimal Brand campaign editor and interim reviewer verification (owner approval needed). See `M10_COMPLETE_REPORT.md`.
+
+## M11 Applications and invitations
+
+Implemented on `feature/m11-applications` (built on M10), verified locally. Ends at "ready for an agreement"; agreements are M12. See `M11_COMPLETE_REPORT.md`.

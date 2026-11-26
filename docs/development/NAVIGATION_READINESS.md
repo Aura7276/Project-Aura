@@ -25,3 +25,7 @@ My Studio: Profile and media kit (`/creator/profile`), Portfolio and Media kits 
 ## M10
 
 Collaborate → Campaign marketplace (`/creator/marketplace`) is available. Brand campaigns live at `/brand/campaigns`; the reviewer page is `/admin/marketplace`.
+
+## M11
+
+Collaborate → Applications and invitations (`/creator/applications`) is available. The campaign page's "Check and apply" opens the application form. Brands have an Inbox (`/brand/inbox`) and an applications page per campaign; the reviewer report queue is `/admin/applications`.
