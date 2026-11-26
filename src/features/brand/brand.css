@@ -436,3 +436,10 @@
   background: #fff;
   overflow-wrap: anywhere;
 }
+.pf-skip:not(:focus) {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}

@@ -2063,7 +2063,7 @@ export async function VerificationView({ sp }: { sp: SP }) {
               </p>
             )}
             <p className="st-hint">
-              Needed for a {businessTypes[type].toLowerCase()}:{" "}
+              Needed for {businessTypes[type]}:{" "}
               {needed
                 .map((k) =>
                   evidenceFields[k].replace(/ \(.*\)/, "").toLowerCase(),

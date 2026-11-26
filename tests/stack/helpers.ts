@@ -67,7 +67,7 @@ export async function verifyBrand(bp: Page, rp: Page, workspaceId: string) {
   const sub = bp.getByRole("form", { name: "Submit for review" });
   await sub.getByLabel(/I confirm these details are true/).check();
   await sub.getByRole("button", { name: "Submit for review" }).click();
-  await expect(bp.getByText(/Submitted\./)).toBeVisible();
+  await expect(bp.getByText("With a reviewer").first()).toBeVisible();
   await rp.goto("/admin/verification");
   await rp
     .locator(`li[data-workspace="${workspaceId}"]`)

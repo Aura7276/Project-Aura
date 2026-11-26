@@ -61,7 +61,13 @@ export function PublicBrandPage({
             {b.products.map((p) => (
               <article key={p.name}>
                 <h3>{p.name}</h3>
-                <p className="st-hint">{p.kind}</p>
+                <p className="st-hint">
+                  {{
+                    product: "Product",
+                    service: "Service",
+                    experience: "Experience",
+                  }[p.kind] ?? p.kind}
+                </p>
                 {p.description && <p>{p.description}</p>}
                 {p.url && (
                   <a
