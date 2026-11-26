@@ -23,7 +23,8 @@ export default function BrandLayout({
           className="shell"
           style={{
             display: "flex",
-            gap: "1rem",
+            flexWrap: "wrap",
+            gap: "0.4rem 1rem",
             padding: "0.8rem 1rem",
             alignItems: "center",
           }}

@@ -1,36 +1,256 @@
 /* M11 applications, invitations and negotiation. Built on studio.css and market.css tokens. */
-.ap-cols { display: grid; gap: 1rem; grid-template-columns: minmax(0, 1fr); }
-@media (min-width: 960px) { .ap-cols { grid-template-columns: minmax(0, 1fr) 320px; align-items: start; } .ap-aside { position: sticky; top: 1rem; } }
-.ap-choice { display: flex; gap: 0.6rem; align-items: flex-start; padding: 0.55rem 0.7rem; border: 1px solid #e6e1dc; border-radius: 12px; margin: 0.4rem 0; cursor: pointer; overflow-wrap: anywhere; }
-.ap-choice:has(input:checked) { border-color: #5b4bd6; background: #f6f4ff; }
-.ap-choice input { margin-top: 0.25rem; }
-.ap-preview { border-top: 4px solid #5b4bd6; }
-.ap-save { font-size: 0.85rem; color: #5d5a6e; }
-.ap-confirm { display: flex; gap: 0.5rem; align-items: flex-start; font-weight: 600; }
-.ap-grid { display: grid; gap: 0 1rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 1fr)); }
-.ap-status { display: inline-flex; align-items: center; gap: 0.35rem; padding: 0.15rem 0.6rem; border-radius: 999px; font-size: 0.8rem; font-weight: 600; background: #eef0f6; color: #2a2840; }
-.ap-status[data-s="selected"], .ap-status[data-s="ready_for_agreement"], .ap-status[data-s="interested"] { background: #e3f5ea; color: #1f5f3a; }
-.ap-status[data-s="rejected"], .ap-status[data-s="declined"], .ap-status[data-s="withdrawn"], .ap-status[data-s="expired"], .ap-status[data-s="cancelled"] { background: #f4ecec; color: #7a2e2e; }
-.ap-status[data-s="clarification"], .ap-status[data-s="sent"] { background: #fff4da; color: #6b4a00; }
-.ap-status[data-s="shortlisted"], .ap-status[data-s="waitlisted"], .ap-status[data-s="negotiating"] { background: #ece9ff; color: #3b2fa0; }
-.ap-timeline { list-style: none; padding: 0; margin: 0; border-left: 2px solid #e6e1dc; }
-.ap-timeline li { position: relative; padding: 0 0 0.8rem 1rem; }
-.ap-timeline li::before { content: ""; position: absolute; left: -6px; top: 0.35rem; width: 10px; height: 10px; border-radius: 50%; background: #5b4bd6; }
-.ap-thread { display: grid; gap: 0.5rem; margin: 0 0 1rem; padding: 0; list-style: none; }
-.ap-msg { max-width: min(100%, 36rem); padding: 0.55rem 0.8rem; border-radius: 14px; background: #f3f1ee; overflow-wrap: anywhere; }
-.ap-msg.mine { justify-self: end; background: #ece9ff; }
-.ap-msg small { display: block; color: #5d5a6e; font-size: 0.75rem; }
-.ap-terms { display: grid; gap: 0.3rem; margin: 0.5rem 0; padding: 0; list-style: none; }
-.ap-terms li { overflow-wrap: anywhere; }
-.ap-version { border: 1px solid #e6e1dc; border-radius: 14px; padding: 0.8rem 1rem; margin: 0.6rem 0; }
-.ap-version.current { border-color: #5b4bd6; box-shadow: 0 0 0 3px #ece9ff; }
-.ap-steps { display: flex; flex-wrap: wrap; gap: 0.4rem; list-style: none; padding: 0; margin: 0.5rem 0 1rem; }
-.ap-steps li { padding: 0.2rem 0.6rem; border-radius: 999px; background: #f3f1ee; font-size: 0.8rem; color: #5d5a6e; }
-.ap-steps li[aria-current="step"] { background: #5b4bd6; color: #fff; }
-.ap-steps li.done { background: #e3f5ea; color: #1f5f3a; }
-.ap-stats { display: grid; gap: 0.6rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 140px), 1fr)); margin: 0 0 1rem; }
-.ap-stat { border: 1px solid #e6e1dc; border-radius: 14px; padding: 0.7rem 0.9rem; background: #fff; }
-.ap-stat b { display: block; font-size: 1.5rem; }
-.ap-table { width: 100%; border-collapse: collapse; }
-.ap-table th, .ap-table td { text-align: left; padding: 0.5rem; border-bottom: 1px solid #eee9e4; vertical-align: top; overflow-wrap: anywhere; }
-@media (max-width: 640px) { .ap-table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); } .ap-table tr { display: block; border-bottom: 1px solid #eee9e4; padding: 0.4rem 0; } .ap-table td { display: block; border: 0; padding: 0.15rem 0.5rem; } }
+.ap-cols {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: minmax(0, 1fr);
+}
+@media (min-width: 960px) {
+  .ap-cols {
+    grid-template-columns: minmax(0, 1fr) 320px;
+    align-items: start;
+  }
+  .ap-aside {
+    position: sticky;
+    top: 1rem;
+  }
+}
+.ap-choice {
+  display: flex;
+  gap: 0.6rem;
+  align-items: flex-start;
+  padding: 0.55rem 0.7rem;
+  border: 1px solid #e6e1dc;
+  border-radius: 12px;
+  margin: 0.4rem 0;
+  cursor: pointer;
+  overflow-wrap: anywhere;
+}
+.ap-choice:has(input:checked) {
+  border-color: #5b4bd6;
+  background: #f6f4ff;
+}
+.ap-choice input {
+  margin-top: 0.25rem;
+}
+.ap-preview {
+  border-top: 4px solid #5b4bd6;
+}
+.ap-save {
+  font-size: 0.85rem;
+  color: #5d5a6e;
+}
+.ap-confirm {
+  display: flex;
+  gap: 0.5rem;
+  align-items: flex-start;
+  font-weight: 600;
+}
+.ap-grid {
+  display: grid;
+  gap: 0 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 1fr));
+}
+.ap-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.15rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  background: #eef0f6;
+  color: #2a2840;
+}
+.ap-status[data-s="selected"],
+.ap-status[data-s="ready_for_agreement"],
+.ap-status[data-s="interested"] {
+  background: #e3f5ea;
+  color: #1f5f3a;
+}
+.ap-status[data-s="rejected"],
+.ap-status[data-s="declined"],
+.ap-status[data-s="withdrawn"],
+.ap-status[data-s="expired"],
+.ap-status[data-s="cancelled"] {
+  background: #f4ecec;
+  color: #7a2e2e;
+}
+.ap-status[data-s="clarification"],
+.ap-status[data-s="sent"] {
+  background: #fff4da;
+  color: #6b4a00;
+}
+.ap-status[data-s="shortlisted"],
+.ap-status[data-s="waitlisted"],
+.ap-status[data-s="negotiating"] {
+  background: #ece9ff;
+  color: #3b2fa0;
+}
+.ap-timeline {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-left: 2px solid #e6e1dc;
+}
+.ap-timeline li {
+  position: relative;
+  padding: 0 0 0.8rem 1rem;
+}
+.ap-timeline li::before {
+  content: "";
+  position: absolute;
+  left: -6px;
+  top: 0.35rem;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #5b4bd6;
+}
+.ap-thread {
+  display: grid;
+  gap: 0.5rem;
+  margin: 0 0 1rem;
+  padding: 0;
+  list-style: none;
+}
+.ap-msg {
+  max-width: min(100%, 36rem);
+  padding: 0.55rem 0.8rem;
+  border-radius: 14px;
+  background: #f3f1ee;
+  overflow-wrap: anywhere;
+}
+.ap-msg.mine {
+  justify-self: end;
+  background: #ece9ff;
+}
+.ap-msg small {
+  display: block;
+  color: #5d5a6e;
+  font-size: 0.75rem;
+}
+.ap-terms {
+  display: grid;
+  gap: 0.3rem;
+  margin: 0.5rem 0;
+  padding: 0;
+  list-style: none;
+}
+.ap-terms li {
+  overflow-wrap: anywhere;
+}
+.ap-version {
+  border: 1px solid #e6e1dc;
+  border-radius: 14px;
+  padding: 0.8rem 1rem;
+  margin: 0.6rem 0;
+}
+.ap-version.current {
+  border-color: #5b4bd6;
+  box-shadow: 0 0 0 3px #ece9ff;
+}
+.ap-steps {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0 1rem;
+}
+.ap-steps li {
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  background: #f3f1ee;
+  font-size: 0.8rem;
+  color: #5d5a6e;
+}
+.ap-steps li[aria-current="step"] {
+  background: #5b4bd6;
+  color: #fff;
+}
+.ap-steps li.done {
+  background: #e3f5ea;
+  color: #1f5f3a;
+}
+.ap-stats {
+  display: grid;
+  gap: 0.6rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 140px), 1fr));
+  margin: 0 0 1rem;
+}
+.ap-stat {
+  border: 1px solid #e6e1dc;
+  border-radius: 14px;
+  padding: 0.7rem 0.9rem;
+  background: #fff;
+}
+.ap-stat b {
+  display: block;
+  font-size: 1.5rem;
+}
+.ap-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.ap-table th,
+.ap-table td {
+  text-align: left;
+  padding: 0.5rem;
+  border-bottom: 1px solid #eee9e4;
+  vertical-align: top;
+  overflow-wrap: anywhere;
+}
+@media (max-width: 640px) {
+  .ap-table thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+  }
+  .ap-table tr {
+    display: block;
+    border-bottom: 1px solid #eee9e4;
+    padding: 0.4rem 0;
+  }
+  .ap-table td {
+    display: block;
+    border: 0;
+    padding: 0.15rem 0.5rem;
+  }
+}
+.ap-form fieldset,
+.ap-proposal,
+.mk-brand-area form {
+  min-width: 0;
+}
+.mk-brand-area input:not([type="checkbox"]):not([type="radio"]),
+.mk-brand-area select,
+.mk-brand-area textarea {
+  max-width: 100%;
+}
+.ap-report summary {
+  cursor: pointer;
+  font-size: 0.85rem;
+  color: #5d5a6e;
+}
+/* Brand area: calmer, product-sized headings (the global display scale is for marketing pages). */
+.mk-brand-area h1 {
+  font-size: clamp(1.6rem, 4vw, 2.3rem);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+.mk-brand-area h2 {
+  font-size: 1.2rem;
+  letter-spacing: -0.01em;
+}
+.mk-brand-area .mk-hero h1 {
+  font-size: clamp(1.7rem, 4.5vw, 2.5rem);
+}
+.skip:not(:focus) {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
