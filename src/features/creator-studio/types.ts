@@ -10,6 +10,7 @@ export const widgetIds = [
   "weekly",
   "social",
   "analytics",
+  "profile",
 ] as const;
 export type WidgetId = (typeof widgetIds)[number];
 export const widgetLabels: Record<WidgetId, string> = {
@@ -24,6 +25,7 @@ export const widgetLabels: Record<WidgetId, string> = {
   weekly: "Weekly review",
   social: "Social accounts",
   analytics: "Analytics and experiments",
+  profile: "Profile and media kit",
 };
 export type Prefs = {
   hidden_widgets: WidgetId[];

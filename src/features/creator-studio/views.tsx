@@ -612,6 +612,20 @@ function AnalyticsWidget({ d }: { d: StudioData }) {
     </Card>
   );
 }
+function ProfileWidget() {
+  return (
+    <Card id="w-profile" title="Profile and media kit">
+      <p>
+        Your creator website and media kits are private until you publish or
+        share them.
+      </p>
+      <p>
+        <Link href="/creator/profile">Open your profile</Link> ·{" "}
+        <Link href="/creator/media-kit">Media kits</Link>
+      </p>
+    </Card>
+  );
+}
 export function DashboardView({ d }: { d: StudioData }) {
   const s = d.state,
     sit: Situation = situationOf(s);
@@ -635,6 +649,7 @@ export function DashboardView({ d }: { d: StudioData }) {
     weekly: <WeeklyCard key="w" d={d} />,
     social: <SocialWidget key="so" d={d} />,
     analytics: <AnalyticsWidget key="an" d={d} />,
+    profile: <ProfileWidget key="pr" />,
   };
   return (
     <>

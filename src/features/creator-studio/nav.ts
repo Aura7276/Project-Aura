@@ -154,12 +154,15 @@ export const areas: NavArea[] = [
       ),
       ok("security", "Account security", "/security", "M02"),
       ok("workspaces", "Switch workspace", "/workspaces", "M02"),
-      planned(
+      ok(
         "media-kit",
         "Profile and media kit",
+        "/creator/profile",
         "M09",
-        "Publishing is controlled by the profile module.",
+        "Your creator website, portfolio, services and media kits. Private until you publish.",
       ),
+      ok("portfolio", "Portfolio", "/creator/portfolio", "M09"),
+      ok("kits", "Media kits", "/creator/media-kit", "M09"),
       planned(
         "earnings",
         "Earnings and commercial",

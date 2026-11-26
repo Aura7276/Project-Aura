@@ -159,7 +159,7 @@ do $$ declare st jsonb; rev int; begin perform t.me('b'); rev := (public.aura_cr
 -- 9. Plan actions are owner-scoped; visibility cannot be made public; suspended workspaces cannot write
 do $$ declare act uuid; begin perform t.me('a'); act := (public.aura_creator_state(t.ws('a'))->'plan'->'actions'->0->>'id')::uuid; perform public.aura_creator_set_action(t.ws('a'), act, true); reset role;
  perform t.me('b'); assert t.denied(format('select public.aura_creator_set_action(%L,%L,true)', t.ws('b'), act)), 'other creators action'; reset role;
- assert t.denied('update aura_creator.creator_profile set visibility=''public''', '23514'), 'no public visibility in M03';
+ assert t.denied('update aura_creator.creator_profile set visibility=''listed''', '23514'), 'visibility only ever holds private (M03) or public (published through M09)';
  update aura_identity.workspace set status='suspended' where id=t.ws('b');
  perform t.me('b'); assert t.denied(format('select public.aura_creator_state(%L)', t.ws('b'))) , 'suspended read'; reset role;
  update aura_identity.workspace set status='open' where id=t.ws('b');
