@@ -164,7 +164,7 @@ describe.skipIf(!enabled)(
       ).toBe("0");
     });
     // Words reserved by later migrations (M10 adds "marketplace"); db-m10 checks the complete list against every Studio route.
-    const laterModuleWords = ["marketplace"];
+    const laterModuleWords = ["marketplace", "applications", "invitations", "enquiries", "negotiations"];
     it("reserved usernames in the database match the TypeScript list (Studio routes stay unclaimable)", async () => {
       const { reservedUsernames } =
         await import("@/features/creator-profile/rules");
