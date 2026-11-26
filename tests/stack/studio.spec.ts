@@ -137,7 +137,10 @@ test.describe("Real routes with the local test stack (not Supabase)", () => {
     const n = await page.locator("[data-tour='actions'] .st-item").count();
     expect(n).toBeGreaterThanOrEqual(3);
     expect(n).toBeLessThanOrEqual(5);
-    await expect(page.getByText("Not available yet · M13")).toBeVisible();
+    await page.getByText("More from your workspace", { exact: true }).click();
+    await expect(
+      page.getByText("Not available yet", { exact: true }).first(),
+    ).toBeVisible();
     const text = await page.locator("main").innerText();
     expect(text).not.toMatch(/[₹$€£]\s?\d|wallet|\d[\d,]* followers/i);
   });

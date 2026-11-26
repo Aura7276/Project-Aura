@@ -1,5 +1,7 @@
 # Development status
 
+**M07 Growth Studio — In progress.** See the [stage report](M07_GROWTH_STUDIO.md) for the current preview and hosted integration status.
+
 Current work: M04 Creator dashboard is Implemented and tested on local PostgreSQL and a development preview; live Supabase verification and owner acceptance are outstanding (see M04_COMPLETE_REPORT.md). M03 Creator onboarding is Implemented and tested on local PostgreSQL; live Supabase verification and owner acceptance are outstanding (see M03_COMPLETE_REPORT.md). M02 registration and authentication is In progress. See [M02 integration and acceptance](M02_AUTHENTICATION.md).
 
 Phase 00 — Accepted conditionally by the project owner. Git commits and hosted Supabase configuration are Deferred. The production preview gate and foundation checks are recorded in PHASE_00_REPORT.md. Real Supabase environment verification is Blocked pending configuration. The application has no business workflows.

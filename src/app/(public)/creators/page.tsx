@@ -109,134 +109,152 @@ export default function Creators() {
           label="Reserved for a portrait of a creator at work"
         />
       </section>
-      <section className="spread">
-        <h2>Make room for the work.</h2>
-        <div>
-          <p>
-            When ideas run dry or your schedule slips, a small experiment gives
-            you somewhere to start. Learn which formats connect with your
-            audience and what deserves another try.
-          </p>
-          <p>
-            Turn scattered samples into a media kit. Find briefs that fit your
-            skills and keep negotiations, revisions and payment records
-            together.
-          </p>
-        </div>
-      </section>
+      <details className="capability">
+        <summary>Creative practice</summary>{" "}
+        <section className="spread">
+          <h2>Make room for the work.</h2>
+          <div>
+            <p>
+              When ideas run dry or your schedule slips, a small experiment
+              gives you somewhere to start. Learn which formats connect with
+              your audience and what deserves another try.
+            </p>
+            <p>
+              Turn scattered samples into a media kit. Find briefs that fit your
+              skills and keep negotiations, revisions and payment records
+              together.
+            </p>
+          </div>
+        </section>
+      </details>
       <section id="studio" className="studio-sample">
         <p className="overline">Illustrative studio · Planned tools</p>
         <h2>Your creative workbench</h2>
         <StudioPreview notes={previews} />
       </section>
-      <section className="feature-lines">
-        {[
-          [
-            "AI Growth Assistant",
-            "Choose a 7-, 30- or 90-day plan. Planned coaching in English, Hindi and Hinglish combines content ideas, growth diagnostics and daily priorities with your own goals, even without connected accounts.",
-          ],
-          [
-            "Social analytics & growth",
-            "Compare account and content performance, track a meaningful goal and look for patterns backed by observations. Run a structured experiment and revisit the evidence over time.",
-          ],
-          [
-            "Content Studio",
-            "Collect ideas in a library, organize content pillars and turn hooks into scripts, captions, storyboards and shot lists. A calendar connects production planning, creative review and content experiments.",
-          ],
-        ].map(([h, p]) => (
-          <div key={h}>
-            <h2>{h}</h2>
-            <p>{p}</p>
-          </div>
-        ))}
-      </section>
-      <section className="kit spread">
-        <div>
-          <p className="overline">Professional identity</p>
-          <h2>A portfolio you control.</h2>
-          <p>
-            The planned personal AURA profile URL brings your portfolio,
-            creative services, UGC samples and optional rates together. Publish
-            and share only what you authorize.
-          </p>
-        </div>
-        <aside>
-          <small>Illustrative media kit</small>
-          <span className="initials" aria-label="Neutral sample avatar">
-            C
-          </span>
-          <h3>Creator portfolio</h3>
-          <dl>
-            <dt>Selected work</dt>
-            <dd>UGC samples & creative projects</dd>
-            <dt>Services</dt>
-            <dd>Formats, scope & optional rate card</dd>
-            <dt>Sharing</dt>
-            <dd>Private until published</dd>
-          </dl>
-        </aside>
-      </section>
-      <section className="spread">
-        <h2>Find a brief that fits.</h2>
-        <div>
-          <p>{rollout}</p>
-          <p>
-            Discovery will consider capabilities, preferences and campaign
-            eligibility. These workflows are in development.
-          </p>
-        </div>
-      </section>
-      <section className="stages">
-        <h2>Start where you are.</h2>
-        <p>
-          Aspiring creators can develop a practice before building an audience.
-          Follower ranges describe audience size. Your skills and creative fit
-          matter at every stage.
-        </p>
-        <ul>
+      <details className="capability">
+        <summary>Studio tools</summary>{" "}
+        <section className="feature-lines">
           {[
-            "Aspiring · No audience or under 100",
-            "Emerging · 100–999",
-            "Nano · 1,000–4,999",
-            "Growing · 5,000–9,999",
-            "Established · 10,000–19,999",
-            "Scaling · 20,000+",
-          ].map((x) => (
-            <li key={x}>{x}</li>
+            [
+              "AI Growth Assistant",
+              "Choose a 7-, 30- or 90-day plan. Planned coaching in English, Hindi and Hinglish combines content ideas, growth diagnostics and daily priorities with your own goals, even without connected accounts.",
+            ],
+            [
+              "Social analytics & growth",
+              "Compare account and content performance, track a meaningful goal and look for patterns backed by observations. Run a structured experiment and revisit the evidence over time.",
+            ],
+            [
+              "Content Studio",
+              "Collect ideas in a library, organize content pillars and turn hooks into scripts, captions, storyboards and shot lists. A calendar connects production planning, creative review and content experiments.",
+            ],
+          ].map(([h, p]) => (
+            <div key={h}>
+              <h2>{h}</h2>
+              <p>{p}</p>
+            </div>
           ))}
-        </ul>
-        <p>
-          Standard influencer discovery and participation require 100 followers
-          on one applicable account, plus any brief-specific conditions. UGC has
-          separate capability-based eligibility.
-        </p>
-      </section>
-      <section className="spread">
-        <div>
-          <p className="overline">Collaboration & earnings</p>
-          <h2>From invitation to invoice.</h2>
+        </section>
+      </details>
+      <details className="capability">
+        <summary>Media kit</summary>{" "}
+        <section className="kit spread">
+          <div>
+            <p className="overline">Professional identity</p>
+            <h2>A portfolio you control.</h2>
+            <p>
+              The planned personal AURA profile URL brings your portfolio,
+              creative services, UGC samples and optional rates together.
+              Publish and share only what you authorize.
+            </p>
+          </div>
+          <aside>
+            <small>Illustrative media kit</small>
+            <span className="initials" aria-label="Neutral sample avatar">
+              C
+            </span>
+            <h3>Creator portfolio</h3>
+            <dl>
+              <dt>Selected work</dt>
+              <dd>UGC samples & creative projects</dd>
+              <dt>Services</dt>
+              <dd>Formats, scope & optional rate card</dd>
+              <dt>Sharing</dt>
+              <dd>Private until published</dd>
+            </dl>
+          </aside>
+        </section>
+      </details>
+      <details className="capability">
+        <summary>Campaign eligibility</summary>{" "}
+        <section className="spread">
+          <h2>Find a brief that fits.</h2>
+          <div>
+            <p>{rollout}</p>
+            <p>
+              Discovery will consider capabilities, preferences and campaign
+              eligibility. These workflows are in development.
+            </p>
+          </div>
+        </section>
+      </details>
+      <details className="capability">
+        <summary>Creator stages</summary>{" "}
+        <section className="stages">
+          <h2>Start where you are.</h2>
           <p>
-            Planned tools connect applications and Brand invitations with
-            negotiations, agreements, deliverables and revisions. Track
-            invoices, earnings records and external payments. AURA does not
-            process or hold funds.
+            Aspiring creators can develop a practice before building an
+            audience. Follower ranges describe audience size. Your skills and
+            creative fit matter at every stage.
           </p>
-        </div>
-        <div>
-          <h3>Your Creator journey</h3>
-          <ol>
+          <ul>
             {[
-              "Establish your profile and goals.",
-              "Create and grow with personalized guidance.",
-              "Build your professional identity.",
-              "Discover eligible opportunities.",
-              "Manage collaborations and learn from outcomes.",
-            ].map((s) => (
-              <li key={s}>{s}</li>
+              "Aspiring · No audience or under 100",
+              "Emerging · 100–999",
+              "Nano · 1,000–4,999",
+              "Growing · 5,000–9,999",
+              "Established · 10,000–19,999",
+              "Scaling · 20,000+",
+            ].map((x) => (
+              <li key={x}>{x}</li>
             ))}
-          </ol>
-        </div>
-      </section>
+          </ul>
+          <p>
+            Standard influencer discovery and participation require 100
+            followers on one applicable account, plus any brief-specific
+            conditions. UGC has separate capability-based eligibility.
+          </p>
+        </section>
+      </details>
+      <details className="capability">
+        <summary>Your collaboration journey</summary>{" "}
+        <section className="spread">
+          <div>
+            <p className="overline">Collaboration & earnings</p>
+            <h2>From invitation to invoice.</h2>
+            <p>
+              Planned tools connect applications and Brand invitations with
+              negotiations, agreements, deliverables and revisions. Track
+              invoices, earnings records and external payments. AURA does not
+              process or hold funds.
+            </p>
+          </div>
+          <div>
+            <h3>Your Creator journey</h3>
+            <ol>
+              {[
+                "Establish your profile and goals.",
+                "Create and grow with personalized guidance.",
+                "Build your professional identity.",
+                "Discover eligible opportunities.",
+                "Manage collaborations and learn from outcomes.",
+              ].map((s) => (
+                <li key={s}>{s}</li>
+              ))}
+            </ol>
+          </div>
+        </section>
+      </details>
       <section className="creator-faq spread">
         <h2>Creator questions</h2>
         <div>

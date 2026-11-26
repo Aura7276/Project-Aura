@@ -16,7 +16,7 @@ export default async function Invite({
   return (
     <Editorial
       title="Creator invitation"
-      intro="Invitation verification and account registration are not available yet. Attribution has not been recorded."
+      intro="Create an account to check your invitation."
     >
       <EntryHandoff kind="invite" value={code} />
       <PathLink href="/creators">Explore the Creator journey</PathLink>

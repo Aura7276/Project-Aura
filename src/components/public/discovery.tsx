@@ -34,7 +34,7 @@ export async function Discovery({
       intro={
         creators
           ? "Explore the professional details creators choose to publish."
-          : "Explore limited public briefs. Applying requires sign-in and campaign-specific eligibility."
+          : "Browse public briefs. Sign in to check eligibility."
       }
     >
       {items.length ? (
@@ -55,11 +55,7 @@ export async function Discovery({
               ? "No published previews yet"
               : "Public previews are unavailable"}
           </h2>
-          <p>
-            {available
-              ? "Check back when new work is published."
-              : "The verified publication feed is not available. Explore the walkthrough in the meantime."}
-          </p>
+
           <PathLink href="/demo">Explore the walkthrough</PathLink>
         </section>
       )}

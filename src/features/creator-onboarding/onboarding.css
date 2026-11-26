@@ -383,3 +383,84 @@
     animation: none !important;
   }
 }
+
+.ob {
+  background: #fbfbf6;
+}
+.ob-top {
+  background: var(--forest);
+  color: white;
+  border: 0;
+}
+.ob-top a,
+.ob-top small {
+  color: white;
+}
+.ob-main {
+  padding-top: clamp(2rem, 5vw, 4.5rem);
+}
+.ob h1 {
+  font: 400 clamp(2.5rem, 4.4vw, 3.8rem)/1.03 var(--font-editorial);
+  letter-spacing: -0.05em;
+}
+.ob-form {
+  gap: 1.6rem;
+}
+.ob-progress li {
+  height: 0.27rem;
+  border-radius: 0;
+}
+.ob-progress li[data-state="completed"] {
+  background: #506b50;
+}
+.ob-card {
+  border-radius: 0.4rem;
+}
+.ob-card:has(input:checked) {
+  border-color: var(--forest);
+  background: #e9efdf;
+}
+.ob-field label {
+  font-size: 0.92rem;
+}
+.ob-form fieldset {
+  padding-top: 0.75rem;
+}
+
+.ob-box > details > summary {
+  cursor: pointer;
+  min-height: 44px;
+  font-weight: 600;
+}
+.ob-box:has(> details) {
+  background: transparent;
+  padding-inline: 0;
+  border: 0;
+  box-shadow: none;
+}
+
+.step-name {
+  display: none;
+}
+@media (min-width: 48rem) {
+  .ob-progress {
+    margin-bottom: 2rem;
+  }
+  .ob-progress ol {
+    margin-bottom: 1.8rem;
+  }
+  .ob-progress li {
+    position: relative;
+  }
+  .step-name {
+    display: block;
+    position: absolute;
+    top: 0.5rem;
+    font-size: 0.7rem;
+    color: #515950;
+  }
+  .ob-progress li[aria-current] .step-name {
+    font-weight: 700;
+    color: var(--forest);
+  }
+}

@@ -21,22 +21,18 @@ const sections = [
 ];
 export function SectionNav({ current }: { current: string }) {
   return (
-    <nav aria-label="Analytics sections">
-      <p style={{ display: "flex", flexWrap: "wrap", gap: "0.25rem 1rem" }}>
+    <nav className="analysis-nav" aria-label="Analytics sections">
+      <div>
         {sections.map(([h, l]) => (
           <Link
             key={h}
             href={h}
             aria-current={h === current ? "page" : undefined}
-            style={{
-              textDecoration: "underline",
-              fontWeight: h === current ? 700 : 400,
-            }}
           >
             {l}
           </Link>
         ))}
-      </p>
+      </div>
     </nav>
   );
 }
@@ -72,7 +68,7 @@ export function Filters({
       method="get"
       action={action}
       aria-label="Filter analytics"
-      className="st-card"
+      className="st-card analysis-filters"
       style={{
         display: "grid",
         gap: "0.5rem",
@@ -141,8 +137,7 @@ export function Filters({
         </p>
       )}
       <p className="st-hint" style={{ gridColumn: "1 / -1" }}>
-        Comparing {b.range.current.start} to {b.range.current.end} (
-        {b.range.current.days} days, both ends included) with{" "}
+        {b.range.current.start} – {b.range.current.end} · Compared with{" "}
         {b.range.previous.start} to {b.range.previous.end}.
         {b.range.includesToday ? " Today is included and is not finished." : ""}
       </p>
@@ -329,10 +324,15 @@ export function Missing({
   cta?: string;
 }) {
   return (
-    <div className="st-notice" role="note">
+    <div className="st-empty" role="note">
       <strong>{title}</strong>
       <p>{reason}</p>
-      {need && <p>{need}</p>}
+      {need && (
+        <details>
+          <summary>What to record</summary>
+          <p>{need}</p>
+        </details>
+      )}
       {href && (
         <p>
           <Link href={href}>{cta ?? "Do this next"}</Link>

@@ -190,3 +190,182 @@
     gap: clamp(2rem, 6vw, 5rem);
   }
 }
+
+.home-hero {
+  background: transparent;
+  color: var(--color-midnight);
+  border-radius: 0;
+  align-items: center;
+  gap: clamp(1.5rem, 4vw, 4rem);
+  padding-block: clamp(1rem, 4vw, 3.5rem);
+  border-bottom: 1px solid var(--rule);
+}
+.hero-copy {
+  padding: 0;
+}
+.hero-copy .kicker,
+.kicker {
+  font-size: 0.75rem;
+  letter-spacing: 0.09em;
+  color: var(--forest);
+  text-transform: uppercase;
+}
+.hero-copy .kicker:before {
+  content: "";
+  display: inline-block;
+  width: 1.8rem;
+  height: 2px;
+  background: currentColor;
+  vertical-align: middle;
+  margin-right: 0.7rem;
+}
+.public-main .home-hero h1 {
+  font: 400 clamp(3.5rem, 6.5vw, 6.25rem)/0.97 var(--font-editorial);
+  letter-spacing: -0.065em;
+  max-width: 11ch;
+}
+.home-hero h1 em {
+  font-style: italic;
+  color: #46654b;
+}
+.home-hero .hero-copy > p:not(.kicker) {
+  max-width: 41ch;
+  color: #475148;
+}
+.home-hero figure {
+  border-radius: 40% 40% 0.35rem 0.35rem;
+  overflow: hidden;
+  background: var(--color-sage);
+}
+.home-hero img {
+  aspect-ratio: 1.5;
+}
+.home-actions a {
+  border-radius: 0.45rem;
+  background: var(--forest);
+  color: white;
+}
+.home-actions a + a {
+  background: transparent;
+  border-color: #697565;
+  color: var(--forest);
+}
+.closing .home-actions a:first-child {
+  color: var(--forest);
+}
+.aura-home .position h2,
+.aura-home .questions h2 {
+  font: 400 clamp(2.4rem, 4vw, 3.65rem)/1.02 var(--font-editorial);
+  letter-spacing: -0.05em;
+}
+.aura-home .workbench {
+  background: #e7ecdf;
+  border-radius: 0;
+}
+.aura-home .opportunities {
+  background: var(--forest);
+  border-radius: 0;
+}
+.aura-home .closing {
+  background: var(--lime);
+  border-radius: 0;
+}
+@media (min-width: 48rem) {
+  .home-hero {
+    grid-template-columns: 1.05fr 1fr;
+  }
+  .home-hero img {
+    aspect-ratio: 1.08;
+    max-height: 32rem;
+  }
+}
+
+/* The opening spread pairs a full-bleed studio photograph with the two audience entrances. */
+.public-main .home-hero {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  align-items: flex-end;
+  background: #20231f;
+  border-radius: 0.6rem;
+  min-height: clamp(32rem, 64vh, 46rem);
+  padding: clamp(1.6rem, 5vw, 4.5rem);
+  margin-block: 1.2rem 2rem;
+  color: white;
+  overflow: hidden;
+}
+.home-hero figure {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  border-radius: 0;
+}
+.home-hero img {
+  height: 100%;
+  max-height: none;
+  object-position: 50% 43%;
+}
+.home-hero figure:after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(16, 24, 18, 0.94),
+    rgba(16, 24, 18, 0.78) 38%,
+    transparent 82%
+  );
+}
+.home-hero .hero-copy {
+  width: min(100%, 33rem);
+}
+.home-hero .hero-copy .kicker,
+.home-hero .hero-copy > p:not(.kicker) {
+  color: white;
+}
+.home-hero h1 em {
+  color: var(--lime);
+}
+.home-hero .home-actions a:first-child {
+  background: var(--lime);
+  color: #20231f;
+}
+.home-hero .home-actions a + a {
+  color: white;
+  background: #25342a;
+  border-color: #b3c1b4;
+}
+.exchange-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: space-between;
+  border-block: 1px solid var(--rule);
+  padding-block: 1rem;
+}
+.exchange-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  min-height: 44px;
+  font-weight: 650;
+}
+.exchange-links svg {
+  width: 1.05rem;
+}
+@media (max-width: 47.99rem) {
+  .home-hero figure:after {
+    background: linear-gradient(
+      0deg,
+      #15231b 0%,
+      rgba(21, 35, 27, 0.86) 50%,
+      rgba(21, 35, 27, 0.12) 100%
+    );
+  }
+  .public-main .home-hero {
+    min-height: 35rem;
+  }
+  .home-hero img {
+    object-position: 65% 35%;
+  }
+}

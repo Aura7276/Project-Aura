@@ -126,3 +126,26 @@
     grid-template-columns: 1fr 2fr;
   }
 }
+
+.public-main .brand-cover h1 {
+  font: 400 clamp(3rem, 5.6vw, 5.25rem)/1 var(--font-editorial);
+  letter-spacing: -0.055em;
+  text-wrap: balance;
+}
+.brand-book .brand-studio {
+  background: var(--forest);
+  border-radius: 0;
+}
+.brand-book .brand-close {
+  background: var(--lime);
+  border-radius: 0;
+}
+.brand-book .brand-ledger > div {
+  padding-block: 1.35rem;
+  border-top: 1px solid var(--rule);
+}
+.brand-label {
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  font-size: 0.76rem;
+}

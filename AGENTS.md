@@ -15,3 +15,7 @@ Preserve approved assets. Use reusable accessible CSS, SVG, Lucide and typograph
 ## Collaborative delivery
 
 Follow docs/development/AGENT_HANDOVER.md for the current approved stage. Use one feature branch per task and separate worktrees for concurrent agents. Coordinate ownership before editing shared files. After the initial upload, all AI-authored changes go through a task branch and owner-reviewed pull request. Only merge after owner review. Inspect current code and approved requirements first. Preserve the existing application and architecture, avoid duplicate scaffolding, and obtain owner authorization for requirement changes or future modules. Update requirements traceability after each stage, run applicable regressions and report evidence before submission.
+
+## Interface development
+
+Follow docs/architecture/DESIGN_SYSTEM.md for all public and workspace UI. Inspect the shared layouts and route-specific evidence in docs/development/evidence/design-refinement before introducing a new visual pattern.

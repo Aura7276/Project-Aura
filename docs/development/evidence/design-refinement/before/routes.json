@@ -1,0 +1,416 @@
+[
+  {
+    "route": "/",
+    "landed": "/",
+    "status": 200,
+    "heading": "Your creativity deserves more."
+  },
+  {
+    "route": "/about",
+    "landed": "/about",
+    "status": 200,
+    "heading": "About AURA"
+  },
+  {
+    "route": "/account/continue",
+    "landed": "/login",
+    "status": 200,
+    "heading": "Welcome back"
+  },
+  {
+    "route": "/admin/access",
+    "landed": "/login",
+    "status": 200,
+    "heading": "Welcome back"
+  },
+  {
+    "route": "/admin/social-review",
+    "landed": "/login",
+    "status": 200,
+    "heading": "Welcome back"
+  },
+  {
+    "route": "/agencies",
+    "landed": "/agencies",
+    "status": 200,
+    "heading": "A studio for the clients you represent."
+  },
+  {
+    "route": "/brands",
+    "landed": "/brands",
+    "status": 200,
+    "heading": "Grow your brand beyond the campaign."
+  },
+  {
+    "route": "/campaign/audit-fixture",
+    "landed": "/campaign/audit-fixture",
+    "status": 404,
+    "heading": "404"
+  },
+  {
+    "route": "/contact",
+    "landed": "/contact",
+    "status": 200,
+    "heading": "Contact support"
+  },
+  {
+    "route": "/creator",
+    "landed": "/login",
+    "status": 200,
+    "heading": "Welcome back"
+  },
+  {
+    "route": "/creator/actions",
+    "landed": "/login",
+    "status": 200,
+    "heading": "Welcome back"
+  },
+  {
+    "route": "/creator/analytics",
+    "landed": "/login",
+    "status": 200,
+    "heading": "Welcome back"
+  },
+  {
+    "route": "/creator/analytics/accounts",
+    "landed": "/login",
+    "status": 200,
+    "heading": "Welcome back"
+  },
+  {
+    "route": "/creator/analytics/audience",
+    "landed": "/login",
+    "status": 200,
+    "heading": "Welcome back"
+  },
+  {
+    "route": "/creator/analytics/compare",
+    "landed": "/login",
+    "status": 200,
+    "heading": "Welcome back"
+  },
+  {
+    "route": "/creator/analytics/content",
+    "landed": "/login",
+    "status": 200,
+    "heading": "Welcome back"
+  },
+  {
+    "route": "/creator/analytics/insights",
+    "landed": "/login",
+    "status": 200,
+    "heading": "Welcome back"
+  },
+  {
+    "route": "/creator/analytics/reports",
+    "landed": "/login",
+    "status": 200,
+    "heading": "Welcome back"
+  },
+  {
+    "route": "/creator/audit-fixture",
+    "landed": "/creator/audit-fixture",
+    "status": 404,
+    "heading": "404"
+  },
+  {
+    "route": "/creator/create",
+    "landed": "/login",
+    "status": 200,
+    "heading": "Welcome back"
+  },
+  {
+    "route": "/creator/dashboard",
+    "landed": "/login",
+    "status": 200,
+    "heading": "Welcome back"
+  },
+  {
+    "route": "/creator/experiments",
+    "landed": "/login",
+    "status": 200,
+    "heading": "Welcome back"
+  },
+  {
+    "route": "/creator/experiments/audit-fixture",
+    "landed": "/login",
+    "status": 200,
+    "heading": "Welcome back"
+  },
+  {
+    "route": "/creator/experiments/new",
+    "landed": "/login",
+    "status": 200,
+    "heading": "Welcome back"
+  },
+  {
+    "route": "/creator/grow",
+    "landed": "/login",
+    "status": 200,
+    "heading": "Welcome back"
+  },
+  {
+    "route": "/creator/notifications",
+    "landed": "/login",
+    "status": 200,
+    "heading": "Welcome back"
+  },
+  {
+    "route": "/creator/progress",
+    "landed": "/login",
+    "status": 200,
+    "heading": "Welcome back"
+  },
+  {
+    "route": "/creator/recommendations",
+    "landed": "/login",
+    "status": 200,
+    "heading": "Welcome back"
+  },
+  {
+    "route": "/creator/search",
+    "landed": "/login",
+    "status": 200,
+    "heading": "Welcome back"
+  },
+  {
+    "route": "/creator/settings/dashboard",
+    "landed": "/login",
+    "status": 200,
+    "heading": "Welcome back"
+  },
+  {
+    "route": "/creator/socials",
+    "landed": "/login",
+    "status": 200,
+    "heading": "Welcome back"
+  },
+  {
+    "route": "/creator/socials/audit-fixture",
+    "landed": "/login",
+    "status": 200,
+    "heading": "Welcome back"
+  },
+  {
+    "route": "/creator/socials/audit-fixture/history",
+    "landed": "/login",
+    "status": 200,
+    "heading": "Welcome back"
+  },
+  {
+    "route": "/creator/socials/audit-fixture/metrics",
+    "landed": "/login",
+    "status": 200,
+    "heading": "Welcome back"
+  },
+  {
+    "route": "/creator/socials/audit-fixture/verify",
+    "landed": "/login",
+    "status": 200,
+    "heading": "Welcome back"
+  },
+  {
+    "route": "/creator/socials/new",
+    "landed": "/login",
+    "status": 200,
+    "heading": "Welcome back"
+  },
+  {
+    "route": "/creator/socials/settings",
+    "landed": "/login",
+    "status": 200,
+    "heading": "Welcome back"
+  },
+  {
+    "route": "/creator/studio",
+    "landed": "/login",
+    "status": 200,
+    "heading": "Welcome back"
+  },
+  {
+    "route": "/creators",
+    "landed": "/creators",
+    "status": 200,
+    "heading": "You create.We help you grow."
+  },
+  {
+    "route": "/demo",
+    "landed": "/demo",
+    "status": 200,
+    "heading": "Take a studio walkthrough"
+  },
+  {
+    "route": "/dev/design-system",
+    "landed": "/dev/design-system",
+    "status": 200,
+    "heading": "Design system"
+  },
+  {
+    "route": "/dev/onboarding-preview/goals",
+    "landed": "/dev/onboarding-preview/goals",
+    "status": 200,
+    "heading": "What would you like to grow?"
+  },
+  {
+    "route": "/dev/studio-preview/dashboard",
+    "landed": "/dev/studio-preview/dashboard",
+    "status": 200,
+    "heading": "Welcome, Illustrative Creator. Let’s build your starting routine."
+  },
+  {
+    "route": "/explore/campaigns",
+    "landed": "/explore/campaigns",
+    "status": 200,
+    "heading": "Discover campaigns"
+  },
+  {
+    "route": "/explore/creators",
+    "landed": "/explore/creators",
+    "status": 200,
+    "heading": "Discover creators"
+  },
+  {
+    "route": "/faq",
+    "landed": "/faq",
+    "status": 200,
+    "heading": "Frequently asked questions"
+  },
+  {
+    "route": "/features",
+    "landed": "/features",
+    "status": 200,
+    "heading": "Explore the studios"
+  },
+  {
+    "route": "/forgot-password",
+    "landed": "/forgot-password",
+    "status": 200,
+    "heading": "Recover your account"
+  },
+  {
+    "route": "/identity",
+    "landed": "/login",
+    "status": 200,
+    "heading": "Welcome back"
+  },
+  {
+    "route": "/invite/audit-fixture",
+    "landed": "/invite/audit-fixture",
+    "status": 200,
+    "heading": "Creator invitation"
+  },
+  {
+    "route": "/login",
+    "landed": "/login",
+    "status": 200,
+    "heading": "Welcome back"
+  },
+  {
+    "route": "/mfa",
+    "landed": "/login",
+    "status": 200,
+    "heading": "Welcome back"
+  },
+  {
+    "route": "/onboarding/creator",
+    "landed": "/login",
+    "status": 200,
+    "heading": "Welcome back"
+  },
+  {
+    "route": "/onboarding/creator/complete",
+    "landed": "/login",
+    "status": 200,
+    "heading": "Welcome back"
+  },
+  {
+    "route": "/onboarding/creator/goals",
+    "landed": "/login",
+    "status": 200,
+    "heading": "Welcome back"
+  },
+  {
+    "route": "/onboarding/creator/profile",
+    "landed": "/login",
+    "status": 200,
+    "heading": "Welcome back"
+  },
+  {
+    "route": "/pricing",
+    "landed": "/pricing",
+    "status": 200,
+    "heading": "Free to get started"
+  },
+  {
+    "route": "/privacy",
+    "landed": "/privacy",
+    "status": 200,
+    "heading": "Privacy"
+  },
+  {
+    "route": "/readiness/audit-fixture",
+    "landed": "/readiness/audit-fixture",
+    "status": 404,
+    "heading": "404"
+  },
+  {
+    "route": "/register",
+    "landed": "/register",
+    "status": 200,
+    "heading": "Create your AURA account"
+  },
+  {
+    "route": "/reset-password",
+    "landed": "/reset-password",
+    "status": 200,
+    "heading": "Set a new password"
+  },
+  {
+    "route": "/resources",
+    "landed": "/resources",
+    "status": 200,
+    "heading": "The resource library"
+  },
+  {
+    "route": "/resources/build-your-media-kit",
+    "landed": "/resources/build-your-media-kit",
+    "status": 200,
+    "heading": "Build a media kit from work you already have"
+  },
+  {
+    "route": "/security",
+    "landed": "/login",
+    "status": 200,
+    "heading": "Welcome back"
+  },
+  {
+    "route": "/support",
+    "landed": "/support",
+    "status": 200,
+    "heading": "Support centre"
+  },
+  {
+    "route": "/terms",
+    "landed": "/terms",
+    "status": 200,
+    "heading": "Terms"
+  },
+  {
+    "route": "/verify-email",
+    "landed": "/verify-email",
+    "status": 200,
+    "heading": "Verify your email"
+  },
+  {
+    "route": "/workspaces",
+    "landed": "/login",
+    "status": 200,
+    "heading": "Welcome back"
+  },
+  {
+    "route": "/workspaces/audit-fixture",
+    "landed": "/login",
+    "status": 200,
+    "heading": "Welcome back"
+  }
+]

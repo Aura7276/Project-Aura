@@ -8,7 +8,7 @@ export default function Resources() {
       intro="Practical guides for the work before, during and after a brief."
     >
       {articles.map((a) => (
-        <section key={a.slug}>
+        <section className="resource-index-row" key={a.slug}>
           <small>{a.category}</small>
           <h2>
             <PathLink href={"/resources/" + a.slug}>{a.title}</PathLink>

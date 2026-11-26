@@ -569,3 +569,225 @@
 .st-main .st-card {
   min-width: 0;
 }
+
+.st {
+  background: #fcfcf8;
+}
+.st-main {
+  max-width: 89rem;
+  margin-inline: auto;
+}
+.st-main > h1 {
+  font: 400 clamp(2.25rem, 4vw, 3.5rem)/1.08 var(--font-editorial);
+  letter-spacing: -0.05em;
+}
+.st-main h2 {
+  font-size: 1.2rem;
+}
+.st-grid {
+  gap: clamp(1rem, 2vw, 2rem);
+}
+.st-card {
+  border: 0;
+  border-top: 1px solid var(--rule);
+  border-radius: 0;
+  box-shadow: none;
+  background: transparent;
+  padding: 1.25rem 0.1rem;
+}
+.st-card.accent {
+  background: var(--forest);
+  padding: clamp(1.1rem, 2.2vw, 2rem);
+  border-radius: 0.55rem;
+}
+.st-list .st-item {
+  background: transparent;
+  box-shadow: none;
+  border: 0;
+  border-bottom: 1px solid var(--rule);
+  border-radius: 0;
+  padding: 0.9rem 0;
+}
+.st-btn.primary {
+  background: var(--forest);
+  border-color: var(--forest);
+}
+.st-btn {
+  border-radius: 0.4rem;
+}
+.st-main th {
+  text-align: start;
+  color: #4b554b;
+  font-size: 0.8rem;
+}
+.st-main td,
+.st-main th {
+  padding: 0.7rem 0.85rem;
+  border-bottom: 1px solid var(--rule);
+  font-variant-numeric: tabular-nums;
+}
+.st-main th {
+  background: #eff2e9;
+}
+.st-chart {
+  background: #f0f3ea;
+}
+.st-chart polyline {
+  stroke: var(--forest);
+}
+.st-chart circle {
+  fill: var(--forest);
+}
+.analysis-nav {
+  border-bottom: 1px solid var(--rule);
+  margin-block: 1.1rem;
+}
+.analysis-nav > div {
+  display: flex;
+  gap: 0.25rem 1rem;
+  flex-wrap: wrap;
+}
+.analysis-nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  text-decoration: none;
+  color: #4a5249;
+}
+.analysis-nav a[aria-current] {
+  box-shadow: inset 0 -3px var(--forest);
+  color: var(--forest);
+  font-weight: 650;
+}
+.st-bottom a[aria-current="page"] svg {
+  background: var(--lime);
+}
+.st-side nav li > a[aria-current="page"] {
+  background: var(--forest);
+  color: white;
+}
+@media (min-width: 64rem) {
+  .st {
+    grid-template-columns: 15.5rem minmax(0, 1fr);
+  }
+  .st-side {
+    background: #edf0e7;
+    padding: 1.4rem 0.85rem;
+    border-color: var(--rule);
+  }
+  .st-main {
+    padding: clamp(1.6rem, 3.5vw, 3.5rem);
+  }
+  .st-top {
+    padding-inline: clamp(1.5rem, 3.5vw, 3.5rem);
+  }
+}
+
+.studio-opening {
+  padding-block: clamp(1rem, 3vw, 2.5rem);
+  border-block-end: 1px solid var(--rule);
+  margin-bottom: 1.25rem;
+}
+.studio-opening h1,
+.st-main main > h1 {
+  font: 400 clamp(2.2rem, 4vw, 3.65rem)/1.04 var(--font-editorial);
+  letter-spacing: -0.055em;
+  max-width: 24ch;
+  text-wrap: balance;
+}
+.studio-opening .st-hint {
+  margin: 0.7rem 0 0;
+}
+.st-notices .st-notice {
+  background: transparent;
+  border-inline-start: 3px solid #849b71;
+  border-radius: 0;
+  padding: 0.35rem 0.9rem;
+  color: #40503e;
+}
+.st-empty {
+  background: #eef2e8;
+  border-inline-start: 3px solid #839875;
+  padding: 1.15rem 1.35rem;
+  margin-block: 1.25rem;
+  max-width: 70ch;
+}
+.st-empty strong {
+  display: block;
+  margin-bottom: 0.4rem;
+}
+.st-empty p:last-child {
+  margin: 0;
+}
+.st-empty a {
+  text-decoration: underline;
+}
+.st .lab-heading {
+  max-width: 16ch;
+}
+.st-card:has(> .st-field) {
+  align-items: end;
+}
+.st-card .st-field select {
+  max-width: 100%;
+}
+.st-dialog {
+  border-radius: 0.7rem;
+}
+.st-top .st-iconbtn.primary {
+  background: var(--forest);
+  color: white;
+}
+.st-side nav li > .st-planned {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem;
+}
+.st-planned .st-badge {
+  background: transparent;
+  border: 1px solid var(--rule);
+  color: #475243;
+}
+
+.workspace-drawer {
+  border-block: 1px solid var(--rule);
+  margin-block: 2rem;
+}
+.workspace-drawer > summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  min-height: 3.5rem;
+  font-weight: 650;
+}
+.workspace-drawer > summary:after {
+  content: "+";
+}
+.workspace-drawer[open] > summary:after {
+  content: "−";
+}
+
+.analysis-filters:not(:has(option[value="custom"]:checked))
+  .st-field:has(input[type="date"]) {
+  display: none;
+}
+
+.social-empty {
+  display: grid;
+  align-content: center;
+  justify-items: start;
+  min-height: 14rem;
+  background: #eaf0e5;
+  padding: clamp(1.5rem, 4vw, 3rem);
+  gap: 0.5rem;
+  margin-block: 1rem;
+}
+.social-empty > svg {
+  color: var(--forest);
+  margin-bottom: 0.65rem;
+}
+.social-empty > h2 {
+  font: 400 2rem/1.08 var(--font-editorial);
+}

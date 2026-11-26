@@ -48,7 +48,7 @@ function pages(dir: string, out: string[] = []): string[] {
   for (const f of readdirSync(dir)) {
     const p = join(dir, f);
     if (statSync(p).isDirectory()) pages(p, out);
-    else if (f === "page.tsx") out.push(p);
+    else if (f === "page.tsx") out.push(p.replaceAll("\\", "/"));
   }
   return out;
 }

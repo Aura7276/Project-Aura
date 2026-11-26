@@ -209,9 +209,7 @@ export async function OverviewView({ sp }: { sp: Params }) {
               {b.ctx.state.goals.length
                 ? `${b.ctx.state.goals.length} goal${b.ctx.state.goals.length === 1 ? "" : "s"} set.`
                 : "No goals set yet."}{" "}
-              Goal tracking lives in{" "}
-              <Link href="/creator/progress">Progress</Link>; M06 reads the same
-              observations.
+              <Link href="/creator/progress">View progress</Link>
             </p>
           </Card>
           <Card id="recent" title="Recent observations">
@@ -1161,7 +1159,7 @@ export async function AudienceView({ sp }: { sp: Params }) {
             {aud.length === 0 ? (
               <Missing
                 title="No audience information yet"
-                reason="Nothing is shown because nothing is recorded. There is no estimate and no placeholder."
+                reason="Add an audience snapshot."
                 need="Open your platform's audience or insights screen and copy the top countries, languages or age bands with their percentages."
               />
             ) : (
@@ -1316,7 +1314,7 @@ export async function InsightsView({ sp }: { sp: Params }) {
       {live.length === 0 ? (
         <Missing
           title="No insights yet"
-          reason="No rule has enough recorded evidence to produce a finding."
+          reason="Record more observations to see a pattern."
           need="Record follower counts and content metrics. Each finding will show the evidence behind it."
           href="/creator/socials"
           cta="Update accounts"
@@ -1408,14 +1406,10 @@ export async function ExperimentsView({ sp }: { sp: Params }) {
   const learned = list.filter((e) => e.status === "completed");
   return (
     <main>
-      <h1>Growth Experiment Lab</h1>
+      <h1 className="lab-heading">Growth Experiment Lab</h1>
       <SectionNav current="/creator/experiments" />
       <Notice sp={sp} />
-      <p>
-        Small, honest tests of your own ideas. Nothing starts without you,
-        nothing is published for you, and results are described, never promised.
-        Templates are starting points, not strategies.
-      </p>
+      <p>Choose one change. Record the result.</p>
       <p>
         <Link className="st-btn primary" href="/creator/experiments/new">
           Plan an experiment

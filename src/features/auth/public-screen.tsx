@@ -42,10 +42,10 @@ export async function PublicScreen({
       </h1>
       {!configured() && (
         <p role="status">
-          Account services are unavailable until Supabase is configured.
+          Sign-in is currently unavailable. Please try again later.
         </p>
       )}
-      {q.notice && (
+      {q.notice && q.notice !== "provider" && (
         <p role="status">
           {q.notice === "requested"
             ? "If your address is eligible, check your inbox."
@@ -58,6 +58,13 @@ export async function PublicScreen({
       )}
       {signup || mode === "login" ? (
         <>
+          <form className="oauth-form" action={a.google}>
+            {hidden}
+            <Submit>Continue with Google</Submit>
+          </form>
+          <div className="email-divider">
+            <span>or use email</span>
+          </div>
           <form action={signup ? a.register : a.login}>
             {hidden}
             <Field name="email" type="email" label="Email address" />
@@ -71,10 +78,6 @@ export async function PublicScreen({
             )}
             <Submit>{signup ? "Create account" : "Log in"}</Submit>
           </form>
-          <form action={a.google}>
-            {hidden}
-            <Submit>Continue with Google</Submit>
-          </form>
           <Link
             href={
               (signup ? "/login" : "/register") +
@@ -84,7 +87,7 @@ export async function PublicScreen({
                 : "")
             }
           >
-            {signup ? "Already registered? Log in" : "Create an account"}
+            {signup ? "Already have an account? Log in" : "Create an account"}
           </Link>{" "}
           · <Link href="/forgot-password">Forgot password?</Link>
         </>

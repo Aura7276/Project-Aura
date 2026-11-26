@@ -1,5 +1,6 @@
 "use client";
-import { useState } from "react";
+import { Eye, EyeOff } from "lucide-react";
+import { useState, useId } from "react";
 export function Field({
   name,
   label,
@@ -14,11 +15,13 @@ export function Field({
   initial?: string;
 }) {
   const [visible, setVisible] = useState(false);
+  const id = useId();
   return (
-    <>
+    <div className="account-field">
       <label>
         {label}
         <input
+          id={id}
           name={name}
           type={visible ? "text" : type}
           defaultValue={initial}
@@ -41,13 +44,16 @@ export function Field({
       {type === "password" && (
         <button
           type="button"
+          className="reveal"
+          aria-controls={id}
+          aria-label={(visible ? "Hide " : "Show ") + label.toLowerCase()}
           aria-pressed={visible}
           onClick={() => setVisible(!visible)}
         >
-          {visible ? "Hide" : "Show"} {label.toLowerCase()}
+          {visible ? <EyeOff size={18} /> : <Eye size={18} />}
         </button>
       )}
-    </>
+    </div>
   );
 }
 export function IdentityFields({
@@ -67,13 +73,16 @@ export function IdentityFields({
         label="Two-letter country code (e.g. IN)"
         initial={country}
       />
-      <Field
-        name="mobile"
-        label="Mobile including country code (optional)"
-        initial={mobile}
-        type="tel"
-        optional
-      />
+      <details className="optional-contact" open={mobile ? true : undefined}>
+        <summary>Add a mobile number (optional)</summary>{" "}
+        <Field
+          name="mobile"
+          label="Mobile number with country code"
+          initial={mobile}
+          type="tel"
+          optional
+        />
+      </details>
       <label>
         <input name="adult" type="checkbox" required />I confirm I am at least
         18 years old.

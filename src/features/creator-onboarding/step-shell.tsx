@@ -35,6 +35,9 @@ export function Progress({
             data-state={statuses[f.id] ?? "pending"}
             aria-current={f.id === current ? "step" : undefined}
           >
+            <span className="step-name" aria-hidden="true">
+              {f.label}
+            </span>
             <span className="ob-sr">
               {f.label}:{" "}
               {f.id === current ? "current" : (statuses[f.id] ?? "not started")}

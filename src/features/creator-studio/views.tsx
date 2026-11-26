@@ -154,9 +154,7 @@ export function ActionRow({
             <span className="st-badge">From your plan</span>
           )}
           {a.dependency && (
-            <span className="st-badge warn">
-              Preparation only · {a.dependency}
-            </span>
+            <span className="st-badge warn">Preparation only</span>
           )}
         </div>
         <h3 style={{ marginTop: "0.35rem" }}>{a.title}</h3>
@@ -175,8 +173,7 @@ export function ActionRow({
         )}
         {a.dependency && (
           <p className="st-hint" style={{ margin: "0.2rem 0 0" }}>
-            Marking this done means you prepared. The related feature (
-            {a.dependency}) is not built yet.
+            Completing this task records preparation.
           </p>
         )}
       </div>
@@ -360,8 +357,7 @@ function Content({ d }: { d: StudioData }) {
   return (
     <Card id="content" title="Content">
       <p className="st-hint">
-        Upcoming content: none planned. Planning and the calendar arrive with
-        Content Studio (M08).
+        No scheduled posts.
       </p>
       {d.ideas.items.length ? (
         <ul className="st-list">
@@ -389,14 +385,7 @@ function Content({ d }: { d: StudioData }) {
         <Link className="st-btn" href="/creator/create">
           Your ideas ({d.ideas.total})
         </Link>
-        <button
-          type="button"
-          className="st-btn"
-          disabled
-          title="Arrives with Content Studio"
-        >
-          Calendar · planned (M08)
-        </button>
+        <Link className="st-btn" href="/creator/content?view=calendar">Calendar</Link>
       </div>
     </Card>
   );
@@ -472,9 +461,7 @@ export function CommercialCard({ summary }: { summary: CommercialSummary }) {
       {summary.status === "unavailable" && (
         <>
           <p>
-            <span className="st-badge warn">
-              Not available yet · {summary.module}
-            </span>
+            <span className="st-badge warn">Not available yet</span>
           </p>
           <p className="st-hint">{summary.text}</p>
         </>
@@ -638,19 +625,21 @@ export function DashboardView({ d }: { d: StudioData }) {
   };
   return (
     <>
-      <h1>{headline(s, sit)}</h1>
-      <p className="st-hint">
-        {stage ?? "Creator"}
-        {primary
-          ? ` · ${primary.custom_label ?? label(niches, primary.code)}`
-          : s.profile?.niche_exploring
-            ? " · still exploring your niche"
-            : ""}{" "}
-        ·{" "}
-        {s.social_accounts.length
-          ? `${s.social_accounts.length} account${s.social_accounts.length === 1 ? "" : "s"} (self-reported)`
-          : "no social account yet, which is fine"}
-      </p>
+      <header className="studio-opening">
+        <h1>{headline(s, sit)}</h1>
+        <p className="st-hint">
+          {stage ?? "Creator"}
+          {primary
+            ? ` · ${primary.custom_label ?? label(niches, primary.code)}`
+            : s.profile?.niche_exploring
+              ? " · still exploring your niche"
+              : ""}{" "}
+          ·{" "}
+          {s.social_accounts.length
+            ? `${s.social_accounts.length} account${s.social_accounts.length === 1 ? "" : "s"} (self-reported)`
+            : "no social account yet, which is fine"}
+        </p>
+      </header>
       <div className="st-notices" role="region" aria-label="Important notices">
         {essentialNotices(s).map((n) => (
           <p className="st-notice" key={n.id}>
@@ -664,7 +653,13 @@ export function DashboardView({ d }: { d: StudioData }) {
           daily actions work without them.
         </p>
       )}
-      <div className="st-grid">{order.map((w) => widgets[w])}</div>
+      <div className="st-grid">{order.slice(0, 2).map((w) => widgets[w])}</div>
+      {order.length > 2 && (
+        <details className="workspace-drawer">
+          <summary>More from your workspace</summary>
+          <div className="st-grid">{order.slice(2).map((w) => widgets[w])}</div>
+        </details>
+      )}
       {d.prefs.hidden_widgets.length > 0 && (
         <p className="st-hint" style={{ marginTop: "1rem" }}>
           {d.prefs.hidden_widgets.length} widget
@@ -928,7 +923,7 @@ const explain: { id: string; title: string; how: string }[] = [
   {
     id: "ownership",
     title: "Account ownership",
-    how: "Your accounts are unverified until social account management (M05) exists. Follower counts alone never verify anything.",
+    how: "Review ownership in Social accounts. Follower count does not verify ownership.",
   },
   {
     id: "verification",
@@ -959,9 +954,7 @@ export function RecommendationsView({ state }: { state: CreatorState }) {
           <Card id="opps" title="Opportunities for you">
             {recs.empty && (
               <p>
-                No published opportunities yet. The marketplace (M10) is not
-                available, so nothing is invented here. Use this time to
-                prepare:
+                No published opportunities yet. Prepare for your first brief.
               </p>
             )}
             <ul className="st-list">
@@ -1027,7 +1020,9 @@ export function ModuleList({ areaId }: { areaId: string }) {
           >
             <span>
               <Lock aria-hidden size={14} /> <strong>{i.label}</strong>{" "}
-              <span className="st-badge warn">Planned · {i.module}</span>
+              <span className="st-badge warn" data-dependency={i.module}>
+                Planned
+              </span>
             </span>
             <span className="st-hint">{i.note}</span>
           </li>
@@ -1047,8 +1042,7 @@ export function CreateView({
     <>
       <h1>Create</h1>
       <p className="st-hint">
-        Capture ideas now. Scripts, planning and the content calendar arrive
-        with Content Studio (M08).
+        Save an idea for your next post.
       </p>
       <div className="st-split">
         <div className="st-grid" style={{ gridTemplateColumns: "1fr" }}>
@@ -1079,8 +1073,7 @@ export function CreateView({
         </div>
         <Card id="plan" title="Content planning">
           <p className="st-hint">
-            Upcoming content: none. The calendar and planner are planned for
-            M08.
+            Develop a draft or plan your next release.
           </p>
           <ModuleList areaId="create" />
         </Card>

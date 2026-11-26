@@ -1,12 +1,12 @@
 @import "tailwindcss" source("../");
 @theme {
-  --color-midnight: #17152d;
+  --color-midnight: #20231f;
   --color-violet: #7457e8;
-  --color-ivory: #f8f6f2;
+  --color-ivory: #f7f6f0;
   --color-peach: #f4b8a6;
   --color-sage: #dcebe5;
   --color-ink: #242137;
-  --color-muted-ink: #777486;
+  --color-muted-ink: #62665e;
   --color-background: #ffffff;
   --color-foreground: #242137;
   --color-card: #fff;
@@ -31,6 +31,11 @@
   --font-sans: "Inter Variable", sans-serif;
   --font-heading: "Plus Jakarta Sans Variable", sans-serif;
   --spacing: 0.25rem;
+  --font-editorial: Georgia, "Times New Roman", serif;
+  --paper: #f7f6f0;
+  --forest: #243d32;
+  --lime: #d9ec93;
+  --rule: #cdd0c5;
   --radius-md: 0.625rem;
   --radius-xl: 1.125rem;
   --shadow-panel: 0 3px 14px #17152d08;
