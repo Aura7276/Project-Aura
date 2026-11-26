@@ -17,3 +17,7 @@ Grow > Social accounts now points to `/creator/socials` (available). Analytics r
 ## M06
 
 Grow > Analytics (`/creator/analytics`) and Experiments (`/creator/experiments`) are available. The earlier planned M06 entry is replaced.
+
+## M09
+
+My Studio: Profile and media kit (`/creator/profile`), Portfolio and Media kits are available. The planned M09 entry is replaced.

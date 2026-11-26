@@ -59,3 +59,7 @@ Unmet: platform provider APIs and OAuth (M06 and later), malware scanning for ev
 ## M06 dependencies
 
 Unmet: AI classification and pattern interpretation (M07), content metadata ownership (M08), media kit use of shared audience (M09), campaign matching (M10, M16), collaboration and deliverable links (M12), earnings (M13), entitlements (M27), provider data and legal review for competitor tracking, a live Supabase project, scheduled insight generation (insights refresh when the page opens).
+
+## M09 dependencies
+
+No new package (QR and PDF are written in-house). Unmet: M08 Content Studio records, M07 AI assistance, M14 Brand verification for enquiries, M12 collaboration indicators, M27 entitlements, private storage bucket and malware scanning for uploads, a live Supabase project.

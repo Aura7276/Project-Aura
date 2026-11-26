@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import { KitDocument } from "@/features/creator-profile/site";
 import { kitTokenPattern } from "@/features/creator-profile/rules";
 import { shareVisit } from "@/features/creator-profile/site-actions";
-import { profileApi, publicClient } from "@/server/profile/service";
+import { profileApi, safePublic } from "@/server/profile/service";
 import "@/features/creator-profile/profile.css";
 
 export const metadata: Metadata = {
@@ -36,8 +36,8 @@ export default async function Page({
   const { token } = await params;
   const sp = await searchParams;
   if (!kitTokenPattern.test(token)) notFound();
-  const r = await profileApi.publicKit(await publicClient(), token);
-  if (!r.ok || r.value.status === "not_found") notFound();
+  const r = await safePublic((c) => profileApi.publicKit(c, token));
+  if (!r || !r.ok || r.value.status === "not_found") notFound();
   const v = r.value;
   if (v.status === "sign_in_required")
     return (

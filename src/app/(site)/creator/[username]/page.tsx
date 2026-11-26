@@ -3,14 +3,14 @@ import { notFound, permanentRedirect } from "next/navigation";
 import { cache } from "react";
 import { ProfileSite } from "@/features/creator-profile/site";
 import { usernamePattern } from "@/features/creator-profile/rules";
-import { profileApi, publicClient } from "@/server/profile/service";
+import { profileApi, safePublic } from "@/server/profile/service";
 
 // Read live on every request: publication, item visibility and workspace status are re-checked by the database each time.
 const load = cache(async (username: string) => {
   const name = username.toLowerCase();
   if (!usernamePattern.test(name)) return null;
-  const r = await profileApi.publicProfile(await publicClient(), name);
-  return r.ok ? r.value : null;
+  const r = await safePublic((c) => profileApi.publicProfile(c, name));
+  return r?.ok ? r.value : null;
 });
 export async function generateMetadata({
   params,

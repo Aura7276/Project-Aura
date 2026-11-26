@@ -38,3 +38,7 @@ Private schema, RLS on with no policies, no grants; access via `SECURITY DEFINER
 ## M06 `aura_analytics`
 
 Private schema; RLS on with no policies and no grants; access via `SECURITY DEFINER` functions only. Reuses M05 observations. Append-only audience snapshots; experiments freeze baselines at activation. See `CREATOR_ANALYTICS_ARCHITECTURE.md`.
+
+## M09 `aura_profile`
+
+Private schema; RLS on with no policies and no grants. Anonymous callers can execute only `aura_public_profile` and `aura_public_kit` and read the allowlisted `m01_public_creator_previews` view. Widens M03's `creator_profile.visibility` to private or public. See `CREATOR_PROFILE_ARCHITECTURE.md`.

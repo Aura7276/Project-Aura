@@ -15,3 +15,7 @@ Implemented on `feature/m05-social-account-management`, verified on local Postgr
 ## M06 Creator analytics and Growth Experiment Lab
 
 Implemented on `feature/m06-creator-analytics`, verified on local PostgreSQL with stubs and the local stack (see `M06_COMPLETE_REPORT.md`). Not pushed or merged. M07 not started.
+
+## M09 Creator profile and media kit
+
+Implemented on `feature/m09-creator-profile` (built on M06; M07 and M08 not merged), verified on local PostgreSQL with stubs and the local stack. See `M09_COMPLETE_REPORT.md`.

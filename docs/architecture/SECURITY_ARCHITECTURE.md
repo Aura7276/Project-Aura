@@ -26,3 +26,7 @@ Restricted reviewers need Platform Admin, a reviewer grant and an MFA session; n
 ## M06 security
 
 Analytics, insights and experiments are readable only by the owning Creator workspace. Audience grants are Brand-only, purpose-bound, revocable and re-checked on read and export. Exports record purpose and time (never content), neutralize spreadsheet formulas and require a live session. Cohort output is suppressed below a floor of 10 and never reveals size or identity. No client function can create AI-proposed tags, competitors or provider data. Insight links are restricted to in-app paths and categories exclude fraud verdicts.
+
+## M09 security
+
+Share and invitation tokens are hashed at rest and shown once. Restricted links require the named workspace's signed-in member. Public projections are allowlisted and rebuilt on every read. Testimonials are attributable, invitation-only, never by the Creator's own workspace, and moderated by an MFA reviewer. No visitor identity is stored. External links are https only and open with `noopener noreferrer`. Kit pages send `no-referrer`.

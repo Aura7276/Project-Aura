@@ -71,6 +71,16 @@ async function call<T>(
   }
   return { ok: true, value: data as T };
 }
+/** Public pages degrade to "not found" when no data provider is configured (for example a static preview), never to an error page. */
+export async function safePublic<T>(
+  run: (c: Awaited<ReturnType<typeof publicClient>>) => Promise<T>,
+): Promise<T | null> {
+  try {
+    return await run(await publicClient());
+  } catch {
+    return null;
+  }
+}
 /** A read-only client for public pages: the visitor's own session if they have one, otherwise anonymous. It never writes cookies. */
 export async function publicClient() {
   const { url, key } = providerConfig();

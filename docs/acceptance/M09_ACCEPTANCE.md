@@ -1,0 +1,14 @@
+# M09 acceptance
+
+Evidence level: local PostgreSQL 16 with auth and storage stubs and the local stand-in for Supabase. **Not live Supabase.**
+
+| ID       | Criterion                                                                | Evidence                                                                                                                                                                                         | Status                                     |
+| -------- | ------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------ |
+| M09-AC01 | Private until publication; direct URL cannot bypass                      | SQL group 3 (unpublished not found by anon, unpublish and suspension remove access); stack test (404 before publishing and after unpublishing)                                                   | Met locally                                |
+| M09-AC02 | Item-level permissions respected in kits and exports                     | SQL groups 4 and 6 (private and restricted items, packages, audience and rates excluded from public links; snapshot re-filtered after an item turns private); stack test checks web page and PDF | Met locally                                |
+| M09-AC03 | Expired and revoked links deny; QR resolves to the right grant           | SQL group 6 (revoked, expired, unknown token, wrong recipient); QR encoder matches a reference module for module and encodes the exact link; stack test revokes a live link                      | Met locally                                |
+| M09-AC04 | Sample work labelled; only specific verification claims                  | Speculative label on profile, kit and PDF; per-account ownership and dated self-reported counts; no general badge, no rating (SQL and domain tests)                                              | Met locally                                |
+| M09-AC05 | Brand outreach requires verification; analytics protect visitor identity | Enquiries always refused (M14 absent); no identity columns; owner visits excluded; Brand visit only by consent and membership (SQL groups 6 and 7, stack test)                                   | Met locally; outreach itself not available |
+| M09-AC06 | Unpublishing removes discovery and public access                         | SQL group 3 (directory view and public projection empty after unpublish); stack test                                                                                                             | Met locally                                |
+
+Not verified: live Supabase, real Storage uploads, real MFA tokens, any AI, Brand-side screens beyond kit viewing.
