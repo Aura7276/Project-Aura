@@ -2,6 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { studioContext } from "@/server/studio/service";
 import { market, reasonText, type MReason } from "@/server/market/service";
+import { brand as brandApi } from "@/server/brand/service";
 import {
   categories,
   categoryHelp,
@@ -1049,6 +1050,9 @@ export async function BrandView({ id }: { id: string }) {
   const r = await market.brandPage(c.client, c.workspaceId, id);
   if (!r.ok) notFound();
   const b = r.value;
+  // M14: the Brand's published profile, if it chose to publish one (never legal or private planning data)
+  const pub = await brandApi.publicFor(c.client, c.workspaceId, id);
+  const about = pub.ok && pub.value.found ? pub.value.profile : null;
   return (
     <main>
       <p>
@@ -1065,6 +1069,36 @@ export async function BrandView({ id }: { id: string }) {
           is shown; collaboration feedback appears once collaborations exist.
         </p>
       </header>
+      {about && (
+        <section className="st-card" aria-labelledby="bp-about-h">
+          <h2 id="bp-about-h">About {about.name}</h2>
+          {about.tagline && (
+            <p>
+              <b>{about.tagline}</b>
+            </p>
+          )}
+          {about.about && (
+            <p style={{ whiteSpace: "pre-wrap" }}>{about.about}</p>
+          )}
+          {about.products.length > 0 && (
+            <p>
+              Products and services:{" "}
+              {about.products.map((x) => x.name).join(", ")}
+            </p>
+          )}
+          {about.website && (
+            <p>
+              <a
+                href={about.website}
+                rel="noopener noreferrer nofollow"
+                target="_blank"
+              >
+                {about.website.replace(/^https:\/\//, "")}
+              </a>
+            </p>
+          )}
+        </section>
+      )}
       {b.hidden && (
         <p className="mk-banner">
           You have hidden this Brand.{" "}

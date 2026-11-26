@@ -2,7 +2,7 @@
 import { expect, test, type Browser, type Page } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
 import { mkdirSync } from "node:fs";
-import { seedUser, signedIn } from "./helpers";
+import { seedUser, signedIn, verifyBrand } from "./helpers";
 
 // M11 end to end on the real routes, against the local test stack (real PostgreSQL migrations, NOT Supabase).
 test.describe.configure({ mode: "serial" });
@@ -109,15 +109,9 @@ async function liveCampaign(browser: Browser, request: Req, title: string) {
   await f.getByLabel(/Where you will use the content/).fill("organic, website");
   await f.getByRole("button", { name: "Save draft" }).click();
   await expect(bp.getByText(/Draft saved/)).toBeVisible();
-  await rp.goto("/admin/marketplace");
-  const row = rp.locator("li", {
-    has: rp.locator(`input[name="id"][value="${brand.workspace_id}"]`),
-  });
-  await row.getByLabel("Reason").fill("Registration documents checked");
-  await row.getByRole("button", { name: "Record" }).click();
-  await expect(rp.getByText("Decision recorded.")).toBeVisible();
-  await bp.goto(bp.url());
   const url = bp.url().split("?")[0];
+  await verifyBrand(bp, rp, brand.workspace_id);
+  await bp.goto(url);
   await bp.getByRole("button", { name: "Publish campaign" }).click();
   await expect(bp.getByText(/Sent to a reviewer/)).toBeVisible();
   await rp.goto("/admin/marketplace");

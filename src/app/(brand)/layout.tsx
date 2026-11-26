@@ -2,7 +2,8 @@ import Link from "next/link";
 import "@/features/creator-studio/studio.css";
 import "@/features/marketplace/market.css";
 import "@/features/applications/apply.css";
-// Minimal Brand area for M10 campaign authoring and M11 applications. The full Brand workspace arrives with M14/M15.
+import "@/features/brand/brand.css";
+// Minimal private Brand area (M14 onboarding and business tools, M10 campaigns, M11 inbox). Not the M15 Brand navigation, which is not approved. The full Brand workspace arrives with M14/M15.
 export const metadata = {
   title: { default: "Brand · AURA", template: "%s · Brand · AURA" },
   robots: { index: false, follow: false },
@@ -30,6 +31,9 @@ export default function BrandLayout({
           }}
         >
           <strong>AURA for Brands</strong>
+          <Link href="/brand">Home</Link>
+          <Link href="/brand/profile">Business</Link>
+          <Link href="/brand/verification">Verification</Link>
           <Link href="/brand/campaigns">Campaigns</Link>
           <Link href="/brand/inbox">Inbox</Link>
           <Link href="/workspaces">Switch workspace</Link>

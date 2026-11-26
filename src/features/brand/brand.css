@@ -1,0 +1,438 @@
+/* M14 Brand workspace. Calm, product-sized type; tokens shared with studio.css and market.css. */
+.br-main {
+  padding: 1.5rem 1rem 4rem;
+}
+.br-narrow {
+  max-width: 760px;
+}
+.br-head h1,
+.br-hero h1 {
+  font-size: clamp(1.7rem, 4.5vw, 2.5rem);
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  margin: 0.2rem 0 0.4rem;
+}
+.br-main h2 {
+  font-size: 1.15rem;
+  letter-spacing: -0.01em;
+}
+.br-main h3 {
+  font-size: 1rem;
+}
+.br-hero {
+  padding: 1.4rem 1.4rem 1.2rem;
+  border-radius: 22px;
+  background: linear-gradient(135deg, #f6f4ff 0%, #fff7ec 100%);
+  border: 1px solid #ebe7f7;
+  margin-bottom: 1rem;
+}
+.br-eyebrow {
+  font-size: 0.85rem;
+  color: #5d5a6e;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  align-items: center;
+}
+.br-lead {
+  color: #3f3c52;
+  max-width: 62ch;
+  margin: 0;
+}
+.br-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.15rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  background: #eef0f6;
+  color: #2a2840;
+  margin: 0.1rem 0.2rem 0.1rem 0;
+  overflow-wrap: anywhere;
+}
+.br-pill.ok {
+  background: #e3f5ea;
+  color: #1f5f3a;
+}
+.br-pill.warn {
+  background: #fff4da;
+  color: #6b4a00;
+}
+.br-pill.no {
+  background: #f4ecec;
+  color: #7a2e2e;
+}
+.br-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem 0.9rem;
+  margin: 1rem 0 1.2rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid #ebe7e2;
+}
+.br-tabs a {
+  text-decoration: none;
+  color: #3f3c52;
+  padding: 0.2rem 0;
+}
+.br-tabs a[aria-current="page"] {
+  color: #5b4bd6;
+  font-weight: 700;
+  box-shadow: 0 2px 0 #5b4bd6;
+}
+.br-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+}
+.br-cols {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: minmax(0, 1fr);
+  align-items: start;
+}
+@media (min-width: 960px) {
+  .br-cols {
+    grid-template-columns: minmax(0, 1fr) 340px;
+  }
+  .br-publish {
+    position: sticky;
+    top: 1rem;
+  }
+}
+.br-callout {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.2rem;
+  border-radius: 18px;
+  background: #fff8e8;
+  border: 1px solid #f3e2b6;
+  margin: 0 0 1rem;
+}
+.br-callout h2 {
+  margin: 0 0 0.3rem;
+}
+.br-callout p {
+  margin: 0;
+  max-width: 62ch;
+}
+.br-callout.small {
+  display: block;
+  padding: 0.7rem 0.9rem;
+  font-size: 0.92rem;
+}
+.br-steps {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.6rem;
+}
+.br-steps li {
+  display: grid;
+  grid-template-columns: 1.6rem minmax(0, 1fr);
+  gap: 0.6rem;
+  align-items: start;
+}
+.br-tick {
+  width: 1.4rem;
+  height: 1.4rem;
+  border-radius: 50%;
+  border: 2px solid #c9c4dc;
+  display: grid;
+  place-items: center;
+  font-size: 0.8rem;
+  color: #fff;
+}
+.br-steps li.done .br-tick {
+  background: #2f8a55;
+  border-color: #2f8a55;
+}
+.br-steps li.done a {
+  color: #5d5a6e;
+}
+.br-plan {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 0.8rem;
+  display: grid;
+  gap: 0.45rem;
+}
+.br-plan li {
+  display: flex;
+  gap: 0.5rem;
+  align-items: flex-start;
+  overflow-wrap: anywhere;
+}
+.br-plan li > details {
+  flex: 1;
+  min-width: 0;
+}
+.br-plan li.done summary,
+.br-plan li.done:not(:has(details)) {
+  text-decoration: line-through;
+  color: #6f6b80;
+}
+.br-check {
+  flex: none;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 6px;
+  border: 2px solid #b9b3d1;
+  background: #fff;
+  color: #fff;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+}
+.br-check[aria-pressed="true"] {
+  background: #2f8a55;
+  border-color: #2f8a55;
+}
+.br-plans {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+}
+.br-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.6rem;
+}
+.br-links li {
+  display: grid;
+}
+.br-facts {
+  display: grid;
+  gap: 0.6rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 120px), 1fr));
+  margin: 0 0 0.8rem;
+}
+.br-facts.wide {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+}
+.br-facts dt {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #5d5a6e;
+  font-weight: 700;
+}
+.br-facts dd {
+  margin: 0.1rem 0 0;
+  font-size: 1.05rem;
+  overflow-wrap: anywhere;
+}
+.br-wizard {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1rem;
+}
+.br-wizard li {
+  padding: 0.25rem 0.7rem;
+  border-radius: 999px;
+  background: #f3f1ee;
+  color: #5d5a6e;
+  font-size: 0.82rem;
+}
+.br-wizard li[aria-current="step"] {
+  background: #5b4bd6;
+  color: #fff;
+}
+.br-wizard li.done {
+  background: #e3f5ea;
+  color: #1f5f3a;
+}
+.br-checks {
+  border: 1px solid #e6e1dc;
+  border-radius: 12px;
+  padding: 0.6rem 0.8rem;
+  margin: 0 0 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem 1rem;
+  min-width: 0;
+}
+.br-checks legend {
+  font-weight: 600;
+  padding: 0 0.3rem;
+}
+.br-checks .st-hint {
+  flex-basis: 100%;
+  margin: 0;
+}
+.br-list {
+  display: grid;
+  gap: 0.6rem;
+  margin: 0 0 1rem;
+}
+.br-item > summary {
+  cursor: pointer;
+  overflow-wrap: anywhere;
+}
+.br-inline {
+  display: inline-block;
+  margin: 0.3rem 0;
+}
+.br-rows {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1rem;
+  display: grid;
+  gap: 0.5rem;
+}
+.br-rows li {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: center;
+  padding: 0.7rem 0.9rem;
+  border: 1px solid #e6e1dc;
+  border-radius: 14px;
+  background: #fff;
+  overflow-wrap: anywhere;
+}
+.br-rows li > span {
+  min-width: 0;
+}
+.br-empty {
+  padding: 1rem;
+  border: 1px dashed #d6d1e6;
+  border-radius: 14px;
+  color: #5d5a6e;
+  background: #fcfbff;
+}
+.br-why {
+  padding-left: 1.1rem;
+  display: grid;
+  gap: 0.5rem;
+}
+.br-swatches {
+  display: flex;
+  gap: 0.4rem;
+  margin: 0 0 1rem;
+}
+.br-swatches span {
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+.br-brief {
+  display: grid;
+  gap: 0;
+  padding: 0;
+}
+.br-brief-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0.2rem;
+  padding: 0.8rem 1rem;
+  border-bottom: 1px solid #eee9e4;
+}
+@media (min-width: 720px) {
+  .br-brief-row {
+    grid-template-columns: 200px minmax(0, 1fr);
+  }
+}
+.br-brief-row dt {
+  font-weight: 700;
+}
+.br-brief-row dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+.br-status {
+  padding: 1rem 1.2rem;
+  border-radius: 18px;
+  border: 1px solid #e6e1dc;
+  background: #fff;
+  margin-bottom: 1rem;
+}
+.br-status.verified {
+  background: #f1faf4;
+  border-color: #cfe8d8;
+}
+.br-status h2 {
+  margin: 0 0 0.3rem;
+}
+.br-quote {
+  border-left: 3px solid #5b4bd6;
+  padding-left: 0.7rem;
+}
+.br-timeline {
+  list-style: none;
+  padding: 0 0 0 1rem;
+  border-left: 2px solid #e6e1dc;
+  margin: 0;
+}
+.br-timeline li {
+  padding: 0 0 0.7rem;
+  overflow-wrap: anywhere;
+}
+.br-decide {
+  display: grid;
+  gap: 0.4rem;
+  max-width: 520px;
+}
+.br-foot {
+  margin-top: 1.5rem;
+}
+/* Public Brand page */
+.bp-page {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 2rem 1rem 4rem;
+}
+.bp-hero {
+  padding: 2rem 1.5rem;
+  border-radius: 26px;
+  background: linear-gradient(135deg, #1f1b3a 0%, #3b2fa0 100%);
+  color: #fff;
+}
+.bp-hero h1 {
+  font-size: clamp(2rem, 6vw, 3rem);
+  letter-spacing: -0.03em;
+  margin: 0.3rem 0;
+  color: #fff;
+}
+.bp-hero p {
+  margin: 0.3rem 0;
+  color: #e8e5ff;
+  max-width: 60ch;
+}
+.bp-hero a {
+  color: #fff;
+}
+.bp-hero .br-pill {
+  background: rgba(255, 255, 255, 0.16);
+  color: #fff;
+}
+.bp-section {
+  margin-top: 1.6rem;
+}
+.bp-section h2 {
+  font-size: 1.2rem;
+}
+.bp-products {
+  display: grid;
+  gap: 0.8rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+}
+.bp-products article {
+  border: 1px solid #e6e1dc;
+  border-radius: 16px;
+  padding: 1rem;
+  background: #fff;
+  overflow-wrap: anywhere;
+}

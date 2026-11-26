@@ -99,6 +99,7 @@ test.describe("M05 real routes with the local test stack (not Supabase)", () => 
 
     // dashboard widget and nav link
     await page.goto("/creator/dashboard");
+    await page.getByText("More from your workspace").click(); // M08 layout: further widgets sit in a collapsed section
     await expect(
       page.getByRole("link", { name: "Manage social accounts" }),
     ).toBeVisible();

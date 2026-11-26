@@ -78,12 +78,13 @@ test.describe("M04 desktop navigation (F03)", () => {
     await expect(
       side.getByRole("link", { name: "Experiments" }),
     ).toHaveAttribute("href", "/creator/experiments");
+    // M07 delivered the Growth Studio and M08 the Content Studio: both are real links now.
     await expect(
-      side.getByText("Growth Assistant", { exact: true }),
-    ).toBeVisible();
+      side.getByRole("link", { name: "Growth Studio" }),
+    ).toHaveAttribute("href", "/creator/ai");
     await expect(
-      side.getByRole("link", { name: "Growth Assistant" }),
-    ).toHaveCount(0); // planned destinations are never links
+      side.getByRole("link", { name: "Content Studio" }),
+    ).toHaveAttribute("href", "/creator/content");
   });
   test("every link in the shell resolves (no dead links)", async ({
     page,
@@ -523,15 +524,14 @@ test.describe("M04 daily actions, progress and recommendations (F06, F10, F11, A
       ),
     ).toBeVisible();
   });
-  test("create offers idea capture and an honest calendar readiness state", async ({
+  test("create offers idea capture and links to the content planning tools", async ({
     page,
   }) => {
     await page.goto(pv("create", "aspiring"));
+    // M08 delivered the Content Studio and calendar, so no planned M08 state remains on this page.
+    await expect(page.locator('main [data-dependency="M08"]')).toHaveCount(0);
     await expect(
-      page.getByText(/publishing calendar is planned/),
-    ).toBeVisible();
-    await expect(
-      page.locator('main [data-dependency="M08"]').first(),
+      page.getByRole("heading", { name: "Content planning" }),
     ).toBeVisible();
     await expect(page.getByText("No ideas yet.")).toBeVisible();
   });

@@ -55,10 +55,10 @@ function Banner({ verification }: { verification: string }) {
   ) : (
     <p className="mk-banner">
       Your business is not verified yet
-      {verification === "revoked" ? " (verification was withdrawn)" : ""}. You
-      can prepare private drafts; publishing at any visibility and sending
-      invitations need an approved verification. Until Brand onboarding (M14) is
-      available, a platform reviewer checks your business.
+      {verification === "revoked" ? " (verification is paused)" : ""}. You can
+      prepare private drafts; publishing at any visibility and sending
+      invitations need an approved verification.{" "}
+      <Link href="/brand/verification">Verify your business</Link>.
     </p>
   );
 }
@@ -646,24 +646,12 @@ export async function ReviewView({ sp }: { sp: SP }) {
           Decision recorded.
         </p>
       )}
-      <h2>Business verification (interim, until M14)</h2>
-      {v2.brands.length === 0 ? (
-        <p>No Brands waiting.</p>
-      ) : (
-        <ul>
-          {v2.brands.map((b) => (
-            <li key={b.id}>
-              <strong>{b.name}</strong> · {b.business_kind} · {b.verification} ·{" "}
-              {b.drafts} draft(s)
-              <Decide
-                kind="brand"
-                id={b.id}
-                options={{ verified: "Verify", revoked: "Do not verify" }}
-              />
-            </li>
-          ))}
-        </ul>
-      )}
+      <h2>Business verification</h2>
+      <p>
+        Business verification moved to its own queue, with evidence, information
+        requests, appeals and revalidation:{" "}
+        <Link href="/admin/verification">open business verification</Link>.
+      </p>
       <h2>Campaigns waiting for review</h2>
       {v2.campaigns.length === 0 ? (
         <p>None.</p>

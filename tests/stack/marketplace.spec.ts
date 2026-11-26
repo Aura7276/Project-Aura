@@ -1,6 +1,6 @@
 import { expect, test, type Page } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
-import { seedUser, signedIn } from "./helpers";
+import { seedUser, signedIn, verifyBrand } from "./helpers";
 
 test.describe.configure({ mode: "serial" });
 const unique = () => Math.random().toString(36).slice(2, 8);
@@ -156,12 +156,8 @@ test.describe("M10 real routes with the local test stack (not Supabase)", () => 
     await expect(
       rp.getByRole("heading", { name: "Marketplace review" }),
     ).toBeVisible();
-    const row = rp.locator("li", {
-      has: rp.locator(`input[name="id"][value="${brand.workspace_id}"]`),
-    });
-    await row.getByLabel("Reason").fill("Registration documents checked");
-    await row.getByRole("button", { name: "Record" }).click();
-    await expect(rp.getByText("Decision recorded.")).toBeVisible();
+    // business verification goes through the M14 case workflow
+    await verifyBrand(bp, rp, brand.workspace_id);
     // first publication goes to review, then the reviewer approves
     await bp.goto(paidUrl);
     await expect(bp.getByText(/Business verified/)).toBeVisible();
