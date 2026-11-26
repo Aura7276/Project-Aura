@@ -1,4 +1,6 @@
 import Link from "next/link";
+import "@/features/creator-studio/studio.css";
+import "@/features/marketplace/market.css";
 // Minimal Brand area for M10 campaign authoring. The full Brand workspace arrives with M14/M15.
 export const metadata = {
   title: { default: "Brand · AURA", template: "%s · Brand · AURA" },
@@ -30,7 +32,9 @@ export default function BrandLayout({
           <Link href="/workspaces">Switch workspace</Link>
         </nav>
       </header>
-      <div id="brand-main">{children}</div>
+      <div id="brand-main" className="mk-brand-area">
+        {children}
+      </div>
     </>
   );
 }

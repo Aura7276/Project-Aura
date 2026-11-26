@@ -30,3 +30,7 @@ Analytics, insights and experiments are readable only by the owning Creator work
 ## M09 security
 
 Share and invitation tokens are hashed at rest and shown once. Restricted links require the named workspace's signed-in member. Public projections are allowlisted and rebuilt on every read. Testimonials are attributable, invitation-only, never by the Creator's own workspace, and moderated by an MFA reviewer. No visitor identity is stored. External links are https only and open with `noopener noreferrer`. Kit pages send `no-referrer`.
+
+## M10 security
+
+Publication and invitations require approved verification at every visibility. Restricted and invitation-only campaigns are checked on every read, including direct URLs. Reviewers need MFA, give reasons and cannot review their own workspace. There is no fee field; fee language is held for review and reportable. Reports are not shown to the Brand. Saved-search filters are allowlisted and bounded.

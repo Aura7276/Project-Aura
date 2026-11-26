@@ -82,12 +82,23 @@ export function CampaignCard({
         <Link href={`/creator/marketplace/${c.id}`}>{c.title}</Link>
       </h3>
       <p className="mk-sub">{c.summary}</p>
-      <p className="mk-money">
-        {money ?? (other[0] ? other[0].kind : "Compensation not stated")}
-      </p>
-      {other.length > 0 && (
+      {money ? (
+        <p className="mk-money">{money}</p>
+      ) : other[0] ? (
+        <p className="mk-money" style={{ fontSize: "1rem" }}>
+          <span className="mk-pill line" style={{ marginRight: "0.4rem" }}>
+            {other[0].kind}
+          </span>
+          {other[0].text}
+        </p>
+      ) : (
+        <p className="mk-sub">Compensation not stated</p>
+      )}
+      {(money ? other : other.slice(1)).length > 0 && (
         <p className="mk-sub">
-          {other.map((o) => `${o.kind}: ${o.text}`).join(" · ")}
+          {(money ? other : other.slice(1))
+            .map((o) => `${o.kind}: ${o.text}`)
+            .join(" · ")}
         </p>
       )}
       <p className="mk-sub">

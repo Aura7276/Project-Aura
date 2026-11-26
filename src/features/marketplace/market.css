@@ -315,3 +315,16 @@
   background: #dcebe5;
   color: #1c3e2f;
 }
+.mk-brand-area {
+  overflow-wrap: anywhere;
+}
+.mk-brand-area input:not([type="checkbox"]):not([type="radio"]),
+.mk-brand-area select,
+.mk-brand-area textarea {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+.mk-brand-area .shell {
+  max-width: 72rem;
+  margin: 0 auto;
+}

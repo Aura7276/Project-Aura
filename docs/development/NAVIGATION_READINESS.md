@@ -21,3 +21,7 @@ Grow > Analytics (`/creator/analytics`) and Experiments (`/creator/experiments`)
 ## M09
 
 My Studio: Profile and media kit (`/creator/profile`), Portfolio and Media kits are available. The planned M09 entry is replaced.
+
+## M10
+
+Collaborate → Campaign marketplace (`/creator/marketplace`) is available. Brand campaigns live at `/brand/campaigns`; the reviewer page is `/admin/marketplace`.

@@ -63,3 +63,7 @@ Unmet: AI classification and pattern interpretation (M07), content metadata owne
 ## M09 dependencies
 
 No new package (QR and PDF are written in-house). Unmet: M08 Content Studio records, M07 AI assistance, M14 Brand verification for enquiries, M12 collaboration indicators, M27 entitlements, private storage bucket and malware scanning for uploads, a live Supabase project.
+
+## M10 dependencies
+
+No new package. Unmet: M14 Brand onboarding and verification (interim reviewer used), M11 applications, M12 agreements, M07 AI assessment, M25 email alerts, M27 promoted placements, a scheduler for deadline alerts, payment availability rules for international campaigns.

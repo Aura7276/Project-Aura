@@ -53,3 +53,7 @@ Branch `feature/m06-creator-analytics`. Code: `src/features/creator-analytics`, 
 ## M09 handover
 
 Branch `feature/m09-creator-profile` from M06. Migration `20261201000100` is dated so an M08 migration can sort before it. Merge points with M08: `aura_studio.dashboard_pref` widget allowlist (M09 adds `profile`), Studio nav, `aura_social.content_ref`, and `portfolio_item.studio_ref` (reserved for M08 records). The public profile moved from `(public)` to a new `(site)` route group. QR reference fixtures were generated once with the Python `qrcode` 8.2 package (`tests/unit/fixtures/qr-reference.json`).
+
+## M10 handover
+
+Branch `feature/m10-campaign-marketplace` from M09; migration `20261202000100`. The test stack accepts `{ mfa, admin }` when seeding a user (test-only) so Brand owners and reviewers can sign in with MFA. M11 should call `aura_market_check_apply` before accepting an application and replace the "applications open with M11" state. M14 should take over `aura_identity.workspace.verification` decisions and keep `aura_market.verification_decision` history.

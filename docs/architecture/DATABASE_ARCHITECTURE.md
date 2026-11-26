@@ -42,3 +42,7 @@ Private schema; RLS on with no policies and no grants; access via `SECURITY DEFI
 ## M09 `aura_profile`
 
 Private schema; RLS on with no policies and no grants. Anonymous callers can execute only `aura_public_profile` and `aura_public_kit` and read the allowlisted `m01_public_creator_previews` view. Widens M03's `creator_profile.visibility` to private or public. See `CREATOR_PROFILE_ARCHITECTURE.md`.
+
+## M10 `aura_market`
+
+Private schema; RLS on with no policies and no grants. Campaign terms are versioned (`campaign_version`); eligibility and visibility are computed in the database on every read. The M01 preview view lists only public, published, open campaigns of verified Brands. See `CAMPAIGN_MARKETPLACE_ARCHITECTURE.md`.
