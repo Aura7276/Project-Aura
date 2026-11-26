@@ -75,7 +75,9 @@ test.describe("M04 desktop navigation (F03)", () => {
       "M09",
       "M13",
     ])
-      if (m !== "M05" && m !== "M06" && m !== "M09" && m !== "M10")
+      if (m !== "M05" && m !== "M06" && m !== "M09" && m !== "M10" &&
+        m !== "M11"
+      )
         await expect(side.getByText(`Planned · ${m}`).first()).toBeVisible();
     // M06 delivered Analytics and Experiments: they are now real links, and no "Planned · M06" state remains.
     await expect(side.getByText("Planned · M06")).toHaveCount(0);

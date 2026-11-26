@@ -270,6 +270,12 @@ do $$ declare n int := 0; f text; begin
  perform t.mfa('r3'); assert t.denied(format('select public.aura_apply_decide(%L, %L, ''select'')', t.ws('c2'), t.g('app_a'))), 'another Brand cannot decide'; n := n + 1;
  assert t.denied(format('select public.aura_apply_negotiation(%L, %L)', t.ws('c2'), t.g('collab_e'))), 'another Brand cannot read the negotiation'; n := n + 1;
  perform t.mfa('d'); assert t.denied(format('select public.aura_apply_brand(%L)', t.ws('d'))), 'Agencies have no access (delegation is not built)'; n := n + 1;
+ perform t.mfa('c'); assert public.aura_apply_find_creator(t.ws('c'), 'nobody-here') is null, 'unknown usernames find nothing';
+ reset role; insert into aura_profile.profile(workspace_id, username, published) values (t.ws('b'), 'bo-m11', false) on conflict (workspace_id) do update set username = 'bo-m11', published = false; -- fixture
+ perform t.mfa('c'); assert public.aura_apply_find_creator(t.ws('c'), 'bo-m11') is null, 'an unpublished profile cannot be found by Brands'; n := n + 1;
+ reset role; update aura_profile.profile set published = true where workspace_id = t.ws('b'); -- fixture
+ perform t.mfa('c'); assert public.aura_apply_find_creator(t.ws('c'), 'BO-M11') = t.ws('b'), 'a published username resolves for a Brand';
+ perform t.me('a'); assert t.denied(format('select public.aura_apply_find_creator(%L, ''bo-m11'')', t.ws('a'))), 'Creators cannot use the Brand lookup'; n := n + 1;
  reset role;
  assert (select count(distinct event) from aura_identity.event where event like 'apply\_%') >= 8, 'material events are audited';
  assert (select count(*) from aura_profile.reserved_username where word in ('applications','invitations','enquiries','negotiations')) = 4, 'new Studio routes are reserved usernames';

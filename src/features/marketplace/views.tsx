@@ -562,9 +562,8 @@ export async function EligibilityView({ id, sp }: { id: string; sp: SP }) {
       )}
       {apply === "eligible" && (
         <p className="mk-banner ok" role="status">
-          You meet every mandatory requirement, checked just now. Applications
-          open with the applications module (M11), which is not available yet.
-          You can save the campaign and you will see it change here.
+          You meet every mandatory requirement, checked just now.{" "}
+          <Link href={`/creator/marketplace/${id}/apply`}>Start your application</Link>.
         </p>
       )}
       <section className="st-card" aria-labelledby="el-h">

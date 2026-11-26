@@ -669,6 +669,14 @@ begin
  return jsonb_build_object('id', r.id, 'status', r.status);
 end $$;
 
+-- A Brand finds a Creator by their PUBLISHED username only (no search of private workspaces, no enumeration of ids).
+create function public.aura_apply_find_creator(p_workspace uuid, p_username text) returns uuid language plpgsql stable security definer set search_path='' as $$
+declare u uuid := aura_market.brand(p_workspace, false); ws uuid;
+begin
+ select p.workspace_id into ws from aura_profile.profile p join aura_identity.workspace w on w.id = p.workspace_id where p.username = lower(trim(coalesce(p_username, ''))) and p.published and w.status = 'open';
+ return ws;
+end $$;
+
 -- Applications and invitations route under /creator/ must stay unclaimable as usernames (M09 rule).
 insert into aura_profile.reserved_username(word) values ('applications'), ('invitations'), ('enquiries'), ('negotiations') on conflict do nothing;
 

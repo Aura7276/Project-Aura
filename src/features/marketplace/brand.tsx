@@ -540,31 +540,27 @@ export async function BrandCampaignView({ id, sp }: { id: string; sp: SP }) {
           />
         </section>
       )}
-      {c.visibility === "invite_only" && (
-        <section className="st-card" aria-labelledby="inv-h">
-          <h2 id="inv-h">Invitations</h2>
-          <form action={act.inviteCreator}>
-            <input type="hidden" name="id" value={c.id} />
-            <input type="hidden" name="w" value={b.workspaceId} />
-            <div className="st-field">
-              <label htmlFor="inv-c">Creator workspace id</label>
-              <input id="inv-c" name="creator" required />
-            </div>
-            <button className="st-btn" disabled={!c.verified}>
-              Invite
-            </button>
-          </form>
-          {c.invited.length > 0 && (
-            <ul className="st-list">
-              {c.invited.map((i) => (
-                <li key={i.workspace} className="st-item">
-                  {i.name} · {i.invited_at.slice(0, 10)}
-                </li>
-              ))}
-            </ul>
-          )}
-        </section>
-      )}
+      <section className="st-card" aria-labelledby="inv-h">
+        <h2 id="inv-h">Applications and invitations</h2>
+        <p>
+          Review applicants, set screening questions and capacity, and invite
+          Creators{c.visibility === "invite_only" ? " (this campaign is invitation-only)" : ""}.
+        </p>
+        <p>
+          <Link className="st-btn primary" href={`/brand/campaigns/${c.id}/applications?w=${b.workspaceId}`}>
+            Open applications
+          </Link>
+        </p>
+        {c.invited.length > 0 && (
+          <ul className="st-list">
+            {c.invited.map((i) => (
+              <li key={i.workspace} className="st-item">
+                Invited: {i.name} · {i.invited_at.slice(0, 10)}
+              </li>
+            ))}
+          </ul>
+        )}
+      </section>
       <section className="st-card" aria-labelledby="ver-h">
         <h2 id="ver-h">Versions</h2>
         <ol className="st-list">

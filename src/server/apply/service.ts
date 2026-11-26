@@ -3,10 +3,15 @@ import type { SupabaseClient } from "@supabase/supabase-js";
 import { classify, type ServiceError } from "@/server/creator/service";
 
 type Rpc = Pick<SupabaseClient, "rpc">;
-export type AReason = "confirm" | "locked" | "duplicate" | "capacity" | "eligibility" | "verification" | "stale" | "rate" | "reapply" | "invalid" | "custom_work" | "state" | "generic";
+export type AReason = "confirm" | "pitch" | "account" | "answers" | "active" | "blocked" | "locked" | "duplicate" | "capacity" | "eligibility" | "verification" | "stale" | "rate" | "reapply" | "invalid" | "custom_work" | "state" | "generic";
 export type AResult<T> = { ok: true; value: T } | { ok: false; error: ServiceError; reason: AReason };
 const reasonOf = (code: string | null, m: string): AReason => {
-  if (/Confirm/i.test(m)) return "confirm";
+  if (/Confirm the/i.test(m)) return "confirm";
+  if (/Pitch required/i.test(m)) return "pitch";
+  if (/Choose the account/i.test(m)) return "account";
+  if (/required question/i.test(m)) return "answers";
+  if (/already have an active/i.test(m)) return "active";
+  if (/not accepting (invitations|enquiries)/i.test(m)) return "blocked";
   if (/locked/i.test(m)) return "locked";
   if (/new unpaid content/i.test(m)) return "custom_work";
   if (/Reapplication/i.test(m)) return "reapply";
@@ -21,7 +26,9 @@ const reasonOf = (code: string | null, m: string): AReason => {
   return "generic";
 };
 export const reasonText: Record<AReason, string> = {
-  confirm: "Tick the confirmation box before sending.", locked: "The Brand has started reviewing, so the application can no longer be edited.", duplicate: "That already exists.",
+  confirm: "Tick the confirmation box before sending.", pitch: "Write a pitch of at least 50 characters (this campaign does not use quick apply).",
+  account: "Choose the account you are applying with.", answers: "Answer every required screening question.", active: "You already have an active application for this campaign.",
+  blocked: "This Creator is not accepting messages from your Brand.", locked: "The Brand has started reviewing, so the application can no longer be edited.", duplicate: "That already exists.",
   capacity: "There is no capacity left for this.", eligibility: "The mandatory requirements are not met, so this cannot go ahead.", verification: "This needs an approved business verification.",
   stale: "The proposal changed. Review the current version before confirming.", rate: "You have reached today's limit. Please try again later.", reapply: "Reapplying is not allowed for this campaign.",
   invalid: "Some of that is missing or does not fit. Please check it.", custom_work: "Screening questions cannot ask Creators to make new content for free. Ask about existing work instead.",
@@ -67,6 +74,7 @@ export const apply = {
   enquire: (c: Rpc, ws: string, creator: string, campaign: string | null, message: string) => call<J>(c, "aura_apply_enquire", { p_workspace: ws, p_creator: creator, p_campaign: campaign, p_message: message }),
   brand: (c: Rpc, ws: string) => call<J>(c, "aura_apply_brand", { p_workspace: ws }),
   brandAnswer: (c: Rpc, ws: string, id: string, answer: string) => call<J>(c, "aura_apply_brand_answer", { p_workspace: ws, p_invitation: id, p_answer: answer }),
+  findCreator: (c: Rpc, ws: string, username: string) => call<string>(c, "aura_apply_find_creator", { p_workspace: ws, p_username: username }),
   reportQueue: (c: Rpc) => call<J[]>(c, "aura_apply_report_queue", {}),
   decideReport: (c: Rpc, id: string, decision: string, reason: string) => call<J>(c, "aura_apply_decide_report", { p_report: id, p_decision: decision, p_reason: reason }),
 };

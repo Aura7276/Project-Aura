@@ -34,6 +34,7 @@ export function setupDatabase() {
     "supabase/migrations/20261129000100_m06_creator_analytics.sql",
     "supabase/migrations/20261201000100_m09_creator_profile.sql",
     "supabase/migrations/20261202000100_m10_campaign_marketplace.sql",
+    "supabase/migrations/20261203000100_m11_applications.sql",
   ])
     admin(["-d", DB, "-f", f]);
 }

@@ -181,9 +181,9 @@ export async function checkApply(f: FormData) {
   const c = await creator();
   if (!id.success) redirect("/creator/marketplace");
   const r = await market.checkApply(c.client, c.workspaceId, id.data);
-  redirect(
-    `/creator/marketplace/${id.data}/eligibility?apply=${r.ok && r.value.eligible ? "eligible" : "blocked"}`,
-  );
+  if (r.ok && r.value.eligible)
+    redirect(`/creator/marketplace/${id.data}/apply`);
+  redirect(`/creator/marketplace/${id.data}/eligibility?apply=blocked`);
 }
 // Brand side
 const bTarget = (f: FormData) => {
@@ -313,24 +313,7 @@ export async function setCampaignStatus(f: FormData) {
   done();
   redirect(`/brand/campaigns/${id.success ? id.data : ""}?${q}`);
 }
-export async function inviteCreator(f: FormData) {
-  const id = uuid.safeParse(t(f, "id"));
-  const creatorWs = uuid.safeParse(t(f, "creator").trim());
-  const b = await brandContext(bTarget(f));
-  let q = "invited=1";
-  if (id.success && creatorWs.success) {
-    const r = await market.invite(
-      b.client,
-      b.workspaceId,
-      id.data,
-      creatorWs.data,
-      t(f, "on") !== "no",
-    );
-    if (!r.ok) q = "notice=" + r.reason;
-  } else q = "notice=invalid";
-  done();
-  redirect(`/brand/campaigns/${id.success ? id.data : ""}?${q}`);
-}
+// Invitations moved to M11 (src/features/applications/actions.ts): message, eligibility, expiry and blocking.
 // Reviewer
 export async function review(f: FormData) {
   const { client } = await eligible();
