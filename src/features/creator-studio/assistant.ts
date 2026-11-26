@@ -16,7 +16,7 @@ export function assistantAvailability(
     : {
         available: false as const,
         reason:
-          "The Growth Assistant is not available yet. It arrives with the AI assistant module. Meanwhile your daily actions, goals and the guides below work without it.",
+          "Open Growth Studio to draft, review and manage your plans. Automatic suggestions require a configured AI provider.",
       };
 }
 export const assistantManualTools = [

@@ -27,17 +27,21 @@ export default async function Page({
   return (
     <>
       <h1>{w.name}</h1>
-      <p>Your role · {w.role}</p>
-      <p>Onboarding · {w.onboarding}</p>
-      <p>Verification · {w.verification}</p>
-      <p>
-        Next step · {w.next_step}.{" "}
-        {w.kind === "creator"
-          ? "Creator profile onboarding continues in M03."
-          : w.kind === "brand"
-            ? "Brand onboarding continues in M14."
-            : "Agency onboarding is planned."}
-      </p>
+      <dl className="workspace-facts">
+        {[
+          ["Role", w.role],
+          ["Onboarding", w.onboarding],
+          ["Verification", w.verification],
+        ].map(([label, value]) => (
+          <div key={label}>
+            <dt>{label}</dt>
+            <dd>{value.replaceAll("_", " ")}</dd>
+          </div>
+        ))}
+      </dl>
+      {w.kind !== "creator" && (
+        <p>{w.kind === "brand" ? "Brand" : "Agency"} onboarding is planned.</p>
+      )}
       {w.role === "owner" &&
         w.status === "open" &&
         w.onboarding === "not_started" && (

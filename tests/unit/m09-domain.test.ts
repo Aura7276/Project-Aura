@@ -75,7 +75,7 @@ describe("M09 usernames", () => {
       .flatMap((a) => a.items)
       .map((i) => i.href)
       .filter((h): h is string => !!h && h.startsWith("/creator/"))
-      .map((h) => h.split("/")[2]);
+      .map((h) => h.split(/[/?#]/)[2]);
     expect(studioSegments.length).toBeGreaterThan(5);
     for (const s of studioSegments) {
       expect(reservedUsernames as readonly string[]).toContain(s);

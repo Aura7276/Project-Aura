@@ -32,9 +32,12 @@ export function setupDatabase() {
     "supabase/migrations/20261127000100_m04_creator_dashboard.sql",
     "supabase/migrations/20261128000100_m05_social_accounts.sql",
     "supabase/migrations/20261129000100_m06_creator_analytics.sql",
+    "supabase/migrations/20261130000100_m07_growth_studio.sql",
+    "supabase/migrations/20261130000200_m08_content_studio.sql",
     "supabase/migrations/20261201000100_m09_creator_profile.sql",
     "supabase/migrations/20261202000100_m10_campaign_marketplace.sql",
     "supabase/migrations/20261203000100_m11_applications.sql",
+    "supabase/migrations/20261204000100_reserve_m07_m08_routes.sql",
   ])
     admin(["-d", DB, "-f", f]);
 }

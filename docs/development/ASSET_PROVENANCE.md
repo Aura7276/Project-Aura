@@ -25,6 +25,8 @@ No new images or third-party assets. Icons reuse existing Lucide usage.
 
 No images, icons or third-party assets were added. Charts are inline SVG drawn from recorded data, each with a data-table alternative.
 
+Account studio print: identity routes on desktop use a decorative responsive 400:460 inline SVG in the identity layout. The intersecting ellipses are a reusable brand treatment. No external source or replacement is required.
+
 ## M09
 
 No images were generated, sourced or downloaded. Covers are CSS gradients and inline SVG waves or grids; avatars are initials; portfolio thumbnails are labelled typographic placeholders (16:10) to be replaced by Creator uploads once storage scanning exists. Screenshots in `docs/development/evidence/m09/` show real pages with sample text typed by the test (brand names marked illustrative).

@@ -5,6 +5,8 @@ export const reservedUsernames = [
   "actions",
   "admin",
   "applications",
+  "ai",
+  "content",
   "analytics",
   "api",
   "app",

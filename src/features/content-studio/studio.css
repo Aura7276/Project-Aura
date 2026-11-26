@@ -1,0 +1,456 @@
+.cs {
+  --ink: #231f34;
+  --line: #dedbe3;
+  --accent: #4935a0;
+  max-width: 1440px;
+  margin: auto;
+  padding: clamp(16px, 4vw, 62px);
+  color: var(--ink);
+  background: #faf9fc;
+  min-height: 85vh;
+  font-family: Inter, system-ui, sans-serif;
+}
+.cs * {
+  box-sizing: border-box;
+}
+.cs button,
+.cs select,
+.cs input,
+.cs textarea {
+  font: inherit;
+}
+.cs button,
+.cs select {
+  cursor: pointer;
+}
+.cs button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: white;
+  color: var(--ink);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 9px 13px;
+}
+.cs button:hover {
+  background: #eeebf5;
+}
+.cs button:disabled {
+  opacity: 0.55;
+  cursor: default;
+}
+.cs :focus-visible {
+  outline: 3px solid #7457e8;
+  outline-offset: 3px;
+}
+.cs button svg,
+.cs label svg {
+  width: 17px;
+  height: 17px;
+  flex: none;
+}
+.cs-mast {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: #252038;
+  color: #fff;
+  padding: clamp(25px, 4vw, 54px);
+  border-radius: 20px;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  min-height: 165px;
+}
+.cs-mast:after {
+  content: "";
+  z-index: -1;
+  position: absolute;
+  width: 39%;
+  height: 270%;
+  right: -3%;
+  top: -80%;
+  transform: rotate(-26deg);
+  background: repeating-linear-gradient(
+    90deg,
+    transparent 0 14px,
+    #9283b14a 14px 16px
+  );
+  border-left: 1px solid #88779e;
+}
+.cs-mast h1 {
+  font-size: clamp(36px, 5vw, 72px);
+  letter-spacing: -0.065em;
+  margin: 3px 0;
+  line-height: 1.06;
+  color: white;
+}
+.cs-mast span,
+.cs-mast small {
+  color: #e2ddec;
+  font-size: 13px;
+}
+.cs-emblem {
+  background: #e0d3ff;
+  color: #352559;
+  border-radius: 15px;
+  width: 57px;
+  height: 57px;
+  display: grid;
+  place-items: center;
+}
+.cs-mast small {
+  align-self: flex-start;
+  margin-left: auto;
+  background: #332c47;
+  padding: 6px 10px;
+  border-radius: 20px;
+}
+.cs-rail,
+.cs-tabs,
+.cs-toolbar,
+.cs-filter,
+.cs-section {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.cs-rail,
+.cs-tabs {
+  margin: 22px 0;
+  border-bottom: 1px solid var(--line);
+  overflow-x: auto;
+}
+.cs-rail button,
+.cs-tabs button {
+  border: 0;
+  background: transparent;
+  border-radius: 0;
+  padding: 14px 16px;
+  white-space: nowrap;
+}
+.cs button[aria-pressed="true"] {
+  color: var(--accent);
+  box-shadow: inset 0 -3px var(--accent);
+  font-weight: 650;
+}
+.cs-section {
+  justify-content: space-between;
+  padding: 18px 0;
+}
+.cs-section h2,
+.cs-calendar h2 {
+  font-size: clamp(27px, 3vw, 43px);
+  letter-spacing: -0.055em;
+  line-height: 1.15;
+  margin: 0;
+}
+.cs-section p,
+.cs-empty p {
+  margin: 6px 0;
+  color: #655e71;
+}
+.cs button.cs-primary {
+  background: var(--accent);
+  color: white;
+  border: 0;
+  white-space: nowrap;
+}
+.cs-filter {
+  justify-content: space-between;
+  padding: 12px 0 18px;
+}
+.cs-filter label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.cs input,
+.cs select,
+.cs textarea {
+  border: 1px solid var(--line);
+  color: var(--ink);
+  background: white;
+  border-radius: 7px;
+  padding: 9px;
+  max-width: 100%;
+}
+.cs-filter input {
+  background: transparent;
+  border: 0;
+  min-width: 0;
+  width: 100%;
+}
+.cs-list {
+  border-top: 1px solid var(--line);
+}
+.cs button.cs-row {
+  display: flex;
+  text-align: left;
+  width: 100%;
+  justify-content: flex-start;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  border-radius: 0;
+  padding: 17px 8px;
+  background: transparent;
+  gap: 18px;
+}
+.cs button.cs-row:hover {
+  background: #f0ecf7;
+}
+.cs-row-name {
+  display: grid;
+  gap: 4px;
+  flex: 1;
+}
+.cs-row strong {
+  font-size: clamp(16px, 1.6vw, 23px);
+  letter-spacing: -0.035em;
+}
+.cs-row small,
+.cs-board small {
+  font-size: 12px;
+  color: #625d70;
+}
+.cs-row > span:not(.cs-cover):not(.cs-row-name) {
+  font-size: 13px;
+}
+.cs-row b {
+  font-size: 12px;
+  background: #ece8f2;
+  border-radius: 20px;
+  padding: 5px 10px;
+}
+.cs-cover {
+  width: 63px;
+  height: 57px;
+  border-radius: 9px;
+  color: #453470;
+  display: grid;
+  place-items: center;
+  background: #dcd0f2;
+}
+.cs-cover.tint1 {
+  background: #cdded5;
+  color: #305344;
+}
+.cs-cover.tint2 {
+  background: #efcdbf;
+  color: #783d2c;
+}
+.cs-cover svg {
+  width: 25px;
+  height: 25px;
+}
+.cs-board {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(145px, 1fr));
+  gap: 10px;
+}
+.cs-board > section,
+.cs-board > button {
+  background: #efedf3;
+  border-radius: 10px;
+  padding: 14px;
+}
+.cs-board button {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  text-align: left;
+  width: 100%;
+  margin: 6px 0;
+}
+.cs-board h3 {
+  font-size: 16px;
+}
+.cs-empty {
+  padding: 48px;
+  text-align: center;
+}
+.cs-empty > svg {
+  margin: auto;
+}
+.cs-toolbar {
+  flex-wrap: wrap;
+}
+.cs-toolbar h2,
+.cs-toolbar span {
+  margin-right: auto;
+}
+.cs-days {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  margin-top: 16px;
+}
+.cs-date {
+  padding: 5px;
+  min-height: 95px;
+  border: 1px solid var(--line);
+  background: white;
+}
+.cs-date button {
+  width: 100%;
+  border: 0;
+  text-align: left;
+  justify-content: flex-start;
+}
+.cs-date-head {
+  font-size: 12px !important;
+}
+.cs button.cs-event {
+  background: #ece5fb;
+  color: #32214f;
+  margin: 3px 0;
+  font-size: 13px;
+  overflow-wrap: anywhere;
+}
+.cs-day,
+.cs-agenda {
+  grid-template-columns: 1fr;
+}
+.cs-editor {
+  margin: 22px auto;
+  max-width: 920px;
+}
+.cs input.cs-title {
+  font-weight: 700;
+  letter-spacing: -0.055em;
+  width: 100%;
+  font-size: clamp(25px, 4vw, 55px);
+  border: 0;
+  background: transparent;
+  padding: 18px 0;
+}
+.cs-editor label {
+  display: block;
+  margin: 16px 0;
+  font-weight: 600;
+}
+.cs-editor label input:not([type="checkbox"]),
+.cs-editor label select,
+.cs-editor textarea {
+  display: block;
+  width: 100%;
+  margin-top: 6px;
+  font-weight: 400;
+}
+.cs-editor textarea {
+  min-height: 138px;
+  resize: vertical;
+}
+.cs-fields {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+.cs-version {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  border-bottom: 1px solid var(--line);
+}
+@media (max-width: 720px) {
+  .cs-mast {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .cs-mast small {
+    margin: 0;
+  }
+  .cs-mast:after {
+    width: 20%;
+  }
+  .cs-emblem {
+    width: 40px;
+    height: 40px;
+  }
+  .cs-section {
+    align-items: flex-start;
+  }
+  .cs-row > span:not(.cs-cover):not(.cs-row-name) {
+    display: none;
+  }
+  .cs button.cs-row {
+    gap: 8px;
+  }
+  .cs-cover {
+    width: 40px;
+    height: 46px;
+    flex: none;
+  }
+  .cs-row > svg {
+    display: none;
+  }
+  .cs-fields,
+  .cs-week {
+    grid-template-columns: 1fr;
+  }
+  .cs-month .cs-date {
+    padding: 1px;
+    min-height: 64px;
+  }
+  .cs-month .cs-date-head {
+    padding: 3px;
+  }
+  .cs-month .cs-date-head svg {
+    display: none;
+  }
+  .cs-month .cs-event {
+    padding: 2px;
+    font-size: 10px !important;
+  }
+  .cs-board {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .cs-rail button {
+    padding: 12px;
+  }
+  .cs-date-head span {
+    overflow-wrap: anywhere;
+  }
+  .cs-filter {
+    gap: 4px;
+  }
+  .cs-filter label {
+    min-width: 0;
+  }
+}
+.cs-resource-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr));
+  gap: 18px;
+  margin-top: 20px;
+}
+.cs-resource-list article {
+  background: white;
+  border-left: 3px solid #b7a0da;
+  padding: 20px;
+}
+.cs-resource-list article svg {
+  color: var(--accent);
+}
+.cs-resource-list footer {
+  display: flex;
+  gap: 8px;
+  margin-top: 16px;
+}
+.cs-resource-list p {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.cs-resources fieldset {
+  border: 1px solid var(--line);
+  padding: 20px;
+  border-radius: 10px;
+}
+.cs-editor details {
+  margin-top: 16px;
+}
+.cs-editor summary {
+  cursor: pointer;
+  font-weight: 600;
+}

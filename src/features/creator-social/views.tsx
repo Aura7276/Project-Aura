@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Share2 } from "lucide-react";
 import { notFound } from "next/navigation";
 import { studioContext } from "@/server/studio/service";
 import {
@@ -112,19 +113,18 @@ const tabs = (id: string) =>
   ].map(([p, l]) => ({ href: `/creator/socials/${id}${p}`, l }));
 function Tabs({ a, current }: { a: SocialAccountRow; current: string }) {
   return (
-    <nav aria-label="Account sections">
-      <p>
+    <nav className="analysis-nav" aria-label="Account sections">
+      <div>
         {tabs(a.id).map((t) => (
           <Link
             key={t.href}
             href={t.href}
             aria-current={t.href === current ? "page" : undefined}
-            style={{ marginRight: 12, textDecoration: "underline" }}
           >
             {t.l}
           </Link>
         ))}
-      </p>
+      </div>
     </nav>
   );
 }
@@ -199,10 +199,11 @@ export async function ListView({
         </section>
       )}
       {data.accounts.length === 0 ? (
-        <p>
-          No accounts yet. Add one to start your history. Unknown is never shown
-          as zero.
-        </p>
+        <div className="social-empty">
+          <Share2 aria-hidden="true" size={32} />
+          <h2>No accounts yet</h2>
+          <p>Add your first account to start tracking growth.</p>
+        </div>
       ) : (
         <ul className="st-grid">
           {data.accounts.map((a) => {

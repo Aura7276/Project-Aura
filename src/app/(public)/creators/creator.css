@@ -155,3 +155,28 @@
     grid-template-columns: repeat(3, 1fr);
   }
 }
+
+.public-main .creator-hero h1,
+.public-main .brand-cover h1 {
+  font: 400 clamp(3rem, 5.6vw, 5.25rem)/1 var(--font-editorial);
+  letter-spacing: -0.055em;
+  text-wrap: balance;
+}
+.creator-hero em {
+  color: #46654b;
+}
+.creator-page .studio-sample,
+.creator-page .kit,
+.creator-page .creator-close {
+  border-radius: 0;
+}
+.creator-page .kit {
+  background: var(--forest);
+}
+.creator-page .creator-close {
+  background: var(--lime);
+}
+.feature-lines > div {
+  border-top: 1px solid var(--rule);
+  padding-block: 1.4rem;
+}

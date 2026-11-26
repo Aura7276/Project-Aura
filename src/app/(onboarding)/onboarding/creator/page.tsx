@@ -19,25 +19,30 @@ export default async function Page() {
       <p className="ob-lede">
         {started
           ? `You have finished ${p.requiredDone} of ${p.requiredTotal} required steps. Pick up where you left off.`
-          : "Let’s set up your Creator workspace. It takes a few minutes, and you can leave and come back at any time."}
+          : "Build your private Creator profile. Resume anytime."}
       </p>
       <div className="ob-box">
-        <h2>What to expect</h2>
-        <ul className="ob-list">
-          <li>
-            Three short required steps: about you, your niche and your goals.
-          </li>
-          <li>Everything else is optional. Skip anything, and add it later.</li>
-          <li>
-            You do not need followers, a social account or any Brand experience.
-          </li>
-          <li>Your profile stays private. Nothing is published.</li>
-        </ul>
-        {!ai.available && (
-          <p className="ob-note" role="note">
-            {ai.reason}
-          </p>
-        )}
+        <details>
+          <summary>What you’ll need</summary>
+          <ul className="ob-list">
+            <li>
+              Three short required steps: about you, your niche and your goals.
+            </li>
+            <li>
+              Everything else is optional. Skip anything, and add it later.
+            </li>
+            <li>
+              You do not need followers, a social account or any Brand
+              experience.
+            </li>
+            <li>Your profile stays private. Nothing is published.</li>
+          </ul>
+          {!ai.available && (
+            <p className="ob-note" role="note">
+              {ai.reason}
+            </p>
+          )}
+        </details>
         <div className="ob-actions">
           <Link className="ob-btn primary" href={`/onboarding/creator/${next}`}>
             {started ? "Continue" : "Get started"}

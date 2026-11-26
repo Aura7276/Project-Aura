@@ -1,0 +1,207 @@
+.growth {
+  background: #faf9f4;
+  color: #263329;
+  max-width: 82rem;
+  margin: auto;
+  padding: clamp(1rem, 4vw, 3rem);
+  min-height: 90vh;
+}
+.growth-cover {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #243b32;
+  color: #fff9ef;
+  padding: clamp(1.5rem, 4vw, 4rem);
+  border-radius: 1rem;
+  min-height: 13rem;
+}
+.growth .growth-cover h1 {
+  font:
+    400 clamp(3.2rem, 7vw, 6.7rem)/1 Georgia,
+    serif;
+  letter-spacing: -0.065em;
+  color: inherit;
+  margin: 0.65rem 0;
+}
+.growth-cover i {
+  color: #d5ec97;
+}
+.growth-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+}
+.growth-dial {
+  width: min(25%, 13rem);
+  color: #c9e09c;
+}
+.growth-nav,
+.growth-actions,
+.growth-options {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+.growth-nav {
+  border-bottom: 1px solid #c9d0c4;
+  margin-block: 1rem;
+}
+.growth-nav button {
+  padding: 0.8rem 0.3rem;
+  cursor: pointer;
+}
+.growth-nav button[aria-current] {
+  box-shadow: inset 0 -3px #314d39;
+  font-weight: 650;
+}
+.growth-nav small {
+  margin-left: auto;
+  color: #495942;
+}
+.growth-note {
+  font-size: 0.83rem;
+  color: #52604e;
+}
+.growth-columns {
+  display: grid;
+  grid-template-columns: minmax(10rem, 1fr) minmax(0, 2.6fr);
+  gap: clamp(1.3rem, 4vw, 4rem);
+  margin-top: 2rem;
+}
+.growth h2 {
+  font-size: 1.45rem;
+  margin: 0 0 1rem;
+}
+.growth h3 {
+  font-size: 1.1rem;
+}
+.growth-mode,
+.growth-row {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  min-height: 44px;
+  text-align: left;
+  padding: 0.7rem;
+  border-bottom: 1px solid #d4dacd;
+}
+.growth-mode[aria-pressed="true"] {
+  background: #e5ecd8;
+}
+.growth-mode svg:last-child {
+  margin-left: auto;
+}
+.growth label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 550;
+  margin-bottom: 0.85rem;
+}
+.growth textarea,
+.growth select {
+  width: 100%;
+  display: block;
+  background: white;
+  border: 1px solid #849180;
+  border-radius: 0.45rem;
+  padding: 0.65rem;
+  margin-top: 0.3rem;
+}
+.growth textarea {
+  min-height: 5.5rem;
+  resize: vertical;
+}
+.growth-options label {
+  flex: 1;
+}
+.growth-actions button {
+  padding: 0.65rem 1rem;
+  border: 1px solid #849180;
+  border-radius: 0.4rem;
+  min-height: 44px;
+}
+.growth-actions button:first-child {
+  background: #284734;
+  color: white;
+}
+.growth button:disabled {
+  opacity: 0.55;
+}
+.growth-pane,
+.growth-review {
+  padding: 1.5rem 0;
+  max-width: 48rem;
+}
+.growth-row strong {
+  flex: 1;
+  overflow-wrap: anywhere;
+}
+.growth-pane p svg {
+  display: inline-block;
+  margin-right: 0.6rem;
+}
+.growth-review {
+  border-block: 1px solid #aab5a3;
+  margin-top: 1rem;
+}
+.growth-review blockquote {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.growth [role="status"] {
+  margin-block: 1rem;
+  color: #365338;
+}
+@media (max-width: 640px) {
+  .growth-columns {
+    grid-template-columns: 1fr;
+  }
+  .growth-columns aside {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .growth-columns aside h2 {
+    grid-column: 1/-1;
+  }
+  .growth-nav small {
+    width: 100%;
+    margin: 0;
+  }
+  .growth-dial {
+    display: none;
+  }
+}
+
+.growth-starters {
+  display: flex;
+  gap: 0.45rem;
+  flex-wrap: wrap;
+  margin: -0.15rem 0 1rem;
+}
+.growth-starters button {
+  border: 1px solid #b4c0aa;
+  border-radius: 2rem;
+  padding: 0.35rem 0.7rem;
+  min-height: 36px;
+  font-size: 0.8rem;
+}
+.growth-starters button:hover {
+  background: #e5ecd8;
+}
+.growth-history {
+  margin-block: 1rem;
+}
+.growth-history section {
+  border-left: 2px solid #c2d2ad;
+  padding-left: 1rem;
+}
+.growth-history p {
+  white-space: pre-wrap;
+}

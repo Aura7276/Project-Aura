@@ -102,11 +102,15 @@ function AreaList({
                         {i.label}
                       </Link>
                     ) : (
-                      <span className="st-planned" aria-disabled="true">
+                      <span
+                        className="st-planned"
+                        data-dependency={i.module}
+                        aria-disabled="true"
+                      >
                         <span>
                           <Lock aria-hidden size={14} /> {i.label}
                         </span>
-                        <span className="st-badge">Planned · {i.module}</span>
+                        <span className="st-badge">Planned</span>
                         <span
                           className="ob-sr"
                           style={{

@@ -1,31 +1,43 @@
 import { Editorial, PathLink } from "@/components/public/editorial";
+import { Check } from "lucide-react";
 export const metadata = { title: "Free to get started" };
 export default function Page() {
   return (
-    <Editorial
-      title="Free to get started"
-      intro="The initial offer includes core Creator tools and basic Brand registration and onboarding."
-    >
-      <section>
-        <h2>For creators</h2>
-        <p>
-          Core growth tools, marketplace discovery and eligible applications are
-          planned to be free initially. Individual campaigns have their own
-          requirements.
-        </p>
-      </section>
-      <section>
-        <h2>For brands</h2>
-        <p>
-          Start with basic onboarding. Advanced intelligence, higher usage and
-          subscriptions are future decisions under M27. Prices and paid tiers
-          have not been announced.
-        </p>
-      </section>
-      <nav aria-label="Related pages">
-        <PathLink href="/creators">Explore the Creator journey</PathLink>
-        <PathLink href="/brands">Explore the Brand journey</PathLink>
-      </nav>
+    <Editorial title="Free to get started">
+      <div className="offer-spread">
+        {[
+          {
+            role: "Creator",
+            benefits: [
+              "Core growth tools",
+              "Campaign discovery",
+              "Eligible applications",
+            ],
+            href: "/creators",
+          },
+          {
+            role: "Brand",
+            benefits: ["Basic registration", "Workspace onboarding"],
+            href: "/brands",
+          },
+        ].map(({ role, benefits, href }) => (
+          <section key={role}>
+            <h2>{role}</h2>
+            <ul>
+              {benefits.map((text) => (
+                <li key={text}>
+                  <Check size={16} aria-hidden />
+                  {text}
+                </li>
+              ))}
+            </ul>
+            <PathLink href={href}>Explore {role} tools</PathLink>
+          </section>
+        ))}
+      </div>
+      <p className="offer-note">
+        Campaign eligibility varies by brief. Premium plans are planned.
+      </p>
     </Editorial>
   );
 }

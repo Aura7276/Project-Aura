@@ -70,11 +70,12 @@ export const areas: NavArea[] = [
         "M06",
         "Test an idea and record what you learn.",
       ),
-      planned(
+      ok(
         "assistant",
-        "Growth Assistant",
+        "Growth Studio",
+        "/creator/ai",
         "M07",
-        "Needs the AI Growth Assistant module.",
+        "Draft and refine your next creative move.",
       ),
     ],
   },
@@ -86,17 +87,12 @@ export const areas: NavArea[] = [
     summary: "Capture ideas and plan content.",
     items: [
       ok("ideas", "Idea capture", "/creator/create", "M04"),
-      planned(
-        "studio",
-        "Content Studio",
-        "M08",
-        "Scripts, planning and the content calendar.",
-      ),
-      planned(
+      ok("studio", "Content Studio", "/creator/content", "M08"),
+      ok(
         "calendar",
         "Content calendar",
+        "/creator/content?view=calendar",
         "M08",
-        "Arrives with Content Studio.",
       ),
     ],
   },

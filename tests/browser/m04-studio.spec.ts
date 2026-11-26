@@ -64,27 +64,13 @@ test.describe("M04 desktop navigation (F03)", () => {
     await expect(
       page.getByRole("navigation", { name: "Primary" }),
     ).toBeHidden();
-    for (const m of [
-      "M05",
-      "M06",
-      "M07",
-      "M08",
-      "M10",
-      "M11",
-      "M12",
-      "M09",
-      "M13",
-    ])
-      if (
-        m !== "M05" &&
-        m !== "M06" &&
-        m !== "M09" &&
-        m !== "M10" &&
-        m !== "M11"
-      )
-        await expect(side.getByText(`Planned · ${m}`).first()).toBeVisible();
+    for (const m of ["M05", "M06", "M08", "M09", "M10", "M11", "M12", "M13"])
+      if (!["M05", "M06", "M08", "M09", "M10", "M11"].includes(m))
+        await expect(
+          side.locator(`[data-dependency="${m}"]`).first(),
+        ).toBeVisible();
     // M06 delivered Analytics and Experiments: they are now real links, and no "Planned · M06" state remains.
-    await expect(side.getByText("Planned · M06")).toHaveCount(0);
+    await expect(side.locator('[data-dependency="M06"]')).toHaveCount(0);
     await expect(side.getByRole("link", { name: "Analytics" })).toHaveAttribute(
       "href",
       "/creator/analytics",
@@ -304,9 +290,7 @@ test.describe("M04 dialogs: quick create and assistant (F07, F14, AC02)", () => 
       d.getByRole("button", { name: "Add portfolio item" }),
     ).toBeDisabled();
     await expect(
-      d.getByText(
-        /Portfolio and media kit tools arrive with the profile module/,
-      ),
+      d.getByText(/Portfolio and media kit tools are planned/),
     ).toBeVisible();
     await expect(d.getByRole("button", { name: "Save idea" })).toBeDisabled(); // preview cannot persist, so it never pretends to
     await expect(
@@ -332,7 +316,9 @@ test.describe("M04 dialogs: quick create and assistant (F07, F14, AC02)", () => 
     await page.goto(pv("actions"));
     await page.getByRole("button", { name: "Open Growth Assistant" }).click();
     const d = page.getByRole("dialog", { name: "Growth Assistant" });
-    await expect(d).toContainText("not available yet");
+    await expect(
+      d.getByRole("link", { name: "Open Growth Studio" }),
+    ).toHaveAttribute("href", "/creator/ai");
     await expect(d).toContainText("Illustrative Creator");
     await expect(d).toContainText("Grow");
     await expect(d.getByRole("textbox")).toHaveCount(0); // no simulated conversation
@@ -369,7 +355,10 @@ test.describe("M04 personalization and honest data (F05, F16, AC01)", () => {
     await expect(
       page.getByText(/No audience numbers are shown because none exist yet/),
     ).toBeVisible();
-    await expect(page.getByText("Not available yet · M13")).toBeVisible();
+    await page.getByText("More from your workspace", { exact: true }).click();
+    await expect(
+      page.getByText("Not available yet", { exact: true }).first(),
+    ).toBeVisible();
     const body = await page.locator("main").innerText();
     expect(body).not.toMatch(
       /[₹$€£]\s?\d|wallet|balance|\d+(\.\d+)?%|\d[\d,]* followers|engagement rate: \d/i,
@@ -382,6 +371,7 @@ test.describe("M04 personalization and honest data (F05, F16, AC01)", () => {
     page,
   }) => {
     await page.goto(pv("dashboard", "below100"));
+    await page.getByText("More from your workspace", { exact: true }).click();
     await expect(page.getByRole("heading", { level: 1 })).toContainText(
       "Consistency",
     );
@@ -403,6 +393,7 @@ test.describe("M04 personalization and honest data (F05, F16, AC01)", () => {
     page,
   }) => {
     await page.goto(pv("dashboard", "qualifying"));
+    await page.getByText("More from your workspace", { exact: true }).click();
     await expect(
       page.getByText(/self-reported and unverified/).first(),
     ).toBeVisible();
@@ -417,6 +408,7 @@ test.describe("M04 personalization and honest data (F05, F16, AC01)", () => {
     page,
   }) => {
     await page.goto(pv("dashboard", "ugc"));
+    await page.getByText("More from your workspace", { exact: true }).click();
     const cards = await page.locator(".st-card h2").allTextContents();
     expect(cards.indexOf("Opportunities")).toBeLessThan(
       cards.indexOf("Profile checklist"),
@@ -425,7 +417,9 @@ test.describe("M04 personalization and honest data (F05, F16, AC01)", () => {
       page.getByText(/UGC is assessed separately/).first(),
     ).toBeVisible();
     await expect(page.getByText(/Draft two sample UGC ideas/)).toBeVisible();
-    await expect(page.getByText("Preparation only · M09")).toBeVisible();
+    await expect(
+      page.getByText("Preparation only", { exact: true }).first(),
+    ).toBeVisible();
   });
   test("private and unverified notices are always shown", async ({ page }) => {
     await page.goto(pv("dashboard", "below100"));
@@ -445,7 +439,7 @@ test.describe("M04 daily actions, progress and recommendations (F06, F10, F11, A
     ).toBeVisible();
     await expect(page.getByText("From your plan").first()).toBeVisible();
     await expect(
-      page.getByText(/Marking this done means you prepared/).first(),
+      page.getByText(/Completing this task records preparation/).first(),
     ).toBeVisible();
     await expect(page.getByText("Nothing earlier yet.")).toBeVisible();
     await expect(page.getByText(/not AI-generated/i).first()).toBeVisible();
@@ -534,9 +528,11 @@ test.describe("M04 daily actions, progress and recommendations (F06, F10, F11, A
   }) => {
     await page.goto(pv("create", "aspiring"));
     await expect(
-      page.getByText(/calendar and planner are planned for M08/),
+      page.getByText(/publishing calendar is planned/),
     ).toBeVisible();
-    await expect(page.getByText(/Planned · M08/).first()).toBeVisible();
+    await expect(
+      page.locator('main [data-dependency="M08"]').first(),
+    ).toBeVisible();
     await expect(page.getByText("No ideas yet.")).toBeVisible();
   });
 });

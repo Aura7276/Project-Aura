@@ -106,23 +106,26 @@ export default function Brands() {
           caption="Brand planning session"
         />
       </section>
-      <section className="brand-spread">
-        <h2>One brief, many moving parts.</h2>
-        <div>
-          <p>
-            A lean team can lose its publishing rhythm between production,
-            approvals and creator searches. When agreements sit in messages, it
-            becomes hard to see what shipped, what worked and what is still
-            owed.
-          </p>
-          <p>
-            Brand Growth OS is planned around three connected jobs: grow owned
-            channels, acquire UGC and creator-led promotion, and coordinate
-            campaign execution, marketing intelligence and commercial records.
-            Start with your own content even before hiring a creator.
-          </p>
-        </div>
-      </section>
+      <details className="capability">
+        <summary>Campaign planning</summary>{" "}
+        <section className="brand-spread">
+          <h2>One brief, many moving parts.</h2>
+          <div>
+            <p>
+              A lean team can lose its publishing rhythm between production,
+              approvals and creator searches. When agreements sit in messages,
+              it becomes hard to see what shipped, what worked and what is still
+              owed.
+            </p>
+            <p>
+              Brand Growth OS is planned around three connected jobs: grow owned
+              channels, acquire UGC and creator-led promotion, and coordinate
+              campaign execution, marketing intelligence and commercial records.
+              Start with your own content even before hiring a creator.
+            </p>
+          </div>
+        </section>
+      </details>
       <section id="brand-studio" className="brand-studio">
         <header>
           <p className="brand-label">
@@ -145,131 +148,149 @@ export default function Brands() {
           ))}
         </div>
       </section>
-      <section className="brand-spread">
-        <h2>A strategy shaped by your business.</h2>
-        <div>
-          <h3>AI Brand Growth Assistant</h3>
-          <p>
-            The planned assistant uses confirmed business context to develop
-            positioning, customer segments and editable 7-, 30- and 90-day
-            plans. Explore social growth, content ideas, creator recommendations
-            and budget scenarios in English, Hindi or Hinglish. Performance
-            analysis depends on the evidence available.
-          </p>
-          <h3>Brand Content Studio</h3>
-          <p>
-            Connect strategy and pillars to an idea library, hooks, scripts,
-            captions and a production calendar. Internal approvals and asset
-            management support manual publication, authorized repurposing and
-            social analytics. Automatic publishing and advanced media generation
-            are future capabilities.
-          </p>
-        </div>
-      </section>
-      <section className="brand-feature">
-        <p className="brand-label">Creator partnerships</p>
-        <h2>
-          Commission the craft.
-          <br />
-          Choose the right reach.
-        </h2>
-        <div>
-          <section>
-            <h3>Discovery for a specific brief</h3>
+      <details className="capability">
+        <summary>Strategy and content</summary>{" "}
+        <section className="brand-spread">
+          <h2>A strategy shaped by your business.</h2>
+          <div>
+            <h3>AI Brand Growth Assistant</h3>
             <p>
-              Consider niche, platform, language and market alongside follower
-              bands. Review portfolio quality, creative capability, commercial
-              preferences, availability and eligibility before outreach.
+              The planned assistant uses confirmed business context to develop
+              positioning, customer segments and editable 7-, 30- and 90-day
+              plans. Explore social growth, content ideas, creator
+              recommendations and budget scenarios in English, Hindi or
+              Hinglish. Performance analysis depends on the evidence available.
             </p>
-          </section>
-          <section>
-            <h3>UGC for your own channels</h3>
+            <h3>Brand Content Studio</h3>
             <p>
-              Commission product demos, educational content and brand stories
-              based on production skills. Define organic reuse and advertising
-              rights in the agreement. Commissioning an asset does not grant
-              unrestricted ownership or use.
+              Connect strategy and pillars to an idea library, hooks, scripts,
+              captions and a production calendar. Internal approvals and asset
+              management support manual publication, authorized repurposing and
+              social analytics. Automatic publishing and advanced media
+              generation are future capabilities.
             </p>
-          </section>
-        </div>
-      </section>
-      <section className="brand-spread">
-        <div>
-          <p className="brand-label">Planned campaign workflow</p>
-          <h2>From brief to review.</h2>
-          <p>{rollout}</p>
-        </div>
-        <ol>
-          {[
-            "Define objectives and requirements",
-            "Discover or invite eligible creators",
-            "Review applications and proposals",
-            "Select candidates against the brief",
-            "Confirm the commercial agreement",
-            "Coordinate deliverables, revisions and approvals",
-            "Evaluate supported outcomes",
-          ].map((s) => (
-            <li key={s}>{s}</li>
-          ))}
-        </ol>
-      </section>
-      <section className="brand-ledger">
-        <h2>Three different measures of progress</h2>
-        {[
-          [
-            "Delivery",
-            "Track fulfilment against agreed deliverables and approvals.",
-          ],
-          [
-            "Marketing performance",
-            "Review creator- and content-level observations, reporting coverage and campaign learnings. Document missing evidence before comparing commercial efficiency.",
-          ],
-          [
-            "Commercial settlement",
-            "Plan budgets, track creator compensation commitments and obligations, reconcile invoices with external payment records. AURA initially does not hold, collect or process funds.",
-          ],
-        ].map(([h, p]) => (
-          <div key={h}>
-            <h3>{h}</h3>
-            <p>{p}</p>
           </div>
-        ))}
-      </section>
-      <section className="brand-spread">
-        <h2>Plan for the team you have.</h2>
-        <div>
-          <h3>New businesses</h3>
-          <p>
-            Set an audience and choose a manageable publishing cadence, even
-            with no social accounts.
-          </p>
-          <h3>Growing brands</h3>
-          <p>
-            Use existing channel observations to decide where original content
-            or commissioned UGC could help.
-          </p>
-          <h3>Established marketing teams</h3>
-          <p>
-            Align owned content, creator partnerships, approval roles and
-            budgets. Engage an agency through explicit delegation where
-            supported.
-          </p>
-        </div>
-      </section>
-      <section className="brand-spread">
-        <h2>Your Brand journey</h2>
-        <ol>
+        </section>
+      </details>
+      <details className="capability">
+        <summary>Creator partnerships</summary>{" "}
+        <section className="brand-feature">
+          <p className="brand-label">Creator partnerships</p>
+          <h2>
+            Commission the craft.
+            <br />
+            Choose the right reach.
+          </h2>
+          <div>
+            <section>
+              <h3>Discovery for a specific brief</h3>
+              <p>
+                Consider niche, platform, language and market alongside follower
+                bands. Review portfolio quality, creative capability, commercial
+                preferences, availability and eligibility before outreach.
+              </p>
+            </section>
+            <section>
+              <h3>UGC for your own channels</h3>
+              <p>
+                Commission product demos, educational content and brand stories
+                based on production skills. Define organic reuse and advertising
+                rights in the agreement. Commissioning an asset does not grant
+                unrestricted ownership or use.
+              </p>
+            </section>
+          </div>
+        </section>
+      </details>
+      <details className="capability">
+        <summary>Campaign workflow</summary>{" "}
+        <section className="brand-spread">
+          <div>
+            <p className="brand-label">Planned campaign workflow</p>
+            <h2>From brief to review.</h2>
+            <p>{rollout}</p>
+          </div>
+          <ol>
+            {[
+              "Define objectives and requirements",
+              "Discover or invite eligible creators",
+              "Review applications and proposals",
+              "Select candidates against the brief",
+              "Confirm the commercial agreement",
+              "Coordinate deliverables, revisions and approvals",
+              "Evaluate supported outcomes",
+            ].map((s) => (
+              <li key={s}>{s}</li>
+            ))}
+          </ol>
+        </section>
+      </details>
+      <details className="capability">
+        <summary>Reporting</summary>{" "}
+        <section className="brand-ledger">
+          <h2>Three different measures of progress</h2>
           {[
-            "Establish business identity and objectives.",
-            "Develop a marketing strategy around your resources.",
-            "Plan owned content and relevant creator campaigns.",
-            "Coordinate production, approvals and commercial commitments.",
-            "Measure supported outcomes and refine the next brief.",
-          ].map((s) => (
-            <li key={s}>{s}</li>
+            [
+              "Delivery",
+              "Track fulfilment against agreed deliverables and approvals.",
+            ],
+            [
+              "Marketing performance",
+              "Review creator- and content-level observations, reporting coverage and campaign learnings. Document missing evidence before comparing commercial efficiency.",
+            ],
+            [
+              "Commercial settlement",
+              "Plan budgets, track creator compensation commitments and obligations, reconcile invoices with external payment records. AURA initially does not hold, collect or process funds.",
+            ],
+          ].map(([h, p]) => (
+            <div key={h}>
+              <h3>{h}</h3>
+              <p>{p}</p>
+            </div>
           ))}
-        </ol>
-      </section>
+        </section>
+      </details>
+      <details className="capability">
+        <summary>Team size</summary>{" "}
+        <section className="brand-spread">
+          <h2>Plan for the team you have.</h2>
+          <div>
+            <h3>New businesses</h3>
+            <p>
+              Set an audience and choose a manageable publishing cadence, even
+              with no social accounts.
+            </p>
+            <h3>Growing brands</h3>
+            <p>
+              Use existing channel observations to decide where original content
+              or commissioned UGC could help.
+            </p>
+            <h3>Established marketing teams</h3>
+            <p>
+              Align owned content, creator partnerships, approval roles and
+              budgets. Engage an agency through explicit delegation where
+              supported.
+            </p>
+          </div>
+        </section>
+      </details>
+      <details className="capability">
+        <summary>Brand journey</summary>{" "}
+        <section className="brand-spread">
+          <h2>Your Brand journey</h2>
+          <ol>
+            {[
+              "Establish business identity and objectives.",
+              "Develop a marketing strategy around your resources.",
+              "Plan owned content and relevant creator campaigns.",
+              "Coordinate production, approvals and commercial commitments.",
+              "Measure supported outcomes and refine the next brief.",
+            ].map((s) => (
+              <li key={s}>{s}</li>
+            ))}
+          </ol>
+        </section>
+      </details>
       <section className="brand-spread">
         <h2>Brand questions</h2>
         <div>

@@ -73,10 +73,7 @@ export function QuickCreate({
         </section>
         <section aria-labelledby="qc-port">
           <h3 id="qc-port">Portfolio</h3>
-          <p className="st-hint">
-            Not available yet. Portfolio and media kit tools arrive with the
-            profile module (M09).
-          </p>
+          <p className="st-hint">Portfolio and media kit tools are planned.</p>
           <button type="button" className="st-btn" disabled>
             Add portfolio item
           </button>
@@ -130,6 +127,9 @@ export function AssistantDialog({
             {reason}
           </p>
         )}
+        <p>
+          <Link href="/creator/ai">Open Growth Studio</Link>
+        </p>
         <h3>Things you can do now</h3>
         <ul className="st-list">
           {assistantManualTools.map((t) => (

@@ -38,14 +38,16 @@ import {
 } from "@/components/ui/feedback";
 import { specimenTitle } from "@/validation/specimen";
 const colors = [
-  ["Midnight", "#17152D"],
+  ["Studio ink", "#20231F"],
   ["Violet", "#7457E8"],
-  ["Ivory", "#F8F6F2"],
+  ["Paper", "#F7F6F0"],
+  ["Forest", "#243D32"],
+  ["Citron", "#D9EC93"],
   ["Peach", "#F4B8A6"],
   ["Sage", "#DCEBE5"],
   ["White", "#FFFFFF"],
   ["Primary text", "#242137"],
-  ["Muted text", "#777486"],
+  ["Muted text", "#62665E"],
 ];
 export function Preview() {
   const [toast, setToast] = useState(false);
