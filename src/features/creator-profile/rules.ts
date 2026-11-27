@@ -10,6 +10,7 @@ export const reservedUsernames = [
   "collaborations",
   "earnings",
   "invoices",
+  "agencies",
   "analytics",
   "api",
   "app",

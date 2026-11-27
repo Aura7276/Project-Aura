@@ -52,6 +52,9 @@ export function setupDatabase() {
     "supabase/migrations/20261213000100_m21_brand_content.sql",
     "supabase/migrations/20261213000200_m21_assistant_content.sql",
     "supabase/migrations/20261213000300_reserve_brand_content_route.sql",
+    "supabase/migrations/20261216000100_m23_agency.sql",
+    "supabase/migrations/20261216000200_reserve_agency_creator_route.sql",
+    "supabase/migrations/20261216000300_reserve_agency_brand_routes.sql",
   ])
     admin(["-d", DB, "-f", f]);
 }

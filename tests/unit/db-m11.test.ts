@@ -24,6 +24,7 @@ const migrations = [
   "supabase/migrations/20261203000100_m11_applications.sql",
   "supabase/migrations/20261204000100_reserve_m07_m08_routes.sql",
   "supabase/migrations/20261207000200_reserve_m12_m13_routes.sql",
+  "supabase/migrations/20261216000200_reserve_agency_creator_route.sql",
 ];
 const run = (db: string, args: string[]) =>
   execFileSync(

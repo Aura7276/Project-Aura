@@ -164,6 +164,13 @@ export const areas: NavArea[] = [
       ok("kits", "Media kits", "/creator/media-kit", "M09"),
       ok("earnings", "Earnings and commercial", "/creator/earnings", "M13"),
       ok("invoices", "Invoices", "/creator/invoices", "M13"),
+      ok(
+        "agencies",
+        "Agencies",
+        "/creator/agencies",
+        "M23",
+        "Agencies working for you: what they may do, until when, and everything done in your name.",
+      ),
     ],
   },
 ];

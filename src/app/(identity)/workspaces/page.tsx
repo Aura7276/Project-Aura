@@ -25,6 +25,7 @@ export default async function Page() {
           <select name="kind">
             <option value="creator">Personal Creator</option>
             <option value="brand">Brand</option>
+            <option value="agency">Agency</option>
           </select>
         </label>
         <Field name="name" label="Workspace name" />
@@ -38,7 +39,10 @@ export default async function Page() {
             ))}
           </select>
         </label>
-        <p>Brand owners need an authenticator before creating a workspace.</p>
+        <p>
+          Brand and Agency owners need an authenticator before creating a
+          workspace.
+        </p>
         <button>Create workspace</button>
       </form>
       <h2>Join an existing workspace</h2>

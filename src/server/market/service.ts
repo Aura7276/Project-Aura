@@ -1,4 +1,9 @@
 import "server-only";
+import {
+  actingId,
+  delegationFor,
+  type Delegation,
+} from "@/server/agency/service";
 import { redirect } from "next/navigation";
 import type { SupabaseClient } from "@supabase/supabase-js";
 import { classify, type ServiceError } from "@/server/creator/service";
@@ -85,7 +90,23 @@ export async function brandContext(preferred?: string) {
       ["owner", "admin"].includes(w.role) &&
       w.status !== "suspended",
   );
-  const w = brands.find((b) => b.id === preferred) ?? brands[0];
+  const own = brands.find((b) => b.id === preferred);
+  if (!own) {
+    // M23: an Agency team member working for a Brand client. Only a live delegation is accepted; the database checks every call.
+    const target = preferred ?? (await actingId());
+    const d = await delegationFor(ctx.client as Rpc, target, "brand");
+    if (d)
+      return {
+        client: ctx.client as Rpc,
+        workspaceId: d.client_ws,
+        name: d.name,
+        verification: "pending",
+        brands,
+        userId: ctx.user.id,
+        acting: d,
+      };
+  }
+  const w = own ?? brands[0];
   if (!w) redirect("/workspaces");
   return {
     client: ctx.client as Rpc,
@@ -94,6 +115,7 @@ export async function brandContext(preferred?: string) {
     verification: w.verification,
     brands,
     userId: ctx.user.id,
+    acting: null as Delegation | null,
   };
 }
 export const market = {

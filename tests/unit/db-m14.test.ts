@@ -33,6 +33,8 @@ const migrations = [
   "supabase/migrations/20261208000200_reserve_brand_studio_routes.sql",
   "supabase/migrations/20261212000200_reserve_brand_assistant_route.sql",
   "supabase/migrations/20261213000300_reserve_brand_content_route.sql",
+  "supabase/migrations/20261216000200_reserve_agency_creator_route.sql",
+  "supabase/migrations/20261216000300_reserve_agency_brand_routes.sql",
 ];
 const run = (db: string, args: string[]) =>
   execFileSync(

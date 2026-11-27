@@ -1,0 +1,19 @@
+# M23 acceptance: Agency Studio
+
+Proposed checks from the recovered scope (no original acceptance criteria were recovered). Evidence: `tests/db/m23_rls.sql`, `tests/unit/db-m23.test.ts`, `tests/unit/m23-domain.test.ts`, `tests/stack/workflow-agency.spec.ts`, screenshots in `docs/development/evidence/m23`.
+
+| Check                                                                                                                                                           | Result                                                                      |
+| --------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
+| Effective permissions never exceed the client's grant, including direct database calls (every function in the call chain is checked; unknown functions refused) | Pass (SQL: scope, nested call, never-delegable, unmapped)                   |
+| Clients grant what was requested or less, never more; only the client changes access                                                                            | Pass (SQL, stack)                                                           |
+| Revoked, narrowed and expired access fails closed immediately                                                                                                   | Pass (SQL, stack)                                                           |
+| Only assigned staff act; viewers read only; delegated writes need MFA and a verified Agency                                                                     | Pass (SQL)                                                                  |
+| Actor and represented client recorded for every delegated write and visible to the client                                                                       | Pass (SQL, stack)                                                           |
+| Client approval is not implied by Agency internal approval                                                                                                      | Pass (SQL, stack)                                                           |
+| Agency revenue is separate from client spend                                                                                                                    | Pass (SQL: no M13 payment records touched; stack: fees shown to the client) |
+| Dual representation requires disclosure and acknowledgement by both clients; never contracting for both sides                                                   | Pass (SQL)                                                                  |
+| No cross-client data or AI leakage; assistant needs its own grant                                                                                               | Pass (SQL, stack 404)                                                       |
+| Offboarding removes access and keeps records                                                                                                                    | Pass (SQL, stack)                                                           |
+| Every earlier module's SQL suite passes with delegation in the shared access checks                                                                             | Pass (M03–M21 suites and M07)                                               |
+| Accessibility and overflow on Agency pages, the client page and the invitation page                                                                             | Pass (stack)                                                                |
+| Delegated work inside M12 collaborations and M13 commercial workspaces                                                                                          | Not supported (their checks refuse Agencies)                                |

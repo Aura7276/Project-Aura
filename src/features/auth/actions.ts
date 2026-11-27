@@ -164,10 +164,11 @@ export async function resume() {
 export async function createWorkspace(f: FormData) {
   const { client, state } = await eligible();
   const kind = value(f, "kind");
-  if (kind === "brand" && !state.strong) redirect("/mfa");
+  if ((kind === "brand" || kind === "agency") && !state.strong)
+    redirect("/mfa");
   const args = z
     .object({
-      p_kind: z.enum(["creator", "brand"]),
+      p_kind: z.enum(["creator", "brand", "agency"]),
       p_request: z.uuid(),
       p_name: z.string().trim().min(1).max(100),
       p_business: z

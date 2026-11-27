@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { ActingBanner } from "@/features/agency/banner";
+import { actingDelegation } from "@/features/agency/acting";
 import "@/features/creator-studio/studio.css";
 import "@/features/marketplace/market.css";
 import "@/features/applications/apply.css";
@@ -8,16 +10,23 @@ export const metadata = {
   title: { default: "Brand · AURA", template: "%s · Brand · AURA" },
   robots: { index: false, follow: false },
 };
-export default function BrandLayout({
+export default async function BrandLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  // While an Agency team member works for this Brand, links to areas outside the grant (and the Brand's own settings) are hidden.
+  const acting = await actingDelegation("brand");
+  const can = (scope: string) =>
+    !acting ||
+    acting.scopes.includes(scope as never) ||
+    (scope !== "assistant" && acting.scopes.includes("view"));
   return (
     <>
       <a className="skip" href="#brand-main">
         Skip to content
       </a>
+      <ActingBanner kind="brand" />
       <header style={{ borderBottom: "1px solid #e6e1dc", background: "#fff" }}>
         <nav
           aria-label="Brand"
@@ -33,12 +42,13 @@ export default function BrandLayout({
           <strong>AURA for Brands</strong>
           <Link href="/brand">Home</Link>
           <Link href="/brand/profile">Business</Link>
-          <Link href="/brand/verification">Verification</Link>
+          {!acting && <Link href="/brand/verification">Verification</Link>}
           <Link href="/brand/campaigns">Campaigns</Link>
           <Link href="/brand/inbox">Inbox</Link>
           <Link href="/brand/content">Content</Link>
-          <Link href="/brand/assistant">Assistant</Link>
-          <Link href="/workspaces">Switch workspace</Link>
+          {!acting && <Link href="/brand/agencies">Agencies</Link>}
+          {can("assistant") && <Link href="/brand/assistant">Assistant</Link>}
+          {!acting && <Link href="/workspaces">Switch workspace</Link>}
         </nav>
       </header>
       <div id="brand-main" className="mk-brand-area">

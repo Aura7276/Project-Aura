@@ -1,4 +1,9 @@
 import "server-only";
+import {
+  actingId,
+  delegationFor,
+  type Delegation,
+} from "@/server/agency/service";
 import { redirect } from "next/navigation";
 import type { SupabaseClient } from "@supabase/supabase-js";
 import { eligible } from "@/server/auth/session";
@@ -114,6 +119,21 @@ export async function creatorContext() {
       status: string;
     }[]
   ).find((w) => w.kind === "creator" && w.role === "owner");
+  // M23: an Agency team member who chose to work for a Creator client. Only a live delegation is accepted.
+  const acting = await actingId();
+  if (acting && acting !== own?.id) {
+    const d = await delegationFor(ctx.client as Rpc, acting, "creator");
+    if (d)
+      return {
+        client: ctx.client as Rpc,
+        workspaceId: d.client_ws,
+        userId: ctx.user.id,
+        user: ctx.user,
+        name: d.name,
+        status: "open",
+        acting: d,
+      };
+  }
   if (!own) redirect("/workspaces");
   return {
     client: ctx.client as Rpc,
@@ -122,6 +142,7 @@ export async function creatorContext() {
     user: ctx.user,
     name: own.name,
     status: own.status,
+    acting: null as Delegation | null,
   };
 }
 export async function loadState() {

@@ -107,3 +107,7 @@ No new package. Unmet: an approved AI provider, model and data-processing agreem
 ## M21 dependencies
 
 No new package. Unmet: M26 team roles (separate reviewers and contributors), file storage for Brand assets, Brand social account connections for automatic publishing and metrics (M05 OAuth is Creator-only), M25 reminders for scheduled posts, an AI provider for M20 content ideas, the original M21 requirement list.
+
+## M23 dependencies
+
+No new package. Unmet: M24 messaging, M25 notifications and expiry reminders, M26 roles for client-side approvers, M27 Agency subscriptions, M22 budgets (fees are kept separate either way), cross-client reports, delegation for the M12 collaboration and M13 commercial workspaces (their access checks are participant-based and refuse Agencies), the original M23 requirement list. Functions added later (for example M22) are refused for Agencies until mapped to an area.

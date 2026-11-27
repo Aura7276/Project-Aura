@@ -53,7 +53,11 @@ export default async function Page({
           <Link href={"/brand/workspaces/" + w.id}>Open Brand Studio</Link>
         </p>
       )}
-      {w.kind === "agency" && <p>Agency onboarding is planned.</p>}
+      {w.kind === "agency" && (
+        <p>
+          <Link href={`/agency?w=${id}`}>Open Agency Studio</Link>
+        </p>
+      )}
       {w.kind === "creator" &&
         w.role === "owner" &&
         w.status === "open" &&
