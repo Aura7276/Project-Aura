@@ -290,6 +290,21 @@ export function start() {
           ok: true,
           stack: "local-test-stack-not-supabase",
         });
+      // Test-only (M19): advance an M12 collaboration that M18 opened so a deliverable is "published". M12 acceptance needs an approved
+      // legal template that does not exist yet, so the stack test cannot get there through the interface.
+      if (url.pathname === "/__test/m12-publish" && req.method === "POST") {
+        const b = await readBody(req);
+        const collab = String(b.collaboration ?? "");
+        if (!/^[0-9a-f-]{36}$/i.test(collab))
+          return send(res, 400, { error: "collaboration required" });
+        admin([
+          "-d",
+          DB,
+          "-c",
+          `update aura_collaboration.workspace w set document = jsonb_set(jsonb_set(w.document, '{status}', '"Active"'), '{deliverables,0,fulfilment}', jsonb_build_object('url', 'https://instagram.com/p/stacktest', 'date', current_date - 3, 'note', 'Posted')) from aura_selection.handoff h where h.collaboration_id = '${collab}' and h.workspace_id = w.id`,
+        ]);
+        return send(res, 200, { ok: true });
+      }
       if (url.pathname === "/__test/user" && req.method === "POST")
         return send(res, 200, await seedUser(await readBody(req)));
       if (url.pathname === "/__test/login") {

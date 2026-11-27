@@ -41,3 +41,7 @@ Brands get a private home at `/brand` with setup, plans and verification, and a 
 ## M18
 
 The campaign Applications tab is now an inbox with views and comparison; candidates have Place and Team notes panels; Creators see offers on their application page; both negotiation pages link to the collaboration workspace once both sides confirm.
+
+## M19
+
+Campaign tabs now include Monitor and Reports. Creators find a Results section on their negotiation page once the collaboration workspace exists.

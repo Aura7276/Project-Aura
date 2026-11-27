@@ -1,0 +1,340 @@
+/* M19 monitoring and reports. */
+.mo-main {
+  padding: 1.5rem 1rem 4rem;
+}
+.mo-head {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem 1.5rem;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 1rem;
+}
+.mo-head h1 {
+  font-size: clamp(1.6rem, 4.5vw, 2.3rem);
+  letter-spacing: -0.02em;
+  margin: 0.2rem 0 0.3rem;
+  overflow-wrap: anywhere;
+}
+.mo-eyebrow {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #5d5a6e;
+}
+.mo-period {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: flex-end;
+}
+.mo-period label {
+  display: grid;
+  font-size: 0.8rem;
+  color: #5d5a6e;
+}
+.mo-kpis {
+  display: grid;
+  gap: 0.6rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 150px), 1fr));
+  margin: 0 0 1rem;
+}
+.mo-kpis > div {
+  border: 1px solid #e6e1dc;
+  border-radius: 14px;
+  padding: 0.7rem 0.9rem;
+  background: #fff;
+  font-size: 0.88rem;
+  color: #3f3c52;
+}
+.mo-kpis b {
+  display: block;
+  font-size: 1.45rem;
+  color: #241f3d;
+  overflow-wrap: anywhere;
+}
+.mo-kpis small {
+  font-size: 0.9rem;
+  color: #5d5a6e;
+}
+.mo-kpis .warn b {
+  color: #a0461b;
+}
+.mo-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: minmax(0, 1fr);
+}
+@media (min-width: 980px) {
+  .mo-grid {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+  .mo-span {
+    grid-column: 1 / -1;
+  }
+}
+.mo-main h2 {
+  font-size: 1.15rem;
+  letter-spacing: -0.01em;
+}
+.mo-totals {
+  display: grid;
+  gap: 0.7rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
+  margin: 0.6rem 0 0;
+}
+.mo-totals > div {
+  border: 1px solid #ece8f7;
+  border-radius: 14px;
+  padding: 0.7rem 0.9rem;
+  background: #fcfbff;
+}
+.mo-totals dt {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #5d5a6e;
+  font-weight: 700;
+}
+.mo-totals dd {
+  margin: 0.1rem 0 0.2rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+.mo-totals p {
+  margin: 0;
+  font-size: 0.8rem;
+}
+.mo-collabs {
+  display: grid;
+  gap: 0.7rem;
+}
+.mo-collab {
+  border: 1px solid #e6e1dc;
+  border-radius: 16px;
+  padding: 0.8rem 1rem;
+  background: #fff;
+}
+.mo-collab header {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 0.6rem;
+  align-items: center;
+}
+.mo-collab h3 {
+  margin: 0;
+  font-size: 1rem;
+}
+.mo-open {
+  margin-left: auto;
+  font-size: 0.88rem;
+}
+.mo-status,
+.mo-pill {
+  display: inline-flex;
+  padding: 0.12rem 0.55rem;
+  border-radius: 999px;
+  font-size: 0.76rem;
+  font-weight: 600;
+  background: #eef0f6;
+  color: #2a2840;
+}
+.mo-status[data-s="Active"] {
+  background: #ece9ff;
+  color: #3b2fa0;
+}
+.mo-status[data-s="Completed"] {
+  background: #e3f5ea;
+  color: #1f5f3a;
+}
+.mo-status[data-s="Agreement pending"] {
+  background: #fff4da;
+  color: #6b4a00;
+}
+.mo-pill.no {
+  background: #f4ecec;
+  color: #7a2e2e;
+}
+.mo-dels {
+  list-style: none;
+  padding: 0;
+  margin: 0.6rem 0 0;
+  display: grid;
+  gap: 0.45rem;
+}
+.mo-dels li {
+  display: grid;
+  grid-template-columns: 0.8rem minmax(0, 1fr);
+  gap: 0.2rem 0.6rem;
+  align-items: start;
+  overflow-wrap: anywhere;
+}
+.mo-dot {
+  width: 0.7rem;
+  height: 0.7rem;
+  border-radius: 50%;
+  background: #c9c4dc;
+  margin-top: 0.35rem;
+}
+.mo-dels li.done .mo-dot {
+  background: #2f8a55;
+}
+.mo-dels li.overdue .mo-dot {
+  background: #c0562a;
+}
+.mo-res {
+  grid-column: 2;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+}
+.mo-res span {
+  padding: 0.05rem 0.5rem;
+  border-radius: 999px;
+  background: #f1effe;
+  color: #3b2fa0;
+  font-size: 0.78rem;
+}
+.mo-res span.stale {
+  background: #fff4da;
+  color: #6b4a00;
+}
+.mo-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.mo-table th,
+.mo-table td {
+  text-align: left;
+  padding: 0.45rem 0.5rem;
+  border-bottom: 1px solid #eee9e4;
+  overflow-wrap: anywhere;
+  vertical-align: top;
+}
+.mo-exc {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.4rem;
+}
+.mo-exc li {
+  padding: 0.5rem 0.7rem;
+  border-radius: 12px;
+  background: #fffaf0;
+  border: 1px solid #f3e6c7;
+  overflow-wrap: anywhere;
+}
+.mo-exc li[data-k="dispute"],
+.mo-exc li[data-k="overdue"] {
+  background: #fdf3ef;
+  border-color: #f2d6c8;
+}
+.mo-empty {
+  padding: 0.9rem;
+  border: 1px dashed #d6d1e6;
+  border-radius: 14px;
+  color: #5d5a6e;
+}
+.mo-empty.ok {
+  border-color: #cfe8d8;
+  color: #1f5f3a;
+  background: #f4fbf6;
+}
+.mo-empty.big {
+  padding: 2rem 1.4rem;
+  text-align: left;
+}
+.mo-log {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.45rem;
+}
+.mo-log li {
+  display: grid;
+  gap: 0.15rem;
+  padding: 0.5rem 0.7rem;
+  border-radius: 12px;
+  background: #f8f6f3;
+  overflow-wrap: anywhere;
+}
+.mo-log li.void {
+  opacity: 0.6;
+  text-decoration: line-through;
+}
+.mo-void {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+}
+.mo-void input {
+  max-width: 12rem;
+}
+.mo-checks {
+  border: 1px solid #e6e1dc;
+  border-radius: 12px;
+  padding: 0.6rem 0.8rem;
+  margin: 0 0 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem 1rem;
+  min-width: 0;
+}
+.mo-hist {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.5rem;
+}
+.mo-hist li {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem 0.5rem;
+  align-items: baseline;
+  overflow-wrap: anywhere;
+}
+.mo-hist .st-hint {
+  flex-basis: 100%;
+}
+.mo-report section {
+  margin: 0 0 1.4rem;
+}
+.mo-dl {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.mo-share {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem 1rem;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.7rem 0.9rem;
+  border-radius: 14px;
+  background: #f7f5ff;
+  margin: 1rem 0;
+}
+.mo-share p {
+  margin: 0;
+  max-width: 60ch;
+}
+.mo-creator h3 {
+  font-size: 1rem;
+  margin-top: 1.2rem;
+}
+@media print {
+  .mo-dl,
+  nav,
+  header nav {
+    display: none;
+  }
+}
+.mo-totals dd.mo-note {
+  margin: 0;
+  font-size: 0.8rem;
+  font-weight: 400;
+  line-height: 1.4;
+}

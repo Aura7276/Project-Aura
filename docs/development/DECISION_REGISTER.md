@@ -84,3 +84,7 @@ Proposed for owner confirmation, because the module file is a partial reconstruc
 ## M18 selection proposals
 
 Proposed for owner confirmation (the module file is a partial reconstruction): a hold lasts 72 hours and ends when the Creator accepts (the negotiation follows); holds count against positions and selection capacity; declining a place withdraws the application; expiry is evaluated on read until a scheduler exists; comparison takes 2 to 4 candidates; bulk actions are review, shortlist and reject (never selection), up to 50 at once; notes and tags are private to the Brand; the M11 → M12 hand-off creates an "Agreement pending" workspace whose acceptance needs an approved legal template.
+
+## M19 monitoring proposals
+
+Proposed for owner confirmation (the module file is a partial reconstruction): both the Brand and the Creator can record results, each labelled by side and source; only the Brand may cite its own records; results only after publication; nine defined metrics; results older than 30 days are flagged as out of date; Creator-entered figures are shared with the Brand by default and the Creator can withdraw them; reports are Brand-only, versioned by name, and a withdrawal blocks old versions; exports are CSV and PDF.

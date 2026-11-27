@@ -66,3 +66,7 @@ Private schema; RLS on with no policies and no grants; 3 tables reached only thr
 ## M18 `aura_selection`
 
 Private schema; RLS on with no policies and no grants; 4 tables reached only through `aura_selection_*` functions. Triggers on `aura_apply.application` (capacity including holds) and `aura_apply.collaboration` (hand-off to M12). Migration `20261210000100`. See `SELECTION_ARCHITECTURE.md`.
+
+## M19 `aura_monitor`
+
+Private schema; RLS on with no policies and no grants; 5 tables (setting, observation, consent, report, report_access) reached only through `aura_monitor_*` functions. The roll-up reads M12 documents via the M18 hand-off and M13 payment reports. Migration `20261211000100`. See `MONITORING_ARCHITECTURE.md`.

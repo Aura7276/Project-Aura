@@ -24,6 +24,7 @@ import {
 import "@/features/marketplace/market.css";
 import { HandoffLink, OfferPanel } from "@/features/selection/panels";
 import { selection } from "@/server/selection/service";
+import { CreatorResults } from "@/features/monitor/views";
 import "./apply.css";
 
 type Overview = {
@@ -919,6 +920,7 @@ export async function CreatorNegotiationView({
       <h1>Negotiation: {n.campaign}</h1>
       <HandoffLink client={c.client} ws={c.workspaceId} collab={n.id} />
       <NegotiationBody n={n} sp={sp} />
+      <CreatorResults client={c.client} ws={c.workspaceId} collab={n.id} />
     </main>
   );
 }

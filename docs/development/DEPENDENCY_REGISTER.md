@@ -95,3 +95,7 @@ No new package. Unmet: M12 link to M11 proposals and campaign versions, M18 sele
 ## M18 dependencies
 
 No new package. Unmet: M22 budget reservations on holds, a scheduler for expiry and reminders (M25), M16 Creator discovery for invitations, approved M12 agreement templates, the original M18 requirement list.
+
+## M19 dependencies
+
+No new package. Unmet: approved M12 agreement templates (deliverables can only be published after acceptance), M22 budgets and spend, M25 scheduled reports and reminders, provider-connected metrics (M05 OAuth), the original M19 requirement list.

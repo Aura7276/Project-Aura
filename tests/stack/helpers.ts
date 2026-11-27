@@ -79,3 +79,14 @@ export async function verifyBrand(bp: Page, rp: Page, workspaceId: string) {
   await rp.getByRole("button", { name: "Record decision" }).click();
   await expect(rp.getByText("Decision recorded.")).toBeVisible();
 }
+
+/** Test-only (M19): mark the first deliverable of the M12 workspace opened for an M11 collaboration as published. */
+export async function publishFirstDeliverable(
+  request: APIRequestContext,
+  collaboration: string,
+) {
+  const r = await request.post(`${stack}/__test/m12-publish`, {
+    data: { collaboration },
+  });
+  expect(r.ok()).toBe(true);
+}

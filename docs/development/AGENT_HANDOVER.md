@@ -89,3 +89,7 @@ Branch `feature/m17-campaigns` from `main` (M15). Migration `20261209000100`. M1
 ## M18 handover
 
 Branch `feature/m18-selection` from `main` (M17). Migration `20261210000100`. The Brand decision menu no longer offers "Select"; places are offered as 72-hour holds and become selections when the Creator accepts (the M11 stack test follows this flow). M11's `aura_apply_decide(..., 'select')` still exists for compatibility and counts holds. The M11 → M12 hand-off now creates an "Agreement pending" M12 workspace; legal template approval (M12) is the owner's next decision. M22 budget reservations should hook into `aura_selection.hold`.
+
+## M19 handover
+
+Branch `feature/m19-monitoring` from `main` (M18). Migration `20261211000100`. The local test stack has a test-only route `/__test/m12-publish` (and the helper `publishFirstDeliverable`) that marks an M12 deliverable published, because M12 acceptance needs an approved legal template. Connected provider data (M05/M06 grants) can later write observations with source `platform_insights`. M22 budgets and M25 report scheduling are open.

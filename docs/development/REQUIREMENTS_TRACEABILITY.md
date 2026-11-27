@@ -476,3 +476,20 @@ Original M18-F identifiers are unavailable (partial reconstruction of 45 histori
 | S8 Protect other candidates' data; record decision history   | Implemented (local PostgreSQL) | Comparison uses shared projections only; private team notes and tags; offers, acceptances, releases and expiries in the history                                                    |
 
 M22 budget reservations (proposed acceptance check 2) are not built. Source — AURA_Requirements_v0.14/modules/M18_creator_selection_and_comparison.md. See `M18_COMPLETE_REPORT.md`.
+
+## M19 recovered scope — owner-authorized implementation
+
+Original M19-F identifiers are unavailable (partial reconstruction of 60 historical requirements). Verified on local PostgreSQL with stubs and the local stack, not live Supabase.
+
+| Recovered requirement                                      | Status                         | Current delivery                                                                                                                                               |
+| ---------------------------------------------------------- | ------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| R1 Use actual M12 delivery evidence                        | Implemented (local PostgreSQL) | Roll-up reads each M12 collaboration document (stages, submissions, reviews, publication, disputes, completion) through the M18 hand-off                       |
+| R2 Fulfilment, performance and settlement independent      | Implemented (local PostgreSQL) | Separate Delivery, Performance and Payments sections; delivery never implies payment or success                                                                |
+| R3 Manual reporting with source, date, coverage and window | Implemented (local PostgreSQL) | Structured observations per published deliverable: metric, value, cumulative or period window, read date, source, note, and who entered it; coverage per total |
+| R4 No summing repeated cumulative or incompatible metrics  | Implemented (local PostgreSQL) | Totals use the latest cumulative reading per deliverable and metric; windows are listed, never added; voided readings fall back                                |
+| R5 No unique-reach claims, no success score                | Implemented (local PostgreSQL) | Reach labelled "NOT a count of unique people"; no score anywhere                                                                                               |
+| R6 Outcomes, exceptions, missing evidence and limitations  | Implemented (local PostgreSQL) | Exceptions: overdue, revision loops, open disputes, published without results, stale results, agreement pending; coverage and limitations stated               |
+| R7 Permissioned, versioned reports                         | Implemented (local PostgreSQL) | Versioned snapshots per report name; access logged; a Creator withdrawing their figures blocks old versions from viewing and export                            |
+| R8 Link to M22, M13 and M12 obligations                    | Partial                        | Agreed value (M11 proposal) and M13 payment reports, labelled as recorded; M22 budgets not built                                                               |
+
+Source — AURA_Requirements_v0.14/modules/M19_campaign_monitoring_and_reporting.md. See `M19_COMPLETE_REPORT.md`.

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import "./campaigns.css";
 
-/** Campaign tabs, shared by the M10 editor, the M11 applications page and the M17 pages. */
+/** Campaign tabs, shared by the M10 editor, the M11 applications page and the M17, M18 and M19 pages. */
 export function CampaignTabs({
   id,
   w,
@@ -9,7 +9,14 @@ export function CampaignTabs({
 }: {
   id: string;
   w: string;
-  current: "overview" | "build" | "preview" | "applications" | "changes";
+  current:
+    | "overview"
+    | "build"
+    | "preview"
+    | "applications"
+    | "monitor"
+    | "reports"
+    | "changes";
 }) {
   const t: [typeof current, string, string][] = [
     ["overview", "All terms", `/brand/campaigns/${id}?w=${w}`],
@@ -20,6 +27,8 @@ export function CampaignTabs({
       "Applications",
       `/brand/campaigns/${id}/applications?w=${w}`,
     ],
+    ["monitor", "Monitor", `/brand/campaigns/${id}/monitor?w=${w}`],
+    ["reports", "Reports", `/brand/campaigns/${id}/reports?w=${w}`],
     ["changes", "Changes", `/brand/campaigns/${id}/changes?w=${w}`],
   ];
   return (

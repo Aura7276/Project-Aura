@@ -50,3 +50,7 @@ Campaign plans are private to the Brand and never part of any Creator or public 
 ## M18 security
 
 Holds and capacity are enforced by a trigger under the same lock for every selection path. The comparison and inbox expose only each Creator's shared projection; team notes are private to the Brand. M12 provisioning remains internal (no grant); only the M11 confirmation trigger can open a workspace, and acceptance there still requires an approved template.
+
+## M19 security
+
+Only the campaign's Brand sees the roll-up and reports; a Creator sees only their own collaboration. Each side can void only what it entered. Creator-entered figures are used only while shared; reports that contain withdrawn figures are refused on every view and export, and each attempt is logged. Report exports neutralize spreadsheet formulas and are rate-limited.

@@ -47,3 +47,7 @@ Implemented on `feature/m17-campaigns` from the reconstructed module file, verif
 ## M18 Creator selection and comparison
 
 Implemented on `feature/m18-selection` from the reconstructed module file, verified locally. Adds 72-hour holds, the applicant inbox, comparison, private notes, bulk review and the M11 → M12 hand-off. See `M18_COMPLETE_REPORT.md`.
+
+## M19 Campaign monitoring and reporting
+
+Implemented on `feature/m19-monitoring` from the reconstructed module file, verified locally. See `M19_COMPLETE_REPORT.md`.
