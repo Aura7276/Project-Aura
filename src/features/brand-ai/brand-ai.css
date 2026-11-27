@@ -1,0 +1,265 @@
+/* M20 Brand AI Growth Assistant */
+.ba-main {
+  padding: 1.5rem 1rem 3rem;
+  display: grid;
+  gap: 1rem;
+}
+.ba-head {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 1rem;
+}
+.ba-head h1 {
+  margin: 0.1rem 0 0.3rem;
+}
+.ba-eyebrow {
+  margin: 0;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #6b5d52;
+  font-weight: 600;
+}
+.ba-status {
+  margin: 0;
+  padding: 0.75rem 1rem;
+  border-radius: 12px;
+  border: 1px solid;
+  line-height: 1.45;
+}
+.ba-status.on {
+  background: #eef7f0;
+  border-color: #b9dcc2;
+  color: #1f4d2c;
+}
+.ba-status.off {
+  background: #fbf6ec;
+  border-color: #ead9b5;
+  color: #5a4413;
+}
+.ba-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  align-items: start;
+}
+.ba-span {
+  grid-column: 1 / -1;
+}
+@media (max-width: 760px) {
+  .ba-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+.ba-sub {
+  margin-top: 1.25rem;
+  font-size: 1rem;
+}
+.ba-usage-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.ba-usage-top b {
+  font-size: 1.4rem;
+}
+.ba-usage-top small {
+  font-size: 0.85rem;
+  color: #6b5d52;
+  font-weight: 400;
+}
+.ba-bar {
+  height: 8px;
+  border-radius: 99px;
+  background: #efe9e3;
+  overflow: hidden;
+  margin: 0.4rem 0;
+}
+.ba-bar span {
+  display: block;
+  height: 100%;
+  background: #7a4b2a;
+  border-radius: inherit;
+}
+.ba-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  list-style: none;
+  padding: 0;
+  margin: 0.4rem 0 0.8rem;
+}
+.ba-chips li {
+  padding: 0.2rem 0.6rem;
+  border-radius: 99px;
+  background: #f4efe9;
+  font-size: 0.85rem;
+}
+.ba-tasks {
+  margin: 1rem 0 0;
+  padding-left: 1.1rem;
+  color: #4a3f37;
+  font-size: 0.92rem;
+  display: grid;
+  gap: 0.3rem;
+}
+.ba-tag {
+  display: inline-block;
+  padding: 0.1rem 0.55rem;
+  border-radius: 99px;
+  font-size: 0.76rem;
+  font-weight: 600;
+  background: #f0ebe6;
+  color: #4a3f37;
+}
+.ba-tag.ai {
+  background: #ece9fb;
+  color: #3b2f86;
+}
+.ba-tag.manual {
+  background: #e9f3f7;
+  color: #1d4e63;
+}
+.ba-convs {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+}
+.ba-convs li {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 0.8rem;
+  align-items: center;
+  padding: 0.7rem 0;
+  border-top: 1px solid #efe9e3;
+}
+.ba-convs li:first-child {
+  border-top: 0;
+}
+.ba-convs a {
+  font-weight: 600;
+}
+.ba-draft {
+  border: 1px solid #e6e1dc;
+  border-radius: 12px;
+  padding: 1rem;
+  margin-top: 0.8rem;
+  background: #fffdfb;
+}
+.ba-draft.applied {
+  background: #f5faf6;
+  border-color: #cfe5d5;
+}
+.ba-draft header {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 0.8rem;
+  align-items: center;
+}
+.ba-draft h3 {
+  margin: 0;
+  font-size: 1.02rem;
+}
+.ba-draft-body ol {
+  margin: 0.5rem 0;
+  padding-left: 1.2rem;
+  display: grid;
+  gap: 0.35rem;
+}
+.ba-draft-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: flex-end;
+  margin-top: 0.6rem;
+}
+.ba-draft-actions > form:first-child {
+  flex: 1 1 260px;
+}
+.ba-pre {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  margin: 0.4rem 0;
+}
+.ba-flags {
+  margin-top: 0.6rem;
+  padding: 0.55rem 0.8rem;
+  border-left: 3px solid #c9a227;
+  background: #fdf9ee;
+  border-radius: 0 8px 8px 0;
+}
+.ba-flags.gap {
+  border-left-color: #8a8fa3;
+  background: #f5f6f9;
+}
+.ba-flags h4 {
+  margin: 0 0 0.25rem;
+  font-size: 0.85rem;
+}
+.ba-flags ul {
+  margin: 0;
+  padding-left: 1.1rem;
+  font-size: 0.9rem;
+}
+.ba-turns {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1rem;
+  display: grid;
+  gap: 0.7rem;
+}
+.ba-turn {
+  padding: 0.75rem 0.9rem;
+  border-radius: 12px;
+  max-width: 52rem;
+}
+.ba-turn.me {
+  background: #f4efe9;
+  justify-self: end;
+}
+.ba-turn.ai {
+  background: #fff;
+  border: 1px solid #e6e1dc;
+}
+.ba-turn.ai.offline,
+.ba-turn.ai.error {
+  background: #fbf6ec;
+  border-color: #ead9b5;
+}
+.ba-who {
+  display: block;
+  font-size: 0.76rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #6b5d52;
+}
+.ba-context {
+  margin-top: 1rem;
+  border-top: 1px solid #efe9e3;
+  padding-top: 0.8rem;
+}
+.ba-context summary {
+  cursor: pointer;
+  font-weight: 600;
+}
+.ba-context pre {
+  max-height: 22rem;
+  overflow: auto;
+  background: #f8f6f3;
+  padding: 0.8rem;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.st-btn.danger {
+  color: #8a1c1c;
+  border-color: #e3b5b5;
+}
+.ba-draft-body ol {
+  list-style: decimal;
+}

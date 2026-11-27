@@ -36,6 +36,7 @@ export default function BrandLayout({
           <Link href="/brand/verification">Verification</Link>
           <Link href="/brand/campaigns">Campaigns</Link>
           <Link href="/brand/inbox">Inbox</Link>
+          <Link href="/brand/assistant">Assistant</Link>
           <Link href="/workspaces">Switch workspace</Link>
         </nav>
       </header>

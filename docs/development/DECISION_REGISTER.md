@@ -88,3 +88,7 @@ Proposed for owner confirmation (the module file is a partial reconstruction): a
 ## M19 monitoring proposals
 
 Proposed for owner confirmation (the module file is a partial reconstruction): both the Brand and the Creator can record results, each labelled by side and source; only the Brand may cite its own records; results only after publication; nine defined metrics; results older than 30 days are flagged as out of date; Creator-entered figures are shared with the Brand by default and the Creator can withdraw them; reports are Brand-only, versioned by name, and a withdrawal blocks old versions; exports are CSV and PDF.
+
+## M20 assistant proposals
+
+Proposed for owner confirmation (the module file is a partial reconstruction): no AI provider is selected, so the assistant ships in offline mode and needs an owner-approved provider, model and data-processing agreement before it is switched on (AURA_AI_ENDPOINT, AURA_AI_API_KEY, AURA_AI_MODEL); 100 answered requests per Brand workspace per calendar month, reserved under a lock before a provider call and not used while offline; at most 60 messages per conversation; memory off by default and deletable; default shared sources are profile, products, audiences, guidelines, goals and plan, with budget, Creator preferences and competitors opt-in; drafts apply only to private records (M14 plan steps, the campaign's draft brief) or are marked ready for a person to use.

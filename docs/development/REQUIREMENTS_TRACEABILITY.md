@@ -493,3 +493,21 @@ Original M19-F identifiers are unavailable (partial reconstruction of 60 histori
 | R8 Link to M22, M13 and M12 obligations                    | Partial                        | Agreed value (M11 proposal) and M13 payment reports, labelled as recorded; M22 budgets not built                                                               |
 
 Source — AURA_Requirements_v0.14/modules/M19_campaign_monitoring_and_reporting.md. See `M19_COMPLETE_REPORT.md`.
+
+## M20 recovered scope — owner-authorized implementation
+
+Original M20-F identifiers are unavailable (partial reconstruction of 60 historical requirements). No AI provider is selected or configured, so the assistant runs in offline mode. Verified on local PostgreSQL with stubs and the local stack, not live Supabase; no real AI output has been produced or tested.
+
+| Recovered requirement                                                          | Status                         | Current delivery                                                                                                                                                                  |
+| ------------------------------------------------------------------------------ | ------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| A1 Strategy, owned growth and Creator-led recommendations                      | Implemented, offline           | Six tasks (strategy, plan steps, campaign brief, explain results, invitation message, general), each producing a reviewable draft                                                 |
+| A2 Grounded in editable M14 intelligence                                       | Implemented (local PostgreSQL) | Context built in the database from this workspace only and from the sources the Brand ticks; shown in full before anything is sent                                                |
+| A3 Editable 7/30/90-day plans                                                  | Implemented (local PostgreSQL) | Approved plan drafts become M14 plan steps marked as the Brand's own edits                                                                                                        |
+| A4 Facts vs hypotheses, source, uncertainty, gaps                              | Implemented                    | Audiences carry their basis; every answer is labelled "AI suggestion" with the sources used, assumptions and missing information                                                  |
+| A5 Content, campaign drafts and performance analysis                           | Implemented, offline           | Brief drafts go to the M10/M17 campaign draft only; results questions receive M19 recorded figures with a no-invented-numbers rule                                                |
+| A6 Users approve record changes and communication                              | Implemented (local PostgreSQL) | Apply needs an explicit tick and re-checks Brand owner/admin with MFA at the moment of applying; a draft applies once                                                             |
+| A7 No autonomous commitments, payments or permission changes                   | Implemented (local PostgreSQL) | No assistant function can publish, invite, select, confirm or pay (checked by test); messages are never sent                                                                      |
+| A8 Isolation per workspace, no training by default                             | Implemented (local PostgreSQL) | Conversations, drafts, memory and usage per Brand workspace; memory off by default and deletable                                                                                  |
+| A9 Reuse M07 provider-independent infrastructure; manual work survives outages | Implemented                    | Same AURA_AI_* settings and request shape as M07; HTTPS only, no redirects, 30-second timeout, validated JSON; offline or failing provider keeps the question and manual drafting |
+
+Source — AURA_Requirements_v0.14/modules/M20_brand_ai_growth_assistant.md. See `M20_COMPLETE_REPORT.md`.

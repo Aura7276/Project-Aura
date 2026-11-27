@@ -2,7 +2,6 @@
 // The schema is built from the real M02 to M06, migrations through M18 on a minimal `auth` stub and `storage` stub (NOT Supabase). Skipped runs are
 // reported as skipped, never as passed.
 import { execFileSync, spawn } from "node:child_process";
-import { readFileSync } from "node:fs";
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
 
 const enabled = process.env.AURA_TEST_DB === "1";

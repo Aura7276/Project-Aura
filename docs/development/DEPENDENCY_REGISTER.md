@@ -99,3 +99,7 @@ No new package. Unmet: M22 budget reservations on holds, a scheduler for expiry 
 ## M19 dependencies
 
 No new package. Unmet: approved M12 agreement templates (deliverables can only be published after acceptance), M22 budgets and spend, M25 scheduled reports and reminders, provider-connected metrics (M05 OAuth), the original M19 requirement list.
+
+## M20 dependencies
+
+No new package. Unmet: an approved AI provider, model and data-processing agreement; M21/M22 (Brand content and budgets) as context sources; M27 and M30 policies named by the module; the original M20 requirement list.

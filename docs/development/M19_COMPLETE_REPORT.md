@@ -18,6 +18,7 @@ Local PostgreSQL 16 with auth and storage stubs (not live Supabase). These all p
 Stack suite: 32 passed, 1 failed and 5 did not run, because the files run in order and stop after a failure. The failure was the M04 test "daily actions persist across reloads" in `studio.spec.ts`. Re-run on its own, that file passed 11 of 11, including the 5 that had not run. It is a timing flake under full-suite load, not an M19 regression.
 
 M19 adds:
+
 - 6 SQL scenario groups.
 - Database tests: earlier suites re-run, grant checks, and a race where three parallel reports with the same name get versions 1, 2 and 3.
 - Domain tests.
