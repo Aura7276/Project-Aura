@@ -70,3 +70,7 @@ No image generation or external decorative assets used.
 ## M17
 
 No images. Screenshots in `docs/development/evidence/m17/` show real pages with sample text typed by the test.
+
+## M18
+
+No images. Screenshots in `docs/development/evidence/m18/` show real pages with sample text typed by the test.

@@ -37,3 +37,7 @@ Brands get a private home at `/brand` with setup, plans and verification, and a 
 ## M17
 
 `/brand/campaigns` is now a management list (filters, numbers, duplicate, archive). Each campaign has tabs: All terms, Builder, Preview, Applications, Changes.
+
+## M18
+
+The campaign Applications tab is now an inbox with views and comparison; candidates have Place and Team notes panels; Creators see offers on their application page; both negotiation pages link to the collaboration workspace once both sides confirm.

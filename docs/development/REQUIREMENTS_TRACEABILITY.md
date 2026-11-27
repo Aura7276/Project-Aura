@@ -459,3 +459,20 @@ Original M17-F identifiers are unavailable (the module file is a partial reconst
 | R10 Changes never silently amend M12 agreements                                                                         | Partial                        | Versions are kept and agreed M11 proposals keep their terms; M12 collaborations are not yet linked to M11 proposals or campaign versions                                                      |
 
 Source — AURA_Requirements_v0.14/modules/M17_campaign_creation_and_management.md. See `M17_COMPLETE_REPORT.md`.
+
+## M18 recovered scope — owner-authorized implementation
+
+Original M18-F identifiers are unavailable (partial reconstruction of 45 historical requirements). Verified on local PostgreSQL with stubs and the local stack, not live Supabase.
+
+| Recovered requirement                                        | Status                         | Current delivery                                                                                                                                                                   |
+| ------------------------------------------------------------ | ------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| S1 M11 records are authoritative                             | Implemented (local PostgreSQL) | M18 reads and extends `aura_apply`; no parallel store                                                                                                                              |
+| S2 Compare candidates with compatible, authorized evidence   | Implemented (local PostgreSQL) | Side-by-side comparison of 2 to 4 candidates from each shared projection: requirements, preferences, account with source and date, pitch, answers, work, compensation, dates, tags |
+| S3 Hard eligibility separate from preferences; no score      | Implemented (local PostgreSQL) | Met / not met / not known per requirement and preference; no score or ordering by a number                                                                                         |
+| S4 Shortlist, review and selection; selection is not binding | Implemented (local PostgreSQL) | Applicant inbox with views, bulk review, shortlist and reject with feedback; selection only through an accepted hold; "not an agreement" everywhere                                |
+| S5 72-hour selection reservation, expiry and revalidation    | Implemented (local PostgreSQL) | Holds expire after 72 hours (evaluated on read) and free the place; eligibility re-checked when the Creator accepts                                                                |
+| S6 Independent capacities, no oversubscription or duplicates | Implemented (local PostgreSQL) | Holds count against selection capacity on every path (trigger on M11 applications, same lock); concurrency tests                                                                   |
+| S7 Both confirm the same version before M12 activation       | Implemented (local PostgreSQL) | M11 exact-version confirmation now hands off to an M12 workspace ("Agreement pending"); acceptance there still needs an approved legal template                                    |
+| S8 Protect other candidates' data; record decision history   | Implemented (local PostgreSQL) | Comparison uses shared projections only; private team notes and tags; offers, acceptances, releases and expiries in the history                                                    |
+
+M22 budget reservations (proposed acceptance check 2) are not built. Source — AURA_Requirements_v0.14/modules/M18_creator_selection_and_comparison.md. See `M18_COMPLETE_REPORT.md`.

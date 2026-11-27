@@ -91,3 +91,7 @@ No packages added. Uses existing M02 identity, MFA and membership, M12 collabora
 ## M17 dependencies
 
 No new package. Unmet: M12 link to M11 proposals and campaign versions, M18 selection reservations, M22 campaign budgets, M23 Agency delegated creation, M20/M07 AI brief drafting, M25 email notices, M29 moderation operations, the original M17 requirement list.
+
+## M18 dependencies
+
+No new package. Unmet: M22 budget reservations on holds, a scheduler for expiry and reminders (M25), M16 Creator discovery for invitations, approved M12 agreement templates, the original M18 requirement list.

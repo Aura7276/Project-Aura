@@ -85,3 +85,7 @@ Brand Studio (Jai's M15 dashboard) lives at `/brand/workspaces/[workspace]` with
 ## M17 handover
 
 Branch `feature/m17-campaigns` from `main` (M15). Migration `20261209000100`. M17 extends M10: keep `aura_market` as the campaign store. To open a category, change `aura_campaign.setting` `category_rollout` (owner decision). M10 draft validation was relaxed for empty summary, brief, deliverables and closing date (publication still requires them). The M10 stack test now publishes a barter campaign instead of an event. Open: link M12 collaborations to M11 proposals and campaign versions (R10); M18 72-hour selection reservations; M22 campaign budgets.
+
+## M18 handover
+
+Branch `feature/m18-selection` from `main` (M17). Migration `20261210000100`. The Brand decision menu no longer offers "Select"; places are offered as 72-hour holds and become selections when the Creator accepts (the M11 stack test follows this flow). M11's `aura_apply_decide(..., 'select')` still exists for compatibility and counts holds. The M11 → M12 hand-off now creates an "Agreement pending" M12 workspace; legal template approval (M12) is the owner's next decision. M22 budget reservations should hook into `aura_selection.hold`.

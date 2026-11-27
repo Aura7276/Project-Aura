@@ -46,3 +46,7 @@ Business verification is per workspace and needs a reviewer with MFA who is not 
 ## M17 security
 
 Campaign plans are private to the Brand and never part of any Creator or public projection. Rollout and positions rules are enforced by triggers on the M10 tables, so no function or route can bypass them. Plans accept only the Brand's own M14 audiences and products and an active workspace member as owner. Duplication is idempotent per request.
+
+## M18 security
+
+Holds and capacity are enforced by a trigger under the same lock for every selection path. The comparison and inbox expose only each Creator's shared projection; team notes are private to the Brand. M12 provisioning remains internal (no grant); only the M11 confirmation trigger can open a workspace, and acceptance there still requires an approved template.

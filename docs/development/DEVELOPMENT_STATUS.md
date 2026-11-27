@@ -43,3 +43,7 @@ Implemented on `feature/m14-brand-onboarding` (built on M11 with Jai's M07 and M
 ## M17 Campaign creation and management
 
 Implemented on `feature/m17-campaigns` from the reconstructed module file, verified locally. Extends the M10 campaign editor with a builder, private plans, rollout, management and change notices. See `M17_COMPLETE_REPORT.md`.
+
+## M18 Creator selection and comparison
+
+Implemented on `feature/m18-selection` from the reconstructed module file, verified locally. Adds 72-hour holds, the applicant inbox, comparison, private notes, bulk review and the M11 → M12 hand-off. See `M18_COMPLETE_REPORT.md`.

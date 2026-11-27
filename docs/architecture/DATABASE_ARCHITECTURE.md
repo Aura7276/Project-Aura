@@ -62,3 +62,7 @@ Jai's M07 (`20261130000100_m07_growth_studio.sql`) and M08 migrations are includ
 ## M17 `aura_campaign`
 
 Private schema; RLS on with no policies and no grants; 3 tables reached only through `aura_campaign_*` functions (authenticated only). Two triggers on M10 tables enforce the rollout and the positions floor and extend change notices. Migration `20261209000100`. See `CAMPAIGN_MANAGEMENT_ARCHITECTURE.md`.
+
+## M18 `aura_selection`
+
+Private schema; RLS on with no policies and no grants; 4 tables reached only through `aura_selection_*` functions. Triggers on `aura_apply.application` (capacity including holds) and `aura_apply.collaboration` (hand-off to M12). Migration `20261210000100`. See `SELECTION_ARCHITECTURE.md`.

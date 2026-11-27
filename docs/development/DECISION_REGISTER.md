@@ -80,3 +80,7 @@ After a read-only context review disclosed the incomplete 45-item specification,
 ## M17 campaign proposals
 
 Proposed for owner confirmation, because the module file is a partial reconstruction: build M17 on the M10 store; publishable now: paid influencer, UGC, barter; draft-only until opened: events, ambassador, affiliate; campaign plans (objective, KPI, audiences, products, owner, milestones, notes) are private; at most 12 milestones; drafts may be incomplete, publication requires completeness; only drafts and closed campaigns can be archived; budgets stay a range on the campaign until M22; the M11 to M12 agreement link is a separate task.
+
+## M18 selection proposals
+
+Proposed for owner confirmation (the module file is a partial reconstruction): a hold lasts 72 hours and ends when the Creator accepts (the negotiation follows); holds count against positions and selection capacity; declining a place withdraws the application; expiry is evaluated on read until a scheduler exists; comparison takes 2 to 4 candidates; bulk actions are review, shortlist and reject (never selection), up to 50 at once; notes and tags are private to the Brand; the M11 → M12 hand-off creates an "Agreement pending" workspace whose acceptance needs an approved legal template.
