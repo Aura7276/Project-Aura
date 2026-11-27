@@ -39,10 +39,14 @@ export default async function Page({
           </div>
         ))}
       </dl>
-      {w.kind !== "creator" && (
-        <p>{w.kind === "brand" ? "Brand" : "Agency"} onboarding is planned.</p>
+      {w.kind === "brand" && (
+        <p>
+          <Link href={"/brand/workspaces/" + w.id}>Open Brand Studio</Link>
+        </p>
       )}
-      {w.role === "owner" &&
+      {w.kind === "agency" && <p>Agency onboarding is planned.</p>}
+      {w.kind === "creator" &&
+        w.role === "owner" &&
         w.status === "open" &&
         w.onboarding === "not_started" && (
           <form action={chooseWorkspace}>

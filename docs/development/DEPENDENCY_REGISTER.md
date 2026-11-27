@@ -69,3 +69,8 @@ No packages added. Uses M02 verified identity and MFA, M08 private content versi
 ## M13 commercial workspace
 
 No packages added. Depends on M02 identity, M03/M04 Creator ownership, M12 participant checks, and migration 20261206000100. Structured accepted commercial terms from M11/M12, M25 reminders, tax/invoice validation, currency precision, FX sources, private uploads/scanning and retention remain pending. Hosted migration and all testing are deferred.
+
+
+## M15 Brand dashboard
+
+No packages added. Uses existing M02 identity, MFA and membership, M12 collaboration permissions, Radix dialogs, Lucide and the design system. M14 onboarding source is absent in this checkout. M16–M22 business integrations, M25 notifications and M26 granular roles remain pending. Migration deployment and all validation are pending.

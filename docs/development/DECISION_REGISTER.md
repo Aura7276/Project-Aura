@@ -58,3 +58,8 @@ The owner explicitly authorized M12 and requested no tests or validation. This o
 ## M13 build-only implementation — 27 November 2026
 
 The owner authorized a premium M13 workspace. The continuing build-only instruction defers tests and validation. Use exact decimal strings, SQL numeric and BigInt for money; reject excess precision without rounding. Current engineering bounds are 12 whole and 6 fractional digits, pending currency-specific policy. Keep private external records separate from shared payment reports. Confirmed report import requires explicit Creator action; bilateral reversal affects only the matched receipt. Invoice issue protects the snapshot and does not duplicate the obligation. Tax-specific compliance, credit notes, reimbursements, retention, FX and automated recurring schedules remain unresolved. See M13_COMMERCIAL_WORKSPACE.md.
+
+
+## M15 recovered-scope authorization — 27 November 2026
+
+After a read-only context review disclosed the incomplete 45-item specification, the owner authorized building a premium M15 dashboard. This supersedes historical non-authorization for the recovered scope only. Preserve the source reconstruction and do not invent original requirement identifiers. Use manual private focus until M14 data exists. Owners/admins edit the shared plan; other members read pending M26 role decisions. Keep private workspace routes under /brand/workspaces/[id] to preserve the proposed public Brand slug route. The continuing build-only instruction defers tests and validation.

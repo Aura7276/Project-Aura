@@ -1,5 +1,7 @@
 # Project AURA agent handover
 
+**M15 — In progress.** The owner authorized the recovered Brand Dashboard scope on 27 November 2026. A private planning dashboard and development preview are implemented locally on feature/m15-brand-dashboard. M14 integration, original requirement reconciliation and validation remain pending. See [M15 report](M15_BRAND_DASHBOARD.md).
+
 **M13 — In progress.** Earnings, private ledger, invoices and shared M12 payment reports are implemented locally on feature/m13-commercial-workspace. Tests and validation were skipped under the build-only instruction. Hosted migration and remaining commercial integrations are pending. See [M13 report](M13_COMMERCIAL_WORKSPACE.md).
 
 **M12 — In progress.** Shared collaboration workspace implemented locally on feature/m12-collaboration-workspace. Testing and validation deferred at the owner’s request. Hosted migration, M11 provisioning and legal-template integration remain pending. See [M12 implementation report](M12_COLLABORATION_WORKSPACE.md).

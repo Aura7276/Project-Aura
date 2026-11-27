@@ -425,3 +425,19 @@ Baseline v0.14. M01–M03 use the local reconstructed IDs. Source links preserve
 | M14-F48     | No shared model training by default; separate explicit authorization for future use.                                                                                                            | [specification](../../AURA_Requirements_v0.14/modules/M14_brand_onboarding.md)                   | Not started                    | —                                                                                                                                     |
 | M14-F49     | Free registration/basic onboarding; subscriptions/advanced tools M27.                                                                                                                           | [specification](../../AURA_Requirements_v0.14/modules/M14_brand_onboarding.md)                   | Not started                    | —                                                                                                                                     |
 | M14-F50     | Configurable update reminders, editable information and authorized refresh.                                                                                                                     | [specification](../../AURA_Requirements_v0.14/modules/M14_brand_onboarding.md)                   | Not started                    | —                                                                                                                                     |
+
+ 
+## M15 recovered scope — owner-authorized implementation
+
+Original M15-F identifiers are unavailable. These descriptions trace the recovered source without replacing the historical 45 requirements. All implementation is untested.
+
+| Recovered requirement | Status | Current delivery |
+|---|---|---|
+| Useful workspace without social or campaign history | In progress | Empty-data next steps, private focus and priorities |
+| Personalization from M14 objectives, maturity and resources | In progress | Manual objective, audience and resources; genuine M14 adapter pending |
+| Integrated owned content, Creator marketing and performance | In progress | Workstream priorities, sourced manual signals, authorized M12 links; advanced modules pending |
+| Unverified private planning and commercial gates | In progress | Private planning allowed; verification displayed; no restricted commercial mutation exposed |
+| Independent Brand workspace and M02 membership/MFA | In progress | Workspace-scoped RPCs, active membership, MFA and manager edit checks |
+| Actual data, actionable empty states and labelled observations | In progress | Source/date/channel on manual observations; genuine M12 records; labelled development fixtures |
+
+Source — AURA_Requirements_v0.14/modules/M15_brand_dashboard.md. See M15_BRAND_DASHBOARD.md for boundaries and outstanding reconciliation.
