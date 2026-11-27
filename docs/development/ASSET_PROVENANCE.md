@@ -56,3 +56,13 @@ Preview-only names, deliverables and amounts are fictional and labelled. No exte
 ## M13 interface visuals
 
 Client monograms use initials in 35 × 35 px circular slots. Invoice previews use typography and Lucide FileText in responsive document layouts. Cash charts are built from the current ledger records; preview-only data is explicitly fictional. No photography slots or external imagery were added. Replacement status is Deferred.
+
+## M15 dashboard placeholders
+
+| Asset              | Location                   | Intended visual        | Geometry                                  | Placeholder                                    | Replacement  |
+| ------------------ | -------------------------- | ---------------------- | ----------------------------------------- | ---------------------------------------------- | ------------ |
+| M15-brand-mark     | Sidebar workspace switcher | Brand logo             | 31 × 31 px, square                        | Workspace initial                              | Deferred     |
+| M15-account-avatar | Top navigation             | Workspace identity     | 30 × 30 px, circle                        | Workspace initial                              | Deferred     |
+| M15-empty-signals  | Home signals empty state   | Observation affordance | Responsive 100 px height, 70 px on mobile | Empty grid and Lucide LineChart; no data marks | Not required |
+
+No image generation or external decorative assets used.

@@ -41,17 +41,21 @@ export default async function Page({
       </dl>
       {w.kind === "brand" && ["owner", "admin"].includes(w.role) && (
         <p>
-          <Link
-            href={`/brand${w.onboarding === "completed" ? "" : "/onboarding"}?w=${id}`}
-          >
-            {w.onboarding === "completed"
-              ? "Open the Brand workspace"
-              : "Continue Brand setup"}
-          </Link>
+          {w.onboarding === "completed" ? (
+            <Link href={"/brand/workspaces/" + w.id}>Open Brand Studio</Link>
+          ) : (
+            <Link href={`/brand/onboarding?w=${id}`}>Continue Brand setup</Link>
+          )}
+        </p>
+      )}
+      {w.kind === "brand" && w.role === "member" && (
+        <p>
+          <Link href={"/brand/workspaces/" + w.id}>Open Brand Studio</Link>
         </p>
       )}
       {w.kind === "agency" && <p>Agency onboarding is planned.</p>}
-      {w.role === "owner" &&
+      {w.kind === "creator" &&
+        w.role === "owner" &&
         w.status === "open" &&
         w.onboarding === "not_started" && (
           <form action={chooseWorkspace}>

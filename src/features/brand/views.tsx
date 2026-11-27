@@ -261,6 +261,14 @@ export async function BrandHomeView({ sp }: { sp: SP }) {
           <h2 id="h-go">Work with Creators</h2>
           <ul className="br-links">
             <li>
+              <Link href={`/brand/workspaces/${w}`}>
+                Brand Studio dashboard
+              </Link>
+              <span className="st-hint">
+                Priorities, tasks and your collaborations.
+              </span>
+            </li>
+            <li>
               <Link href="/brand/campaigns">Campaigns</Link>
               <span className="st-hint">
                 Draft, publish and manage campaigns.

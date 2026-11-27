@@ -1,5 +1,7 @@
 # Project AURA agent handover
 
+**M15 — In progress.** The owner authorized the recovered Brand Dashboard scope on 27 November 2026. A private planning dashboard and development preview are implemented locally on feature/m15-brand-dashboard. M14 integration, original requirement reconciliation and validation remain pending. See [M15 report](M15_BRAND_DASHBOARD.md).
+
 **M13 — In progress.** Earnings, private ledger, invoices and shared M12 payment reports are implemented locally on feature/m13-commercial-workspace. Tests and validation were skipped under the build-only instruction. Hosted migration and remaining commercial integrations are pending. See [M13 report](M13_COMMERCIAL_WORKSPACE.md).
 
 **M12 — In progress.** Shared collaboration workspace implemented locally on feature/m12-collaboration-workspace. Testing and validation deferred at the owner’s request. Hosted migration, M11 provisioning and legal-template integration remain pending. See [M12 implementation report](M12_COLLABORATION_WORKSPACE.md).
@@ -75,3 +77,7 @@ Branch `feature/m14-brand-onboarding` from `main` (M11) with Jai's M07 and M08 m
 ## M12 and M13 integration (Jai's `feature/m13-commercial-workspace` merged with M14)
 
 Branch `feature/m13-m14-integration`. Fixes made while integrating: the M12 migration had a `$`/`$$` typo in `aura_collaboration_content_options`; the M13 migration file was damaged (an incomplete `payment_report` table spliced into a function, five functions duplicated, a stray `commit;` mid-file) and was rebuilt from its own two copies, keeping the newer function versions; the M14 migration moved to `20261207000100` because it shared a version with M12; `collaborations`, `earnings` and `invoices` are reserved usernames (`20261207000200`); the test stack applies the M12 and M13 migrations; two collaboration pages use `Link`; the M07 SQL test now counts ideas relative to the fixture. Open gap: M12 collaborations are keyed by a `proposal_id` with no link to M11's `aura_apply` proposals or "ready for agreement" collaborations; that hand-off still needs designing. M12 and M13 have no SQL scenario tests yet.
+
+## M15 integration (Jai's `feature/m15-brand-dashboard` merged into `main`)
+
+Brand Studio (Jai's M15 dashboard) lives at `/brand/workspaces/[workspace]` with its own sidebar, which now links to the M14 setup and plans (`/brand`), verification, campaigns and inbox; the M14 Brand home links back to it. Jai's `/brand` workspace chooser was removed because it clashed with the M14 Brand home at the same path (the M14 home already selects the Brand workspace). The workspace page sends owners and admins to Brand setup until onboarding is complete, then to Brand Studio. `workspaces` and `dashboard` are reserved public Brand addresses (`20261208000200`). The test stack applies the M15 migration. M15 has no SQL scenario suite yet; its dashboard reads its own `aura_brand_home` plan, not yet the M14 objectives (Jai's notes list a "genuine M14 adapter" as pending).

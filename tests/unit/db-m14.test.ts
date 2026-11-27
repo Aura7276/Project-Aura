@@ -29,6 +29,8 @@ const migrations = [
   "supabase/migrations/20261206000100_m13_commercial_workspace.sql",
   "supabase/migrations/20261207000100_m14_brand_onboarding.sql",
   "supabase/migrations/20261207000200_reserve_m12_m13_routes.sql",
+  "supabase/migrations/20261208000100_m15_brand_dashboard.sql",
+  "supabase/migrations/20261208000200_reserve_brand_studio_routes.sql",
 ];
 const run = (db: string, args: string[]) =>
   execFileSync(
@@ -184,9 +186,10 @@ describe.skipIf(!enabled)(
       const reserved = sql(
         "select string_agg(word, ',') from aura_brand.reserved_slug",
       ).split(",");
-      const routes = readdirSync("src/app/(brand)/brand", {
-        withFileTypes: true,
-      })
+      const routes = [
+        ...readdirSync("src/app/(brand)/brand", { withFileTypes: true }),
+        ...readdirSync("src/app/brand", { withFileTypes: true }),
+      ]
         .filter((d) => d.isDirectory() && !d.name.startsWith("["))
         .map((d) => d.name);
       for (const r of routes) expect(reserved, r).toContain(r);
