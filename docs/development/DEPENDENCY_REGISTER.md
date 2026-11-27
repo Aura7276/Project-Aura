@@ -75,3 +75,11 @@ No new package. Unmet: M12 agreements, M07 AI drafting, M25 reminders and email,
 ## M14 dependencies
 
 No new package. Unmet: M07 AI (website extraction, tone and persona suggestions, onboarding conversation), SSRF-safe website retrieval, a scanned private storage bucket (logos, guideline files, verification documents), M05 analytics for Brand accounts, M17 campaign enforcement of budgets and conflicts, M23 Agency delegation, M25 reminders, M26 roles, M15 Brand navigation.
+
+## M12 collaboration workspace
+
+No packages added. Uses M02 verified identity and MFA, M08 private content versions, existing dialogs and Lucide. Requires confirmed M11 proposals for production provisioning, approved legal templates, hosted migration deployment, M13 settlement, M25 notification delivery, M09 portfolio consent and explicit Agency delegation. File limits, scanning and retention remain unresolved. Tests and hosted execution were not performed under the owner’s build-only instruction.
+
+## M13 commercial workspace
+
+No packages added. Depends on M02 identity, M03/M04 Creator ownership, M12 participant checks, and migration 20261206000100. Structured accepted commercial terms from M11/M12, M25 reminders, tax/invoice validation, currency precision, FX sources, private uploads/scanning and retention remain pending. Hosted migration and all testing are deferred.

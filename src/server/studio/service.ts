@@ -1,6 +1,6 @@
 import "server-only";
 import { cache } from "react";
-import { unavailableCommercial } from "@/features/creator-studio/commercial";
+import { commercialSummary } from "@/server/commercial/service";
 import { redirect } from "next/navigation";
 import type { SupabaseClient } from "@supabase/supabase-js";
 import {
@@ -213,7 +213,7 @@ export async function loadStudio(ctx: StudioContext) {
 
 export const studioData = cache(async (ctx: StudioContext) => {
   const l = await loadStudio(ctx);
-  const commercial = await unavailableCommercial.summary(ctx.workspaceId);
+  const commercial = await commercialSummary(ctx.client, ctx.workspaceId);
   return {
     state: ctx.state,
     prefs: ctx.prefs,

@@ -64,11 +64,9 @@ test.describe("M04 desktop navigation (F03)", () => {
     await expect(
       page.getByRole("navigation", { name: "Primary" }),
     ).toBeHidden();
+    // Every Studio destination through M13 is delivered: no planned markers remain in the sidebar.
     for (const m of ["M05", "M06", "M08", "M09", "M10", "M11", "M12", "M13"])
-      if (!["M05", "M06", "M08", "M09", "M10", "M11"].includes(m))
-        await expect(
-          side.locator(`[data-dependency="${m}"]`).first(),
-        ).toBeVisible();
+      await expect(side.locator(`[data-dependency="${m}"]`)).toHaveCount(0);
     // M06 delivered Analytics and Experiments: they are now real links, and no "Planned · M06" state remains.
     await expect(side.locator('[data-dependency="M06"]')).toHaveCount(0);
     await expect(side.getByRole("link", { name: "Analytics" })).toHaveAttribute(

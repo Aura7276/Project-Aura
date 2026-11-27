@@ -172,6 +172,9 @@ describe.skipIf(!enabled)(
       "negotiations",
       "ai",
       "content",
+      "collaborations",
+      "earnings",
+      "invoices",
     ];
     it("reserved usernames in the database match the TypeScript list (Studio routes stay unclaimable)", async () => {
       const { reservedUsernames } =

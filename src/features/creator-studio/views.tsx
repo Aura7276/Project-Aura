@@ -467,6 +467,19 @@ export function CommercialCard({ summary }: { summary: CommercialSummary }) {
         </>
       )}
       {summary.status === "none" && <p className="st-hint">{summary.text}</p>}
+      {summary.status === "exact" && (
+        <dl>
+          <dt>Agreed value · {summary.currency}</dt>
+          <dd>{summary.agreed}</dd>
+          <dt>Externally recorded payments</dt>
+          <dd>{summary.received}</dd>
+          <dt>Outstanding</dt>
+          <dd>{summary.outstanding}</dd>
+          <dt>
+            <Link href="/creator/earnings">Open your ledger</Link>
+          </dt>
+        </dl>
+      )}
       {summary.status === "records" && (
         <dl>
           <dt>Agreed compensation</dt>

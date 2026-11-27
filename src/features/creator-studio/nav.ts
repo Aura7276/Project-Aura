@@ -123,11 +123,12 @@ export const areas: NavArea[] = [
         "M11",
         "Your applications, invitations, enquiries and negotiations.",
       ),
-      planned(
+      ok(
         "collaborations",
         "Collaborations",
+        "/creator/collaborations",
         "M12",
-        "Deliverables and deadlines.",
+        "Shared agreements, deliverables and reviews.",
       ),
     ],
   },
@@ -161,12 +162,8 @@ export const areas: NavArea[] = [
       ),
       ok("portfolio", "Portfolio", "/creator/portfolio", "M09"),
       ok("kits", "Media kits", "/creator/media-kit", "M09"),
-      planned(
-        "earnings",
-        "Earnings and commercial",
-        "M13",
-        "Commercial records appear here once they exist.",
-      ),
+      ok("earnings", "Earnings and commercial", "/creator/earnings", "M13"),
+      ok("invoices", "Invoices", "/creator/invoices", "M13"),
     ],
   },
 ];

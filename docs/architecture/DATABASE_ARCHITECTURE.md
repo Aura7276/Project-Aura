@@ -53,7 +53,7 @@ Private schema; RLS on with no policies and no grants; 16 tables reached only th
 
 ## M14 `aura_brand`
 
-Private schema; RLS on with no policies and no grants; 15 tables reached only through `aura_brand_*` functions. Only `aura_brand_public` is executable by anon. Verification writes the existing `aura_identity.workspace.verification` field and the M10 decision history. Migration `20261205000100`. See `BRAND_ONBOARDING_ARCHITECTURE.md`.
+Private schema; RLS on with no policies and no grants; 15 tables reached only through `aura_brand_*` functions. Only `aura_brand_public` is executable by anon. Verification writes the existing `aura_identity.workspace.verification` field and the M10 decision history. Migration `20261207000100`. See `BRAND_ONBOARDING_ARCHITECTURE.md`.
 
 ## Merge of M07 and M08
 

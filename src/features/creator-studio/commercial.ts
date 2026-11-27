@@ -1,6 +1,13 @@
 // The commercial summary is sourced only from authoritative M13 records. M13 is not built, so the production source reports
 // "unavailable". That is distinct from "no records", and no earnings, balances or payments are ever shown or invented.
 export type CommercialSummary =
+  | {
+      status: "exact";
+      currency: string;
+      agreed: string;
+      received: string;
+      outstanding: string;
+    }
   | { status: "unavailable"; module: "M13"; text: string }
   | { status: "none"; text: string }
   | {

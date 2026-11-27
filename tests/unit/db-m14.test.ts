@@ -25,7 +25,10 @@ const migrations = [
   "supabase/migrations/20261202000100_m10_campaign_marketplace.sql",
   "supabase/migrations/20261203000100_m11_applications.sql",
   "supabase/migrations/20261204000100_reserve_m07_m08_routes.sql",
-  "supabase/migrations/20261205000100_m14_brand_onboarding.sql",
+  "supabase/migrations/20261205000100_m12_collaboration_workspace.sql",
+  "supabase/migrations/20261206000100_m13_commercial_workspace.sql",
+  "supabase/migrations/20261207000100_m14_brand_onboarding.sql",
+  "supabase/migrations/20261207000200_reserve_m12_m13_routes.sql",
 ];
 const run = (db: string, args: string[]) =>
   execFileSync(
@@ -207,7 +210,7 @@ describe.skipIf(!enabled)(
     });
     it("the M14 migration only redefines the M09 enquiry stub and rewrites no earlier history", () => {
       const m = readFileSync(
-        "supabase/migrations/20261205000100_m14_brand_onboarding.sql",
+        "supabase/migrations/20261207000100_m14_brand_onboarding.sql",
         "utf8",
       );
       expect(m).not.toMatch(
