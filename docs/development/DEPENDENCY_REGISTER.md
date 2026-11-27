@@ -103,3 +103,7 @@ No new package. Unmet: approved M12 agreement templates (deliverables can only b
 ## M20 dependencies
 
 No new package. Unmet: an approved AI provider, model and data-processing agreement; M21/M22 (Brand content and budgets) as context sources; M27 and M30 policies named by the module; the original M20 requirement list.
+
+## M21 dependencies
+
+No new package. Unmet: M26 team roles (separate reviewers and contributors), file storage for Brand assets, Brand social account connections for automatic publishing and metrics (M05 OAuth is Creator-only), M25 reminders for scheduled posts, an AI provider for M20 content ideas, the original M21 requirement list.

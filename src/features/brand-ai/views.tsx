@@ -37,12 +37,14 @@ const kindLabel: Record<Draft["kind"], string> = {
   brief: "Campaign brief",
   invitation_message: "Invitation message",
   strategy_note: "Strategy note",
+  content_ideas: "Content ideas",
 };
 const applyLabel: Record<Draft["kind"], string> = {
   plan_items: "Add these steps to my plan",
   brief: "Save to the campaign's draft brief",
   invitation_message: "Mark as ready to use",
   strategy_note: "Pin as a strategy note",
+  content_ideas: "Add these ideas to Content",
 };
 
 function Status() {
@@ -93,9 +95,13 @@ function DraftBody({ d }: { d: Draft }) {
   const c = d.content;
   return (
     <div className="ba-draft-body">
-      {d.kind === "plan_items" ? (
+      {d.kind === "plan_items" || d.kind === "content_ideas" ? (
         <>
-          <p className="st-hint">{c.horizon ?? 30}-day plan</p>
+          <p className="st-hint">
+            {d.kind === "plan_items"
+              ? `${c.horizon ?? 30}-day plan`
+              : "Ideas for your own accounts"}
+          </p>
           <ol>
             {(c.items ?? []).map((it, i) => (
               <li key={i}>
@@ -175,6 +181,12 @@ function DraftCard({
                 campaign&apos;s draft
               </Link>
               . It goes live only when you publish.
+            </>
+          ) : d.kind === "content_ideas" ? (
+            <>
+              {(d.content.items ?? []).length} idea
+              {(d.content.items ?? []).length === 1 ? " is" : "s are"} in{" "}
+              <Link href={`/brand/content/board?w=${w}`}>Content</Link>.
             </>
           ) : d.kind === "invitation_message" ? (
             "Ready to copy into an invitation. The assistant never sends messages."
@@ -578,7 +590,7 @@ export async function ConversationView({ id, sp }: { id: string; sp: SP }) {
                 rows: 5,
                 max: 8000,
                 required: true,
-                hint: "For plan steps, write one step per line.",
+                hint: "For plan steps or content ideas, write one per line.",
               },
             ]}
           />

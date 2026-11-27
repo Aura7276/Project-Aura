@@ -42,11 +42,22 @@ async function call<T>(
   return { ok: true, value: data as T };
 }
 export type Task =
-  "strategy" | "plan" | "brief" | "results" | "invitation" | "general";
+  | "strategy"
+  | "plan"
+  | "brief"
+  | "results"
+  | "invitation"
+  | "general"
+  | "content";
 export type Draft = {
   id: string;
   conversation_id: string | null;
-  kind: "plan_items" | "brief" | "invitation_message" | "strategy_note";
+  kind:
+    | "plan_items"
+    | "brief"
+    | "invitation_message"
+    | "strategy_note"
+    | "content_ideas";
   target: { campaign_id?: string };
   content: {
     text?: string;

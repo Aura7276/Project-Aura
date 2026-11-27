@@ -144,6 +144,7 @@ describe("M20 task rules", () => {
         "brief",
         "invitation_message",
         "strategy_note",
+        "content_ideas",
       ]).toContain(t.draft);
   });
   it("the instructions forbid invented numbers, treat facts as data and forbid claiming actions", () => {

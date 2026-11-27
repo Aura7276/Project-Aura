@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { brandArea, brand } from "@/server/brand/service";
+import { brandContent } from "@/server/brand-content/service";
 import { eligible } from "@/server/auth/session";
 import { EntityForm, type FieldDef } from "@/features/creator-profile/forms";
 import { countries } from "@/features/creator-onboarding/taxonomy";
@@ -169,7 +170,20 @@ function Notice({ sp }: { sp: SP }) {
 
 // ───────── Home ─────────
 export async function BrandHomeView({ sp }: { sp: SP }) {
-  const { s, workspaceId: w } = await brandArea(one(sp, "w"));
+  const { s, workspaceId: w, client } = await brandArea(one(sp, "w"));
+  const content = await brandContent.overview(client, w);
+  const items = content.ok ? content.value.items : [];
+  const today = new Date().toISOString().slice(0, 10);
+  const nextPost = items
+    .filter(
+      (x) =>
+        ["approved", "scheduled"].includes(x.stage) &&
+        x.planned_for &&
+        x.planned_for >= today,
+    )
+    .sort((x, y) =>
+      (x.planned_for ?? "").localeCompare(y.planned_for ?? ""),
+    )[0];
   const steps = checklist(s);
   const left = steps.filter((x) => !x.done);
   const week = s.plan.filter((x) => x.horizon_days === 7);
@@ -285,6 +299,35 @@ export async function BrandHomeView({ sp }: { sp: SP }) {
                 Creator preferences
               </Link>
               <span className="st-hint">Who you would like to work with.</span>
+            </li>
+          </ul>
+        </section>
+        <section className="st-card" aria-labelledby="h-own">
+          <h2 id="h-own">Your own channels</h2>
+          <ul className="br-links">
+            <li>
+              <Link href={at("/brand/content", w)}>Content</Link>
+              <span className="st-hint">
+                {items.length
+                  ? `${items.filter((x) => x.stage === "in_review").length} waiting for review · ${items.filter((x) => x.stage === "scheduled").length} scheduled`
+                  : "Plan, approve and publish your own posts."}
+              </span>
+            </li>
+            {nextPost && (
+              <li>
+                <Link href={at(`/brand/content/${nextPost.id}`, w)}>
+                  {nextPost.title}
+                </Link>
+                <span className="st-hint">
+                  Next post, planned {day(nextPost.planned_for)}
+                </span>
+              </li>
+            )}
+            <li>
+              <Link href={at("/brand/assistant", w)}>Assistant</Link>
+              <span className="st-hint">
+                Strategy, plan steps and content ideas, with your approval.
+              </span>
             </li>
           </ul>
         </section>

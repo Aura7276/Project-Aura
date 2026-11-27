@@ -8,7 +8,12 @@ export const tasks: Record<
     label: string;
     help: string;
     needsCampaign: boolean;
-    draft: "plan_items" | "brief" | "invitation_message" | "strategy_note";
+    draft:
+      | "plan_items"
+      | "brief"
+      | "invitation_message"
+      | "strategy_note"
+      | "content_ideas";
   }
 > = {
   strategy: {
@@ -41,6 +46,12 @@ export const tasks: Record<
     needsCampaign: false,
     draft: "invitation_message",
   },
+  content: {
+    label: "Content ideas",
+    help: "Post ideas for your own accounts, from your pillars and recent content. Approved ideas go to Content.",
+    needsCampaign: false,
+    draft: "content_ideas",
+  },
   general: {
     label: "Ask anything",
     help: "A marketing question about your Brand.",
@@ -58,6 +69,7 @@ export const sourceLabels: Record<string, string> = {
   budget: "Indicative budget",
   creator_prefs: "Creator preferences",
   competitors: "Competitors",
+  content_plan: "Content plan (pillars, accounts, recent posts)",
 };
 export const SYSTEM = [
   "You are the marketing assistant inside AURA for one Brand.",

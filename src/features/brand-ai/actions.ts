@@ -156,16 +156,19 @@ export async function askAssistant(
   const target = c.value.campaign_id
     ? { campaign_id: c.value.campaign_id }
     : {};
+  const listed = kind === "plan_items" || kind === "content_ideas";
   const content =
-    kind === "plan_items"
-      ? {
-          horizon,
-          items: a.items.length ? a.items : [{ title: a.text.slice(0, 140) }],
-          assumptions: a.assumptions,
-          gaps: a.gaps,
-        }
-      : { text: a.text, assumptions: a.assumptions, gaps: a.gaps };
-  if (kind !== "plan_items" || a.items.length)
+    kind === "content_ideas"
+      ? { items: a.items, assumptions: a.assumptions, gaps: a.gaps }
+      : kind === "plan_items"
+        ? {
+            horizon,
+            items: a.items.length ? a.items : [{ title: a.text.slice(0, 140) }],
+            assumptions: a.assumptions,
+            gaps: a.gaps,
+          }
+        : { text: a.text, assumptions: a.assumptions, gaps: a.gaps };
+  if (!listed || a.items.length)
     await brandAi.saveDraft(
       b.client,
       b.workspaceId,
@@ -188,36 +191,55 @@ export async function manualDraft(
 ): Promise<FormState> {
   const conv = uuid.safeParse(t(f, "conversation"));
   const kind = t(f, "kind") as
-    "plan_items" | "brief" | "invitation_message" | "strategy_note";
+    | "plan_items"
+    | "brief"
+    | "invitation_message"
+    | "strategy_note"
+    | "content_ideas";
   const campaign = uuid.safeParse(t(f, "campaign"));
   const text = t(f, "text");
   if (
-    !["plan_items", "brief", "invitation_message", "strategy_note"].includes(
-      kind,
-    )
+    ![
+      "plan_items",
+      "brief",
+      "invitation_message",
+      "strategy_note",
+      "content_ideas",
+    ].includes(kind)
   )
     return { message: "We could not do that. Please try again." };
   const b = await ctx(f);
+  const lines = text
+    .split("\n")
+    .map((l) => l.trim())
+    .filter((l) => l.length >= 3)
+    .slice(0, 12)
+    .map((title) => ({ title: title.slice(0, 140) }));
   const content =
-    kind === "plan_items"
-      ? {
-          horizon: [7, 30, 90].includes(Number(t(f, "horizon")))
-            ? Number(t(f, "horizon"))
-            : 30,
-          items: text
-            .split("\n")
-            .map((l) => l.trim())
-            .filter((l) => l.length >= 3)
-            .slice(0, 12)
-            .map((title) => ({ title: title.slice(0, 140) })),
-        }
-      : { text };
-  if (kind === "plan_items" && !content.items?.length)
+    kind === "content_ideas"
+      ? { items: lines }
+      : kind === "plan_items"
+        ? {
+            horizon: [7, 30, 90].includes(Number(t(f, "horizon")))
+              ? Number(t(f, "horizon"))
+              : 30,
+            items: text
+              .split("\n")
+              .map((l) => l.trim())
+              .filter((l) => l.length >= 3)
+              .slice(0, 12)
+              .map((title) => ({ title: title.slice(0, 140) })),
+          }
+        : { text };
+  if (
+    (kind === "plan_items" || kind === "content_ideas") &&
+    !content.items?.length
+  )
     return {
       errors: { text: "Write at least one step (one per line)." },
       message: "Write at least one step.",
     };
-  if (kind !== "plan_items" && text.length < 10)
+  if (kind !== "plan_items" && kind !== "content_ideas" && text.length < 10)
     return {
       errors: { text: "Write at least 10 characters." },
       message: "Write at least 10 characters.",
@@ -258,6 +280,7 @@ export async function applyDraft(
     invitation_message:
       "Marked as ready. Copy it into an invitation; the assistant never sends messages.",
     strategy_note: "Pinned as a strategy note.",
+    content_ideas: `Added ${r.value.applied_steps} idea${r.value.applied_steps === 1 ? "" : "s"} to Content.`,
   }[r.value.kind];
   return { ok: true, message: m };
 }

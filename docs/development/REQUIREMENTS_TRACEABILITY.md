@@ -511,3 +511,20 @@ Original M20-F identifiers are unavailable (partial reconstruction of 60 histori
 | A9 Reuse M07 provider-independent infrastructure; manual work survives outages | Implemented                    | Same AURA_AI_* settings and request shape as M07; HTTPS only, no redirects, 30-second timeout, validated JSON; offline or failing provider keeps the question and manual drafting |
 
 Source — AURA_Requirements_v0.14/modules/M20_brand_ai_growth_assistant.md. See `M20_COMPLETE_REPORT.md`.
+
+## M21 recovered scope — owner-authorized implementation
+
+Original M21-F identifiers are unavailable (partial reconstruction of 62 historical requirements). Verified on local PostgreSQL with stubs and the local stack, not live Supabase. Publishing is manual; no social platform API or AI provider is used.
+
+| Recovered requirement                                                  | Status                         | Current delivery                                                                                                                                                              |
+| ---------------------------------------------------------------------- | ------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| C1 Brand-owned growth without an active campaign                       | Implemented (local PostgreSQL) | Content area at `/brand/content`, independent of campaigns; Brand home shows its status                                                                                       |
+| C2 Reuse authorized Brand accounts with separate tenant permissions    | Implemented (local PostgreSQL) | Items target the M14 Brand social accounts of the same workspace only; other workspaces' accounts are refused                                                                 |
+| C3 Planning from positioning, segments, claims, guidelines, objectives | Implemented (local PostgreSQL) | Items link to pillar, customer group (basis shown), product; claims compared with M14 approved claims; guideline disclosures shown in the editor                              |
+| C4 Ideas, pillars, hooks, scripts, captions, calendars, production     | Implemented (local PostgreSQL) | Pillars with target mix, ideas, versioned editor, production board, month calendar                                                                                            |
+| C5 Reviews, assets, rights-checked Creator repurposing                 | Implemented (local PostgreSQL) | Review per version with notes; link-only assets with provenance; reuse limited to channels and months agreed in M11, re-checked at publication                                |
+| C6 Private drafts, not exposed to Creators                             | Implemented (local PostgreSQL) | No Creator-facing function reads M21 data; other Brands get access denied                                                                                                     |
+| C7 Manual publication first                                            | Implemented (local PostgreSQL) | Approved version + complete checklist + https link + live date; no automatic posting or media generation                                                                      |
+| C8 Actual performance with provenance; AI within approval              | Implemented (local PostgreSQL) | Results per post with source, date and who entered them (M19 metric definitions, latest reading, voids kept); M20 "Content ideas" task lands approved ideas as labelled items |
+
+Source — AURA_Requirements_v0.14/modules/M21_brand_content_and_social_planning.md. See `M21_COMPLETE_REPORT.md`.
