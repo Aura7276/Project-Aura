@@ -267,12 +267,15 @@ test.describe("M11 real routes with the local test stack (not Supabase)", () => 
     ).toBeVisible();
     await bp.reload();
     await expect(bp.getByText("Yes, from the 10th to the 20th.")).toBeVisible();
-    const dec = bp.getByRole("form", { name: "Decision" });
-    await dec.getByLabel(/^Decision/).selectOption("select");
-    await dec.getByRole("button", { name: "Record decision" }).click();
-    await expect(
-      bp.getByText(/Selected\. This is not an agreement yet/),
-    ).toBeVisible();
+    // M18: selection is a 72-hour held place that the Creator accepts (not an agreement)
+    const offer = bp.getByRole("form", { name: "Offer a place" });
+    await offer
+      .getByLabel(/^Message to the Creator/)
+      .fill("We would love to work with you on this.");
+    await offer
+      .getByRole("button", { name: "Offer a place (72-hour hold)" })
+      .click();
+    await expect(bp.getByText(/Held until/).first()).toBeVisible();
     await bp.screenshot({
       path: `${shots}/brand-application-desktop.png`,
       fullPage: true,
@@ -281,9 +284,11 @@ test.describe("M11 real routes with the local test stack (not Supabase)", () => 
     // Negotiation: proposal, counter-proposal resets confirmations, both confirm the exact current version (AC05)
     await cp.goto(appUrl);
     await expect(
-      cp.getByText(/Nothing is binding until an agreement is accepted/),
+      cp.getByRole("heading", { name: "You are offered a place" }),
     ).toBeVisible();
-    await cp.getByRole("link", { name: "Open the negotiation" }).click();
+    await expect(cp.getByText(/Accepting is not an agreement/)).toBeVisible();
+    await cp.getByRole("button", { name: "Accept the place" }).click();
+    await expect(cp).toHaveURL(/\/creator\/negotiations\//);
     const prop = cp.getByRole("form", { name: "New proposal" });
     await prop.getByLabel("Compensation (money)").fill("5000");
     await prop.getByRole("button", { name: "Send proposal" }).click();

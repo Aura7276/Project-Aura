@@ -58,6 +58,11 @@ export function Status({
 }
 const eventText: Record<string, string> = {
   submitted: "Application sent",
+  place_offered: "Place offered (72-hour hold)",
+  place_accepted: "Place accepted (not an agreement)",
+  place_declined: "Place declined",
+  place_released: "Offered place withdrawn",
+  hold_expired: "Offered place expired",
   answered: "The Creator answered",
   edited: "Changes sent as a new version",
   withdrawn: "Withdrawn",

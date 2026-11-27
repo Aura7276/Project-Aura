@@ -22,6 +22,8 @@ import {
   type SP,
 } from "./ui";
 import "@/features/marketplace/market.css";
+import { HandoffLink, OfferPanel } from "@/features/selection/panels";
+import { selection } from "@/server/selection/service";
 import "./apply.css";
 
 type Overview = {
@@ -399,6 +401,9 @@ export async function ApplicationView({ id, sp }: { id: string; sp: SP }) {
       })
     : null;
   const sh = a.shared_preview;
+  // M18: while a place is offered, the offer panel explains the state instead of the shortlist line
+  const off = await selection.offer(c.client, c.workspaceId, a.id);
+  const offerOpen = off.ok && off.value.hold?.status === "held";
   return (
     <main>
       <p>
@@ -414,7 +419,8 @@ export async function ApplicationView({ id, sp }: { id: string; sp: SP }) {
       </p>
       <Notice sp={sp} />
       {open && <Steps status={a.status} />}
-      <p className="mk-banner">{appStatus[a.status]?.detail}</p>
+      <OfferPanel client={c.client} ws={c.workspaceId} appId={a.id} />
+      {!offerOpen && <p className="mk-banner">{appStatus[a.status]?.detail}</p>}
       {a.feedback && (
         <p className="mk-banner">Feedback from the Brand: “{a.feedback}”</p>
       )}
@@ -911,6 +917,7 @@ export async function CreatorNegotiationView({
         <Link href="/creator/applications">Applications and invitations</Link>
       </p>
       <h1>Negotiation: {n.campaign}</h1>
+      <HandoffLink client={c.client} ws={c.workspaceId} collab={n.id} />
       <NegotiationBody n={n} sp={sp} />
     </main>
   );

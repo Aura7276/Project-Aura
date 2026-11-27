@@ -6,7 +6,6 @@ import { EntityForm } from "@/features/creator-profile/forms";
 import { appStatus, invitationStatus, reportReasons } from "./rules";
 import * as act from "./actions";
 import {
-  Empty,
   Link,
   NegotiationBody,
   Notice,
@@ -20,6 +19,11 @@ import {
   type SP,
 } from "./ui";
 import { CampaignTabs } from "@/features/campaigns/tabs";
+import {
+  CandidatePanel,
+  HandoffLink,
+  Inbox,
+} from "@/features/selection/panels";
 import "./apply.css";
 
 const shell = { padding: "1.5rem 1rem 4rem" } as const;
@@ -87,8 +91,6 @@ export async function CampaignApplicationsView({
     questions: Q[];
     locked: boolean;
   };
-  const count = (s: string[]) =>
-    l.applications.filter((a) => s.includes(a.status)).length;
   const qText = r.questions
     .map(
       (q) =>
@@ -99,70 +101,7 @@ export async function CampaignApplicationsView({
     <main className="shell" style={shell}>
       <CampaignTabs id={id} w={b.workspaceId} current="applications" />
       <h1>Applications · {l.campaign.title}</h1>
-      <BrandTabs current="/brand/campaigns" w={b.workspaceId} />
-      <div className="ap-stats">
-        <div className="ap-stat">
-          <b>{count(["submitted"])}</b>new
-        </div>
-        <div className="ap-stat">
-          <b>{count(["review", "clarification"])}</b>in review
-        </div>
-        <div className="ap-stat">
-          <b>{count(["shortlisted", "waitlisted"])}</b>shortlist and waitlist
-        </div>
-        <div className="ap-stat">
-          <b>
-            {l.selected}
-            {r.rules?.selection_capacity
-              ? ` / ${r.rules.selection_capacity}`
-              : ""}
-          </b>
-          selected
-        </div>
-      </div>
-      <section className="st-card" aria-labelledby="h-apps">
-        <h2 id="h-apps">Applicants</h2>
-        {l.applications.length === 0 ? (
-          <Empty title="No applications yet">
-            <p>
-              Creators who meet every mandatory requirement can apply while the
-              campaign is live.
-            </p>
-          </Empty>
-        ) : (
-          <table className="ap-table">
-            <thead>
-              <tr>
-                <th scope="col">Creator</th>
-                <th scope="col">Status</th>
-                <th scope="col">Sent</th>
-                <th scope="col">Version</th>
-              </tr>
-            </thead>
-            <tbody>
-              {l.applications.map((a) => (
-                <tr key={a.id}>
-                  <td>
-                    <Link
-                      href={`/brand/applications/${a.id}?w=${b.workspaceId}`}
-                    >
-                      {a.creator}
-                    </Link>
-                  </td>
-                  <td>
-                    <Status s={a.status} />
-                  </td>
-                  <td>{day(a.submitted_at)}</td>
-                  <td>
-                    v{a.version}
-                    {a.locked ? "" : " · editable by the Creator"}
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        )}
-      </section>
+      <Inbox w={b.workspaceId} campaignId={id} sp={sp} />
       <section className="st-card" aria-labelledby="h-rules">
         <h2 id="h-rules">Application rules and screening</h2>
         <EntityForm
@@ -346,7 +285,6 @@ export async function BrandApplicationView({ id, sp }: { id: string; sp: SP }) {
     review: "Start review (locks the application)",
     shortlist: "Shortlist",
     waitlist: "Waitlist (not a promise)",
-    select: "Select (not an agreement)",
     reject: "Not selected",
   };
   return (
@@ -515,6 +453,7 @@ export async function BrandApplicationView({ id, sp }: { id: string; sp: SP }) {
           </section>
         </div>
         <aside className="ap-aside">
+          <CandidatePanel w={b.workspaceId} appId={a.id} status={a.status} />
           {!closed && (
             <section className="st-card ap-preview" aria-labelledby="h-d">
               <h2 id="h-d">Decision</h2>
@@ -549,8 +488,8 @@ export async function BrandApplicationView({ id, sp }: { id: string; sp: SP }) {
                 ]}
               />
               <p className="mk-sub">
-                Selecting is not an agreement. Agree the terms in the
-                negotiation; the agreement itself follows in the next step.
+                To select a Creator, offer a place: it is held for 72 hours
+                until they accept. Selection is not an agreement.
               </p>
             </section>
           )}
@@ -821,6 +760,7 @@ export async function BrandNegotiationView({ id, sp }: { id: string; sp: SP }) {
         <Link href={`/brand/inbox?w=${b.workspaceId}`}>All negotiations</Link>
       </p>
       <h1>Negotiation: {n.campaign}</h1>
+      <HandoffLink client={b.client} ws={b.workspaceId} collab={n.id} />
       <NegotiationBody n={n} w={b.workspaceId} sp={sp} />
     </main>
   );
