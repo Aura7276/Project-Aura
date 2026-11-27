@@ -42,3 +42,7 @@ Brands see only what a Creator shared for that application. Creators are address
 ## M14 security
 
 Business verification is per workspace and needs a reviewer with MFA who is not a member of the workspace; appeals need a different reviewer; every decision has a reason. Identity documents are never stored in full (last 4 characters only). Legal identity, representatives, budgets, audiences and plans are private; the public profile is an allowlisted projection of a verified, published Brand. A legal identity change pauses outreach until revalidated. Brand writes need an owner or admin with MFA; an agency name grants no access.
+
+## M17 security
+
+Campaign plans are private to the Brand and never part of any Creator or public projection. Rollout and positions rules are enforced by triggers on the M10 tables, so no function or route can bypass them. Plans accept only the Brand's own M14 audiences and products and an active workspace member as owner. Duplication is idempotent per request.

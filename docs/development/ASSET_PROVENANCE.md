@@ -66,3 +66,7 @@ Client monograms use initials in 35 × 35 px circular slots. Invoice previews us
 | M15-empty-signals  | Home signals empty state   | Observation affordance | Responsive 100 px height, 70 px on mobile | Empty grid and Lucide LineChart; no data marks | Not required |
 
 No image generation or external decorative assets used.
+
+## M17
+
+No images. Screenshots in `docs/development/evidence/m17/` show real pages with sample text typed by the test.

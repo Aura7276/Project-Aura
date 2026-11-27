@@ -49,6 +49,8 @@ begin
  end if;
  -- R8: published positions can never drop below the Creators already selected
  if new.published_version is distinct from old.published_version and new.published_version is not null then
+  -- same lock as M11 selection, so a selection and a cut in positions can never interleave
+  perform pg_advisory_xact_lock(hashtextextended('apply_capacity:' || new.id::text, 0));
   pos := nullif(aura_market.content(new.id, new.published_version)->>'positions', '')::int;
   sel := aura_campaign.selected(new.id);
   if pos is not null and pos < sel then

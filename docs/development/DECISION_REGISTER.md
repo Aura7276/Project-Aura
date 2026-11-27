@@ -76,3 +76,7 @@ The owner authorized a premium M13 workspace. The continuing build-only instruct
 ## M15 recovered-scope authorization — 27 November 2026
 
 After a read-only context review disclosed the incomplete 45-item specification, the owner authorized building a premium M15 dashboard. This supersedes historical non-authorization for the recovered scope only. Preserve the source reconstruction and do not invent original requirement identifiers. Use manual private focus until M14 data exists. Owners/admins edit the shared plan; other members read pending M26 role decisions. Keep private workspace routes under /brand/workspaces/[id] to preserve the proposed public Brand slug route. The continuing build-only instruction defers tests and validation.
+
+## M17 campaign proposals
+
+Proposed for owner confirmation, because the module file is a partial reconstruction: build M17 on the M10 store; publishable now: paid influencer, UGC, barter; draft-only until opened: events, ambassador, affiliate; campaign plans (objective, KPI, audiences, products, owner, milestones, notes) are private; at most 12 milestones; drafts may be incomplete, publication requires completeness; only drafts and closed campaigns can be archived; budgets stay a range on the campaign until M22; the M11 to M12 agreement link is a separate task.

@@ -374,7 +374,7 @@ test.describe("M10 visual evidence (screenshots of real pages with sample data t
     for (const [t, cat] of [
       ["Unboxing videos for a travel bag", "ugc"],
       ["Weekend stay in exchange for stories", "barter"],
-      ["Hostel opening night", "event"],
+      ["Rooftop cafe tasting for reels", "barter"], // events open later (M17 rollout)
     ] as const) {
       await brandDraft(bp, t, { category: cat });
       await bp.getByRole("button", { name: "Publish campaign" }).click();

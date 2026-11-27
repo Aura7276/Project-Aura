@@ -39,3 +39,7 @@ Implemented on `feature/m11-applications` (built on M10), verified locally. Ends
 ## M14 Brand onboarding
 
 Implemented on `feature/m14-brand-onboarding` (built on M11 with Jai's M07 and M08 merged), verified locally. Replaces the interim reviewer verification with a full case workflow. See `M14_COMPLETE_REPORT.md`.
+
+## M17 Campaign creation and management
+
+Implemented on `feature/m17-campaigns` from the reconstructed module file, verified locally. Extends the M10 campaign editor with a builder, private plans, rollout, management and change notices. See `M17_COMPLETE_REPORT.md`.

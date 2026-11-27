@@ -19,6 +19,7 @@ import {
   type Negotiation,
   type SP,
 } from "./ui";
+import { CampaignTabs } from "@/features/campaigns/tabs";
 import "./apply.css";
 
 const shell = { padding: "1.5rem 1rem 4rem" } as const;
@@ -96,11 +97,7 @@ export async function CampaignApplicationsView({
     .join("\n");
   return (
     <main className="shell" style={shell}>
-      <p>
-        <Link href={`/brand/campaigns/${id}?w=${b.workspaceId}`}>
-          Back to the campaign
-        </Link>
-      </p>
+      <CampaignTabs id={id} w={b.workspaceId} current="applications" />
       <h1>Applications · {l.campaign.title}</h1>
       <BrandTabs current="/brand/campaigns" w={b.workspaceId} />
       <div className="ap-stats">

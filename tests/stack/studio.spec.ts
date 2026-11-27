@@ -138,8 +138,9 @@ test.describe("Real routes with the local test stack (not Supabase)", () => {
     expect(n).toBeGreaterThanOrEqual(3);
     expect(n).toBeLessThanOrEqual(5);
     await page.getByText("More from your workspace", { exact: true }).click();
+    // M13 delivered commercial records: a new Creator sees an honest empty commercial card, never invented money
     await expect(
-      page.getByText("Not available yet", { exact: true }).first(),
+      page.getByRole("heading", { name: "Commercial overview" }),
     ).toBeVisible();
     const text = await page.locator("main").innerText();
     expect(text).not.toMatch(/[₹$€£]\s?\d|wallet|\d[\d,]* followers/i);

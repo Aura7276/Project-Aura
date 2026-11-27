@@ -87,3 +87,7 @@ No packages added. Depends on M02 identity, M03/M04 Creator ownership, M12 parti
 ## M15 Brand dashboard
 
 No packages added. Uses existing M02 identity, MFA and membership, M12 collaboration permissions, Radix dialogs, Lucide and the design system. M14 onboarding source is absent in this checkout. M16–M22 business integrations, M25 notifications and M26 granular roles remain pending. Migration deployment and all validation are pending.
+
+## M17 dependencies
+
+No new package. Unmet: M12 link to M11 proposals and campaign versions, M18 selection reservations, M22 campaign budgets, M23 Agency delegated creation, M20/M07 AI brief drafting, M25 email notices, M29 moderation operations, the original M17 requirement list.

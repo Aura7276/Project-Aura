@@ -33,3 +33,7 @@ Collaborate → Applications and invitations (`/creator/applications`) is availa
 ## M14
 
 Brands get a private home at `/brand` with setup, plans and verification, and a header with Home, Business, Verification, Campaigns and Inbox. Business pages share a tab row (Profile, Products, Audiences, Goals, Plan, Guidelines, Creators, Competitors, Socials, Brief). The public profile is `/brand/[slug]`. Reviewers use `/admin/verification`. The workspace page links to Brand setup. This is not the M15 navigation.
+
+## M17
+
+`/brand/campaigns` is now a management list (filters, numbers, duplicate, archive). Each campaign has tabs: All terms, Builder, Preview, Applications, Changes.

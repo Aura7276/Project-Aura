@@ -58,3 +58,7 @@ Private schema; RLS on with no policies and no grants; 15 tables reached only th
 ## Merge of M07 and M08
 
 Jai's M07 (`20261130000100_m07_growth_studio.sql`) and M08 migrations are included. The M08 migration was renamed to `20261130000200_m08_content_studio.sql` because it shared the version `20261201000100` with M09. `20261204000100_reserve_m07_m08_routes.sql` reserves `ai` and `content` as usernames.
+
+## M17 `aura_campaign`
+
+Private schema; RLS on with no policies and no grants; 3 tables reached only through `aura_campaign_*` functions (authenticated only). Two triggers on M10 tables enforce the rollout and the positions floor and extend change notices. Migration `20261209000100`. See `CAMPAIGN_MANAGEMENT_ARCHITECTURE.md`.

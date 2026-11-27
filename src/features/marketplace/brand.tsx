@@ -18,6 +18,7 @@ import {
 } from "./rules";
 import * as act from "./actions";
 import type { BrandCampaign } from "./types";
+import { CampaignTabs } from "@/features/campaigns/tabs";
 import "./market.css";
 
 type SP = Record<string, string | string[] | undefined>;
@@ -29,7 +30,7 @@ const must = <T,>(
   if (!r.ok) throw new Error("market:" + r.error);
   return r.value;
 };
-const errorText: Record<string, string> = {
+export const errorText: Record<string, string> = {
   title: "a title of 5 to 120 characters",
   summary: "a summary of 20 to 300 characters",
   brief: "a brief of at least 50 characters",
@@ -47,7 +48,7 @@ const errorText: Record<string, string> = {
   ugc_no_follower_minimum: "no follower minimum (UGC)",
   min_followers: "a valid follower minimum",
 };
-function Banner({ verification }: { verification: string }) {
+export function Banner({ verification }: { verification: string }) {
   return verification === "verified" ? (
     <p className="mk-banner ok">
       Business verified. You can publish campaigns and send invitations.
@@ -145,7 +146,7 @@ const v = (o: Record<string, unknown> | undefined, path: string): unknown =>
       o,
     );
 const s = (x: unknown) => (x === undefined || x === null ? "" : String(x));
-function fields(c: BrandCampaign, w: string): FieldDef[] {
+export function fields(c: BrandCampaign, w: string): FieldDef[] {
   const d = c.draft as Record<string, unknown>;
   const closes = s(d.closes_at).slice(0, 10);
   return [
@@ -435,9 +436,7 @@ export async function BrandCampaignView({ id, sp }: { id: string; sp: SP }) {
   const editable = !["closed", "removed"].includes(c.status);
   return (
     <main className="shell" style={{ padding: "1.5rem 1rem 4rem" }}>
-      <p>
-        <Link href="/brand/campaigns">All campaigns</Link>
-      </p>
+      <CampaignTabs id={c.id} w={b.workspaceId} current="overview" />
       <h1>{String(c.draft.title ?? "Campaign")}</h1>
       <p>
         <span className="mk-pill" data-cat={c.category}>

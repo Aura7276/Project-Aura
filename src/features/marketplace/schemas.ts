@@ -54,16 +54,27 @@ export const campaignForm = z
     visibility: z.enum(["public", "restricted", "invite_only"]),
     show_applicant_count: z.boolean(),
     title: z.string().trim().min(5, "Use at least 5 characters.").max(120),
-    summary: z.string().trim().min(20, "Use at least 20 characters.").max(300),
+    // Drafts may be incomplete (M17 builder saves one step at a time); the database checks completeness before publication.
+    summary: z
+      .string()
+      .trim()
+      .max(300)
+      .refine((v) => v === "" || v.length >= 20, "Use at least 20 characters."),
     brief: z
       .string()
       .trim()
-      .min(50, "Describe the work in at least 50 characters.")
-      .max(6000),
-    deliverables: z.string().trim().min(1, "List at least one deliverable."),
+      .max(6000)
+      .refine(
+        (v) => v === "" || v.length >= 50,
+        "Describe the work in at least 50 characters.",
+      ),
+    deliverables: z.string().trim(),
     closes_on: z
       .string()
-      .regex(/^\d{4}-\d{2}-\d{2}$/, "Choose a closing date."),
+      .refine(
+        (v) => v === "" || /^\d{4}-\d{2}-\d{2}$/.test(v),
+        "Choose a closing date.",
+      ),
     starts_on: z
       .string()
       .optional()
@@ -146,7 +157,7 @@ export function toContent(v: CampaignForm) {
     summary: v.summary,
     brief: v.brief,
     deliverables,
-    closes_at: `${v.closes_on}T23:59:00+05:30`,
+    ...(v.closes_on ? { closes_at: `${v.closes_on}T23:59:00+05:30` } : {}),
     starts_on: v.starts_on,
     positions: v.positions ?? null,
     remote: v.remote,

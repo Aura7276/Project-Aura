@@ -81,3 +81,7 @@ Branch `feature/m13-m14-integration`. Fixes made while integrating: the M12 migr
 ## M15 integration (Jai's `feature/m15-brand-dashboard` merged into `main`)
 
 Brand Studio (Jai's M15 dashboard) lives at `/brand/workspaces/[workspace]` with its own sidebar, which now links to the M14 setup and plans (`/brand`), verification, campaigns and inbox; the M14 Brand home links back to it. Jai's `/brand` workspace chooser was removed because it clashed with the M14 Brand home at the same path (the M14 home already selects the Brand workspace). The workspace page sends owners and admins to Brand setup until onboarding is complete, then to Brand Studio. `workspaces` and `dashboard` are reserved public Brand addresses (`20261208000200`). The test stack applies the M15 migration. M15 has no SQL scenario suite yet; its dashboard reads its own `aura_brand_home` plan, not yet the M14 objectives (Jai's notes list a "genuine M14 adapter" as pending).
+
+## M17 handover
+
+Branch `feature/m17-campaigns` from `main` (M15). Migration `20261209000100`. M17 extends M10: keep `aura_market` as the campaign store. To open a category, change `aura_campaign.setting` `category_rollout` (owner decision). M10 draft validation was relaxed for empty summary, brief, deliverables and closing date (publication still requires them). The M10 stack test now publishes a barter campaign instead of an event. Open: link M12 collaborations to M11 proposals and campaign versions (R10); M18 72-hour selection reservations; M22 campaign budgets.

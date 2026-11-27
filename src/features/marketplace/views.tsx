@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { studioContext } from "@/server/studio/service";
 import { market, reasonText, type MReason } from "@/server/market/service";
 import { brand as brandApi } from "@/server/brand/service";
+import { campaigns as campaignsApi } from "@/server/campaigns/service";
 import {
   categories,
   categoryHelp,
@@ -375,9 +376,11 @@ function DetailTabs({ id, current }: { id: string; current: string }) {
 function Aside({
   d,
   back,
+  remaining = null,
 }: {
   d: Awaited<ReturnType<typeof loadDetail>>["d"];
   back: string;
+  remaining?: number | null;
 }) {
   const left = daysLeft(d.closes_at);
   return (
@@ -398,7 +401,12 @@ function Aside({
             <dd>Not stated</dd>
           )}
           <dt>Positions</dt>
-          <dd>{positionsText(d.positions)}</dd>
+          <dd>
+            {positionsText(d.positions)}
+            {remaining !== null && d.positions
+              ? ` · ${remaining} still open`
+              : ""}
+          </dd>
           <dt>Applicants</dt>
           <dd>
             {d.applicants.status === "not_shared"
@@ -468,7 +476,10 @@ function Aside({
   );
 }
 export async function DetailView({ id, sp }: { id: string; sp: SP }) {
-  const { d } = await loadDetail(id);
+  const { c, d } = await loadDetail(id);
+  // M17: places still open (positions minus Creators already selected)
+  const av = await campaignsApi.availability(c.client, c.workspaceId, id);
+  const remaining = av.ok ? av.value.remaining : null;
   return (
     <main>
       <p>
@@ -540,7 +551,11 @@ export async function DetailView({ id, sp }: { id: string; sp: SP }) {
             )}
           </details>
         </div>
-        <Aside d={d} back={`/creator/marketplace/${id}`} />
+        <Aside
+          d={d}
+          back={`/creator/marketplace/${id}`}
+          remaining={remaining}
+        />
       </div>
     </main>
   );
