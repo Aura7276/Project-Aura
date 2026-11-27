@@ -1,5 +1,9 @@
 # Project AURA agent handover
 
+**M13 — In progress.** Earnings, private ledger, invoices and shared M12 payment reports are implemented locally on feature/m13-commercial-workspace. Tests and validation were skipped under the build-only instruction. Hosted migration and remaining commercial integrations are pending. See [M13 report](M13_COMMERCIAL_WORKSPACE.md).
+
+**M12 — In progress.** Shared collaboration workspace implemented locally on feature/m12-collaboration-workspace. Testing and validation deferred at the owner’s request. Hosted migration, M11 provisioning and legal-template integration remain pending. See [M12 implementation report](M12_COLLABORATION_WORKSPACE.md).
+
 **M07 Growth Studio — In progress.** See the [stage report](M07_GROWTH_STUDIO.md) for the current preview and hosted integration status.
 
 Current work: M04 Creator dashboard is Implemented on `feature/m04-creator-dashboard` (based on M03 commit `dbf750b`), pending live Supabase verification. See [M04 report](M04_COMPLETE_REPORT.md) and [Creator Studio architecture](../architecture/CREATOR_STUDIO_ARCHITECTURE.md). M02's migration syntax defect is fixed on this branch (`b1f6d9e`). Use `pnpm stack` and `pnpm test:stack` for local end-to-end testing without Supabase (a stand-in, not Supabase), and see [the testing guide](TESTING_GUIDE.md). M03 Creator onboarding is Implemented on `feature/m03-creator-onboarding` (based on M02 commit `471c4d6`), pending live Supabase verification. See [M03 report](M03_COMPLETE_REPORT.md) and [architecture](../architecture/CREATOR_ONBOARDING_ARCHITECTURE.md). M02's migration has a syntax defect that must be fixed first. M02 registration and authentication is In progress. See [M02 integration and acceptance](M02_AUTHENTICATION.md).

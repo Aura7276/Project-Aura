@@ -1,5 +1,9 @@
 # Development status
 
+**M13 — In progress.** Earnings, private ledger, invoices and shared M12 payment reports are implemented locally on feature/m13-commercial-workspace. Tests and validation were skipped under the build-only instruction. Hosted migration and remaining commercial integrations are pending. See [M13 report](M13_COMMERCIAL_WORKSPACE.md).
+
+**M12 — In progress.** Shared collaboration workspace implemented locally on feature/m12-collaboration-workspace. Testing and validation deferred at the owner’s request. Hosted migration, M11 provisioning and legal-template integration remain pending. See [M12 implementation report](M12_COLLABORATION_WORKSPACE.md).
+
 **M07 Growth Studio — In progress.** See the [stage report](M07_GROWTH_STUDIO.md) for the current preview and hosted integration status.
 
 Current work: M04 Creator dashboard is Implemented and tested on local PostgreSQL and a development preview; live Supabase verification and owner acceptance are outstanding (see M04_COMPLETE_REPORT.md). M03 Creator onboarding is Implemented and tested on local PostgreSQL; live Supabase verification and owner acceptance are outstanding (see M03_COMPLETE_REPORT.md). M02 registration and authentication is In progress. See [M02 integration and acceptance](M02_AUTHENTICATION.md).

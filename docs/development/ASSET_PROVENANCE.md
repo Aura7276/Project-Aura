@@ -26,3 +26,19 @@ No new images or third-party assets. Icons reuse existing Lucide usage.
 No images, icons or third-party assets were added. Charts are inline SVG drawn from recorded data, each with a data-table alternative.
 
 Account studio print: identity routes on desktop use a decorative responsive 400:460 inline SVG in the identity layout. The intersecting ellipses are a reusable brand treatment. No external source or replacement is required.
+
+
+## M12 visual placeholders
+
+| Asset | Page / section | Intended asset | Dimensions | Placeholder | Replacement |
+|---|---|---|---|---|---|
+| M12-partner-mark | Collaboration sidebar and list | Partner identity | 53 × 53 px / 1:1 | Initials on neutral tile | Deferred |
+| M12-submission-preview | Deliverable detail | Authorized submitted media | 16:9 responsive, min-height 190 px mobile | Lucide Film with explicit submission link | Deferred |
+| M12-participant | Collaboration header and conversation | Participant avatar | 30 × 30 px / 1:1 | Initials | Deferred |
+
+Preview-only names, deliverables and amounts are fictional and labelled. No external media was sourced.
+
+
+## M13 interface visuals
+
+Client monograms use initials in 35 × 35 px circular slots. Invoice previews use typography and Lucide FileText in responsive document layouts. Cash charts are built from the current ledger records; preview-only data is explicitly fictional. No photography slots or external imagery were added. Replacement status is Deferred.

@@ -59,3 +59,13 @@ Unmet: platform provider APIs and OAuth (M06 and later), malware scanning for ev
 ## M06 dependencies
 
 Unmet: AI classification and pattern interpretation (M07), content metadata ownership (M08), media kit use of shared audience (M09), campaign matching (M10, M16), collaboration and deliverable links (M12), earnings (M13), entitlements (M27), provider data and legal review for competitor tracking, a live Supabase project, scheduled insight generation (insights refresh when the page opens).
+
+
+## M12 collaboration workspace
+
+No packages added. Uses M02 verified identity and MFA, M08 private content versions, existing dialogs and Lucide. Requires confirmed M11 proposals for production provisioning, approved legal templates, hosted migration deployment, M13 settlement, M25 notification delivery, M09 portfolio consent and explicit Agency delegation. File limits, scanning and retention remain unresolved. Tests and hosted execution were not performed under the owner’s build-only instruction.
+
+
+## M13 commercial workspace
+
+No packages added. Depends on M02 identity, M03/M04 Creator ownership, M12 participant checks, and migration 20261206000100. Structured accepted commercial terms from M11/M12, M25 reminders, tax/invoice validation, currency precision, FX sources, private uploads/scanning and retention remain pending. Hosted migration and all testing are deferred.

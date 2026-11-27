@@ -88,7 +88,12 @@ export const areas: NavArea[] = [
     items: [
       ok("ideas", "Idea capture", "/creator/create", "M04"),
       ok("studio", "Content Studio", "/creator/content", "M08"),
-      ok("calendar", "Content calendar", "/creator/content?view=calendar", "M08"),
+      ok(
+        "calendar",
+        "Content calendar",
+        "/creator/content?view=calendar",
+        "M08",
+      ),
     ],
   },
   {
@@ -116,11 +121,12 @@ export const areas: NavArea[] = [
         "M11",
         "Needs the marketplace.",
       ),
-      planned(
+      ok(
         "collaborations",
         "Collaborations",
+        "/creator/collaborations",
         "M12",
-        "Deliverables and deadlines.",
+        "Shared agreements, deliverables and reviews.",
       ),
     ],
   },
@@ -151,12 +157,8 @@ export const areas: NavArea[] = [
         "M09",
         "Publishing is controlled by the profile module.",
       ),
-      planned(
-        "earnings",
-        "Earnings and commercial",
-        "M13",
-        "Commercial records appear here once they exist.",
-      ),
+      ok("earnings", "Earnings and commercial", "/creator/earnings", "M13"),
+      ok("invoices", "Invoices", "/creator/invoices", "M13"),
     ],
   },
 ];

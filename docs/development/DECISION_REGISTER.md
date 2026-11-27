@@ -48,3 +48,13 @@ Proposed for owner confirmation. Limit of 10 accounts (configurable). Challenge 
 ## M06 analytics proposals
 
 Proposed for owner confirmation. Baseline tolerance is `min(14, max(3, period/4))` days. Previous-period comparison is blocked when observation coverage differs by more than about 40 percent. Pattern analysis needs at least 3 items per group and at least two groups on one shared measurement basis; 8 or more per group is "suggestive", otherwise "exploratory". Timing suggestions are labelled low or moderate and never high. Scenario ranges need 8 observations over 56 days with no gap over 21 days. Maximum 3 active experiments per workspace. Peer cohorts need opt-in and at least 10 (default 25) comparable creators. Insight priority orders attention only and is not a score. Core features free; pattern, timing, scenario, cohort and PDF features are marked advanced but not gated (M27). Retention of experiments, insights, audience snapshots and export logs is undecided. A Brand export route exists in the database only.
+
+
+## M12 build-only authorization — 26 November 2026
+
+The owner explicitly authorized M12 and requested no tests or validation. This overrides the routine test procedure for this implementation pass. Review M12_COLLABORATION_WORKSPACE.md for actual delivery and outstanding policies. Use participant-scoped shared workspaces, exact submission versions, explicit bilateral acceptance and independent settlement state. Keep original agreements immutable. Legal-template approval is required for live activation and amendment acceptance. Selected Content Studio text is copied only after explicit Creator confirmation. File upload, legal retention, dispute escalation and Agency delegation decisions remain open.
+
+
+## M13 build-only implementation — 27 November 2026
+
+The owner authorized a premium M13 workspace. The continuing build-only instruction defers tests and validation. Use exact decimal strings, SQL numeric and BigInt for money; reject excess precision without rounding. Current engineering bounds are 12 whole and 6 fractional digits, pending currency-specific policy. Keep private external records separate from shared payment reports. Confirmed report import requires explicit Creator action; bilateral reversal affects only the matched receipt. Invoice issue protects the snapshot and does not duplicate the obligation. Tax-specific compliance, credit notes, reimbursements, retention, FX and automated recurring schedules remain unresolved. See M13_COMMERCIAL_WORKSPACE.md.
